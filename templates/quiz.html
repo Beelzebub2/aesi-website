@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='quiz.js') }}" defer></script>
+    <title>Teste de Conhecimentos</title>
+</head>
+
+<body class="quiz-page">
+    <div class="game-container glass-morphism">
+        <header class="quiz-header">
+            <h2 class="gradient-text"><i class="fas fa-brain"></i> Teste os seus Conhecimentos</h2>
+            <div class="quiz-stats glass-card">
+                <div class="stat-item">
+                    <i class="fas fa-tasks"></i>
+                    <span class="progress-text">Questão <span id="currentQuestion">0</span> de <span
+                            id="totalQuestions">0</span></span>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-star"></i>
+                    <span class="quiz-score">Pontuação: <span id="score">0</span> pontos</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-fill gradient-animation"></div>
+            </div>
+        </div>
+
+        <main id="quizArea" class="quiz-content fade-in">
+            <section class="question-section glass-card">
+                <p id="questionText"></p>
+            </section>
+
+            <section class="options-section">
+                <div class="quiz-options"></div>
+            </section>
+
+            <div id="feedback" class="feedback-section"></div>
+        </main>
+
+        <footer class="game-controls">
+            <button id="nextBtn" class="action-btn gradient-btn hidden">
+                <i class="fas fa-forward"></i>
+                <span>Próxima Questão</span>
+                <div class="button-effect"></div>
+            </button>
+        </footer>
+    </div>
+
+    <nav class="navigation-controls">
+        <a href="{{ url_for('home') }}" class="primary-btn">
+            <i class="fas fa-home"></i> Página Inicial
+        </a>
+    </nav>
+</body>
+
+</html>

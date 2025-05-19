@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Estatística Interativa</title>
+</head>
+
+<body class="home-page">
+    <header class="hero">
+        <h1><i class="fas fa-chart-bar"></i> Estatística Interativa</h1>
+        <p class="subtitle">Explore o mundo da estatística de forma envolvente</p>
+    </header>
+
+    <main class="games-grid">
+        <div class="game-card">
+            <i class="fas fa-dice"></i>
+            <h2>Descobrir a Distribuição</h2>
+            <p>Ponha à prova os seus conhecimentos sobre distribuições de probabilidade em situações reais.</p>
+            <a href="{{ url_for('game') }}" class="btn-play">Começar <i class="fas fa-play"></i></a>
+        </div>
+
+        <div class="game-card">
+            <i class="fas fa-calculator"></i>
+            <h2>Calculadora Estatística</h2>
+            <p>Realize cálculos de probabilidade para diferentes distribuições estatísticas.</p>
+            <a href="{{ url_for('calculator') }}" class="btn-play">Calcular <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="game-card">
+            <i class="fas fa-brain"></i>
+            <h2>Teste de Conhecimentos</h2>
+            <p>Avalie a sua compreensão dos conceitos fundamentais de estatística.</p>
+            <a href="{{ url_for('quiz') }}" class="btn-play">Começar <i class="fas fa-graduation-cap"></i></a>
+        </div>
+    </main>
+
+    <section class="features">
+        <div class="feature">
+            <i class="fas fa-lightbulb"></i>
+            <h3>Aprenda</h3>
+            <p>Materiais educativos e exemplos práticos</p>
+        </div>
+        <div class="feature">
+            <i class="fas fa-tasks"></i>
+            <h3>Pratique</h3>
+            <p>Exercícios interativos e desafios</p>
+        </div>
+        <div class="feature">
+            <i class="fas fa-star"></i>
+            <h3>Progrida</h3>
+            <p>Acompanhe a sua evolução</p>
+        </div>
+    </section>
+</body>
+
+</html>
