@@ -11,11 +11,12 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/general/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/general/navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/general/background.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/general/homepage.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/subject-banner.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/general/theme-toggle.css') }}"><!-- Scripts -->
-    <script src="{{ url_for('static', filename='js/general/theme.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/general/homepage.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/general/background.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/general/theme.js') }}" defer></script>
     <title>{{ title }}</title>
 </head>
 
@@ -35,7 +36,9 @@
                     </button>
                 </div>
             </div>
-        </nav> <!-- Main Content -->
+        </nav>
+
+        <!-- Main Content -->
         <main class="container">
             <div class="features-grid"> <!-- Active Subjects -->
                 <a href="{{ url_for('probabilidade') }}" class="feature-card">
