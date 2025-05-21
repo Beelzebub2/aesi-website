@@ -79,12 +79,8 @@
     },
     "coming_soon": {
         "calculo": {
-            "name": "Matemática I",
-            "description": "Explore os fundamentos do cálculo diferencial e integral"
-        },
-        "algebra": {
-            "name": "Programação",
-            "description": "Aprenda os conceitos básicos e avançados de programação"
+            "name": "Em Desenvolvimento",
+            "description": "..."
         }
     }
 }

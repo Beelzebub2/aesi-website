@@ -53,6 +53,19 @@ def probabilidade():
         translations=translations
     )
 
+@app.route("/api/quiz/<subject>")
+def get_quiz(subject):
+    try:
+        quiz_path = os.path.join(app.static_folder, "quizzes", f"{subject}_quiz.json")
+        if not os.path.exists(quiz_path):
+            return jsonify({"error": "Quiz not found"}), 404
+            
+        with open(quiz_path, 'r', encoding='utf-8') as f:
+            quiz_data = json.load(f)
+            return jsonify(quiz_data)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 @app.route("/probabilidade/calculator")
 def calculator():
     translations = translation_manager.get_translations('probabilidade', 'calculator')

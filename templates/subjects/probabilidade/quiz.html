@@ -10,75 +10,115 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/general/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/general/navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/general/homepage.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/subjects/probabilidade/quiz.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/general/theme-toggle.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/general/background.css') }}">
     <script src="{{ url_for('static', filename='js/general/theme.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/general/background.js') }}" defer></script>
+    <script>
+        // Initialize theme from localStorage
+        document.addEventListener('DOMContentLoaded', function () {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+
+            const themeToggle = document.getElementById('themeToggle');
+            const themeIcon = themeToggle.querySelector('i');
+
+            // Update icon based on current theme
+            if (savedTheme === 'dark') {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            }
+
+            // Theme toggle functionality
+            themeToggle.addEventListener('click', function () {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+
+                // Update icon
+                if (newTheme === 'dark') {
+                    themeIcon.classList.remove('fa-moon');
+                    themeIcon.classList.add('fa-sun');
+                } else {
+                    themeIcon.classList.remove('fa-sun');
+                    themeIcon.classList.add('fa-moon');
+                }
+            });
+        });
+    </script>
 </head>
 
 <body>
-    <nav class="navbar" aria-label="Navegação principal">
-        <div class="container navbar-content">
-            <a href="{{ url_for('home') }}" class="logo">Plataforma de Aprendizagem</a>
-            <ul class="nav-links">
-                <li><a href="{{ url_for('home') }}">Início</a></li>
-                <li><a href="{{ url_for('quiz') }}" class="active" aria-current="page">Questionários</a></li>
-                <li><a href="{{ url_for('calculator') }}">Calculadora</a></li>
-                <li><a href="{{ url_for('game') }}">Jogos</a></li>
-            </ul>
-            <div class="theme-toggle">
-                <button id="themeToggle" aria-label="Alternar entre modo claro e escuro">
-                    <i class="fas fa-moon"></i>
-                </button>
+    <div class="home-background"></div>
+
+    <div class="subject-container">
+        <nav class="navbar" aria-label="Navegação principal">
+            <div class="container navbar-content"> <a href="{{ url_for('home') }}" class="logo">Plataforma de
+                    Aprendizagem</a>
+                <ul class="nav-links">
+                    <li><a href="{{ url_for('probabilidade') }}">Início</a></li>
+                    <li><a href="{{ url_for('calculator') }}">Calculadora</a></li>
+                    <li><a href="{{ url_for('quiz') }}" class="active" aria-current="page">Questionários</a></li>
+                    <li><a href="{{ url_for('game') }}">Jogos</a></li>
+                </ul>
+                <div class="theme-toggle">
+                    <button id="themeToggle" aria-label="Alternar entre modo claro e escuro">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
             </div>
-        </div>
-    </nav>
-
-    <div class="container">
-        <div class="quiz-container">
-            <div id="quizArea">
-                <!-- O seletor de tipo de questionário será inserido aqui via JavaScript -->
-
-                <div class="quiz-header" style="display: none;">
-                    <h2 class="section-title quiz-title"></h2>
-                    <div class="quiz-progress">
-                        <span class="progress-text">Pergunta <span id="currentQuestion">0</span> de <span
-                                id="totalQuestions">0</span></span>
-                        <div class="progress-bar">
-                            <div class="progress-fill"></div>
+        </nav>
+        <section class="subject-hero"></section>
+        <main class="container">
+            <div class="quiz-container">
+                <h1 class="section-title">{{ translations.page.title }}</h1>
+                <div id="quizArea">
+                    <div id="quizHeader" class="quiz-header" style="display: none;">
+                        <h2 id="quizTitle" class="section-title quiz-title"></h2>
+                        <div class="quiz-progress"> <span class="progress-text">{{
+                                translations.page.current_question.replace('{current}', '<span
+                                    id="currentQuestion">0</span>').replace('{total}', '<span
+                                    id="totalQuestions">0</span>') | safe }}</span>
+                            <div class="progress-bar">
+                                <div class="progress-fill"></div>
+                            </div>
+                            <span class="score-text">{{ translations.page.score.replace('{score}', '<span
+                                    id="score">0</span>') | safe }}</span>
                         </div>
-                        <span class="score-text">Pontuação: <span id="score">0</span></span>
                     </div>
-                </div>
 
-                <div class="question-container" style="display: none;">
-                    <p id="questionText" class="question-text"></p>
-                    <div class="options-container">
-                        <div class="quiz-options"></div>
+                    <div id="questionContainer" class="question-container" style="display: none;">
+                        <p id="questionText" class="question-text"></p>
+                        <div id="optionsContainer" class="options-container">
+                            <div id="quizOptions" class="quiz-options"></div>
+                        </div>
                     </div>
-                </div>
 
-                <div id="feedback" class="feedback" style="display: none;"></div>
-
-                <div class="quiz-controls" style="display: none;">
-                    <button id="nextBtn" class="next-btn">Próxima Pergunta</button>
-                </div>
-
-                <div class="quiz-summary" style="display: none;">
-                    <h2>Questionário Concluído!</h2>
-                    <p class="final-score">A sua pontuação: <span id="finalScore">0</span></p>
-                    <button class="restart-btn">Tentar Novamente</button>
+                    <div id="feedback" class="feedback" style="display: none;"></div>
+                    <div id="quizControls" class="quiz-controls" style="display: none;">
+                        <button id="nextBtn" class="next-btn">{{ translations.general.next }}</button>
+                    </div>
+                    <div id="quizSummary" class="quiz-summary" style="display: none;">
+                        <h2>{{ translations.page.complete }}</h2>
+                        <p class="final-score">{{ translations.page.score.replace('{score}', '<span
+                                id="finalScore">0</span>') | safe }}</p>
+                        <button id="restartBtn" class="restart-btn">{{ translations.general.try_again }}</button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </main>
+        <footer class="footer">
+            <div class="container">
+                <p>&copy; 2025 {{ translations.general.platform_name }}. {{ translations.general.copyright }}</p>
+            </div>
+        </footer>
+    </div><!-- Close subject-container -->
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Plataforma de Aprendizagem Interativa. Todos os direitos reservados.</p>
-        </div>
-    </footer>
-
-    <script src="{{ url_for('static', filename='js/quiz.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/subjects/probabilidade/quiz.js') }}" defer></script>
 </body>
 
 </html>
