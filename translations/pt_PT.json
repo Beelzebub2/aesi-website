@@ -79,16 +79,12 @@
     },
     "coming_soon": {
         "calculo": {
-            "name": "Cálculo",
-            "description": "Aprenda cálculo diferencial e integral de forma interativa"
+            "name": "Matemática I",
+            "description": "Explore os fundamentos do cálculo diferencial e integral"
         },
         "algebra": {
-            "name": "Álgebra Linear",
-            "description": "Explore conceitos de álgebra linear com visualizações"
-        },
-        "fisica": {
-            "name": "Física",
-            "description": "Simule e aprenda conceitos físicos interativamente"
+            "name": "Programação",
+            "description": "Aprenda os conceitos básicos e avançados de programação"
         }
     }
 }

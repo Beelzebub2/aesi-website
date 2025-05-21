@@ -1,0 +1,85 @@
+/* Theme-aware form elements */
+:root {
+    --input-bg: var(--card-bg);
+    --input-border: var(--border-color);
+    --input-text: var(--text-color);
+    --input-focus: var(--primary);
+    --input-hover-bg: var(--hover-bg);
+    --input-disabled-bg: var(--disabled-bg, rgba(0, 0, 0, 0.05));
+    --input-disabled-text: var(--text-muted);
+    --input-radius: var(--card-radius, 8px);
+    --input-shadow: 0 2px 4px var(--shadow-color);
+}
+
+/* Select and Input base styles */
+.form-select,
+.form-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--input-border);
+    border-radius: var(--input-radius);
+    background-color: var(--input-bg);
+    color: var(--input-text);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    transition: all var(--transition-speed, 0.3s) ease;
+    box-shadow: var(--input-shadow);
+}
+
+/* Select specific styles */
+.form-select {
+    cursor: pointer;
+    padding-right: 2.5rem;
+    /* Custom dropdown arrow using CSS mask */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* Hover and focus states */
+.form-select:hover:not(:disabled),
+.form-input:hover:not(:disabled) {
+    background-color: var(--input-hover-bg);
+    border-color: var(--input-focus);
+}
+
+.form-select:focus,
+.form-input:focus {
+    outline: none;
+    border-color: var(--input-focus);
+    box-shadow: 0 0 0 2px rgba(var(--primary-rgb), 0.2);
+}
+
+/* Disable browser default styling */
+.form-input::-webkit-outer-spin-button,
+.form-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.form-input[type=number] {
+    -moz-appearance: textfield;
+}
+
+/* Disabled states */
+.form-select:disabled,
+.form-input:disabled {
+    background-color: var(--input-disabled-bg);
+    color: var(--input-disabled-text);
+    cursor: not-allowed;
+    border-color: var(--input-border);
+    opacity: 0.75;
+}
+
+/* Label styles */
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 0.95rem;
+}

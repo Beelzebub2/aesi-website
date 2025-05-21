@@ -45,6 +45,14 @@ function erf(x) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Get theme colors
+    const getThemeColors = () => ({
+        primary: getComputedStyle(document.documentElement).getPropertyValue('--primary').trim(),
+        secondary: getComputedStyle(document.documentElement).getPropertyValue('--secondary').trim(),
+        text: getComputedStyle(document.documentElement).getPropertyValue('--text-color').trim(),
+        background: getComputedStyle(document.documentElement).getPropertyValue('--background').trim()
+    });
+
     const distributionSelect = document.getElementById('distribution');
     const paramGroups = document.querySelectorAll('.param-group');
     const calculateBtn = document.getElementById('calculate');
@@ -58,17 +66,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.querySelector('.calculator-container');
     const allInputs = form.querySelectorAll('input, select');
 
-    // Inicializar o gráfico
+    // Initialize chart with theme colors
+    const colors = getThemeColors();
     const ctx = document.getElementById('distributionChart').getContext('2d');
     distributionChart = new Chart(ctx, {
-        type: 'line',
-        data: {
+        type: 'line', data: {
             labels: [],
             datasets: [{
                 label: 'Distribuição',
                 data: [],
-                borderColor: getComputedStyle(document.documentElement).getPropertyValue('--primary').trim(),
-                backgroundColor: getComputedStyle(document.documentElement).getPropertyValue('--primary').trim() + '40',
+                borderColor: colors.primary,
+                backgroundColor: colors.primary + '40',
                 fill: true,
                 tension: 0.4
             }]
@@ -84,7 +92,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         size: 16,
                         weight: 'bold'
                     },
-                    padding: 20
+                    padding: 20,
+                    color: colors.text
                 },
                 legend: {
                     display: false
@@ -99,10 +108,12 @@ document.addEventListener('DOMContentLoaded', () => {
                             size: 14,
                             weight: '500'
                         }
-                    },
-                    grid: {
+                    }, grid: {
                         display: true,
-                        color: 'rgba(0, 0, 0, 0.1)'
+                        color: colors.gridLines
+                    },
+                    ticks: {
+                        color: colors.text
                     }
                 },
                 y: {
@@ -113,10 +124,12 @@ document.addEventListener('DOMContentLoaded', () => {
                             size: 14,
                             weight: '500'
                         }
-                    },
-                    grid: {
+                    }, grid: {
                         display: true,
-                        color: 'rgba(0, 0, 0, 0.1)'
+                        color: colors.gridLines
+                    },
+                    ticks: {
+                        color: colors.text
                     },
                     beginAtZero: true
                 }
@@ -203,7 +216,27 @@ document.addEventListener('DOMContentLoaded', () => {
                     std: parseFloat(document.getElementById('std').value)
                 };
         }
-    }
+    }    // Update chart colors when theme changes
+    document.addEventListener('themeChanged', () => {
+        const colors = getThemeColors();
+
+        // Update dataset colors
+        distributionChart.data.datasets[0].borderColor = colors.primary;
+        distributionChart.data.datasets[0].backgroundColor = colors.primary + '40';
+
+        // Update text colors
+        distributionChart.options.plugins.title.color = colors.text;
+        distributionChart.options.scales.x.title.color = colors.text;
+        distributionChart.options.scales.y.title.color = colors.text;
+        distributionChart.options.scales.x.ticks.color = colors.text;
+        distributionChart.options.scales.y.ticks.color = colors.text;
+
+        // Update grid colors
+        distributionChart.options.scales.x.grid.color = colors.gridLines;
+        distributionChart.options.scales.y.grid.color = colors.gridLines;
+
+        distributionChart.update();
+    });
 
     function calculateProbability() {
         let probability;

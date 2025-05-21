@@ -7,137 +7,141 @@
     <meta name="description"
         content="Calculadora estatística para distribuições binomial, Poisson e normal com visualização gráfica">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/general/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/general/navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/general/homepage.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/general/form-elements.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/subjects/probabilidade/calculator.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/subject-banner.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/general/theme-toggle.css') }}">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="{{ url_for('static', filename='js/subjects/probabilidade/calculator.js') }}" defer></script>
-    <script src="{{ url_for('static', filename='js/chart.js') }}" defer></script>
-    <script src="{{ url_for('static', filename='js/general/theme.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/subjects/starfield.js') }}" defer></script>
-    <title>{{ translations.page.title }}</title>
+    <script src="{{ url_for('static', filename='js/subjects/probabilidade/chart.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/general/background.js') }}" defer></script>
 </head>
 
 <body>
-    <nav class="navbar" aria-label="Navegação principal">
-        <div class="container navbar-content">
-            <a href="{{ url_for('home') }}" class="logo">Plataforma de Aprendizagem</a>
-            <ul class="nav-links">
-                <li><a href="{{ url_for('quiz') }}">Questionários</a></li>
-                <li><a href="{{ url_for('calculator') }}" class="active" aria-current="page">Calculadora</a></li>
-                <li><a href="{{ url_for('game') }}">Jogos</a></li>
-            </ul>
-            <div class="theme-toggle">
-                <button id="themeToggle" aria-label="Alternar entre modo claro e escuro">
-                    <i class="fas fa-moon"></i>
-                </button>
+    <div class="home-background"></div>
+
+    <div class="subject-container">
+        <nav class="navbar" aria-label="Navegação principal">
+            <div class="container navbar-content">
+                <a href="{{ url_for('home') }}" class="logo">Plataforma de Aprendizagem</a>
+                <ul class="nav-links">
+                    <li><a href="{{ url_for('quiz') }}">Questionários</a></li>
+                    <li><a href="{{ url_for('calculator') }}" class="active" aria-current="page">Calculadora</a></li>
+                    <li><a href="{{ url_for('game') }}">Jogos</a></li>
+                </ul>
+                <div class="theme-toggle">
+                    <button id="themeToggle" aria-label="Alternar entre modo claro e escuro">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
 
-    <div class="subject-banner" role="banner">
-        <div class="subject-content">
-            <div>
-                <h1 class="subject-title">Probabilidade e Estatística</h1>
-                <p class="subject-description">Calculadora de Distribuições Estatísticas</p>
+        <section class="subject-hero">
+            <div class="container">
+                <h1>Calculadora de Distribuições</h1>
+                <p>Calcule probabilidades e visualize distribuições estatísticas de forma interativa</p>
             </div>
-        </div>
-    </div>
+        </section>
 
-    <div class="container">
-        <div class="calculator-container">
-            <h1 class="section-title">Calculadora de Distribuições Estatísticas</h1>
+        <div class="container">
+            <div class="calculator-container">
+                <h1 class="section-title">Calculadora de Distribuições Estatísticas</h1>
 
-            <div class="calculator-grid">
-                <div class="calculator-card">
-                    <div class="distribution-select">
-                        <label for="distribution">Selecionar Distribuição:</label>
-                        <select id="distribution" class="form-select">
-                            <option value="binomial">Distribuição Binomial</option>
-                            <option value="poisson">Distribuição de Poisson</option>
-                            <option value="normal">Distribuição Normal</option>
-                        </select>
-                    </div>
-
-                    <div id="binomial-params" class="param-group">
-                        <div class="param-input">
-                            <label for="n">Número de tentativas (n):</label>
-                            <input type="number" id="n" min="1" value="10" class="form-input">
-                        </div>
-                        <div class="param-input">
-                            <label for="p">Probabilidade de sucesso (p):</label>
-                            <input type="number" id="p" min="0" max="1" step="0.01" value="0.5" class="form-input">
-                        </div>
-                        <div class="param-input">
-                            <label for="k">Número de sucessos (k):</label>
-                            <input type="number" id="k" min="0" value="5" class="form-input">
-                        </div>
-                    </div>
-
-                    <div id="poisson-params" class="param-group hidden">
-                        <div class="param-input">
-                            <label for="lambda">Taxa média (λ):</label>
-                            <input type="number" id="lambda" min="0" step="0.1" value="2" class="form-input">
-                        </div>
-                        <div class="param-input">
-                            <label for="k-poisson">Número de eventos (k):</label>
-                            <input type="number" id="k-poisson" min="0" value="2" class="form-input">
-                        </div>
-                    </div>
-
-                    <div id="normal-params" class="param-group hidden">
-                        <div class="param-input">
-                            <label for="mean">Média (μ):</label>
-                            <input type="number" id="mean" step="0.1" value="0" class="form-input">
-                        </div>
-                        <div class="param-input">
-                            <label for="std">Desvio padrão (σ):</label>
-                            <input type="number" id="std" min="0.1" step="0.1" value="1" class="form-input">
-                        </div>
-                        <div class="param-input">
-                            <label for="x">Valor (x):</label>
-                            <input type="number" id="x" step="0.1" value="0" class="form-input">
-                        </div>
-                        <div class="param-input">
-                            <label for="probability-type">Tipo de probabilidade:</label>
-                            <select id="probability-type" class="form-select">
-                                <option value="less">P(X ≤ x)</option>
-                                <option value="greater">P(X > x)</option>
-                                <option value="between">P(a ≤ X ≤ b)</option>
+                <div class="calculator-grid">
+                    <div class="calculator-card">
+                        <div class="distribution-select">
+                            <label for="distribution">Selecionar Distribuição:</label>
+                            <select id="distribution" class="form-select">
+                                <option value="binomial">Distribuição Binomial</option>
+                                <option value="poisson">Distribuição de Poisson</option>
+                                <option value="normal">Distribuição Normal</option>
                             </select>
                         </div>
-                        <div id="between-input" class="param-input hidden">
-                            <label for="x2">Limite superior (b):</label>
-                            <input type="number" id="x2" step="0.1" value="1" class="form-input">
+
+                        <div id="binomial-params" class="param-group">
+                            <div class="param-input">
+                                <label for="n">Número de tentativas (n):</label>
+                                <input type="number" id="n" min="1" value="10" class="form-input">
+                            </div>
+                            <div class="param-input">
+                                <label for="p">Probabilidade de sucesso (p):</label>
+                                <input type="number" id="p" min="0" max="1" step="0.01" value="0.5" class="form-input">
+                            </div>
+                            <div class="param-input">
+                                <label for="k">Número de sucessos (k):</label>
+                                <input type="number" id="k" min="0" value="5" class="form-input">
+                            </div>
+                        </div>
+
+                        <div id="poisson-params" class="param-group hidden">
+                            <div class="param-input">
+                                <label for="lambda">Taxa média (λ):</label>
+                                <input type="number" id="lambda" min="0" step="0.1" value="2" class="form-input">
+                            </div>
+                            <div class="param-input">
+                                <label for="k-poisson">Número de eventos (k):</label>
+                                <input type="number" id="k-poisson" min="0" value="2" class="form-input">
+                            </div>
+                        </div>
+
+                        <div id="normal-params" class="param-group hidden">
+                            <div class="param-input">
+                                <label for="mean">Média (μ):</label>
+                                <input type="number" id="mean" step="0.1" value="0" class="form-input">
+                            </div>
+                            <div class="param-input">
+                                <label for="std">Desvio padrão (σ):</label>
+                                <input type="number" id="std" min="0.1" step="0.1" value="1" class="form-input">
+                            </div>
+                            <div class="param-input">
+                                <label for="x">Valor (x):</label>
+                                <input type="number" id="x" step="0.1" value="0" class="form-input">
+                            </div>
+                            <div class="param-input">
+                                <label for="probability-type">Tipo de probabilidade:</label>
+                                <select id="probability-type" class="form-select">
+                                    <option value="less">P(X ≤ x)</option>
+                                    <option value="greater">P(X > x)</option>
+                                    <option value="between">P(a ≤ X ≤ b)</option>
+                                </select>
+                            </div>
+                            <div id="between-input" class="param-input hidden">
+                                <label for="x2">Limite superior (b):</label>
+                                <input type="number" id="x2" step="0.1" value="1" class="form-input">
+                            </div>
+                        </div>
+
+                        <div class="calculator-buttons"> <button id="calculate" class="button">
+                                <span>Calcular Probabilidade</span>
+                            </button>
+                        </div>
+
+                        <div id="result" class="result-container">
+                            <h3>Resultado:</h3>
+                            <p class="result-value">-</p>
+                            <p class="result-explanation">-</p>
                         </div>
                     </div>
 
-                    <div class="calculator-buttons">
-                        <button id="calculate" class="button">Calcular Probabilidade</button>
+                    <div class="chart-container">
+                        <canvas id="distributionChart"></canvas>
                     </div>
-
-                    <div id="result" class="result-container">
-                        <h3>Resultado:</h3>
-                        <p class="result-value">-</p>
-                        <p class="result-explanation">-</p>
-                    </div>
-                </div>
-
-                <div class="chart-container">
-                    <canvas id="distributionChart"></canvas>
                 </div>
             </div>
         </div>
-    </div>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Plataforma de Aprendizagem Interativa. Todos os direitos reservados.</p>
-        </div>
-    </footer>
+        <footer class="footer">
+            <div class="container">
+                <p>&copy; 2025 Plataforma de Aprendizagem Interativa. Todos os direitos reservados.</p>
+            </div>
+        </footer>
+    </div>
+    <script src="{{ url_for('static', filename='js/general/theme.js') }}"></script>
 </body>
 
 </html>

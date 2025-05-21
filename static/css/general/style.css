@@ -24,6 +24,19 @@
     --card-radius: 10px;
     --transition-speed: 0.3s;
     --button-hover-brightness: 1.1;
+
+    /* Add transition for all theme-related properties */
+    transition:
+        --primary var(--transition-speed),
+        --secondary var(--transition-speed),
+        --background var(--transition-speed),
+        --text-color var(--transition-speed),
+        --text-muted var(--transition-speed),
+        --card-bg var(--transition-speed),
+        --border-color var(--transition-speed),
+        --shadow-color var(--transition-speed),
+        --hover-bg var(--transition-speed),
+        --navbar-bg var(--transition-speed);
 }
 
 /* Dark mode variables */
@@ -41,46 +54,9 @@
     --button-hover-brightness: 1.2;
 }
 
-/* Theme transition overlay */
-.theme-transition-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 9999;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    mix-blend-mode: difference;
-}
-
-.theme-transition-overlay.active {
-    opacity: 0.1;
-}
-
 /* Base transitions for theme switching */
 body {
-    transition: background-color 0.5s ease,
-        color 0.5s ease;
-}
-
-*,
-*::before,
-*::after {
-    transition: background-color 0.5s ease,
-        border-color 0.5s ease,
-        color 0.5s ease,
-        box-shadow 0.5s ease;
-}
-
-.home-background,
-.feature-card,
-.navbar,
-.button,
-.feature-link,
-.theme-toggle button {
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color var(--transition-speed), color var(--transition-speed);
 }
 
 /* Prevent text selection except for inputs and content areas */
