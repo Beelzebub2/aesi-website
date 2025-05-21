@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aprenda sobre distribuições estatísticas através de um jogo interativo">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/general/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/general/navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/subjects/probabilidade/game.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/general/theme-toggle.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/general/theme.js') }}"></script>
+    <title>{{ title }}</title>
+</head>
+
+<body>
+    <nav class="navbar" aria-label="Navegação principal">
+        <div class="container navbar-content">
+            <a href="{{ url_for('home') }}" class="logo">Plataforma de Aprendizagem</a>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('home') }}">Início</a></li>
+                <li><a href="{{ url_for('quiz') }}">Questionários</a></li>
+                <li><a href="{{ url_for('calculator') }}">Calculadora</a></li>
+                <li><a href="{{ url_for('game') }}" class="active" aria-current="page">Jogos</a></li>
+            </ul>
+            <div class="theme-toggle">
+                <button id="themeToggle" aria-label="Alternar entre modo claro e escuro">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="game-container">
+            <header class="game-header">
+                <h1 class="section-title">Jogo das Distribuições</h1>
+                <div class="game-stats">
+                    <div class="stat-box">
+                        <div class="stat-icon" aria-hidden="true">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-label">Questão</span>
+                            <span class="stat-value"><span id="currentQuestion">1</span> de <span
+                                    id="totalQuestions">15</span></span>
+                        </div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-icon" aria-hidden="true">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-label">Pontuação</span>
+                            <span class="stat-value"><span id="scoreValue">0</span> pontos</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="progress-container" aria-label="Progresso do jogo">
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+            </div>
+
+            <main id="gameArea" class="game-content">
+                <div id="loadingIndicator" class="loading-indicator">
+                    <div class="spinner" aria-hidden="true"></div>
+                    <p>A carregar cenários...</p>
+                </div>
+
+                <section class="scenario-section" style="display: none;">
+                    <div id="scenario" class="scenario-card" role="region" aria-label="Cenário atual"></div>
+                </section>
+
+                <section class="options-section" aria-label="Escolha da distribuição">
+                    <button class="distribution-option" data-distribution="binomial">
+                        <div class="option-icon" aria-hidden="true">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <div class="option-content">
+                            <h3>Distribuição Binomial</h3>
+                            <p>Para um número fixo de tentativas independentes com dois resultados possíveis</p>
+                        </div>
+                    </button>
+
+                    <button class="distribution-option" data-distribution="poisson">
+                        <div class="option-icon" aria-hidden="true">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="option-content">
+                            <h3>Distribuição de Poisson</h3>
+                            <p>Para eventos raros em intervalos fixos de tempo ou espaço</p>
+                        </div>
+                    </button>
+
+                    <button class="distribution-option" data-distribution="normal">
+                        <div class="option-icon" aria-hidden="true">
+                            <i class="fas fa-bell"></i>
+                        </div>
+                        <div class="option-content">
+                            <h3>Distribuição Normal</h3>
+                            <p>Para fenómenos naturais e variações aleatórias</p>
+                        </div>
+                    </button>
+                </section>
+
+                <div id="feedback" class="feedback-container" aria-live="polite"></div>
+
+                <div class="game-controls">
+                    <button id="nextBtn" class="button next-btn" style="display: none;">Próximo Cenário</button>
+                </div>
+            </main>
+
+            <div id="gameComplete" class="game-complete" style="display: none;">
+                <h2>Parabéns!</h2>
+                <p>Completou o jogo com <span id="finalScore">0</span> pontos</p>
+                <button id="restartBtn" class="button">Jogar Novamente</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Plataforma de Aprendizagem Interativa. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

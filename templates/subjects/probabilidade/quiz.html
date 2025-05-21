@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Faça questionários interativos sobre matemática, ciências e história">
+    <title>Questionários de Aprendizagem</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/general/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/general/navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/subjects/probabilidade/quiz.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/general/theme-toggle.css') }}">
+    <script src="{{ url_for('static', filename='js/general/theme.js') }}"></script>
+</head>
+
+<body>
+    <nav class="navbar" aria-label="Navegação principal">
+        <div class="container navbar-content">
+            <a href="{{ url_for('home') }}" class="logo">Plataforma de Aprendizagem</a>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('home') }}">Início</a></li>
+                <li><a href="{{ url_for('quiz') }}" class="active" aria-current="page">Questionários</a></li>
+                <li><a href="{{ url_for('calculator') }}">Calculadora</a></li>
+                <li><a href="{{ url_for('game') }}">Jogos</a></li>
+            </ul>
+            <div class="theme-toggle">
+                <button id="themeToggle" aria-label="Alternar entre modo claro e escuro">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="quiz-container">
+            <div id="quizArea">
+                <!-- O seletor de tipo de questionário será inserido aqui via JavaScript -->
+
+                <div class="quiz-header" style="display: none;">
+                    <h2 class="section-title quiz-title"></h2>
+                    <div class="quiz-progress">
+                        <span class="progress-text">Pergunta <span id="currentQuestion">0</span> de <span
+                                id="totalQuestions">0</span></span>
+                        <div class="progress-bar">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <span class="score-text">Pontuação: <span id="score">0</span></span>
+                    </div>
+                </div>
+
+                <div class="question-container" style="display: none;">
+                    <p id="questionText" class="question-text"></p>
+                    <div class="options-container">
+                        <div class="quiz-options"></div>
+                    </div>
+                </div>
+
+                <div id="feedback" class="feedback" style="display: none;"></div>
+
+                <div class="quiz-controls" style="display: none;">
+                    <button id="nextBtn" class="next-btn">Próxima Pergunta</button>
+                </div>
+
+                <div class="quiz-summary" style="display: none;">
+                    <h2>Questionário Concluído!</h2>
+                    <p class="final-score">A sua pontuação: <span id="finalScore">0</span></p>
+                    <button class="restart-btn">Tentar Novamente</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Plataforma de Aprendizagem Interativa. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/quiz.js') }}" defer></script>
+</body>
+
+</html>

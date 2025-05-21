@@ -1,0 +1,94 @@
+{
+    "general": {
+        "platform_name": "Plataforma de Aprendizagem Interativa",
+        "copyright": "Todos os direitos reservados",
+        "try_again": "Tentar Novamente",
+        "next": "Próximo",
+        "back": "Voltar",
+        "submit": "Submeter",
+        "cancel": "Cancelar",
+        "dark_mode": "Alternar entre modo claro e escuro",
+        "coming_soon": "Em breve"
+    },
+    "pages": {
+        "home": {
+            "title": "Plataforma de Aprendizagem Interativa",
+            "subtitle": "Expanda os seus conhecimentos através de experiências interativas de aprendizagem",
+            "available_subjects": "Disciplinas Disponíveis"
+        }
+    },
+    "subjects": {
+        "probabilidade": {
+            "name": "Probabilidade e Estatística",
+            "description": "Explore conceitos estatísticos através de ferramentas interativas",
+            "pages": {
+                "home": {
+                    "title": "Probabilidade e Estatística",
+                    "description": "Explore conceitos estatísticos através de ferramentas interativas"
+                },
+                "quiz": {
+                    "title": "Questionários de Aprendizagem",
+                    "description": "Teste os seus conhecimentos em probabilidade e estatística",
+                    "current_question": "Pergunta {current} de {total}",
+                    "score": "Pontuação: {score}",
+                    "complete": "Questionário Concluído!"
+                },
+                "calculator": {
+                    "title": "Calculadora Estatística",
+                    "description": "Calcule probabilidades e visualize distribuições estatísticas",
+                    "distributions": {
+                        "binomial": {
+                            "name": "Distribuição Binomial",
+                            "description": "Para um número fixo de tentativas independentes com dois resultados possíveis",
+                            "params": {
+                                "n": "Número de tentativas (n)",
+                                "p": "Probabilidade de sucesso (p)",
+                                "k": "Número de sucessos (k)"
+                            }
+                        },
+                        "poisson": {
+                            "name": "Distribuição de Poisson",
+                            "description": "Para eventos raros em intervalos fixos de tempo ou espaço",
+                            "params": {
+                                "lambda": "Taxa média (λ)",
+                                "k": "Número de eventos (k)"
+                            }
+                        },
+                        "normal": {
+                            "name": "Distribuição Normal",
+                            "description": "Para fenómenos naturais e variações aleatórias",
+                            "params": {
+                                "mean": "Média (μ)",
+                                "std": "Desvio padrão (σ)",
+                                "x": "Valor (x)",
+                                "probability_type": "Tipo de probabilidade"
+                            }
+                        }
+                    }
+                },
+                "game": {
+                    "title": "Jogo de Distribuições",
+                    "description": "Aprenda a identificar distribuições estatísticas através de cenários práticos",
+                    "loading": "A carregar cenários...",
+                    "score": "Pontuação: {score} pontos",
+                    "question": "Questão {current} de {total}",
+                    "complete": "Jogo Concluído!"
+                }
+            }
+        }
+    },
+    "coming_soon": {
+        "calculo": {
+            "name": "Cálculo",
+            "description": "Aprenda cálculo diferencial e integral de forma interativa"
+        },
+        "algebra": {
+            "name": "Álgebra Linear",
+            "description": "Explore conceitos de álgebra linear com visualizações"
+        },
+        "fisica": {
+            "name": "Física",
+            "description": "Simule e aprenda conceitos físicos interativamente"
+        }
+    }
+}

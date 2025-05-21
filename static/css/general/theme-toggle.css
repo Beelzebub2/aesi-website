@@ -1,0 +1,112 @@
+/* Theme toggle button styles */
+.theme-toggle {
+    position: relative;
+    margin-left: 1rem;
+}
+
+.theme-toggle button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(to bottom right, var(--primary), var(--secondary));
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    box-shadow: 0 2px 8px var(--shadow-color);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    will-change: transform, box-shadow;
+    overflow: hidden;
+}
+
+.theme-toggle button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    border-radius: 50%;
+}
+
+.theme-toggle button:hover::before {
+    transform: translateY(0);
+}
+
+.theme-toggle button:active {
+    transform: scale(0.95);
+}
+
+/* Theme change animation */
+.theme-toggle button i {
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.2s ease;
+}
+
+.theme-toggle button i.changing {
+    transform: scale(0);
+    opacity: 0;
+}
+
+/* Button state animations */
+.theme-toggle button {
+    overflow: hidden;
+}
+
+.theme-toggle button::after {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 70%);
+    top: -50%;
+    left: -50%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+}
+
+.theme-toggle button:active::after {
+    opacity: 0.5;
+    animation: ripple 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes ripple {
+    from {
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+
+    to {
+        transform: scale(1.2);
+        opacity: 0;
+    }
+}
+
+/* Make the button more visible in dark mode */
+[data-theme="dark"] .theme-toggle button {
+    box-shadow: 0 2px 12px rgba(83, 109, 254, 0.5);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .theme-toggle {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
+
+    .theme-toggle button {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+    }
+}

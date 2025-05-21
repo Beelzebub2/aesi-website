@@ -1,0 +1,228 @@
+/* Loading indicator */
+.loading-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid var(--border-color);
+    border-top: 4px solid var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Error message */
+.error-message {
+    background-color: var(--card-bg);
+    border-left: 4px solid var(--error);
+    padding: 1.5rem;
+    margin: 1rem 0;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.error-message i {
+    color: var(--error);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.error-message button {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.error-message button:hover {
+    background-color: var(--secondary);
+}
+
+/* Distribution options */
+.distribution-option {
+    background-color: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: var(--card-radius);
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all var(--transition-speed) ease;
+    cursor: pointer;
+}
+
+.distribution-option:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.distribution-option.selected {
+    border-color: var(--primary);
+    background-color: rgba(67, 97, 238, 0.05);
+}
+
+.option-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary);
+    color: white;
+    border-radius: var(--card-radius);
+    font-size: 1.5rem;
+}
+
+.option-content {
+    flex: 1;
+}
+
+.option-content h3 {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.option-content p {
+    color: var(--text-color);
+    opacity: 0.8;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* Progress bar */
+.progress-container {
+    margin: 1.5rem 0;
+    padding: 0 1rem;
+}
+
+.progress-bar {
+    height: 8px;
+    background-color: var(--hover-bg);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: var(--primary);
+    transition: width var(--transition-speed) ease;
+}
+
+/* Tutorial section */
+.tutorial-section {
+    margin-top: 3rem;
+}
+
+.tutorial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.tutorial-card {
+    background-color: var(--card-bg);
+    border-radius: var(--card-radius);
+    padding: 1.5rem;
+    text-align: center;
+    transition: all var(--transition-speed) ease;
+}
+
+.tutorial-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.tutorial-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--hover-bg);
+    border-radius: 50%;
+    color: var(--primary);
+    font-size: 1.5rem;
+}
+
+.tutorial-card h3 {
+    color: var(--text-color);
+    margin-bottom: 0.75rem;
+}
+
+.tutorial-card p {
+    color: var(--text-color);
+    opacity: 0.8;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Scenario card */
+.scenario-card {
+    background-color: var(--card-bg);
+    border-radius: var(--card-radius);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .game-container {
+        padding: 1rem;
+    }
+
+    .game-content {
+        padding: 1.5rem;
+    }
+
+    .game-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .distribution-option {
+        padding: 1rem;
+    }
+
+    .option-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.25rem;
+    }
+}

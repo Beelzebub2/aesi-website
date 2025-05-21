@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Explore conceitos de probabilidade e estatística através de ferramentas interativas">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/general/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/general/navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/general/homepage.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/general/theme-toggle.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/subjects/probabilidade/index.css') }}">
+    <script src="{{ url_for('static', filename='js/general/theme.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/general/homepage.js') }}" defer></script>
+    <title>{{ title }}</title>
+</head>
+
+<body>
+    <div class="home-background"></div>
+
+    <div class="subject-container">
+        <nav class="navbar" aria-label="Navegação principal">
+            <div class="container navbar-content">
+                <a href="{{ url_for('home') }}" class="logo">Plataforma de Aprendizagem</a>
+                <div class="theme-toggle">
+                    <button id="themeToggle" aria-label="Alternar entre modo claro e escuro">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <section class="subject-hero">
+            <div class="container">
+                <h1>Probabilidade e Estatística</h1>
+                <p>Explore conceitos estatísticos através de ferramentas interativas e aprenda de forma dinâmica</p>
+            </div>
+        </section>
+
+        <main class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-calculator feature-icon"></i>
+                    <h2 class="feature-title">Calculadora</h2>
+                    <p class="feature-description">Use nossa calculadora interativa para resolver problemas de
+                        distribuições estatísticas. Inclui Binomial, Poisson e Normal.</p>
+                    <a href="{{ url_for('calculator') }}" class="feature-link">
+                        Usar Calculadora
+                    </a>
+                </div>
+
+                <div class="feature-card">
+                    <i class="fas fa-brain feature-icon"></i>
+                    <h2 class="feature-title">Questionários</h2>
+                    <p class="feature-description">Teste seus conhecimentos com questionários interativos sobre
+                        probabilidade e estatística</p>
+                    <a href="{{ url_for('quiz') }}" class="feature-link">
+                        Iniciar Questionário
+                    </a>
+                </div>
+
+                <div class="feature-card">
+                    <i class="fas fa-gamepad feature-icon"></i>
+                    <h2 class="feature-title">Jogos Educativos</h2>
+                    <p class="feature-description">Aprenda conceitos estatísticos de forma divertida através de jogos
+                        interativos</p>
+                    <a href="{{ url_for('game') }}" class="feature-link">
+                        Jogar Agora
+                    </a>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <p>&copy; 2025 Plataforma de Aprendizagem Interativa. Todos os direitos reservados.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

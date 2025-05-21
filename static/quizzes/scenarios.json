@@ -1,0 +1,81 @@
+{
+    "name": "Distribution Game",
+    "description": "Test your knowledge of probability distributions",
+    "scenarios": [
+        {
+            "description": "In a factory, we're counting the number of defective products in batches of 100 items. The probability of each item being defective is constant.",
+            "correct": "binomial",
+            "explanation": "This is a Binomial distribution because we have a fixed number of trials (100 items) and each trial has the same probability of success (being defective)."
+        },
+        {
+            "description": "Counting the number of customers arriving at a store in 1-hour intervals. The average rate is constant.",
+            "correct": "poisson",
+            "explanation": "This follows a Poisson distribution as we're counting rare events (customer arrivals) in a fixed interval with a constant average rate."
+        },
+        {
+            "description": "Number of traffic accidents per day in a large city.",
+            "correct": "poisson",
+            "explanation": "This follows a Poisson distribution as accidents are rare events occurring in a fixed time interval."
+        },
+        {
+            "description": "Flipping a coin 10 times and counting the number of heads.",
+            "correct": "binomial",
+            "explanation": "This is a Binomial distribution with 10 trials and probability 0.5 for each trial."
+        },
+        {
+            "description": "Number of successful sales in 20 independent attempts, where each sale has a 30% chance of success.",
+            "correct": "binomial",
+            "explanation": "This is a Binomial distribution with 20 trials and probability 0.3 for each trial."
+        },
+        {
+            "description": "Average number of typing errors per page in a long document.",
+            "correct": "poisson",
+            "explanation": "This follows a Poisson distribution as typing errors are rare events occurring in a fixed space (page)."
+        },
+        {
+            "description": "Number of calls received per minute in a call center.",
+            "correct": "poisson",
+            "explanation": "This follows a Poisson distribution as calls arrive randomly with a constant average rate."
+        },
+        {
+            "description": "In a dice game, number of times a 6 appears in 12 rolls.",
+            "correct": "binomial",
+            "explanation": "This is a Binomial distribution with 12 trials and probability 1/6 for each trial."
+        },
+        {
+            "description": "Number of genetic mutations in a specific DNA segment.",
+            "correct": "poisson",
+            "explanation": "This follows a Poisson distribution as mutations are rare events occurring in a fixed space segment."
+        },
+        {
+            "description": "Average height of university students, assuming a symmetric distribution around the mean.",
+            "correct": "normal",
+            "explanation": "Height typically follows a Normal distribution as it's a continuous variable with symmetric variation around a mean."
+        },
+        {
+            "description": "Weight of newborns in a hospital, known to follow a symmetric distribution.",
+            "correct": "normal",
+            "explanation": "Birth weights typically follow a Normal distribution as they're continuous and roughly symmetric around the mean."
+        },
+        {
+            "description": "IQ test scores, with mean 100 and standard deviation 15.",
+            "correct": "normal",
+            "explanation": "IQ scores are designed to follow a Normal distribution with mean 100 and standard deviation 15."
+        },
+        {
+            "description": "Useful life of LED bulbs, assuming symmetric variability around the mean.",
+            "correct": "normal",
+            "explanation": "Product lifetimes often follow a Normal distribution when the failure mode is wear and tear."
+        },
+        {
+            "description": "Blood pressure measurements in a healthy adult population.",
+            "correct": "normal",
+            "explanation": "Blood pressure typically follows a Normal distribution in a homogeneous population."
+        },
+        {
+            "description": "Number of goals scored by a soccer team in a game.",
+            "correct": "poisson",
+            "explanation": "Goals in soccer are relatively rare events occurring in a fixed time interval."
+        }
+    ]
+}

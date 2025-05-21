@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Plataforma de aprendizagem interativa com diversos temas e disciplinas">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/general/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/general/navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/general/background.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/subject-banner.css') }}">
+    <script src="{{ url_for('static', filename='js/general/background.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/general/theme.js') }}" defer></script>
+    <title>{{ title }}</title>
+</head>
+
+<body>
+    <div class="home-background"></div>
+    <div class="home-container">
+        <nav class="navbar" aria-label="Navegação principal">
+            <div class="container navbar-content">
+                <a href="{{ url_for('home') }}" class="logo">{{ translations.general.platform_name }}</a>
+                <div class="theme-toggle">
+                    <button id="themeToggle" aria-label="{{ translations.general.dark_mode }}">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <header class="hero">
+            <div class="container">
+                <h1>{{ translations.page.title }}</h1>
+                <p class="subtitle">{{ translations.page.subtitle }}</p>
+            </div>
+        </header>
+
+        <main class="container">
+            <section class="subjects-section">
+                <h2 class="section-title">{{ translations.page.available_subjects }}</h2>
+                <div class="subject-grid"> <!-- Active Subjects --> <a href="{{ url_for('probabilidade') }}"
+                        class="subject-card">
+                        <div class="subject-content">
+                            <h3 class="subject-title">{{ translations.subjects.probabilidade.name }}</h3>
+                            <p class="subject-description">{{ translations.subjects.probabilidade.description }}</p>
+                            <div class="subject-items">
+                                <span class="subject-item">{{ translations.subjects.probabilidade.pages.quiz.title
+                                    }}</span>
+                                <span class="subject-item">{{ translations.subjects.probabilidade.pages.calculator.title
+                                    }}</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Coming Soon Subjects -->
+                    {% if coming_soon %}
+                    {% for key, subject in coming_soon.items() %}
+                    <div class="subject-card coming-soon">
+                        <div class="subject-content">
+                            <h3 class="subject-title">{{ subject.name }}</h3>
+                            <p class="subject-description">{{ subject.description }}</p>
+                            <div class="subject-items">
+                                <span class="subject-item">{{ translations.general.coming_soon }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <p>&copy; 2025 {{ translations.general.platform_name }}. {{ translations.general.copyright }}</p>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

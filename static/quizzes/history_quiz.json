@@ -1,0 +1,46 @@
+{
+    "name": "History Quiz",
+    "description": "Test your historical knowledge",
+    "difficulty": "Mixed",
+    "questions": [
+        {
+            "id": 1,
+            "question": "In which year did World War II end?",
+            "options": [
+                "1943",
+                "1944",
+                "1945",
+                "1946"
+            ],
+            "correct": "1945",
+            "explanation": "World War II ended in 1945 with the surrender of Germany in May and Japan in August",
+            "difficulty": "Easy"
+        },
+        {
+            "id": 2,
+            "question": "Who was the first President of the United States?",
+            "options": [
+                "John Adams",
+                "Thomas Jefferson",
+                "George Washington",
+                "Benjamin Franklin"
+            ],
+            "correct": "George Washington",
+            "explanation": "George Washington served as the first President of the United States from 1789 to 1797",
+            "difficulty": "Easy"
+        },
+        {
+            "id": 3,
+            "question": "When did the Industrial Revolution begin in England?",
+            "options": [
+                "Late 1700s",
+                "Early 1800s",
+                "Mid 1800s",
+                "Late 1800s"
+            ],
+            "correct": "Late 1700s",
+            "explanation": "The Industrial Revolution began in Great Britain in the late 18th century (1760-1840)",
+            "difficulty": "Medium"
+        }
+    ]
+}

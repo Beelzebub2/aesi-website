@@ -1,0 +1,46 @@
+{
+    "name": "Math Quiz",
+    "description": "Test your mathematical knowledge",
+    "difficulty": "Mixed",
+    "questions": [
+        {
+            "id": 1,
+            "question": "What is 2 + 2?",
+            "options": [
+                "3",
+                "4",
+                "5",
+                "6"
+            ],
+            "correct": "4",
+            "explanation": "Basic addition: 2 + 2 = 4",
+            "difficulty": "Easy"
+        },
+        {
+            "id": 2,
+            "question": "What is the square root of 16?",
+            "options": [
+                "2",
+                "3",
+                "4",
+                "5"
+            ],
+            "correct": "4",
+            "explanation": "4 × 4 = 16, therefore the square root of 16 is 4",
+            "difficulty": "Easy"
+        },
+        {
+            "id": 3,
+            "question": "What is the value of π (pi) to 2 decimal places?",
+            "options": [
+                "3.14",
+                "3.15",
+                "3.16",
+                "3.13"
+            ],
+            "correct": "3.14",
+            "explanation": "π is approximately equal to 3.14159...",
+            "difficulty": "Medium"
+        }
+    ]
+}
