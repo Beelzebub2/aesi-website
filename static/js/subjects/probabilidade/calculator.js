@@ -46,12 +46,16 @@ function erf(x) {
 
 document.addEventListener('DOMContentLoaded', () => {
     // Get theme colors
-    const getThemeColors = () => ({
-        primary: getComputedStyle(document.documentElement).getPropertyValue('--primary').trim(),
-        secondary: getComputedStyle(document.documentElement).getPropertyValue('--secondary').trim(),
-        text: getComputedStyle(document.documentElement).getPropertyValue('--text-color').trim(),
-        background: getComputedStyle(document.documentElement).getPropertyValue('--background').trim()
-    });
+    const getThemeColors = () => {
+        const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
+        return {
+            primary: isDarkMode ? '#4e7bd1' : '#2E7D32',  // Blue in dark mode, Green in light mode
+            secondary: isDarkMode ? '#3b5998' : '#1B5E20', // Darker blue in dark mode, Darker green in light mode
+            text: getComputedStyle(document.documentElement).getPropertyValue('--text-color').trim(),
+            background: getComputedStyle(document.documentElement).getPropertyValue('--background').trim(),
+            gridLines: isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)'
+        };
+    };
 
     const distributionSelect = document.getElementById('distribution');
     const paramGroups = document.querySelectorAll('.param-group');
@@ -64,9 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const betweenInput = document.getElementById('between-input');
 
     const form = document.querySelector('.calculator-container');
-    const allInputs = form.querySelectorAll('input, select');
-
-    // Initialize chart with theme colors
+    const allInputs = form.querySelectorAll('input, select');    // Initialize chart with theme colors
     const colors = getThemeColors();
     const ctx = document.getElementById('distributionChart').getContext('2d');
     distributionChart = new Chart(ctx, {
@@ -76,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 label: 'Distribuição',
                 data: [],
                 borderColor: colors.primary,
-                backgroundColor: colors.primary + '40',
+                backgroundColor: colors.secondary + '40',
                 fill: true,
                 tension: 0.4
             }]
@@ -222,7 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Update dataset colors
         distributionChart.data.datasets[0].borderColor = colors.primary;
-        distributionChart.data.datasets[0].backgroundColor = colors.primary + '40';
+        distributionChart.data.datasets[0].backgroundColor = colors.secondary + '40';
 
         // Update text colors
         distributionChart.options.plugins.title.color = colors.text;
@@ -235,7 +237,11 @@ document.addEventListener('DOMContentLoaded', () => {
         distributionChart.options.scales.x.grid.color = colors.gridLines;
         distributionChart.options.scales.y.grid.color = colors.gridLines;
 
-        distributionChart.update();
+        // Force redraw of the chart
+        distributionChart.update('none'); // Use 'none' animation for instant update
+
+        // Redraw the current distribution
+        updateDistributionChart();
     });
 
     function calculateProbability() {
