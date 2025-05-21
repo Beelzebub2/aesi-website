@@ -44,35 +44,26 @@
 
         <main class="container">
             <div class="features-grid">
-                <div class="feature-card">
+                <a href="{{ url_for('calculator') }}" class="feature-card">
                     <i class="fas fa-calculator feature-icon"></i>
                     <h2 class="feature-title">Calculadora</h2>
                     <p class="feature-description">Use nossa calculadora interativa para resolver problemas de
                         distribuições estatísticas. Inclui Binomial, Poisson e Normal.</p>
-                    <a href="{{ url_for('calculator') }}" class="feature-link">
-                        Usar Calculadora
-                    </a>
-                </div>
+                </a>
 
-                <div class="feature-card">
+                <a href="{{ url_for('quiz') }}" class="feature-card">
                     <i class="fas fa-brain feature-icon"></i>
                     <h2 class="feature-title">Questionários</h2>
                     <p class="feature-description">Teste seus conhecimentos com questionários interativos sobre
                         probabilidade e estatística</p>
-                    <a href="{{ url_for('quiz') }}" class="feature-link">
-                        Iniciar Questionário
-                    </a>
-                </div>
+                </a>
 
-                <div class="feature-card">
+                <a href="{{ url_for('game') }}" class="feature-card">
                     <i class="fas fa-gamepad feature-icon"></i>
                     <h2 class="feature-title">Jogos Educativos</h2>
                     <p class="feature-description">Aprenda conceitos estatísticos de forma divertida através de jogos
                         interativos</p>
-                    <a href="{{ url_for('game') }}" class="feature-link">
-                        Jogar Agora
-                    </a>
-                </div>
+                </a>
             </div>
         </main>
 

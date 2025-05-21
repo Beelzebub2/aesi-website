@@ -46,14 +46,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    cursor: pointer;
-    box-shadow: 0 4px 6px var(--shadow-color);
     position: relative;
     overflow: hidden;
     height: 100%;
-    /* Ensure all cards have the same height */
-    justify-content: space-between;
-    /* Distribute space to push button to bottom */
+    box-shadow: 0 4px 6px var(--shadow-color);
+    text-decoration: none;
+    /* Add this to remove underlines */
+    color: inherit;
+    /* Keeps text color consistent */
 }
 
 .feature-card::before {
@@ -99,32 +99,8 @@
     line-height: 1.6;
     position: relative;
     z-index: 2;
-    flex-grow: 1;
-    /* Allow description to take available space */
-    margin-bottom: 1.5rem;
-    /* Add consistent margin before button */
-}
-
-.feature-link {
-    display: block;
-    padding: 0.8rem 1.5rem;
-    background: linear-gradient(45deg, var(--primary), var(--secondary));
-    color: white;
-    border-radius: 25px;
-    margin-top: auto;
-    /* Push to bottom */
-    font-weight: 500;
-    text-decoration: none;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    position: relative;
-    z-index: 2;
-    align-self: center;
-    /* Center the button horizontally */
-}
-
-.feature-link:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 8px var(--shadow-color);
+    /* Remove margins that were needed for the button */
+    margin-bottom: 0;
 }
 
 /* Responsive adjustments */
