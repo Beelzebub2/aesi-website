@@ -6,9 +6,15 @@
 
 .calculator-grid {
     display: grid;
-    grid-template-columns: minmax(320px, 1fr) minmax(600px, 2fr);
+    grid-template-columns: 1fr;
     gap: 2rem;
     margin-top: 2rem;
+}
+
+@media (min-width: 1024px) {
+    .calculator-grid {
+        grid-template-columns: minmax(320px, 1fr) minmax(600px, 2fr);
+    }
 }
 
 .calculator-card {
@@ -239,10 +245,6 @@ label {
 }
 
 @media (max-width: 1024px) {
-    .calculator-grid {
-        grid-template-columns: 1fr;
-    }
-
     .chart-container {
         min-height: 300px;
     }
@@ -250,30 +252,45 @@ label {
 
 @media (max-width: 768px) {
     .calculator-container {
-        margin: 1rem;
-        padding: 1rem;
+        margin: 0.5rem;
+        padding: 0.5rem;
     }
 
     .calculator-card,
     .result-card {
-        padding: 1.5rem;
+        padding: 1rem;
+    }
+
+    .param-group {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
     }
 
     .form-input,
     .form-select {
         font-size: 0.9rem;
+        padding: 0.5rem;
+        width: 100%;
+        height: 40px;
+    }
+
+    .distribution-select {
+        margin-bottom: 1.5rem;
     }
 
     .result-value {
+        font-size: 1.25rem;
+    }
+
+    .button {
+        padding: 0.75rem;
+        font-size: 0.95rem;
+    }
+
+    .section-title {
         font-size: 1.5rem;
-    }
-
-    .tutorials-section {
-        padding: 2rem 0;
-    }
-
-    .param-group {
-        gap: 1rem;
+        margin-bottom: 1rem;
     }
 }
 
