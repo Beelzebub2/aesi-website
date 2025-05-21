@@ -85,10 +85,42 @@ const ThemeManager = {
     }
 };
 
+// Theme handling
+function setTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+
+    // Update icon in theme toggle button
+    const themeToggle = document.getElementById('themeToggle');
+    if (themeToggle) {
+        const icon = themeToggle.querySelector('i');
+        if (theme === 'dark') {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        } else {
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+        }
+    }
+
+    // Dispatch theme change event
+    document.dispatchEvent(new CustomEvent('themeChanged', { detail: theme }));
+}
+
 // Apply theme immediately to prevent flashing
 ThemeManager.applyThemeImmediately();
 
 // Initialize theme toggle when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    ThemeManager.init();
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    setTheme(savedTheme);
+
+    // Theme toggle functionality
+    const themeToggle = document.getElementById('themeToggle');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            setTheme(currentTheme === 'light' ? 'dark' : 'light');
+        });
+    }
 });

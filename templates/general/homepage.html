@@ -35,50 +35,43 @@
                     </button>
                 </div>
             </div>
-        </nav>
-
-        <!-- Hero Section -->
-        <header class="hero">
-            <div class="container">
-                <h1>{{ translations.pages.home.title }}</h1>
-                <p class="subtitle">{{ translations.pages.home.subtitle }}</p>
-            </div>
-        </header>
-
-        <!-- Main Content -->
+        </nav> <!-- Main Content -->
         <main class="container">
-            <section class="subjects-section">
-                <h2 class="section-title">{{ translations.pages.home.available_subjects }}</h2>
-                <div class="subject-grid">
-                    <!-- Active Subjects -->
-                    <a href="{{ url_for('probabilidade') }}" class="subject-card">
-                        <div class="subject-content">
-                            <h3 class="subject-title">{{ translations.subjects.probabilidade.name }}</h3>
-                            <p class="subject-description">{{ translations.subjects.probabilidade.description }}</p>
-                            <div class="subject-items">
-                                <span class="subject-item">{{ translations.subjects.probabilidade.pages.quiz.title
-                                    }}</span>
-                                <span class="subject-item">{{ translations.subjects.probabilidade.pages.calculator.title
-                                    }}</span>
-                            </div>
+            <div class="features-grid"> <!-- Active Subjects -->
+                <a href="{{ url_for('probabilidade') }}" class="feature-card">
+                    <i class="fas fa-chart-line feature-icon"></i>
+                    <h2 class="feature-title">{{ translations.subjects.probabilidade.name }}</h2>
+                    <p class="feature-description">{{ translations.subjects.probabilidade.description }}</p>
+                    <div class="feature-tools">
+                        <div class="tool-item">
+                            <i class="fas fa-calculator"></i>
+                            <span>{{ translations.subjects.probabilidade.pages.calculator.title }}</span>
                         </div>
-                    </a>
-
-                    <!-- Coming Soon Subjects -->
-                    {% if coming_soon %}
-                    {% for key, subject in coming_soon.items() %}
-                    <div class="subject-card coming-soon">
-                        <div class="subject-content">
-                            <h3 class="subject-title">{{ subject.name }}</h3>
-                            <p class="subject-description">{{ subject.description }}</p>
-                            <div class="subject-items">
-                                <span class="subject-item">{{ translations.general.coming_soon }}</span>
-                            </div>
+                        <div class="tool-item">
+                            <i class="fas fa-brain"></i>
+                            <span>{{ translations.subjects.probabilidade.pages.quiz.title }}</span>
+                        </div>
+                        <div class="tool-item">
+                            <i class="fas fa-gamepad"></i>
+                            <span>{{ translations.subjects.probabilidade.pages.game.title }}</span>
                         </div>
                     </div>
-                    {% endfor %}
-                    {% endif %}
+                </a><!-- Coming Soon Subjects --> {% if coming_soon %}
+                {% for key, subject in coming_soon.items() %}
+                <div class="feature-card coming-soon">
+                    <i class="fas fa-book feature-icon"></i>
+                    <h2 class="feature-title">{{ subject.name }}</h2>
+                    <p class="feature-description">{{ subject.description }}</p>
+                    <div class="feature-tools">
+                        <div class="tool-item">
+                            <i class="fas fa-clock"></i>
+                            <span>{{ translations.general.coming_soon }}</span>
+                        </div>
+                    </div>
                 </div>
+                {% endfor %}
+                {% endif %}
+            </div>
             </section>
         </main>
 
