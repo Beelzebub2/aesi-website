@@ -84,15 +84,6 @@ def quiz():
         translations=translations
     )
 
-@app.route("/probabilidade/game")
-def game():
-    translations = translation_manager.get_translations('probabilidade', 'game')
-    return render_template(
-        "subjects/probabilidade/game.html",
-        title=translations['page']['title'],
-        translations=translations
-    )
-
 @app.route("/api/quizzes")
 def get_quizzes():
     quizzes = []

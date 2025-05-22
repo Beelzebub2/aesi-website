@@ -65,14 +65,6 @@
                             }
                         }
                     }
-                },
-                "game": {
-                    "title": "Jogo de Distribuições",
-                    "description": "Aprenda a identificar distribuições estatísticas através de cenários práticos",
-                    "loading": "A carregar cenários...",
-                    "score": "Pontuação: {score} pontos",
-                    "question": "Questão {current} de {total}",
-                    "complete": "Jogo Concluído!"
                 }
             }
         }
