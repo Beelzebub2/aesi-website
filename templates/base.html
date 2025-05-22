@@ -13,20 +13,42 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/general/theme-toggle.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/general/background.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/general/hero.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/general/mobile-nav.css') }}">
     {% block extra_css %}{% endblock %}
     <script src="{{ url_for('static', filename='js/general/theme.js') }}" defer></script>
     <script src="{{ url_for('static', filename='js/general/background.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/general/navigation.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/general/mobile-nav.js') }}" defer></script>
     {% block extra_js %}{% endblock %}
     <title>{% block title %}{{ title }}{% endblock %}</title>
 </head>
 
 <body>
     <div class="home-background"></div>
+    <div class="side-menu-backdrop"></div>
+    <div class="side-menu">
+        <div class="side-menu-header">
+            <a href="{{ url_for('home') }}" class="logo">{{ translations.general.platform_name }}</a>
+            <div class="theme-toggle">
+                <button id="themeToggleMobile" aria-label="{{ translations.general.dark_mode }}">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+        <div class="side-menu-nav">
+            <!-- Mobile navigation will be cloned here by JavaScript -->
+        </div>
+    </div>
     <div class="{% block container_class %}page-container{% endblock %}">
         <nav class="navbar" aria-label="Navegação principal">
             <div class="container navbar-content">
+                <button class="mobile-nav-toggle" aria-label="Menu de navegação">
+                    <i class="fas fa-bars"></i>
+                </button>
                 <a href="{{ url_for('home') }}" class="logo">{{ translations.general.platform_name }}</a>
-                {% block nav_links %}{% endblock %}
+                <div class="nav-links-container">
+                    {% block nav_links %}{% endblock %}
+                </div>
                 <div class="theme-toggle">
                     <button id="themeToggle" aria-label="{{ translations.general.dark_mode }}">
                         <i class="fas fa-moon"></i>

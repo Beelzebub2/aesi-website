@@ -1,0 +1,149 @@
+/* Mobile navigation styles */
+.mobile-nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 300px;
+    height: 100vh;
+    background-color: var(--navbar-bg);
+    box-shadow: 2px 0 8px var(--shadow-color);
+    transition: left 0.3s ease;
+    z-index: 1000;
+    overflow-y: auto;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.side-menu.active {
+    left: 0;
+}
+
+.side-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 1rem;
+}
+
+.side-menu-header .theme-toggle {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.side-menu-nav {
+    margin-bottom: 1rem;
+}
+
+.side-menu-nav .nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.side-menu-nav .nav-links li a {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: var(--card-radius);
+    transition: all 0.3s ease;
+}
+
+.side-menu-nav .nav-links li a:hover {
+    background-color: var(--hover-bg);
+    color: var(--primary);
+}
+
+.side-menu-nav .nav-links li a.active {
+    color: var(--primary);
+    font-weight: 600;
+    background-color: var(--hover-bg);
+    border-left: 3px solid var(--primary);
+}
+
+.side-menu .theme-toggle {
+    display: flex;
+    justify-content: center;
+}
+
+/* Backdrop overlay */
+.side-menu-backdrop {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.side-menu-backdrop.active {
+    display: block;
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .mobile-nav-toggle {
+        display: block;
+    }
+
+    .navbar .nav-links-container {
+        display: none;
+    }
+
+    .navbar .theme-toggle {
+        display: none;
+    }
+
+    .navbar-content {
+        padding: 0.5rem 1rem;
+    }
+
+    main {
+        padding-top: 5px;
+    }
+
+    /* Show nav links icons properly on mobile */
+    .side-menu-nav .nav-links li a i {
+        width: 20px;
+        margin-right: 10px;
+        text-align: center;
+    }
+
+    /* Add some padding to the items */
+    .side-menu-nav .nav-links li a {
+        padding: 12px 15px;
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 769px) {
+
+    .mobile-nav-toggle,
+    .side-menu,
+    .side-menu-backdrop {
+        display: none;
+    }
+}
