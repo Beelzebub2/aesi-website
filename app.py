@@ -72,7 +72,9 @@ def home():
 @app.route("/<subject>")
 def subject_home(subject):
     if subject not in SUBJECTS:
-        return render_template('general/404.html'), 404
+        # Always provide translations context to 404
+        translations = translation_manager.get_translations('general', 'home')
+        return render_template('general/404.html', translations=translations, title="Página Não Encontrada"), 404
         
     translations = translation_manager.get_translations(subject, 'home')
     return render_template(
@@ -86,7 +88,8 @@ def subject_home(subject):
 @app.route("/<subject>/<feature>")
 def subject_feature(subject, feature):
     if subject not in SUBJECTS:
-        return render_template('general/404.html'), 404
+        translations = translation_manager.get_translations('general', 'home')
+        return render_template('general/404.html', translations=translations, title="Página Não Encontrada"), 404
         
     # Check if feature exists for this subject
     feature_exists = False
@@ -96,7 +99,8 @@ def subject_feature(subject, feature):
             break
             
     if not feature_exists:
-        return render_template('general/404.html'), 404
+        translations = translation_manager.get_translations('general', 'home')
+        return render_template('general/404.html', translations=translations, title="Página Não Encontrada"), 404
     
     translations = translation_manager.get_translations(subject, feature)
     return render_template(
@@ -149,6 +153,12 @@ def calculator():
 @app.route("/probabilidade/quiz")
 def quiz():
     return subject_feature('probabilidade', 'quiz')
+
+@app.errorhandler(404)
+def page_not_found(e):
+    # Provide minimal translations for 404 page
+    translations = translation_manager.get_translations('general', 'home')
+    return render_template('general/404.html', translations=translations, title="Página Não Encontrada"), 404
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=5051)

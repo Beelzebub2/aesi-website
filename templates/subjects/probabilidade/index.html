@@ -14,6 +14,19 @@
 
 {% block container_class %}subject-container{% endblock %}
 
+{% block nav_links %}
+<ul class="nav-links">
+    <li><a href="{{ url_for('subject_home', subject=subject_id) }}" class="active" aria-current="page">Início</a></li>
+    {% for feature in subjects[subject_id].features %}
+    <li>
+        <a href="{{ url_for('subject_feature', subject=subject_id, feature=feature.id) }}">
+            {{ translations.subject.pages[feature.name].title }}
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
+
 {% block hero %}
 <section class="subject-hero">
     <div class="container">
