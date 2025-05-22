@@ -330,8 +330,8 @@
                 "Distribuição de Poisson",
                 "Distribuição Normal"
             ],
-            "correctAnswer": 1,
-            "explanation": "A distribuição de Poisson é apropriada porque: 1) Os convites para entrevista são eventos discretos, 2) Ocorrem num intervalo fixo de tempo (10 candidaturas), 3) São independentes, 4) A taxa média de ocorrência é conhecida."
+            "correctAnswer": 0,
+            "explanation": "A distribuição Binomial é apropriada porque: 1) Há um número fixo de tentativas (10 candidaturas), 2) Cada tentativa tem dois resultados possíveis (chamado ou não chamado), 3) A probabilidade de sucesso é constante, 4) As tentativas são independentes."
         },
         {
             "id": 31,
@@ -440,8 +440,8 @@
                 "Distribuição de Poisson",
                 "Distribuição Normal"
             ],
-            "correctAnswer": 1,
-            "explanation": "A distribuição de Poisson é apropriada porque: 1) As aprovações são eventos discretos, 2) Ocorrem num intervalo fixo de tempo (um teste), 3) São independentes, 4) A taxa média de ocorrência é conhecida."
+            "correctAnswer": 0,
+            "explanation": "A distribuição Binomial é apropriada porque: 1) Há um número fixo de tentativas (50 questões), 2) Cada tentativa tem dois resultados possíveis (aprovado ou não aprovado), 3) A probabilidade de sucesso é constante, 4) As tentativas são independentes."
         }
     ]
 }
