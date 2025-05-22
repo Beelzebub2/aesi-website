@@ -62,20 +62,13 @@ endblock %}
                 </div>
                 <div class="quiz-score">Pontuação: <span id="score">0</span></div>
             </div>
-
             <div class="question-container">
                 <p id="question-text"></p>
                 <div id="options-container" class="options-container"></div>
             </div>
-            <div class="quiz-feedback hidden">
-                <div class="feedback-content">
-                    <i class="fas fa-check feedback-icon"></i>
-                    <h3></h3>
-                    <p></p>
-                </div>
-            </div>
-            <div class="bottom-nav">
-                <button class="btn btn-primary next-question">
+            <div id="feedback" class="feedback" style="display: none;"></div>
+            <div class="quiz-controls" style="display: none;">
+                <button class="next-btn next-question">
                     <i class="fas fa-arrow-right"></i>
                     {{ translations.page.buttons.next }}
                 </button>

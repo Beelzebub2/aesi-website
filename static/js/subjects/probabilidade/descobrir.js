@@ -15,15 +15,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const questionsSection = document.getElementById('quiz-questions');
     const resultsSection = document.getElementById('quiz-results');
     const questionText = document.getElementById('question-text');
-    const optionsContainer = document.getElementById('options-container'); const currentQuestionSpan = document.getElementById('current-question');
+    const optionsContainer = document.getElementById('options-container');
+    const currentQuestionSpan = document.getElementById('current-question');
     const totalQuestionsSpan = document.getElementById('total-questions');
     const progressBar = document.querySelector('.progress');
     const scoreDisplay = document.getElementById('score');
     const finalScoreDisplay = document.getElementById('final-score');
-    const feedbackContainer = document.querySelector('.quiz-feedback');
-    const feedbackTitle = feedbackContainer.querySelector('h3');
-    const feedbackText = feedbackContainer.querySelector('p');
-    const nextButton = feedbackContainer.querySelector('.next-question');
+    const feedback = document.getElementById('feedback');
+    const quizControls = document.querySelector('.quiz-controls');
+    const nextButton = document.querySelector('.next-question');
     const restartButton = document.getElementById('restart-quiz');
     const resultsMessage = document.querySelector('.results-message');
 
@@ -55,9 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Erro ao carregar as questões do quiz. Por favor, tente novamente.');
             return null;
         }
-    }
-
-    function showQuestion(question) {
+    } function showQuestion(question) {
         questionText.textContent = question.question;
         optionsContainer.innerHTML = '';
 
@@ -72,8 +70,9 @@ document.addEventListener('DOMContentLoaded', () => {
         currentQuestionSpan.textContent = currentQuestionIndex + 1;
         progressBar.style.width = `${((currentQuestionIndex + 1) / currentQuestions.length) * 100}%`;
 
-        // Hide the feedback container when showing a new question
-        feedbackContainer.classList.add('hidden');
+        // Hide the feedback and controls when showing a new question
+        feedback.style.display = 'none';
+        quizControls.style.display = 'none';
     } function checkAnswer(selectedIndex) {
         const currentQuestion = currentQuestions[currentQuestionIndex];
         const isCorrect = selectedIndex === currentQuestion.correctAnswer;
@@ -82,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const options = optionsContainer.querySelectorAll('.quiz-option');
         options.forEach(option => {
             option.disabled = true;
-            option.classList.remove('correct', 'incorrect');
+            option.classList.add('disabled');
         });
 
         // Highlight correct and incorrect answers
@@ -92,26 +91,23 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Update score and show feedback
-        const feedbackIcon = document.querySelector('.feedback-icon');
-        const nextButton = document.querySelector('.next-question');
-        nextButton.style.display = 'block';
+        feedback.innerHTML = `
+            <div class="feedback ${isCorrect ? 'correct' : 'incorrect'}">
+                <i class="fas fa-${isCorrect ? 'check-circle' : 'times-circle'}"></i>
+                <p>${isCorrect ? 'Correto!' : 'Incorreto!'}</p>
+                ${currentQuestion.explanation ? `<p class="explanation">${currentQuestion.explanation}</p>` : ''}
+            </div>
+        `;
+        feedback.style.display = 'block';
 
+        // Show the next button
+        quizControls.style.display = 'block';
+
+        // Update score
         if (isCorrect) {
             score++;
             scoreDisplay.textContent = score;
-            feedbackTitle.textContent = 'Correto!';
-            feedbackIcon.classList.remove('fa-times');
-            feedbackIcon.classList.add('fa-check');
-            feedbackIcon.style.color = 'var(--success)';
-        } else {
-            feedbackTitle.textContent = 'Incorreto';
-            feedbackIcon.classList.remove('fa-check');
-            feedbackIcon.classList.add('fa-times');
-            feedbackIcon.style.color = 'var(--error)';
         }
-
-        feedbackText.textContent = currentQuestion.explanation;
-        feedbackContainer.classList.remove('hidden');
     } function showResults() {
         const percentage = Math.round((score / currentQuestions.length) * 100);
         finalScoreDisplay.textContent = percentage;
@@ -156,16 +152,15 @@ document.addEventListener('DOMContentLoaded', () => {
         startSection.classList.remove('active');
         resultsSection.classList.remove('active');
         questionsSection.classList.add('active');
-        feedbackContainer.classList.add('hidden');
 
-        // Hide the next button at the start
-        document.querySelector('.next-question').style.display = 'none';
+        // Hide the feedback and controls at start
+        feedback.style.display = 'none';
+        quizControls.style.display = 'none';
 
         showQuestion(currentQuestions[0]);
     }
 
     function nextQuestion() {
-        feedbackContainer.classList.add('hidden');
         currentQuestionIndex++;
 
         if (currentQuestionIndex < currentQuestions.length) {
@@ -173,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             showResults();
         }
-    }    // Event Listeners
+    }// Event Listeners
     document.getElementById('start-quiz').addEventListener('click', startQuiz);
     document.querySelector('.next-question').addEventListener('click', nextQuestion);
     restartButton.addEventListener('click', startQuiz);
