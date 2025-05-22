@@ -33,6 +33,23 @@
                     "score": "Pontuação: {score}",
                     "complete": "Quiz Concluído!"
                 },
+                "descobrir": {
+                    "title": "Descobrir a Distribuição",
+                    "description": "Aprenda a identificar qual distribuição de probabilidade melhor se adequa a cada situação",
+                    "start": {
+                        "title": "Identificar Distribuições",
+                        "description": "Neste exercício, você encontrará diferentes situações e deverá identificar qual distribuição de probabilidade (Binomial, Poisson ou Normal) melhor se adequa a cada caso.",
+                        "button": "Começar"
+                    },
+                    "buttons": {
+                        "next": "Próxima Questão",
+                        "restart": "Recomeçar"
+                    },
+                    "results": {
+                        "title": "Resultados",
+                        "score": "Pontuação Final"
+                    }
+                },
                 "calculator": {
                     "title": "Calculadora Estatística",
                     "description": "Calcule probabilidades e visualize distribuições estatísticas",

@@ -1,0 +1,117 @@
+{
+    "name": "Descobrir a Distribuição",
+    "description": "Identifique a distribuição de probabilidade mais adequada para cada situação.",
+    "questionsPerSession": 10,
+    "questions": [
+        {
+            "id": 1,
+            "question": "Numa loja online, em média, 3 em cada 100 encomendas têm problemas de entrega. Para um conjunto de 50 encomendas, qual distribuição é mais adequada para modelar o número de entregas com problemas?",
+            "options": [
+                "Distribuição Binomial",
+                "Distribuição de Poisson",
+                "Distribuição Normal"
+            ],
+            "correctAnswer": 0,
+            "explanation": "Este é um exemplo clássico de distribuição Binomial porque: 1) Temos um número fixo de tentativas (50 encomendas), 2) Cada tentativa tem apenas dois resultados possíveis (problema ou sem problema), 3) A probabilidade de sucesso é constante (3%), e 4) As tentativas são independentes."
+        },
+        {
+            "id": 2,
+            "question": "Um centro de atendimento recebe em média 15 chamadas por hora. Qual distribuição é mais adequada para modelar o número de chamadas recebidas num período de 30 minutos?",
+            "options": [
+                "Distribuição Binomial",
+                "Distribuição de Poisson",
+                "Distribuição Normal"
+            ],
+            "correctAnswer": 1,
+            "explanation": "A distribuição de Poisson é ideal para este caso porque: 1) Os eventos ocorrem num intervalo fixo de tempo, 2) Os eventos são independentes, 3) A taxa média de ocorrência é conhecida, e 4) Dois eventos não podem ocorrer exatamente no mesmo instante."
+        },
+        {
+            "id": 3,
+            "question": "Para uma grande população de estudantes universitários, qual distribuição melhor modela as alturas dos alunos?",
+            "options": [
+                "Distribuição Binomial",
+                "Distribuição de Poisson",
+                "Distribuição Normal"
+            ],
+            "correctAnswer": 2,
+            "explanation": "A altura é uma variável contínua que tende a seguir uma distribuição Normal porque: 1) É uma característica física influenciada por muitos fatores independentes, 2) Os valores extremos são mais raros que os valores médios, 3) A distribuição é simétrica em torno da média."
+        },
+        {
+            "id": 4,
+            "question": "Numa fábrica de componentes eletrónicos, a probabilidade de um componente ser defeituoso é de 5%. Numa amostra de 200 componentes, qual distribuição melhor modela o número de componentes defeituosos?",
+            "options": [
+                "Distribuição Binomial",
+                "Distribuição de Poisson",
+                "Distribuição Normal"
+            ],
+            "correctAnswer": 0,
+            "explanation": "É uma distribuição Binomial porque: 1) Temos um número fixo de componentes (200), 2) Cada componente é defeituoso ou não (dois resultados), 3) A probabilidade é constante (5%), 4) Os componentes são testados independentemente."
+        },
+        {
+            "id": 5,
+            "question": "O número de acidentes de trânsito numa determinada rotunda por semana, com uma média de 2 acidentes. Qual distribuição é mais adequada?",
+            "options": [
+                "Distribuição Binomial",
+                "Distribuição de Poisson",
+                "Distribuição Normal"
+            ],
+            "correctAnswer": 1,
+            "explanation": "A distribuição de Poisson é apropriada porque: 1) Os acidentes são eventos raros, 2) Ocorrem num intervalo fixo de tempo (uma semana), 3) São independentes entre si, 4) Conhecemos a taxa média de ocorrência."
+        },
+        {
+            "id": 6,
+            "question": "O tempo de espera dos clientes numa fila de supermercado em horário de pico. Qual distribuição melhor modela estes tempos?",
+            "options": [
+                "Distribuição Binomial",
+                "Distribuição de Poisson",
+                "Distribuição Normal"
+            ],
+            "correctAnswer": 2,
+            "explanation": "A distribuição Normal é adequada porque: 1) O tempo de espera é uma variável contínua, 2) É influenciado por muitos fatores independentes, 3) Valores extremos (muito curtos ou muito longos) são menos frequentes que valores médios."
+        },
+        {
+            "id": 7,
+            "question": "Numa empresa de software, o número de bugs encontrados por dia durante a fase de testes, com média de 8 bugs por dia. Qual distribuição é mais apropriada?",
+            "options": [
+                "Distribuição Binomial",
+                "Distribuição de Poisson",
+                "Distribuição Normal"
+            ],
+            "correctAnswer": 1,
+            "explanation": "A distribuição de Poisson é ideal porque: 1) Os bugs são eventos discretos, 2) Ocorrem num período fixo (um dia), 3) São independentes entre si, 4) Temos uma taxa média conhecida de ocorrência."
+        },
+        {
+            "id": 8,
+            "question": "Num teste de múltipla escolha com 40 questões, onde cada questão tem 4 opções e os alunos respondem aleatoriamente. Qual distribuição modela melhor o número de respostas corretas?",
+            "options": [
+                "Distribuição Binomial",
+                "Distribuição de Poisson",
+                "Distribuição Normal"
+            ],
+            "correctAnswer": 0,
+            "explanation": "É uma distribuição Binomial porque: 1) Há um número fixo de questões (40), 2) Cada questão tem resultado sucesso/falha, 3) A probabilidade é constante (1/4 para cada questão), 4) As questões são respondidas independentemente."
+        },
+        {
+            "id": 9,
+            "question": "As notas finais de uma turma grande numa disciplina universitária. Qual distribuição melhor representa estas notas?",
+            "options": [
+                "Distribuição Binomial",
+                "Distribuição de Poisson",
+                "Distribuição Normal"
+            ],
+            "correctAnswer": 2,
+            "explanation": "A distribuição Normal é apropriada porque: 1) As notas são influenciadas por múltiplos fatores independentes, 2) A maioria dos alunos tende a ter notas próximas à média, 3) Poucos alunos têm notas muito altas ou muito baixas."
+        },
+        {
+            "id": 10,
+            "question": "O número de goles marcados por uma equipa de futebol por jogo, com média de 2,5 goles. Qual distribuição é mais adequada?",
+            "options": [
+                "Distribuição Binomial",
+                "Distribuição de Poisson",
+                "Distribuição Normal"
+            ],
+            "correctAnswer": 1,
+            "explanation": "A distribuição de Poisson é adequada porque: 1) Os goles são eventos raros e discretos, 2) Ocorrem num intervalo fixo (duração do jogo), 3) São relativamente independentes, 4) Temos uma taxa média conhecida."
+        }
+    ]
+}

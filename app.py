@@ -23,6 +23,12 @@ SUBJECTS = {
                 'name': 'quiz', 
                 'route_name': 'quiz',
                 'icon': 'fa-brain'
+            },
+            {
+                'id': 'descobrir',
+                'name': 'descobrir',
+                'route_name': 'descobrir',
+                'icon': 'fa-magnifying-glass-chart'
             }
         ]
     }
@@ -153,6 +159,10 @@ def calculator():
 @app.route("/probabilidade/quiz")
 def quiz():
     return subject_feature('probabilidade', 'quiz')
+    
+@app.route("/probabilidade/descobrir")
+def descobrir():
+    return subject_feature('probabilidade', 'descobrir')
 
 @app.errorhandler(404)
 def page_not_found(e):
