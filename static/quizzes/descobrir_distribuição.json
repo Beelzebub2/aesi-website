@@ -112,6 +112,336 @@
             ],
             "correctAnswer": 1,
             "explanation": "A distribuição de Poisson é adequada porque: 1) Os goles são eventos raros e discretos, 2) Ocorrem num intervalo fixo (duração do jogo), 3) São relativamente independentes, 4) Temos uma taxa média conhecida."
+        },
+        {
+            "id": 11,
+            "question": "O número de clientes que entram numa loja por hora, com uma média de 20 clientes. Qual distribuição é mais adequada?",
+            "options": [
+                "Distribuição Binomial",
+                "Distribuição de Poisson",
+                "Distribuição Normal"
+            ],
+            "correctAnswer": 1,
+            "explanation": "A distribuição de Poisson é apropriada porque: 1) Os clientes entram num intervalo fixo de tempo (uma hora), 2) Os eventos são independentes, 3) A taxa média de ocorrência é conhecida."
+        },
+        {
+            "id": 12,
+            "question": "A probabilidade de um aluno acertar uma questão de verdadeiro ou falso num teste com 10 questões. Qual distribuição é mais adequada?",
+            "options": [
+                "Distribuição Binomial",
+                "Distribuição de Poisson",
+                "Distribuição Normal"
+            ],
+            "correctAnswer": 0,
+            "explanation": "É uma distribuição Binomial porque: 1) Há um número fixo de tentativas (10 questões), 2) Cada tentativa tem dois resultados possíveis (certo ou errado), 3) A probabilidade de sucesso é constante, 4) As tentativas são independentes."
+        },
+        {
+            "id": 13,
+            "question": "O tempo entre chamadas recebidas num call center, com uma média de 5 minutos entre chamadas. Qual distribuição é mais adequada?",
+            "options": [
+                "Distribuição Exponencial",
+                "Distribuição de Poisson",
+                "Distribuição Normal"
+            ],
+            "correctAnswer": 0,
+            "explanation": "A distribuição Exponencial é apropriada porque: 1) Modela o tempo entre eventos, 2) Os eventos são independentes, 3) A taxa média de ocorrência é constante."
+        },
+        {
+            "id": 14,
+            "question": "A altura média de árvores numa floresta, com variações devido a fatores ambientais. Qual distribuição é mais adequada?",
+            "options": [
+                "Distribuição Binomial",
+                "Distribuição de Poisson",
+                "Distribuição Normal"
+            ],
+            "correctAnswer": 2,
+            "explanation": "A distribuição Normal é adequada porque: 1) A altura é uma variável contínua, 2) É influenciada por múltiplos fatores independentes, 3) Os valores extremos são menos frequentes que os valores médios."
+        },
+        {
+            "id": 15,
+            "question": "O número de falhas num sistema informático por dia, com uma média de 3 falhas. Qual distribuição é mais adequada?",
+            "options": [
+                "Distribuição Binomial",
+                "Distribuição de Poisson",
+                "Distribuição Normal"
+            ],
+            "correctAnswer": 1,
+            "explanation": "A distribuição de Poisson é apropriada porque: 1) As falhas são eventos discretos, 2) Ocorrem num intervalo fixo de tempo (um dia), 3) São independentes, 4) A taxa média de ocorrência é conhecida."
+        },
+        {
+            "id": 16,
+            "question": "O número de vezes que um dado é lançado até sair o número 6. Qual distribuição é mais adequada?",
+            "options": [
+                "Distribuição Geométrica",
+                "Distribuição de Poisson",
+                "Distribuição Normal"
+            ],
+            "correctAnswer": 0,
+            "explanation": "A distribuição Geométrica é apropriada porque: 1) Modela o número de tentativas até o primeiro sucesso, 2) Cada tentativa é independente, 3) A probabilidade de sucesso é constante."
+        },
+        {
+            "id": 17,
+            "question": "O peso médio de pacotes enviados por uma empresa de logística, com variações devido ao conteúdo. Qual distribuição é mais adequada?",
+            "options": [
+                "Distribuição Binomial",
+                "Distribuição de Poisson",
+                "Distribuição Normal"
+            ],
+            "correctAnswer": 2,
+            "explanation": "A distribuição Normal é adequada porque: 1) O peso é uma variável contínua, 2) É influenciado por múltiplos fatores independentes, 3) Os valores extremos são menos frequentes que os valores médios."
+        },
+        {
+            "id": 18,
+            "question": "O número de carros que passam por um cruzamento por minuto, com uma média de 10 carros. Qual distribuição é mais adequada?",
+            "options": [
+                "Distribuição Binomial",
+                "Distribuição de Poisson",
+                "Distribuição Normal"
+            ],
+            "correctAnswer": 1,
+            "explanation": "A distribuição de Poisson é apropriada porque: 1) Os carros passam num intervalo fixo de tempo (um minuto), 2) Os eventos são independentes, 3) A taxa média de ocorrência é conhecida."
+        },
+        {
+            "id": 19,
+            "question": "O número de vezes que um cliente visita uma loja por mês, com uma média de 2 visitas. Qual distribuição é mais adequada?",
+            "options": [
+                "Distribuição Binomial",
+                "Distribuição de Poisson",
+                "Distribuição Normal"
+            ],
+            "correctAnswer": 1,
+            "explanation": "A distribuição de Poisson é apropriada porque: 1) As visitas são eventos discretos, 2) Ocorrem num intervalo fixo de tempo (um mês), 3) São independentes, 4) A taxa média de ocorrência é conhecida."
+        },
+        {
+            "id": 20,
+            "question": "O número de erros cometidos por um programador por dia, com uma média de 5 erros. Qual distribuição é mais adequada?",
+            "options": [
+                "Distribuição Binomial",
+                "Distribuição de Poisson",
+                "Distribuição Normal"
+            ],
+            "correctAnswer": 1,
+            "explanation": "A distribuição de Poisson é apropriada porque: 1) Os erros são eventos discretos, 2) Ocorrem num intervalo fixo de tempo (um dia), 3) São independentes, 4) A taxa média de ocorrência é conhecida."
+        },
+        {
+            "id": 21,
+            "question": "O número de chamadas recebidas por um telefone público em uma hora, com uma média de 12 chamadas. Qual distribuição é mais adequada?",
+            "options": [
+                "Distribuição Binomial",
+                "Distribuição de Poisson",
+                "Distribuição Normal"
+            ],
+            "correctAnswer": 1,
+            "explanation": "A distribuição de Poisson é apropriada porque: 1) As chamadas são eventos discretos, 2) Ocorrem num intervalo fixo de tempo (uma hora), 3) São independentes, 4) A taxa média de ocorrência é conhecida."
+        },
+        {
+            "id": 22,
+            "question": "A quantidade de leite produzida por uma vaca em um dia, com média de 25 litros. Qual distribuição é mais adequada?",
+            "options": [
+                "Distribuição Binomial",
+                "Distribuição de Poisson",
+                "Distribuição Normal"
+            ],
+            "correctAnswer": 2,
+            "explanation": "A distribuição Normal é adequada porque: 1) A quantidade de leite é uma variável contínua, 2) É influenciada por múltiplos fatores independentes, 3) Os valores extremos são menos frequentes que os valores médios."
+        },
+        {
+            "id": 23,
+            "question": "O número de pessoas que assistem a um filme em um cinema por sessão, com uma média de 30 pessoas. Qual distribuição é mais adequada?",
+            "options": [
+                "Distribuição Binomial",
+                "Distribuição de Poisson",
+                "Distribuição Normal"
+            ],
+            "correctAnswer": 1,
+            "explanation": "A distribuição de Poisson é apropriada porque: 1) As pessoas que assistem ao filme são eventos discretos, 2) Ocorrem num intervalo fixo de tempo (uma sessão), 3) São independentes, 4) A taxa média de ocorrência é conhecida."
+        },
+        {
+            "id": 24,
+            "question": "A nota de um aluno em um exame, com média de 15 e desvio padrão de 5. Qual distribuição é mais adequada?",
+            "options": [
+                "Distribuição Binomial",
+                "Distribuição de Poisson",
+                "Distribuição Normal"
+            ],
+            "correctAnswer": 2,
+            "explanation": "A distribuição Normal é adequada porque: 1) As notas são influenciadas por múltiplos fatores independentes, 2) A maioria dos alunos tende a ter notas próximas à média, 3) Poucos alunos têm notas muito altas ou muito baixas."
+        },
+        {
+            "id": 25,
+            "question": "O número de emails recebidos por um funcionário em um dia, com uma média de 40 emails. Qual distribuição é mais adequada?",
+            "options": [
+                "Distribuição Binomial",
+                "Distribuição de Poisson",
+                "Distribuição Normal"
+            ],
+            "correctAnswer": 1,
+            "explanation": "A distribuição de Poisson é apropriada porque: 1) Os emails recebidos são eventos discretos, 2) Ocorrem num intervalo fixo de tempo (um dia), 3) São independentes, 4) A taxa média de ocorrência é conhecida."
+        },
+        {
+            "id": 26,
+            "question": "O número de vezes que um atleta corre 100 metros rasos em menos de 10 segundos em 10 corridas. Qual distribuição é mais adequada?",
+            "options": [
+                "Distribuição Binomial",
+                "Distribuição de Poisson",
+                "Distribuição Normal"
+            ],
+            "correctAnswer": 0,
+            "explanation": "É uma distribuição Binomial porque: 1) Há um número fixo de tentativas (10 corridas), 2) Cada tentativa tem dois resultados possíveis (certo ou errado), 3) A probabilidade de sucesso é constante, 4) As tentativas são independentes."
+        },
+        {
+            "id": 27,
+            "question": "O número de pessoas que ficam doentes em uma cidade durante um surto de gripe, com uma média de 200 casos. Qual distribuição é mais adequada?",
+            "options": [
+                "Distribuição Binomial",
+                "Distribuição de Poisson",
+                "Distribuição Normal"
+            ],
+            "correctAnswer": 1,
+            "explanation": "A distribuição de Poisson é apropriada porque: 1) Os casos de gripe são eventos discretos, 2) Ocorrem num intervalo fixo de tempo (durante o surto), 3) São independentes, 4) A taxa média de ocorrência é conhecida."
+        },
+        {
+            "id": 28,
+            "question": "O número de vezes que um jogador de basquete acerta a cesta em 20 arremessos, com uma média de 50% de acertos. Qual distribuição é mais adequada?",
+            "options": [
+                "Distribuição Binomial",
+                "Distribuição de Poisson",
+                "Distribuição Normal"
+            ],
+            "correctAnswer": 0,
+            "explanation": "É uma distribuição Binomial porque: 1) Há um número fixo de tentativas (20 arremessos), 2) Cada tentativa tem dois resultados possíveis (cesta ou não cesta), 3) A probabilidade de sucesso é constante (50%), 4) As tentativas são independentes."
+        },
+        {
+            "id": 29,
+            "question": "O número de pessoas que falecem em um hospital em um dia, com uma média de 3 falecimentos. Qual distribuição é mais adequada?",
+            "options": [
+                "Distribuição Binomial",
+                "Distribuição de Poisson",
+                "Distribuição Normal"
+            ],
+            "correctAnswer": 1,
+            "explanation": "A distribuição de Poisson é apropriada porque: 1) Os falecimentos são eventos discretos, 2) Ocorrem num intervalo fixo de tempo (um dia), 3) São independentes, 4) A taxa média de ocorrência é conhecida."
+        },
+        {
+            "id": 30,
+            "question": "O número de vezes que um estudante é chamado para uma entrevista de emprego em 10 candidaturas, com uma média de 2 convites. Qual distribuição é mais adequada?",
+            "options": [
+                "Distribuição Binomial",
+                "Distribuição de Poisson",
+                "Distribuição Normal"
+            ],
+            "correctAnswer": 1,
+            "explanation": "A distribuição de Poisson é apropriada porque: 1) Os convites para entrevista são eventos discretos, 2) Ocorrem num intervalo fixo de tempo (10 candidaturas), 3) São independentes, 4) A taxa média de ocorrência é conhecida."
+        },
+        {
+            "id": 31,
+            "question": "O número de vezes que um dado é lançado até sair um número par. Qual distribuição é mais adequada?",
+            "options": [
+                "Distribuição Geométrica",
+                "Distribuição de Poisson",
+                "Distribuição Normal"
+            ],
+            "correctAnswer": 0,
+            "explanation": "A distribuição Geométrica é apropriada porque: 1) Modela o número de tentativas até o primeiro sucesso (sair um número par), 2) Cada tentativa é independente, 3) A probabilidade de sucesso é constante."
+        },
+        {
+            "id": 32,
+            "question": "O número de pessoas que chegam a uma bilheteira de cinema em 15 minutos, com uma média de 18 pessoas. Qual distribuição é mais adequada?",
+            "options": [
+                "Distribuição Binomial",
+                "Distribuição de Poisson",
+                "Distribuição Normal"
+            ],
+            "correctAnswer": 1,
+            "explanation": "A distribuição de Poisson é apropriada porque: 1) As chegadas são eventos discretos, 2) Ocorrem num intervalo fixo de tempo (15 minutos), 3) São independentes, 4) A taxa média de ocorrência é conhecida."
+        },
+        {
+            "id": 33,
+            "question": "A quantidade de açúcar em um copo de café, com uma média de 5 gramas. Qual distribuição é mais adequada?",
+            "options": [
+                "Distribuição Binomial",
+                "Distribuição de Poisson",
+                "Distribuição Normal"
+            ],
+            "correctAnswer": 2,
+            "explanation": "A distribuição Normal é adequada porque: 1) A quantidade de açúcar é uma variável contínua, 2) É influenciada por múltiplos fatores independentes, 3) Os valores extremos são menos frequentes que os valores médios."
+        },
+        {
+            "id": 34,
+            "question": "O número de vezes que um aluno falta a aulas em um semestre, com uma média de 4 faltas. Qual distribuição é mais adequada?",
+            "options": [
+                "Distribuição Binomial",
+                "Distribuição de Poisson",
+                "Distribuição Normal"
+            ],
+            "correctAnswer": 1,
+            "explanation": "A distribuição de Poisson é apropriada porque: 1) As faltas são eventos discretos, 2) Ocorrem num intervalo fixo de tempo (um semestre), 3) São independentes, 4) A taxa média de ocorrência é conhecida."
+        },
+        {
+            "id": 35,
+            "question": "O número de gols que um jogador de futebol marca em uma temporada, com uma média de 10 gols. Qual distribuição é mais adequada?",
+            "options": [
+                "Distribuição Binomial",
+                "Distribuição de Poisson",
+                "Distribuição Normal"
+            ],
+            "correctAnswer": 1,
+            "explanation": "A distribuição de Poisson é apropriada porque: 1) Os gols são eventos discretos, 2) Ocorrem num intervalo fixo de tempo (uma temporada), 3) São independentes, 4) A taxa média de ocorrência é conhecida."
+        },
+        {
+            "id": 36,
+            "question": "O número de vezes que um cliente reclama em um restaurante em uma noite, com uma média de 3 reclamações. Qual distribuição é mais adequada?",
+            "options": [
+                "Distribuição Binomial",
+                "Distribuição de Poisson",
+                "Distribuição Normal"
+            ],
+            "correctAnswer": 1,
+            "explanation": "A distribuição de Poisson é apropriada porque: 1) As reclamações são eventos discretos, 2) Ocorrem num intervalo fixo de tempo (uma noite), 3) São independentes, 4) A taxa média de ocorrência é conhecida."
+        },
+        {
+            "id": 37,
+            "question": "O número de vezes que um estudante passa em um exame de recuperação em 5 tentativas, com uma média de 1 aprovação. Qual distribuição é mais adequada?",
+            "options": [
+                "Distribuição Binomial",
+                "Distribuição de Poisson",
+                "Distribuição Normal"
+            ],
+            "correctAnswer": 1,
+            "explanation": "A distribuição de Poisson é apropriada porque: 1) As aprovações são eventos discretos, 2) Ocorrem num intervalo fixo de tempo (5 tentativas), 3) São independentes, 4) A taxa média de ocorrência é conhecida."
+        },
+        {
+            "id": 38,
+            "question": "O número de vezes que um produto é devolvido em uma loja em um dia, com uma média de 2 devoluções. Qual distribuição é mais adequada?",
+            "options": [
+                "Distribuição Binomial",
+                "Distribuição de Poisson",
+                "Distribuição Normal"
+            ],
+            "correctAnswer": 1,
+            "explanation": "A distribuição de Poisson é apropriada porque: 1) As devoluções são eventos discretos, 2) Ocorrem num intervalo fixo de tempo (um dia), 3) São independentes, 4) A taxa média de ocorrência é conhecida."
+        },
+        {
+            "id": 39,
+            "question": "O número de vezes que um paciente retorna a um consultório médico em um ano, com uma média de 3 retornos. Qual distribuição é mais adequada?",
+            "options": [
+                "Distribuição Binomial",
+                "Distribuição de Poisson",
+                "Distribuição Normal"
+            ],
+            "correctAnswer": 1,
+            "explanation": "A distribuição de Poisson é apropriada porque: 1) Os retornos são eventos discretos, 2) Ocorrem num intervalo fixo de tempo (um ano), 3) São independentes, 4) A taxa média de ocorrência é conhecida."
+        },
+        {
+            "id": 40,
+            "question": "O número de vezes que um aluno é aprovado em um teste de múltipla escolha com 50 questões, onde a média de aprovação é de 25 questões. Qual distribuição é mais adequada?",
+            "options": [
+                "Distribuição Binomial",
+                "Distribuição de Poisson",
+                "Distribuição Normal"
+            ],
+            "correctAnswer": 1,
+            "explanation": "A distribuição de Poisson é apropriada porque: 1) As aprovações são eventos discretos, 2) Ocorrem num intervalo fixo de tempo (um teste), 3) São independentes, 4) A taxa média de ocorrência é conhecida."
         }
     ]
 }
