@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Plataforma de aprendizagem interativa com diversos temas e disciplinas">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/general/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/general/navbar.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/general/background.css') }}">
@@ -44,10 +44,12 @@
                             <h3 class="subject-title">{{ translations.subjects.probabilidade.name }}</h3>
                             <p class="subject-description">{{ translations.subjects.probabilidade.description }}</p>
                             <div class="subject-items">
-                                <span class="subject-item">{{ translations.subjects.probabilidade.pages.quiz.title
-                                    }}</span>
-                                <span class="subject-item">{{ translations.subjects.probabilidade.pages.calculator.title
-                                    }}</span>
+                                <span class="subject-item"><i class="fas fa-calculator"></i> {{
+                                    translations.subjects.probabilidade.pages.calculator.title }}</span>
+                                <span class="subject-item"><i class="fas fa-question-circle"></i> {{
+                                    translations.subjects.probabilidade.pages.quiz.title }}</span>
+                                <span class="subject-item"><i class="fas fa-magnifying-glass-chart"></i> {{
+                                    translations.subjects.probabilidade.pages.descobrir.title }}</span>
                             </div>
                         </div>
                     </a>

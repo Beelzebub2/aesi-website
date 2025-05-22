@@ -16,11 +16,20 @@
 
 {% block nav_links %}
 <ul class="nav-links">
-    <li><a href="{{ url_for('subject_home', subject=subject_id) }}">Início</a></li>
+    <li><a href="{{ url_for('subject_home', subject=subject_id) }}"><i class="fas fa-home"></i> Início</a></li>
     {% for feature in subjects[subject_id].features %}
     <li>
         <a href="{{ url_for('subject_feature', subject=subject_id, feature=feature.id) }}" {% if feature_id==feature.id
             %}class="active" aria-current="page" {% endif %}>
+            {% if feature.icon == 'fa-calculator' %}
+            <i class="fas fa-calculator"></i>
+            {% elif feature.icon == 'fa-brain' or feature.icon == 'fa-question-circle' %}
+            <i class="fas fa-brain"></i>
+            {% elif feature.icon == 'fa-magnifying-glass-chart' %}
+            <i class="fas fa-magnifying-glass-chart"></i>
+            {% elif feature.icon == 'fa-chart-line' %}
+            <i class="fas fa-chart-line"></i>
+            {% endif %}
             {{ translations.subject.pages[feature.name].title }}
         </a>
     </li>
@@ -29,7 +38,12 @@
 {% endblock %}
 
 {% block hero %}
-<section class="subject-hero"></section>
+<section class="subject-hero">
+    <div class="container">
+        <h1><i class="fas fa-brain"></i> {{ translations.page.title }}</h1>
+        <p>{{ translations.page.description }}</p>
+    </div>
+</section>
 {% endblock %}
 
 {% block content %}
