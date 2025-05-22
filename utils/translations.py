@@ -58,10 +58,7 @@ class TranslationManager:
             subject_data = translations.get('subjects', {}).get(section, {})
             if subject_data:
                 result.update({
-                    'subject': {
-                        'name': subject_data.get('name', ''),
-                        'description': subject_data.get('description', '')
-                    },
+                    'subject': subject_data,  # Pass the full subject dict, including 'pages'
                     'page': subject_data.get('pages', {}).get(page, {})
                 })
             

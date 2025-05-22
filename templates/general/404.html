@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}Página Não Encontrada{% endblock %}
+{% block description %}A página que você procura não foi encontrada{% endblock %}
+
+{% block extra_css %}
+<style>
+    .error-container {
+        text-align: center;
+        padding: 4rem 1rem;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .error-code {
+        font-size: 8rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--primary-color);
+    }
+
+    .error-message {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .back-button {
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        background-color: var(--primary-color);
+        color: white;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: background-color 0.3s;
+    }
+
+    .back-button:hover {
+        background-color: var(--primary-color-dark);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="error-container">
+    <div class="error-code">404</div>
+    <h1 class="error-message">Página Não Encontrada</h1>
+    <p>A página que você está procurando não existe ou foi movida.</p>
+    <a href="{{ url_for('home') }}" class="back-button">Voltar para a Página Inicial</a>
+</div>
+{% endblock %}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="{% block description %}Plataforma de aprendizagem interativa com diversos temas e disciplinas{% endblock %}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/general/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/general/navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/general/theme-toggle.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/general/background.css') }}">
+    {% block extra_css %}{% endblock %}
+    <script src="{{ url_for('static', filename='js/general/theme.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/general/background.js') }}" defer></script>
+    {% block extra_js %}{% endblock %}
+    <title>{% block title %}{{ title }}{% endblock %}</title>
+</head>
+
+<body>
+    <div class="home-background"></div>
+    <div class="{% block container_class %}page-container{% endblock %}">
+        <nav class="navbar" aria-label="Navegação principal">
+            <div class="container navbar-content">
+                <a href="{{ url_for('home') }}" class="logo">{{ translations.general.platform_name }}</a>
+                {% block nav_links %}{% endblock %}
+                <div class="theme-toggle">
+                    <button id="themeToggle" aria-label="{{ translations.general.dark_mode }}">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        {% block hero %}{% endblock %}
+
+        <main class="container">
+            {% block content %}{% endblock %}
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <p>&copy; 2025 {{ translations.general.platform_name }}. {{ translations.general.copyright }}</p>
+            </div>
+        </footer>
+    </div>
+    {% block bottom_js %}{% endblock %}
+</body>
+
+</html>

@@ -1,71 +1,36 @@
-<!DOCTYPE html>
-<html lang="pt-PT">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Explore conceitos de probabilidade e estatística através de ferramentas interativas">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/general/style.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/general/navbar.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/general/homepage.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/general/theme-toggle.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/subjects/probabilidade/index.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/general/background.css') }}">
-    <script src="{{ url_for('static', filename='js/general/theme.js') }}" defer></script>
-    <script src="{{ url_for('static', filename='js/general/background.js') }}" defer></script>
-    <script src="{{ url_for('static', filename='js/general/homepage.js') }}" defer></script>
-    <title>{{ title }}</title>
-</head>
+{% block title %}{{ title }}{% endblock %}
+{% block description %}Explore conceitos de probabilidade e estatística através de ferramentas interativas{% endblock %}
 
-<body>
-    <div class="home-background"></div>
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/general/homepage.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/subjects/probabilidade/index.css') }}">
+{% endblock %}
 
-    <div class="subject-container">
-        <nav class="navbar" aria-label="Navegação principal">
-            <div class="container navbar-content">
-                <a href="{{ url_for('home') }}" class="logo">Plataforma de Aprendizagem</a>
-                <div class="theme-toggle">
-                    <button id="themeToggle" aria-label="Alternar entre modo claro e escuro">
-                        <i class="fas fa-moon"></i>
-                    </button>
-                </div>
-            </div>
-        </nav>
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/general/homepage.js') }}" defer></script>
+{% endblock %}
 
-        <section class="subject-hero">
-            <div class="container">
-                <h1>Probabilidade e Estatística</h1>
-                <p>Explore conceitos estatísticos através de ferramentas interativas e aprenda de forma dinâmica</p>
-            </div>
-        </section>
+{% block container_class %}subject-container{% endblock %}
 
-        <main class="container">
-            <div class="features-grid">
-                <a href="{{ url_for('calculator') }}" class="feature-card">
-                    <i class="fas fa-calculator feature-icon"></i>
-                    <h2 class="feature-title">Calculadora</h2>
-                    <p class="feature-description">Use nossa calculadora interativa para resolver problemas de
-                        distribuições estatísticas. Inclui Binomial, Poisson e Normal.</p>
-                </a>
-
-                <a href="{{ url_for('quiz') }}" class="feature-card">
-                    <i class="fas fa-brain feature-icon"></i>
-                    <h2 class="feature-title">Questionários</h2>
-                    <p class="feature-description">Teste seus conhecimentos com questionários interativos sobre
-                        probabilidade e estatística</p>
-                </a>
-            </div>
-        </main>
-
-        <footer class="footer">
-            <div class="container">
-                <p>&copy; 2025 Plataforma de Aprendizagem Interativa. Todos os direitos reservados.</p>
-            </div>
-        </footer>
+{% block hero %}
+<section class="subject-hero">
+    <div class="container">
+        <h1>{{ translations.subject.name }}</h1>
+        <p>{{ translations.subject.description }}</p>
     </div>
-</body>
+</section>
+{% endblock %}
 
-</html>
+{% block content %}
+<div class="features-grid">
+    {% for feature in subjects[subject_id].features %}
+    <a href="{{ url_for('subject_feature', subject=subject_id, feature=feature.id) }}" class="feature-card">
+        <i class="fas {{ feature.icon }} feature-icon"></i>
+        <h2 class="feature-title">{{ translations.subject.pages[feature.name].title }}</h2>
+        <p class="feature-description">{{ translations.subject.pages[feature.name].description }}</p>
+    </a>
+    {% endfor %}
+</div>
+{% endblock %}

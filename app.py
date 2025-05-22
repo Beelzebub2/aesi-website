@@ -6,12 +6,38 @@ from utils.translations import TranslationManager
 app = Flask(__name__)
 translation_manager = TranslationManager(os.path.join(os.path.dirname(__file__), 'translations'))
 
-# Make translations available to all templates
+# Available subjects and their features
+SUBJECTS = {
+    'probabilidade': {
+        'name': 'Probabilidade e Estatística',
+        'icon': 'fa-chart-line',
+        'features': [
+            {
+                'id': 'calculator',
+                'name': 'calculator',
+                'route_name': 'calculator',
+                'icon': 'fa-calculator'
+            },
+            {
+                'id': 'quiz',
+                'name': 'quiz', 
+                'route_name': 'quiz',
+                'icon': 'fa-brain'
+            }
+        ]
+    }
+}
+
+# Make translations and subjects available to all templates
 @app.context_processor
-def inject_translations():
+def inject_global_data():
     def get_translations(subject, page):
         return translation_manager.get_translations(subject, page)
-    return dict(get_translations=get_translations)
+    
+    return dict(
+        get_translations=get_translations,
+        subjects=SUBJECTS
+    )
 
 @app.route("/")
 def home():
@@ -35,24 +61,53 @@ def home():
         translations=translations,
         coming_soon=coming_soon
     )
-    
-    # Add cache control headers for better performance
+      # Add cache control headers for better performance
     headers = {
         'Cache-Control': 'public, max-age=300',  # Cache for 5 minutes
         'Vary': 'Accept-Language'  # Vary cache by language
     }
     return response, 200, headers
 
-# Probabilidade e Estatística routes
-@app.route("/probabilidade")
-def probabilidade():
-    translations = translation_manager.get_translations('probabilidade', 'home')
+# Dynamic subject route generation
+@app.route("/<subject>")
+def subject_home(subject):
+    if subject not in SUBJECTS:
+        return render_template('general/404.html'), 404
+        
+    translations = translation_manager.get_translations(subject, 'home')
     return render_template(
-        "subjects/probabilidade/index.html",
+        f"subjects/{subject}/index.html",
         title=translations['page']['title'],
-        translations=translations
+        translations=translations,
+        subject_id=subject
     )
 
+# Dynamic subject feature route generation
+@app.route("/<subject>/<feature>")
+def subject_feature(subject, feature):
+    if subject not in SUBJECTS:
+        return render_template('general/404.html'), 404
+        
+    # Check if feature exists for this subject
+    feature_exists = False
+    for f in SUBJECTS[subject]['features']:
+        if f['id'] == feature:
+            feature_exists = True
+            break
+            
+    if not feature_exists:
+        return render_template('general/404.html'), 404
+    
+    translations = translation_manager.get_translations(subject, feature)
+    return render_template(
+        f"subjects/{subject}/{feature}.html",
+        title=translations['page']['title'],
+        translations=translations,
+        subject_id=subject,
+        feature_id=feature
+    )
+
+# API routes
 @app.route("/api/quiz/<subject>")
 def get_quiz(subject):
     try:
@@ -65,24 +120,6 @@ def get_quiz(subject):
             return jsonify(quiz_data)
     except Exception as e:
         return jsonify({"error": str(e)}), 500
-
-@app.route("/probabilidade/calculator")
-def calculator():
-    translations = translation_manager.get_translations('probabilidade', 'calculator')
-    return render_template(
-        "subjects/probabilidade/calculator.html",
-        title=translations['page']['title'],
-        translations=translations
-    )
-
-@app.route("/probabilidade/quiz")
-def quiz():
-    translations = translation_manager.get_translations('probabilidade', 'quiz')
-    return render_template(
-        "subjects/probabilidade/quiz.html",
-        title=translations['page']['title'],
-        translations=translations
-    )
 
 @app.route("/api/quizzes")
 def get_quizzes():
@@ -99,6 +136,19 @@ def get_quizzes():
                     "description": quiz_data["description"]
                 })
     return jsonify(quizzes)
+
+# Backward compatibility for existing routes
+@app.route("/probabilidade")
+def probabilidade():
+    return subject_home('probabilidade')
+
+@app.route("/probabilidade/calculator")
+def calculator():
+    return subject_feature('probabilidade', 'calculator')
+
+@app.route("/probabilidade/quiz")
+def quiz():
+    return subject_feature('probabilidade', 'quiz')
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=5051)

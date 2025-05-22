@@ -46,7 +46,7 @@ async function loadQuiz() {
         return data;
     } catch (error) {
         console.error('Error in loadQuiz:', error);
-        showError(`Não foi possível carregar o questionário: ${error.message}`);
+        showError(`Não foi possível carregar o Quiz: ${error.message}`);
         return null;
     }
 }
@@ -57,7 +57,7 @@ async function initializeQuiz() {
     loadingIndicator.className = 'loading-indicator';
     loadingIndicator.innerHTML = `
         <div class="spinner"></div>
-        <p>Carregando questionário de probabilidade...</p>
+        <p>Carregando Quiz de probabilidade...</p>
     `;
 
     const quizArea = document.getElementById('quizArea');
@@ -144,7 +144,7 @@ async function initializeQuiz() {
 
     } catch (error) {
         console.error('Error in initializeQuiz:', error);
-        showError(`Erro ao inicializar o questionário: ${error.message}`);
+        showError(`Erro ao inicializar o Quiz: ${error.message}`);
     } finally {
         if (loadingIndicator.parentNode === quizArea) {
             quizArea.removeChild(loadingIndicator);

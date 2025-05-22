@@ -1,6 +1,6 @@
 {
     "general": {
-        "platform_name": "Plataforma de Aprendizagem Interativa",
+        "platform_name": "AESI",
         "copyright": "Todos os direitos reservados",
         "try_again": "Tentar Novamente",
         "next": "Próximo",
@@ -12,7 +12,7 @@
     },
     "pages": {
         "home": {
-            "title": "Plataforma de Aprendizagem Interativa",
+            "title": "AESI",
             "subtitle": "Expanda os seus conhecimentos através de experiências interativas de aprendizagem",
             "available_subjects": "Disciplinas Disponíveis"
         }
@@ -27,11 +27,11 @@
                     "description": "Explore conceitos estatísticos através de ferramentas interativas"
                 },
                 "quiz": {
-                    "title": "Questionários de Aprendizagem",
+                    "title": "Quiz",
                     "description": "Teste os seus conhecimentos em probabilidade e estatística",
                     "current_question": "Pergunta {current} de {total}",
                     "score": "Pontuação: {score}",
-                    "complete": "Questionário Concluído!"
+                    "complete": "Quiz Concluído!"
                 },
                 "calculator": {
                     "title": "Calculadora Estatística",
