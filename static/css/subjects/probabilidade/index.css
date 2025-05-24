@@ -269,6 +269,9 @@
     /* Grass theme subject enhancements */
     --subject-nature-glow: 0 0 20px rgba(76, 175, 80, 0.15);
     --subject-leaf-pattern: radial-gradient(circle at center, var(--grass-light) 0%, transparent 70%);
+    --subject-cosmic-glow: 0 0 20px rgba(33, 150, 243, 0.5);
+    --subject-nebula-pattern: radial-gradient(circle at center, var(--nebula-blue) 0%, transparent 70%);
+    --subject-star-accent: var(--star-white);
 }
 
 /* Galaxy theme subject styling */
