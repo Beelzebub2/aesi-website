@@ -3,6 +3,10 @@
 {% block title %}{{ translations.page.title }} - {{ translations.subject.name }}{% endblock %}
 {% block description %}{{ translations.page.description }}{% endblock %}
 
+{% block og_title %}Podcasts de Probabilidade e Estatística - Aprendizagem Auditiva{% endblock %}
+{% block og_description %}Coleção de podcasts educativos sobre probabilidade e estatística para aprendizagem flexível e
+acessível{% endblock %}
+
 {% block extra_css %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/general/homepage.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/subjects/probabilidade/podcasts.css') }}">
