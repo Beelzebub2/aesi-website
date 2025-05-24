@@ -4,6 +4,16 @@ document.addEventListener('DOMContentLoaded', function () {
     initializePodcastPlayers();
     setupScrollListener();
     setupKeyboardControls();
+
+    // Ensure minimized player visibility is correct
+    setInterval(function () {
+        const minimizedPlayer = document.querySelector('.minimized-player');
+        if (window.podcastState.currentlyPlaying && window.podcastState.currentlyPlaying.playing()) {
+            minimizedPlayer.style.display = 'flex';
+        } else {
+            minimizedPlayer.style.display = 'none';
+        }
+    }, 500);
 });
 
 // Store player instances and state - make it globally accessible
@@ -59,8 +69,7 @@ function initializePodcastPlayers() {
                     player.volume(parseFloat(savedVolume));
                     updateVolumeDisplay(parseFloat(savedVolume));
                 }
-            },
-            onplay: function () {
+            }, onplay: function () {
                 // Update UI for playing state
                 updatePlayingState(playerElement, true);
 
@@ -73,13 +82,12 @@ function initializePodcastPlayers() {
                 window.podcastState.currentlyPlaying = player;
                 window.podcastState.currentEpisodeElement = playerElement;
 
-                // Show minimized player when scrolling
+                // Always show minimized player when audio is playing
                 updateMinimizedPlayer(playerElement, true);
 
                 // Start progress update interval
                 startProgressInterval(playerElement, player);
-            },
-            onpause: function () {
+            }, onpause: function () {
                 // Update UI for paused state
                 updatePlayingState(playerElement, false);
 
@@ -91,12 +99,20 @@ function initializePodcastPlayers() {
                 if (playerElement.progressInterval) {
                     clearInterval(playerElement.progressInterval);
                 }
+
+                // Hide minimized player when paused
+                const minimizedPlayer = document.querySelector('.minimized-player');
+                minimizedPlayer.style.display = 'none';
             },
             onstop: function () {
                 updatePlayingState(playerElement, false);
                 if (playerElement.progressInterval) {
                     clearInterval(playerElement.progressInterval);
                 }
+
+                // Hide minimized player when stopped
+                const minimizedPlayer = document.querySelector('.minimized-player');
+                minimizedPlayer.style.display = 'none';
             },
             onend: function () {
                 updatePlayingState(playerElement, false);
@@ -461,8 +477,10 @@ function updateMinimizedPlayer(playerElement, isPlaying) {
         window.updateVolumeDisplay(currentVolume);
     }
 
-    // Show minimized player
-    minimizedPlayer.style.display = 'flex';
+    // Always show minimized player when audio is playing
+    if (isPlaying && window.podcastState.currentlyPlaying && window.podcastState.currentlyPlaying.playing()) {
+        minimizedPlayer.style.display = 'flex';
+    }
 }
 
 // Update all progress bars (for minimized player interaction)
@@ -502,14 +520,10 @@ function playNextEpisode(currentEpisodeNumber) {
 // Setup scroll listener to show/hide minimized player
 function setupScrollListener() {
     window.addEventListener('scroll', function () {
-        if (!window.podcastState.currentlyPlaying || !window.podcastState.currentEpisodeElement) return;
-
-        const podcastCard = window.podcastState.currentEpisodeElement.closest('.podcast-card');
-        const cardRect = podcastCard.getBoundingClientRect();
         const minimizedPlayer = document.querySelector('.minimized-player');
 
-        // Show minimized player when the current card is out of view
-        if (cardRect.bottom < 0 || cardRect.top > window.innerHeight) {
+        // Always show minimized player when audio is playing, hide when not playing
+        if (window.podcastState.currentlyPlaying && window.podcastState.currentlyPlaying.playing()) {
             minimizedPlayer.style.display = 'flex';
         } else {
             minimizedPlayer.style.display = 'none';
