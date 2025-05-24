@@ -25,15 +25,17 @@ endblock %}
     {% for feature in subjects[subject_id].features %}
     <li>
         <a href="{{ url_for('subject_feature', subject=subject_id, feature=feature.id) }}" {% if feature_id==feature.id
-            %}class="active" aria-current="page" {% endif %}>
+            %} class="active" aria-current="page" {% endif %}>
             {% if feature.icon == 'fa-calculator' %}
             <i class="fas fa-calculator"></i>
-            {% elif feature.icon == 'fa-question-circle' or feature.icon == 'fa-brain' %}
+            {% elif feature.icon == 'fa-brain' or feature.icon == 'fa-question-circle' %}
             <i class="fas fa-brain"></i>
             {% elif feature.icon == 'fa-magnifying-glass-chart' %}
             <i class="fas fa-magnifying-glass-chart"></i>
             {% elif feature.icon == 'fa-chart-line' %}
             <i class="fas fa-chart-line"></i>
+            {% elif feature.icon == 'fa-podcast' %}
+            <i class="fas fa-podcast"></i>
             {% endif %}
             {{ translations.subject.pages[feature.name].title }}
         </a>

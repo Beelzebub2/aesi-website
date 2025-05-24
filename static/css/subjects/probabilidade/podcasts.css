@@ -296,7 +296,7 @@
     /* Increased max width for more controls */
     background-color: var(--bs-body-bg);
     border-radius: 50px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
     padding: 0.75rem 1rem;
     z-index: 9999;
     display: flex;
