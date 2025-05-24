@@ -17,14 +17,14 @@
 /* Improve touch scrolling on all platforms */
 html {
     -webkit-overflow-scrolling: touch;
-    /* Disable smooth scrolling on mobile to prevent jumping */
-    scroll-behavior: auto;
+    scroll-behavior: smooth;
+    /* Add smooth scroll padding for fixed header */
+    scroll-padding-top: var(--mobile-navbar-height, 60px);
 }
 
-/* Enable smooth scrolling only on larger screens */
-@media (min-width: 769px) {
+@media (prefers-reduced-motion: reduce) {
     html {
-        scroll-behavior: smooth;
+        scroll-behavior: auto;
     }
 }
 
@@ -69,14 +69,8 @@ body {
     /* Improve scrolling performance on mobile */
     -webkit-overflow-scrolling: touch;
     overscroll-behavior: contain;
-    scroll-behavior: auto;
+    scroll-behavior: smooth;
 }
-
-/* Enable smooth scrolling only on larger screens */
-@media (min-width: 769px) {
-    body {
-        scroll-behavior: smooth;
-    }
 }
 
 /* Mobile navigation improvements */
