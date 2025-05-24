@@ -95,6 +95,48 @@
                             }
                         }
                     }
+                },
+                "podcasts": {
+                    "title": "Podcasts Educacionais",
+                    "description": "Ouça explicações detalhadas sobre conceitos de probabilidade e estatística",
+                    "episodes": {
+                        "1": {
+                            "title": "Estatística Descritiva",
+                            "description": "Aprenda os fundamentos da análise de dados e medidas estatísticas básicas"
+                        },
+                        "2": {
+                            "title": "Teoria das Probabilidades",
+                            "description": "Compreenda os conceitos fundamentais de probabilidade e suas aplicações"
+                        },
+                        "3": {
+                            "title": "Probabilidade Condicionada e Acontecimentos Independentes",
+                            "description": "Explore as relações entre eventos e probabilidades condicionais"
+                        },
+                        "4": {
+                            "title": "Variáveis Aleatórias",
+                            "description": "Entenda como variáveis aleatórias modelam fenômenos incertos"
+                        },
+                        "5": {
+                            "title": "Distribuições Discretas",
+                            "description": "Conheça as principais distribuições de probabilidade discretas"
+                        },
+                        "6": {
+                            "title": "Distribuições Contínuas",
+                            "description": "Descubra as distribuições contínuas e suas propriedades"
+                        },
+                        "7": {
+                            "title": "Amostragem e Distribuições Amostrais",
+                            "description": "Aprenda sobre técnicas de amostragem e suas distribuições"
+                        },
+                        "8": {
+                            "title": "Estimação",
+                            "description": "Compreenda métodos de estimação de parâmetros e intervalos de confiança"
+                        },
+                        "9": {
+                            "title": "Testes de Hipóteses",
+                            "description": "Explore métodos paramétricos para testar hipóteses estatísticas"
+                        }
+                    }
                 }
             }
         }

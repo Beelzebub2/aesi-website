@@ -22,6 +22,12 @@
     <script src="{{ url_for('static', filename='js/general/mobile-nav.js') }}" defer></script>
     {% block extra_js %}{% endblock %}
     <title>{% block title %}{{ title }}{% endblock %}</title>
+    <style>
+        /* Ensure minimized player appears above all modals and overlays */
+        .minimized-player {
+            z-index: 99999 !important;
+        }
+    </style>
 </head>
 
 <body>
