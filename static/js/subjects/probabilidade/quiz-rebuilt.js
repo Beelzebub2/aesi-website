@@ -68,12 +68,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Shuffle all questions and pick the first N
             const shuffledQuestions = shuffleArray(preparedQuestions)
-                .slice(0, 10); // Quiz has 10 questions
-
-            // For each question, randomize the options while keeping track of the correct answer
+                .slice(0, 10); // Quiz has 10 questions            // For each question, randomize the options while keeping track of the correct answer
             shuffledQuestions.forEach(question => {
                 // Store the correct answer text based on index
-                const correctAnswerText = question.options[question.correct];
+                const correctAnswerText = question.options[question.correctAnswer];
 
                 // Shuffle the options
                 const shuffledOptions = shuffleArray(question.options);
@@ -81,9 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Find the new index of the correct answer
                 const newCorrectIndex = shuffledOptions.indexOf(correctAnswerText);
-                question.correct = newCorrectIndex;
-
-                // Store the correct answer text for reference
+                question.correctAnswer = newCorrectIndex;                // Store the correct answer text for reference
                 question.correctAnswerText = correctAnswerText;
 
                 console.log(`Prepared question: "${question.question.substring(0, 30)}..."`);
@@ -126,18 +122,16 @@ document.addEventListener('DOMContentLoaded', () => {
         // Hide feedback and controls
         feedback.style.display = 'none';
         quizControls.style.display = 'none';
-    }
-
-    function selectAnswer(selectedIndex, question) {
+    } function selectAnswer(selectedIndex, question) {
         // Disable all option buttons
         const optionButtons = document.querySelectorAll('.option-btn');
         optionButtons.forEach(btn => btn.disabled = true);
 
-        const isCorrect = selectedIndex === question.correct;
+        const isCorrect = selectedIndex === question.correctAnswer;
 
         // Add visual feedback to buttons
         optionButtons.forEach((btn, index) => {
-            if (index === question.correct) {
+            if (index === question.correctAnswer) {
                 btn.classList.add('correct');
             } else if (index === selectedIndex && !isCorrect) {
                 btn.classList.add('wrong');

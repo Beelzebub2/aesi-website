@@ -1,7 +1,7 @@
 {
     "name": "Quiz de Probabilidade e Estatística",
     "description": "Teste seus conhecimentos em probabilidade e estatística",
-    "difficulty": "Médio",
+    "questionsPerSession": 10,
     "questions": [
         {
             "id": 1,
@@ -10,9 +10,8 @@
                 "Sim",
                 "Não"
             ],
-            "correct": "Sim",
-            "explanation": "Uma amostra é um subconjunto representativo da população total que está sendo estudada.",
-            "difficulty": "Fácil"
+            "correctAnswer": 0,
+            "explanation": "Uma amostra é um subconjunto representativo da população total que está sendo estudada."
         },
         {
             "id": 2,
@@ -21,9 +20,8 @@
                 "Descrever e resumir os dados da amostra",
                 "Tirar conclusões a partir da amostra para toda a população"
             ],
-            "correct": "Descrever e resumir os dados da amostra",
-            "explanation": "A estatística descritiva se concentra em resumir e apresentar os dados da amostra de forma clara, enquanto a estatística inferencial é usada para tirar conclusões sobre a população.",
-            "difficulty": "Fácil"
+            "correctAnswer": 0,
+            "explanation": "A estatística descritiva se concentra em resumir e apresentar os dados da amostra de forma clara, enquanto a estatística inferencial é usada para tirar conclusões sobre a população."
         },
         {
             "id": 3,
@@ -34,9 +32,8 @@
                 "Quantitativa discreta",
                 "Quantitativa contínua"
             ],
-            "correct": "Quantitativa discreta",
-            "explanation": "É uma variável quantitativa discreta porque representa contagens (números inteiros) que não podem ser divididos em partes menores - não pode haver 2,5 emails.",
-            "difficulty": "Médio"
+            "correctAnswer": 2,
+            "explanation": "É uma variável quantitativa discreta porque representa contagens (números inteiros) que não podem ser divididos em partes menores - não pode haver 2,5 emails."
         },
         {
             "id": 4,
@@ -47,9 +44,8 @@
                 "Quantitativa discreta",
                 "Quantitativa contínua"
             ],
-            "correct": "Quantitativa contínua",
-            "explanation": "É uma variável quantitativa contínua porque pode assumir qualquer valor em um intervalo (pode ser €25,42 ou qualquer outro valor com casas decimais).",
-            "difficulty": "Médio"
+            "correctAnswer": 3,
+            "explanation": "É uma variável quantitativa contínua porque pode assumir qualquer valor em um intervalo (pode ser €25,42 ou qualquer outro valor com casas decimais)."
         },
         {
             "id": 5,
@@ -60,9 +56,8 @@
                 "Quantitativa discreta",
                 "Quantitativa contínua"
             ],
-            "correct": "Qualitativa nominal",
-            "explanation": "É uma variável qualitativa nominal porque representa categorias (distritos) sem uma ordem natural entre elas.",
-            "difficulty": "Médio"
+            "correctAnswer": 0,
+            "explanation": "É uma variável qualitativa nominal porque representa categorias (distritos) sem uma ordem natural entre elas."
         },
         {
             "id": 6,
@@ -73,9 +68,8 @@
                 "Quantitativa discreta",
                 "Quantitativa contínua"
             ],
-            "correct": "Qualitativa nominal",
-            "explanation": "É uma variável qualitativa nominal porque representa categorias (gêneros) sem uma ordem natural entre elas.",
-            "difficulty": "Médio"
+            "correctAnswer": 0,
+            "explanation": "É uma variável qualitativa nominal porque representa categorias (gêneros) sem uma ordem natural entre elas."
         },
         {
             "id": 7,
@@ -86,9 +80,8 @@
                 "Quantitativa discreta",
                 "Quantitativa contínua"
             ],
-            "correct": "Quantitativa discreta",
-            "explanation": "É uma variável quantitativa discreta porque representa contagens (números inteiros) - não pode haver 25,5 alunos inscritos.",
-            "difficulty": "Médio"
+            "correctAnswer": 2,
+            "explanation": "É uma variável quantitativa discreta porque representa contagens (números inteiros) - não pode haver 25,5 alunos inscritos."
         },
         {
             "id": 8,
@@ -99,9 +92,8 @@
                 "Quantitativa discreta",
                 "Quantitativa contínua"
             ],
-            "correct": "Qualitativa ordinal",
-            "explanation": "É uma variável qualitativa ordinal porque representa categorias (patentes militares) com uma ordem hierárquica natural entre elas.",
-            "difficulty": "Médio"
+            "correctAnswer": 1,
+            "explanation": "É uma variável qualitativa ordinal porque representa categorias (patentes militares) com uma ordem hierárquica natural entre elas."
         },
         {
             "id": 9,
@@ -112,9 +104,8 @@
                 "Quantitativa discreta",
                 "Quantitativa contínua"
             ],
-            "correct": "Qualitativa ordinal",
-            "explanation": "É uma variável qualitativa ordinal porque representa categorias (níveis de satisfação) com uma ordem natural entre elas (ex: muito insatisfeito < insatisfeito < neutro < satisfeito < muito satisfeito).",
-            "difficulty": "Médio"
+            "correctAnswer": 1,
+            "explanation": "É uma variável qualitativa ordinal porque representa categorias (níveis de satisfação) com uma ordem natural entre elas (ex: muito insatisfeito < insatisfeito < neutro < satisfeito < muito satisfeito)."
         },
         {
             "id": 10,
@@ -123,9 +114,8 @@
                 "Sim",
                 "Não"
             ],
-            "correct": "Sim",
-            "explanation": "A média, a mediana e a moda são todas medidas de tendência central ou localização, pois indicam onde os dados tendem a se concentrar.",
-            "difficulty": "Fácil"
+            "correctAnswer": 0,
+            "explanation": "A média, a mediana e a moda são todas medidas de tendência central ou localização, pois indicam onde os dados tendem a se concentrar."
         },
         {
             "id": 11,
@@ -134,9 +124,8 @@
                 "Sim",
                 "Não"
             ],
-            "correct": "Sim",
-            "explanation": "Para calcular a mediana, é necessário ordenar os valores da amostra do menor para o maior e identificar o valor central (ou a média dos dois valores centrais).",
-            "difficulty": "Fácil"
+            "correctAnswer": 0,
+            "explanation": "Para calcular a mediana, é necessário ordenar os valores da amostra do menor para o maior e identificar o valor central (ou a média dos dois valores centrais)."
         },
         {
             "id": 12,
@@ -145,9 +134,8 @@
                 "Sim",
                 "Não"
             ],
-            "correct": "Sim",
-            "explanation": "A mediana divide a amostra ordenada em duas partes iguais, com 50% dos valores abaixo e 50% acima dela.",
-            "difficulty": "Fácil"
+            "correctAnswer": 0,
+            "explanation": "A mediana divide a amostra ordenada em duas partes iguais, com 50% dos valores abaixo e 50% acima dela."
         },
         {
             "id": 13,
@@ -156,9 +144,8 @@
                 "Sim",
                 "Não"
             ],
-            "correct": "Sim",
-            "explanation": "A mediana é mais resistente a valores extremos (outliers) do que a média, pois não é afetada por grandes desvios em relação aos outros valores.",
-            "difficulty": "Médio"
+            "correctAnswer": 0,
+            "explanation": "A mediana é mais resistente a valores extremos (outliers) do que a média, pois não é afetada por grandes desvios em relação aos outros valores."
         },
         {
             "id": 14,
@@ -167,9 +154,8 @@
                 "Sim",
                 "Não"
             ],
-            "correct": "Sim",
-            "explanation": "A mediana é o 2º quartil (Q2, 50% dos dados), enquanto o 3º quartil (Q3) representa 75% dos dados, portanto Q3 > Q2.",
-            "difficulty": "Médio"
+            "correctAnswer": 0,
+            "explanation": "A mediana é o 2º quartil (Q2, 50% dos dados), enquanto o 3º quartil (Q3) representa 75% dos dados, portanto Q3 > Q2."
         },
         {
             "id": 15,
@@ -178,9 +164,8 @@
                 "Sim",
                 "Não"
             ],
-            "correct": "Não",
-            "explanation": "A mediana é o 2º quartil (Q2, 50% dos dados), enquanto o 1º quartil (Q1) representa 25% dos dados.",
-            "difficulty": "Fácil"
+            "correctAnswer": 1,
+            "explanation": "A mediana é o 2º quartil (Q2, 50% dos dados), enquanto o 1º quartil (Q1) representa 25% dos dados."
         },
         {
             "id": 16,
@@ -189,9 +174,8 @@
                 "Média",
                 "Mediana"
             ],
-            "correct": "Mediana",
-            "explanation": "Como existe um valor muito discrepante (150), a mediana é mais adequada por ser resistente a outliers. A média seria inflacionada pelo valor extremo.",
-            "difficulty": "Médio"
+            "correctAnswer": 1,
+            "explanation": "Como existe um valor muito discrepante (150), a mediana é mais adequada por ser resistente a outliers. A média seria inflacionada pelo valor extremo."
         },
         {
             "id": 17,
@@ -200,9 +184,8 @@
                 "Sim",
                 "Não"
             ],
-            "correct": "Não",
-            "explanation": "Não é possível calcular a média para variáveis qualitativas como estado civil, pois estas não têm valores numéricos intrínsecos para operações aritméticas.",
-            "difficulty": "Médio"
+            "correctAnswer": 1,
+            "explanation": "Não é possível calcular a média para variáveis qualitativas como estado civil, pois estas não têm valores numéricos intrínsecos para operações aritméticas."
         },
         {
             "id": 18,
@@ -212,9 +195,8 @@
                 "Mediana",
                 "Moda"
             ],
-            "correct": "Moda",
-            "explanation": "Para variáveis qualitativas nominais, a única medida de tendência central que pode ser usada é a moda (o valor mais frequente).",
-            "difficulty": "Médio"
+            "correctAnswer": 2,
+            "explanation": "Para variáveis qualitativas nominais, a única medida de tendência central que pode ser usada é a moda (o valor mais frequente)."
         },
         {
             "id": 19,
@@ -224,9 +206,8 @@
                 "Mediana",
                 "Moda"
             ],
-            "correct": "Moda",
-            "explanation": "A moda pode não existir se todos os valores ocorrerem com a mesma frequência, ou pode haver múltiplas modas se vários valores tiverem a mesma frequência máxima.",
-            "difficulty": "Médio"
+            "correctAnswer": 2,
+            "explanation": "A moda pode não existir se todos os valores ocorrerem com a mesma frequência, ou pode haver múltiplas modas se vários valores tiverem a mesma frequência máxima."
         },
         {
             "id": 20,
@@ -236,9 +217,8 @@
                 "Os dados encontram-se mais concentrados à direita",
                 "Os dados encontram-se igualmente concentrados à esquerda e à direita"
             ],
-            "correct": "Os dados encontram-se mais concentrados à esquerda",
-            "explanation": "Na assimetria positiva (ou à direita), a cauda da distribuição se estende mais para a direita, com a maioria dos dados concentrados à esquerda e média > mediana.",
-            "difficulty": "Difícil"
+            "correctAnswer": 0,
+            "explanation": "Na assimetria positiva (ou à direita), a cauda da distribuição se estende mais para a direita, com a maioria dos dados concentrados à esquerda e média > mediana."
         },
         {
             "id": 21,
@@ -248,9 +228,8 @@
                 "Os dados encontram-se mais concentrados à direita",
                 "Os dados encontram-se igualmente concentrados à esquerda e à direita"
             ],
-            "correct": "Os dados encontram-se mais concentrados à direita",
-            "explanation": "Na assimetria negativa (ou à esquerda), a cauda da distribuição se estende mais para a esquerda, com a maioria dos dados concentrados à direita e média < mediana.",
-            "difficulty": "Difícil"
+            "correctAnswer": 1,
+            "explanation": "Na assimetria negativa (ou à esquerda), a cauda da distribuição se estende mais para a esquerda, com a maioria dos dados concentrados à direita e média < mediana."
         },
         {
             "id": 22,
@@ -260,9 +239,8 @@
                 "Enviesada à direita",
                 "Enviesada à esquerda"
             ],
-            "correct": "Simétrica",
-            "explanation": "Quando média = mediana = moda, a distribuição é simétrica, indicando que os dados estão igualmente distribuídos em torno do valor central.",
-            "difficulty": "Médio"
+            "correctAnswer": 0,
+            "explanation": "Quando média = mediana = moda, a distribuição é simétrica, indicando que os dados estão igualmente distribuídos em torno do valor central."
         },
         {
             "id": 23,
@@ -271,9 +249,8 @@
                 "Sim",
                 "Não"
             ],
-            "correct": "Sim",
-            "explanation": "A amplitude (diferença entre o valor máximo e mínimo) é uma medida de dispersão que indica o espalhamento total dos dados.",
-            "difficulty": "Fácil"
+            "correctAnswer": 0,
+            "explanation": "A amplitude (diferença entre o valor máximo e mínimo) é uma medida de dispersão que indica o espalhamento total dos dados."
         },
         {
             "id": 24,
@@ -282,9 +259,8 @@
                 "Sim",
                 "Não"
             ],
-            "correct": "Não",
-            "explanation": "A amplitude considera apenas os valores extremos (máximo e mínimo) e ignora como os dados estão distribuídos entre esses extremos.",
-            "difficulty": "Médio"
+            "correctAnswer": 1,
+            "explanation": "A amplitude considera apenas os valores extremos (máximo e mínimo) e ignora como os dados estão distribuídos entre esses extremos."
         },
         {
             "id": 25,
@@ -293,9 +269,8 @@
                 "Sim",
                 "Não"
             ],
-            "correct": "Sim",
-            "explanation": "O intervalo interquartil (IQR = Q3 - Q1) compreende o intervalo central que contém 50% das observações, excluindo os 25% inferiores e os 25% superiores.",
-            "difficulty": "Médio"
+            "correctAnswer": 0,
+            "explanation": "O intervalo interquartil (IQR = Q3 - Q1) compreende o intervalo central que contém 50% das observações, excluindo os 25% inferiores e os 25% superiores."
         },
         {
             "id": 26,
@@ -304,9 +279,8 @@
                 "Sim",
                 "Não"
             ],
-            "correct": "Sim",
-            "explanation": "A variância mede a dispersão dos dados em relação à média, calculando a média dos quadrados das diferenças entre cada valor e a média da amostra.",
-            "difficulty": "Médio"
+            "correctAnswer": 0,
+            "explanation": "A variância mede a dispersão dos dados em relação à média, calculando a média dos quadrados das diferenças entre cada valor e a média da amostra."
         },
         {
             "id": 27,
@@ -315,9 +289,8 @@
                 "Sim",
                 "Não"
             ],
-            "correct": "Sim",
-            "explanation": "Ao contrário da amplitude, a variância utiliza todos os valores da amostra em seu cálculo, considerando o desvio de cada observação em relação à média.",
-            "difficulty": "Médio"
+            "correctAnswer": 0,
+            "explanation": "Ao contrário da amplitude, a variância utiliza todos os valores da amostra em seu cálculo, considerando o desvio de cada observação em relação à média."
         },
         {
             "id": 28,
@@ -326,9 +299,8 @@
                 "Sim",
                 "Não"
             ],
-            "correct": "Sim",
-            "explanation": "A variância é calculada como a média dos quadrados das diferenças entre cada valor e a média da amostra, portanto é necessário conhecer a média primeiro.",
-            "difficulty": "Médio"
+            "correctAnswer": 0,
+            "explanation": "A variância é calculada como a média dos quadrados das diferenças entre cada valor e a média da amostra, portanto é necessário conhecer a média primeiro."
         },
         {
             "id": 29,
@@ -337,9 +309,8 @@
                 "Sim",
                 "Não"
             ],
-            "correct": "Sim",
-            "explanation": "O desvio padrão é definido como a raiz quadrada positiva da variância, trazendo a medida de dispersão de volta à unidade original dos dados.",
-            "difficulty": "Fácil"
+            "correctAnswer": 0,
+            "explanation": "O desvio padrão é definido como a raiz quadrada positiva da variância, trazendo a medida de dispersão de volta à unidade original dos dados."
         },
         {
             "id": 30,
@@ -348,9 +319,8 @@
                 "Sim",
                 "Não"
             ],
-            "correct": "Sim",
-            "explanation": "O desvio padrão é frequentemente preferido à variância porque está na mesma unidade dos dados originais, facilitando a interpretação prática.",
-            "difficulty": "Médio"
+            "correctAnswer": 0,
+            "explanation": "O desvio padrão é frequentemente preferido à variância porque está na mesma unidade dos dados originais, facilitando a interpretação prática."
         },
         {
             "id": 31,
@@ -359,9 +329,8 @@
                 "Sim",
                 "Não"
             ],
-            "correct": "Sim",
-            "explanation": "O coeficiente de correlação linear (r de Pearson) mede a força e direção da associação linear entre duas variáveis quantitativas.",
-            "difficulty": "Médio"
+            "correctAnswer": 0,
+            "explanation": "O coeficiente de correlação linear (r de Pearson) mede a força e direção da associação linear entre duas variáveis quantitativas."
         },
         {
             "id": 32,
@@ -370,9 +339,8 @@
                 "Sim",
                 "Não"
             ],
-            "correct": "Não",
-            "explanation": "Um coeficiente de correlação zero indica apenas ausência de relação linear. Pode existir uma relação não-linear forte entre as variáveis.",
-            "difficulty": "Difícil"
+            "correctAnswer": 1,
+            "explanation": "Um coeficiente de correlação zero indica apenas ausência de relação linear. Pode existir uma relação não-linear forte entre as variáveis."
         }
     ]
 }

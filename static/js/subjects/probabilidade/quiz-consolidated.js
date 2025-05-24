@@ -59,10 +59,8 @@ class QuizSystem {
             if (!data || !data.questions || !Array.isArray(data.questions)) {
                 console.error('Invalid quiz data structure:', data);
                 throw new Error('Invalid quiz data format');
-            }
-
-            const validQuestions = data.questions.filter(q =>
-                q && q.question && q.options && Array.isArray(q.options) && q.correct && q.options.length > 0
+            } const validQuestions = data.questions.filter(q =>
+                q && q.question && q.options && Array.isArray(q.options) && typeof q.correctAnswer === 'number' && q.options.length > 0
             );
 
             if (validQuestions.length === 0) {
@@ -197,13 +195,11 @@ class QuizSystem {
         const controls = document.querySelector('.quiz-controls');
 
         // Disable all option buttons
-        optionButtons.forEach(btn => btn.disabled = true);
-
-        const isCorrect = selectedIndex === question.correct;
+        optionButtons.forEach(btn => btn.disabled = true); const isCorrect = selectedIndex === question.correctAnswer;
 
         // Add visual feedback
         optionButtons.forEach((btn, index) => {
-            if (index === question.correct) {
+            if (index === question.correctAnswer) {
                 btn.classList.add('correct');
             } else if (index === selectedIndex && !isCorrect) {
                 btn.classList.add('wrong');
