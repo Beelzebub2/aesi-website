@@ -24,7 +24,7 @@
     --border-color: #C8E6C9;
     --shadow-color: rgba(76, 175, 80, 0.15);
     --hover-bg: rgba(129, 199, 132, 0.1);
-    --navbar-bg: rgba(255, 255, 255, 0.95);
+    --navbar-bg: rgba(255, 255, 255, 0.7);
 
     /* Grass-themed additional colors */
     --grass-light: #E8F5E8;
@@ -80,7 +80,7 @@
     --border-color: #30363D;
     --shadow-color: rgba(33, 150, 243, 0.2);
     --hover-bg: rgba(33, 150, 243, 0.1);
-    --navbar-bg: rgba(13, 17, 23, 0.95);
+    --navbar-bg: rgba(13, 17, 23, 0.7);
 
     /* Blue-themed additional colors */
     --nebula-blue: #2196F3;
