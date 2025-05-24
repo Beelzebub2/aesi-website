@@ -162,17 +162,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 ${currentQuestion.explanation ? `<p class="explanation">${currentQuestion.explanation}</p>` : ''}
             </div>
         `;
-        feedback.style.display = 'block';
-
-        // Show the next button
+        feedback.style.display = 'block';        // Show the next button
         quizControls.style.display = 'block';
 
-        // Scroll to feedback and next button
+        // Scroll to feedback and next button (avoid smooth scroll on mobile to prevent jumping)
         setTimeout(() => {
             const feedbackRect = feedback.getBoundingClientRect();
             const controlsRect = quizControls.getBoundingClientRect();
             const scrollTo = feedbackRect.top < controlsRect.top ? feedback : quizControls;
-            scrollTo.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            // Use smooth scroll only on larger screens
+            const scrollBehavior = window.innerWidth > 768 ? 'smooth' : 'auto';
+            scrollTo.scrollIntoView({ behavior: scrollBehavior, block: 'center' });
         }, 10);
 
         // Update score

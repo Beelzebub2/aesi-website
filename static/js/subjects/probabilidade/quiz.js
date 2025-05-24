@@ -132,11 +132,13 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.classList.add('disabled');
         });
 
-        const isCorrect = selectedIndex === question.correct;
+        // Find the correct answer index by comparing the selected option text with the correct answer
+        const correctIndex = question.options.indexOf(question.correct);
+        const isCorrect = selectedIndex === correctIndex;
 
         // Add visual feedback to buttons
         optionButtons.forEach((btn, index) => {
-            if (index === question.correct) {
+            if (index === correctIndex) {
                 btn.classList.add('correct');
             } else if (index === selectedIndex && !isCorrect) {
                 btn.classList.add('incorrect');
@@ -146,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isCorrect) {
             score++;
             scoreDisplay.textContent = score;
-        }        // Show feedback
+        }// Show feedback
         feedback.innerHTML = `
             <div class="feedback-content ${isCorrect ? 'correct' : 'incorrect'}">
                 <i class="fas ${isCorrect ? 'fa-check-circle' : 'fa-times-circle'}"></i>
@@ -154,17 +156,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 ${question.explanation ? `<p class="explanation">${question.explanation}</p>` : ''}
             </div>
         `; feedback.style.display = 'block';
-        feedback.className = `feedback ${isCorrect ? 'correct' : 'incorrect'}`;
-
-        // Show next button immediately
+        feedback.className = `feedback ${isCorrect ? 'correct' : 'incorrect'}`;        // Show next button immediately
         quizControls.style.display = 'block';
 
-        // Scroll to feedback and next button
+        // Scroll to feedback and next button (avoid smooth scroll on mobile to prevent jumping)
         setTimeout(() => {
             const feedbackRect = feedback.getBoundingClientRect();
             const controlsRect = quizControls.getBoundingClientRect();
             const scrollTo = feedbackRect.top < controlsRect.top ? feedback : quizControls;
-            scrollTo.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            // Use smooth scroll only on larger screens
+            const scrollBehavior = window.innerWidth > 768 ? 'smooth' : 'auto';
+            scrollTo.scrollIntoView({ behavior: scrollBehavior, block: 'center' });
         }, 10);
     }
 

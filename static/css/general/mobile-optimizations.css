@@ -1,0 +1,288 @@
+/* Enhanced Mobile Optimization and Touch Interactions */
+:root {
+    /* Mobile-specific variables */
+    --mobile-touch-target: 44px;
+    --mobile-touch-spacing: 8px;
+    --mobile-scroll-margin: 16px;
+    --mobile-animation-speed: 0.2s;
+}
+
+/* Global mobile improvements */
+* {
+    /* Disable text size adjust on mobile devices */
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+/* Improve touch scrolling on all platforms */
+html {
+    -webkit-overflow-scrolling: touch;
+    /* Disable smooth scrolling on mobile to prevent jumping */
+    scroll-behavior: auto;
+}
+
+/* Enable smooth scrolling only on larger screens */
+@media (min-width: 769px) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+/* Remove tap highlights on touch devices */
+* {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+}
+
+/* Focus styles for accessibility */
+button:focus,
+input:focus,
+textarea:focus,
+select:focus,
+a:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* Improve button touch targets */
+button,
+.btn,
+.button,
+input[type="submit"],
+input[type="button"] {
+    min-height: var(--mobile-touch-target);
+    min-width: var(--mobile-touch-target);
+    touch-action: manipulation;
+    user-select: none;
+}
+
+/* Mobile-first responsive images */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Prevent horizontal scroll and improve mobile scrolling */
+body {
+    overflow-x: hidden;
+    /* Improve scrolling performance on mobile */
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    scroll-behavior: auto;
+}
+
+/* Enable smooth scrolling only on larger screens */
+@media (min-width: 769px) {
+    body {
+        scroll-behavior: smooth;
+    }
+}
+
+/* Mobile navigation improvements */
+@media (max-width: 768px) {
+
+    /* Ensure proper spacing for fixed navbar */
+    main {
+        padding-top: calc(var(--mobile-navbar-height, 60px) + var(--mobile-scroll-margin));
+    }
+
+    /* Improve scroll behavior with fixed header */
+    html {
+        scroll-padding-top: calc(var(--mobile-navbar-height, 60px) + var(--mobile-scroll-margin));
+    }
+
+    /* Better touch targets for links */
+    a {
+        min-height: var(--mobile-touch-target);
+        display: inline-flex;
+        align-items: center;
+        padding: var(--mobile-touch-spacing);
+        margin: calc(var(--mobile-touch-spacing) * -1);
+    }
+
+    /* Improve form elements */
+    input,
+    textarea,
+    select {
+        font-size: 16px;
+        /* Prevents zoom on iOS */
+        min-height: 48px;
+        padding: 12px 16px;
+        border-radius: 8px;
+        border: 2px solid var(--border-color);
+        transition: border-color var(--mobile-animation-speed) ease;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.1);
+    }
+
+    /* Better card layouts */
+    .card,
+    .feature-card,
+    .subject-card {
+        margin-bottom: 1rem;
+        padding: 1.5rem;
+        border-radius: var(--mobile-card-radius, 12px);
+    }
+
+    /* Improve grid layouts */
+    .grid,
+    .features-grid,
+    .subject-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    /* Better typography scaling */
+    h1 {
+        font-size: clamp(1.5rem, 5vw, 2.5rem);
+    }
+
+    h2 {
+        font-size: clamp(1.3rem, 4vw, 2rem);
+    }
+
+    h3 {
+        font-size: clamp(1.1rem, 3.5vw, 1.5rem);
+    }
+
+    h4 {
+        font-size: clamp(1rem, 3vw, 1.25rem);
+    }
+
+    h5 {
+        font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    }
+
+    h6 {
+        font-size: clamp(0.8rem, 2vw, 1rem);
+    }
+
+    /* Improve spacing */
+    .container {
+        padding-left: var(--mobile-container-padding, 1rem);
+        padding-right: var(--mobile-container-padding, 1rem);
+    }
+
+    /* Better modal/popup handling */
+    .modal,
+    .popup,
+    .side-menu {
+        max-height: 100vh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+    main {
+        padding-top: calc(56px + var(--mobile-scroll-margin));
+    }
+
+    html {
+        scroll-padding-top: calc(56px + var(--mobile-scroll-margin));
+    }
+
+    .container {
+        padding-left: var(--mobile-container-padding, 0.75rem);
+        padding-right: var(--mobile-container-padding, 0.75rem);
+    }
+
+    /* Smaller touch targets for very small screens */
+    button,
+    .btn,
+    .button {
+        min-height: 42px;
+        min-width: 42px;
+        font-size: 14px;
+    }
+
+    /* Reduce padding on cards */
+    .card,
+    .feature-card,
+    .subject-card {
+        padding: 1rem;
+    }
+}
+
+/* Tablet landscape improvements */
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    .features-grid,
+    .subject-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .container {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    /* Better touch targets for tablets */
+    button,
+    .btn,
+    .button {
+        min-height: 48px;
+        min-width: 48px;
+    }
+}
+
+/* Print styles */
+@media print {
+
+    .navbar,
+    .mobile-nav-toggle,
+    .side-menu,
+    .theme-toggle,
+    .background {
+        display: none !important;
+    }
+
+    body {
+        padding-top: 0 !important;
+    }
+
+    .container {
+        max-width: none;
+        padding: 0;
+    }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+
+    button,
+    .btn,
+    .button {
+        border: 2px solid currentColor;
+    }
+
+    .card,
+    .feature-card,
+    .subject-card {
+        border: 1px solid var(--text-color);
+    }
+}

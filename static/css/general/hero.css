@@ -126,14 +126,47 @@
 
 @media (max-width: 768px) {
     .subject-hero {
-        padding: 3rem 1rem;
+        padding: 2.5rem var(--mobile-container-padding, 1rem);
+        margin-bottom: 1.5rem;
+        border-radius: var(--mobile-card-radius, 12px);
     }
 
     .subject-hero h1 {
-        font-size: 2rem;
+        font-size: clamp(1.8rem, 5vw, 2.2rem);
+        line-height: 1.2;
+        margin-bottom: 1rem;
+    }
+
+    .subject-hero h1 i {
+        font-size: 0.85em;
+        margin-right: 0.375rem;
     }
 
     .subject-hero p {
-        font-size: 1.1rem;
+        font-size: clamp(1rem, 3.5vw, 1.1rem);
+        line-height: 1.5;
+        padding: 0 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .subject-hero {
+        padding: 2rem var(--mobile-container-padding, 0.75rem);
+        margin-bottom: 1rem;
+    }
+
+    .subject-hero h1 {
+        font-size: clamp(1.5rem, 6vw, 2rem);
+        margin-bottom: 0.75rem;
+    }
+
+    .subject-hero h1 i {
+        font-size: 0.8em;
+        margin-right: 0.25rem;
+    }
+
+    .subject-hero p {
+        font-size: clamp(0.9rem, 4vw, 1rem);
+        padding: 0;
     }
 }

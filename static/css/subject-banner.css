@@ -98,15 +98,116 @@
 }
 
 @media (max-width: 768px) {
+    .subject-banner {
+        padding: 1.5rem var(--mobile-container-padding, 1rem);
+        margin-bottom: 1.5rem;
+    }
+
     .subject-banner .container {
         flex-direction: column;
         align-items: flex-start;
         gap: 1rem;
     }
 
+    .subject-title {
+        font-size: clamp(1.5rem, 4vw, 1.8rem);
+        line-height: 1.2;
+    }
+
+    .subject-description {
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+
     .subject-nav {
         width: 100%;
         overflow-x: auto;
         padding-bottom: 0.5rem;
+        gap: 0.75rem;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .subject-nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .subject-nav-item {
+        padding: 0.75rem 1rem;
+        min-width: fit-content;
+        white-space: nowrap;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+    }
+
+    .subject-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+    }
+
+    .subject-card {
+        padding: 1.5rem;
+        min-height: 120px;
+    }
+
+    .subject-card h3 {
+        font-size: clamp(1.2rem, 3.5vw, 1.4rem);
+        margin-bottom: 0.75rem;
+    }
+
+    .subject-card p {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+
+    .subject-items {
+        gap: 0.375rem;
+        margin-top: 0.75rem;
+    }
+
+    .subject-item {
+        padding: 0.375rem 0.75rem;
+        font-size: 0.8rem;
+        border-radius: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .subject-banner {
+        padding: 1rem var(--mobile-container-padding, 0.75rem);
+        margin-bottom: 1rem;
+    }
+
+    .subject-title {
+        font-size: clamp(1.3rem, 5vw, 1.6rem);
+    }
+
+    .subject-description {
+        font-size: 0.9rem;
+    }
+
+    .subject-nav {
+        gap: 0.5rem;
+    }
+
+    .subject-nav-item {
+        padding: 0.625rem 0.875rem;
+        font-size: 13px;
+        min-height: 42px;
+    }
+
+    .subject-grid {
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    .subject-card {
+        padding: 1.25rem;
     }
 }

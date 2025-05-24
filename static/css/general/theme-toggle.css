@@ -108,11 +108,34 @@
         position: absolute;
         top: 1rem;
         right: 1rem;
+        margin-left: 0;
     }
 
     .theme-toggle button {
-        width: 36px;
-        height: 36px;
+        width: 44px;
+        height: 44px;
         font-size: 1rem;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+    }
+
+    .theme-toggle button:hover {
+        transform: scale(1.05) rotate(5deg);
+    }
+
+    .theme-toggle button:active {
+        transform: scale(0.95) rotate(-5deg);
+    }
+}
+
+@media (max-width: 480px) {
+    .theme-toggle button {
+        width: 42px;
+        height: 42px;
+        font-size: 0.9rem;
+    }
+
+    .theme-toggle button:hover {
+        transform: scale(1.03) rotate(3deg);
     }
 }

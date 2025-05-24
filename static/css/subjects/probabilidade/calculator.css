@@ -282,33 +282,21 @@ label {
 }
 
 /* Responsive Design */
-@media (max-width: 1200px) {
+@media (max-width: 480px) {
+    .calculator-container {
+        margin: 1rem auto;
+        padding: 1rem 0.75rem;
+    }
+
     .calculator-grid {
         grid-template-columns: 1fr;
-    }
-
-    .chart-container {
-        /* Maintain good height on smaller screens */
-        min-height: 400px;
-        aspect-ratio: 16/9;
-    }
-}
-
-@media (max-width: 1024px) {
-    .chart-container {
-        min-height: 300px;
-    }
-}
-
-@media (max-width: 768px) {
-    .calculator-container {
-        margin: 0.5rem;
-        padding: 0.5rem;
+        gap: 1.25rem;
     }
 
     .calculator-card,
     .result-card {
-        padding: 1rem;
+        padding: 1.25rem;
+        border-radius: var(--mobile-card-radius, 12px);
     }
 
     .param-group {
@@ -319,10 +307,102 @@ label {
 
     .form-input,
     .form-select {
-        font-size: 0.9rem;
-        padding: 0.5rem;
+        font-size: 16px;
+        /* Prevent zoom on iOS */
+        padding: 0.875rem 1rem;
+        min-height: 48px;
+    }
+
+    .distribution-select {
+        margin-bottom: 1.25rem;
+    }
+
+    .result-value {
+        font-size: 1.375rem;
+        word-break: break-word;
+    }
+
+    .button {
+        padding: 0.875rem 1.5rem;
+        font-size: 1rem;
+        min-height: 48px;
         width: 100%;
-        height: 40px;
+    }
+
+    .section-title {
+        font-size: clamp(1.375rem, 5vw, 1.5rem);
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+
+    /* Chart improvements for mobile */
+    .chart-container {
+        min-height: 300px;
+        padding: 0.75rem;
+        margin-top: 1rem;
+    }
+
+    /* Tutorial cards stack better on mobile */
+    .tutorials-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .tutorial-card {
+        padding: 1.5rem;
+        text-align: center;
+    }
+
+    /* Better spacing for very small screens */
+    .calculator-card h3 {
+        font-size: 1.125rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Improve parameter labels */
+    .param-group label {
+        font-size: 0.95rem;
+        margin-bottom: 0.5rem;
+    }
+
+    /* Better result display */
+    .result-card {
+        text-align: center;
+    }
+
+    .result-label {
+        font-size: 1rem;
+        margin-bottom: 0.75rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .calculator-container {
+        margin: 1.5rem auto;
+        padding: 1.5rem 1rem;
+    }
+
+    .calculator-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .calculator-card,
+    .result-card {
+        padding: 1.5rem;
+    }
+
+    .param-group {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .form-input,
+    .form-select {
+        font-size: 15px;
+        padding: 0.75rem;
+        min-height: 44px;
     }
 
     .distribution-select {
@@ -334,29 +414,42 @@ label {
     }
 
     .button {
-        padding: 0.75rem;
+        padding: 0.75rem 1.5rem;
         font-size: 0.95rem;
+        min-height: 44px;
     }
 
     .section-title {
         font-size: 1.5rem;
         margin-bottom: 1rem;
     }
+
+    /* Chart container responsive */
+    .chart-container {
+        min-height: 350px;
+    }
+
+    /* Tutorial improvements */
+    .tutorials-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+    }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 1024px) {
+    .chart-container {
+        min-height: 300px;
+    }
+}
 
-    .calculator-card,
-    .result-card {
-        padding: 1rem;
+@media (max-width: 1200px) {
+    .calculator-grid {
+        grid-template-columns: 1fr;
     }
 
-    .tutorial-card {
-        padding: 1.5rem;
-    }
-
-    .button {
-        padding: 0.8rem;
-        font-size: 1rem;
+    .chart-container {
+        /* Maintain good height on smaller screens */
+        min-height: 400px;
+        aspect-ratio: 16/9;
     }
 }

@@ -32,7 +32,6 @@
     --grass-dark: #388E3C;
     --leaf-accent: #689F38;
     --flower-accent: #FF7043;
-
     /* Layout variables */
     --container-max-width: 1200px;
     --container-padding: 1.5rem;
@@ -40,6 +39,13 @@
     --card-radius: 16px;
     --transition-speed: 0.4s;
     --button-hover-brightness: 1.05;
+
+    /* Responsive variables */
+    --mobile-container-padding: 1rem;
+    --mobile-section-spacing: 2rem;
+    --mobile-card-radius: 12px;
+    --tablet-container-padding: 1.25rem;
+    --tablet-section-spacing: 2.5rem;
 
     /* Enhanced animation variables */
     --animation-fast: 200ms;
@@ -399,13 +405,74 @@ main {
 }
 
 /* Media queries for responsive design */
+@media (max-width: 480px) {
+    :root {
+        --container-padding: var(--mobile-container-padding);
+        --section-spacing: var(--mobile-section-spacing);
+        --card-radius: var(--mobile-card-radius);
+    }
+
+    body {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .container {
+        padding: 0 var(--mobile-container-padding);
+    }
+
+    .card {
+        padding: 1rem;
+        margin: 0.75rem 0;
+    }
+
+    .button {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9rem;
+        min-height: 44px;
+        /* Touch-friendly minimum */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Better text sizing for small screens */
+    h1 {
+        font-size: clamp(1.5rem, 6vw, 2.25rem);
+    }
+
+    h2 {
+        font-size: clamp(1.25rem, 5vw, 1.75rem);
+    }
+
+    h3 {
+        font-size: clamp(1.1rem, 4vw, 1.5rem);
+    }
+
+    /* Reduce spacing between elements */
+    main {
+        padding: 1rem 0;
+    }
+}
+
 @media (max-width: 768px) {
     :root {
-        --container-padding: 1rem;
-        --section-spacing: 2rem;
+        --container-padding: var(--tablet-container-padding);
+        --section-spacing: var(--tablet-section-spacing);
     }
 
     .card {
         padding: 1.25rem;
+    }
+
+    /* Touch-friendly buttons */
+    .button {
+        min-height: 44px;
+        padding: 0.875rem 1.75rem;
+    }
+
+    /* Better spacing for tablets */
+    main {
+        padding: 1.5rem 0;
     }
 }
