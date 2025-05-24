@@ -35,7 +35,7 @@
                     "start": {
                         "title": "Pronto para começar?",
                         "description": "Clique no botão abaixo para iniciar o quiz.",
-                        "button": "Começar Quiz"
+                        "button": "Começar"
                     },
                     "buttons": {
                         "next": "Próxima Questão",
