@@ -8,7 +8,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // Ensure minimized player visibility is correct
     setInterval(function () {
         const minimizedPlayer = document.querySelector('.minimized-player');
-        if (window.podcastState.currentlyPlaying && window.podcastState.currentlyPlaying.playing()) {
+        // Show player when there's a current track (playing or paused)
+        if (window.podcastState.currentlyPlaying) {
             minimizedPlayer.style.display = 'flex';
         } else {
             minimizedPlayer.style.display = 'none';
@@ -100,17 +101,16 @@ function initializePodcastPlayers() {
                     clearInterval(playerElement.progressInterval);
                 }
 
-                // Hide minimized player when paused
-                const minimizedPlayer = document.querySelector('.minimized-player');
-                minimizedPlayer.style.display = 'none';
-            },
-            onstop: function () {
+                // Keep minimized player visible when paused so user can resume easily
+            }, onstop: function () {
                 updatePlayingState(playerElement, false);
                 if (playerElement.progressInterval) {
                     clearInterval(playerElement.progressInterval);
                 }
 
-                // Hide minimized player when stopped
+                // Clear current player reference and hide minimized player
+                window.podcastState.currentlyPlaying = null;
+                window.podcastState.currentEpisodeElement = null;
                 const minimizedPlayer = document.querySelector('.minimized-player');
                 minimizedPlayer.style.display = 'none';
             },
@@ -124,7 +124,10 @@ function initializePodcastPlayers() {
                 // Reset position
                 localStorage.removeItem(`podcast_${episodeNumber}_position`);
 
-                // Hide minimized player
+                // Clear current player reference and hide minimized player
+                window.podcastState.currentlyPlaying = null;
+                window.podcastState.currentEpisodeElement = null;
+                const minimizedPlayer = document.querySelector('.minimized-player');
                 minimizedPlayer.style.display = 'none';
 
                 // Auto-play next episode option
@@ -475,12 +478,8 @@ function updateMinimizedPlayer(playerElement, isPlaying) {
     if (window.podcastState.currentlyPlaying) {
         const currentVolume = window.podcastState.currentlyPlaying.volume();
         window.updateVolumeDisplay(currentVolume);
-    }
-
-    // Always show minimized player when audio is playing
-    if (isPlaying && window.podcastState.currentlyPlaying && window.podcastState.currentlyPlaying.playing()) {
-        minimizedPlayer.style.display = 'flex';
-    }
+    }    // Always show minimized player when there's a current track
+    minimizedPlayer.style.display = 'flex';
 }
 
 // Update all progress bars (for minimized player interaction)
@@ -522,8 +521,8 @@ function setupScrollListener() {
     window.addEventListener('scroll', function () {
         const minimizedPlayer = document.querySelector('.minimized-player');
 
-        // Always show minimized player when audio is playing, hide when not playing
-        if (window.podcastState.currentlyPlaying && window.podcastState.currentlyPlaying.playing()) {
+        // Show minimized player when there's a current track (playing or paused)
+        if (window.podcastState.currentlyPlaying) {
             minimizedPlayer.style.display = 'flex';
         } else {
             minimizedPlayer.style.display = 'none';
