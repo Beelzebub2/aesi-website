@@ -25,14 +25,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const quizControls = document.querySelector('.quiz-controls');
     const nextButton = document.querySelector('.next-question');
     const restartButton = document.getElementById('restart-quiz');
-    const resultsMessage = document.querySelector('.results-message');
+    const resultsMessage = document.querySelector('.results-message'); function shuffleArray(array) {
+        // Create a new array to avoid modifying the original
+        const newArray = [...array];
 
-    function shuffleArray(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
+        // Fisher-Yates (Knuth) shuffle algorithm - more thorough randomization
+        for (let i = newArray.length - 1; i > 0; i--) {
+            // Generate a more random index using crypto API if available
+            let j;
+            if (window.crypto && window.crypto.getRandomValues) {
+                const randomArray = new Uint32Array(1);
+                window.crypto.getRandomValues(randomArray);
+                j = Math.floor((randomArray[0] / (0xffffffff + 1)) * (i + 1));
+            } else {
+                j = Math.floor(Math.random() * (i + 1));
+            }
+
+            // Swap elements
+            [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
         }
-        return array;
+
+        return newArray;
     } async function loadQuestions() {
         try {
             const response = await fetch(`/static/quizzes/${quizType}_distribuição.json`);
@@ -46,8 +59,35 @@ document.addEventListener('DOMContentLoaded', () => {
                 throw new Error("No questions found in quiz data");
             }
 
+            // Create a deep copy of questions to prepare
+            const preparedQuestions = JSON.parse(JSON.stringify(data.questions));
+
+            // Shuffle all questions and pick the first N
+            const shuffledQuestions = shuffleArray(preparedQuestions)
+                .slice(0, data.questionsPerSession || 10);
+
+            // For each question, randomize the options while keeping track of the correct answer
+            shuffledQuestions.forEach(question => {
+                // Store the correct answer text based on index
+                const correctAnswerText = question.options[question.correctAnswer];
+
+                // Shuffle the options
+                const shuffledOptions = shuffleArray(question.options);
+                question.options = shuffledOptions;
+
+                // Find the new index of the correct answer
+                const newCorrectIndex = shuffledOptions.indexOf(correctAnswerText);
+                question.correctAnswer = newCorrectIndex;
+
+                // Store the correct answer text for reference
+                question.correctAnswerText = correctAnswerText;
+
+                console.log(`Prepared question: "${question.question.substring(0, 30)}..."`);
+                console.log(`  Correct answer: ${correctAnswerText} (new index: ${newCorrectIndex})`);
+            });
+
             return {
-                questions: shuffleArray(data.questions).slice(0, data.questionsPerSession || 10),
+                questions: shuffledQuestions,
                 questionsPerSession: data.questionsPerSession || 10
             };
         } catch (error) {
@@ -59,10 +99,28 @@ document.addEventListener('DOMContentLoaded', () => {
         questionText.textContent = question.question;
         optionsContainer.innerHTML = '';
 
-        question.options.forEach((option, index) => {
+        // Re-shuffle options for even more randomness
+        const displayOptions = shuffleArray([...question.options]);
+
+        // Find the new position of the correct answer
+        const correctAnswerText = question.correctAnswerText || question.options[question.correctAnswer];
+        const newCorrectIndex = displayOptions.indexOf(correctAnswerText);
+
+        // Update the question's correct answer index
+        question.correctAnswer = newCorrectIndex;
+
+        // Update options in the question object
+        question.options = displayOptions;
+
+        // Create the option buttons with animations
+        displayOptions.forEach((option, index) => {
             const button = document.createElement('button');
             button.textContent = option;
             button.classList.add('quiz-option');
+
+            // Add animation delay for cascading effect
+            button.style.animationDelay = `${index * 0.05}s`;
+
             button.addEventListener('click', () => checkAnswer(index));
             optionsContainer.appendChild(button);
         });
@@ -76,6 +134,12 @@ document.addEventListener('DOMContentLoaded', () => {
     } function checkAnswer(selectedIndex) {
         const currentQuestion = currentQuestions[currentQuestionIndex];
         const isCorrect = selectedIndex === currentQuestion.correctAnswer;
+        const selectedOptionText = currentQuestion.options[selectedIndex];
+        const correctOptionText = currentQuestion.correctAnswerText || currentQuestion.options[currentQuestion.correctAnswer];
+
+        console.log(`Selected: ${selectedOptionText}`);
+        console.log(`Correct: ${correctOptionText}`);
+        console.log(`Result: ${isCorrect ? "Correct!" : "Incorrect!"}`);
 
         // Disable all option buttons
         const options = optionsContainer.querySelectorAll('.quiz-option');

@@ -153,28 +153,65 @@ async function initializeQuiz() {
 }
 
 function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
+    // Create a new array to avoid modifying the original array
+    const newArray = [...array];
+
+    // Fisher-Yates (Knuth) shuffle algorithm - more thorough randomization
+    for (let i = newArray.length - 1; i > 0; i--) {
+        // Generate a more random index using crypto API if available
+        let j;
+        if (window.crypto && window.crypto.getRandomValues) {
+            const randomArray = new Uint32Array(1);
+            window.crypto.getRandomValues(randomArray);
+            j = Math.floor((randomArray[0] / (0xffffffff + 1)) * (i + 1));
+        } else {
+            j = Math.floor(Math.random() * (i + 1));
+        }
+
+        // Swap elements
+        [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
     }
-    return array;
+
+    return newArray;
 }
 
 function prepareQuestions(questions) {
-    // Create a deep copy of questions and shuffle them
-    const shuffledQuestions = JSON.parse(JSON.stringify(questions));
-    shuffleArray(shuffledQuestions);
+    console.log('Preparing and randomizing questions...');
+
+    // Create a deep copy of questions
+    const copiedQuestions = JSON.parse(JSON.stringify(questions));
+
+    // Shuffle the entire question array
+    const shuffledQuestions = shuffleArray(copiedQuestions);
 
     // Take only TOTAL_QUESTIONS questions
     const selectedQuestions = shuffledQuestions.slice(0, TOTAL_QUESTIONS);
-
-    // Shuffle options for each question
+    // For each question, store the correct answer and then shuffle options
     selectedQuestions.forEach(question => {
         if (question.options && Array.isArray(question.options)) {
-            shuffleArray(question.options);
+            // Store the correct answer text
+            const correctAnswer = question.correct;
+
+            // Store the correct answer for future reference
+            question.correctAnswer = correctAnswer;
+
+            // Shuffle the options (this returns a new array that doesn't modify the original)
+            const shuffledOptions = shuffleArray(question.options);
+
+            // Update the question with shuffled options
+            question.options = shuffledOptions;
+
+            // Update the correct index to match the new position
+            const newCorrectIndex = shuffledOptions.indexOf(correctAnswer);
+            question.correctIndex = newCorrectIndex;
+
+            console.log(`Question prepared: "${question.question.substring(0, 30)}..." 
+                       Correct answer: ${correctAnswer}, 
+                       New position: ${newCorrectIndex}`);
         }
     });
 
+    console.log('Questions prepared with randomized answer positions');
     return selectedQuestions;
 }
 
@@ -220,10 +257,26 @@ function showQuestion() {
         totalQuestionsSpan.textContent = TOTAL_QUESTIONS;
         optionsContainer.innerHTML = '';
 
-        question.options.forEach((option, index) => {
+        // Re-shuffle options again for extra randomness
+        // This creates a new shuffled array but doesn't modify the original
+        const displayOptions = shuffleArray(question.options);
+
+        // Update the correct answer index to match the new order
+        const newCorrectIndex = displayOptions.indexOf(question.correctAnswer);
+        question.correctIndex = newCorrectIndex;
+
+        // Store the reshuffled options back in the question
+        question.options = displayOptions;
+
+        // Create option buttons with randomized positions
+        displayOptions.forEach((option, index) => {
             const button = document.createElement('button');
             button.className = 'quiz-option';
             button.textContent = option;
+
+            // Add subtle animation delay for cascading appearance
+            button.style.animationDelay = `${index * 0.05}s`;
+
             button.onclick = () => checkAnswer(index);
             optionsContainer.appendChild(button);
         });
@@ -244,7 +297,15 @@ function updateProgressBar() {
 
 function checkAnswer(selectedIndex) {
     const question = activeQuestions[currentQuestion];
-    const correct = question.options[selectedIndex] === question.correct;
+
+    // Get the option text that was selected
+    const selectedOptionText = question.options[selectedIndex];
+
+    // Check if selected option matches the correct answer text
+    const correct = selectedOptionText === question.correctAnswer;
+
+    console.log(`Selected: ${selectedOptionText}, Correct: ${question.correctAnswer}, Result: ${correct}`);
+
     const options = document.querySelectorAll('.quiz-option');
 
     // Disable all options
@@ -258,8 +319,9 @@ function checkAnswer(selectedIndex) {
 
     // Show correct answer if wrong
     if (!correct) {
+        // Find the correct option by text content
         options.forEach((option, index) => {
-            if (question.options[index] === question.correct) {
+            if (question.options[index] === question.correctAnswer) {
                 option.classList.add('correct');
             }
         });
