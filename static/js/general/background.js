@@ -138,17 +138,9 @@ function addBackgroundAnimations() {
     document.head.appendChild(style);
 }
 
-// Listen for theme changes and regenerate background after loading overlay is hidden
-document.addEventListener('data-theme-changed', (event) => {
-    // Wait for the loading overlay to complete (800ms loading + 500ms theme application + 300ms overlay hide)
-    setTimeout(() => {
-        createThemeAwareBackground();
-    }, 1600);
-});
-
-// Also listen for immediate theme changes (for initial load)
-document.addEventListener('themeChanged', () => {
-    createThemeAwareBackground();
+// Listen for theme changes
+document.addEventListener('data-theme-changed', () => {
+    setTimeout(createThemeAwareBackground, 300); // Delay to allow theme transition
 });
 
 // Initialize background when the page loads
