@@ -13,48 +13,227 @@ const ThemeManager = {
         }
     },
 
-    createThemeTransition() {
-        if (document.getElementById('theme-transition-overlay')) return;
+    createLoadingOverlay() {
+        if (document.getElementById('theme-loading-overlay')) return;
 
         const overlay = document.createElement('div');
-        overlay.id = 'theme-transition-overlay';
+        overlay.id = 'theme-loading-overlay';
+        overlay.innerHTML = `
+            <div class="loading-spinner">
+                <div class="spiral-container">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                <div class="loading-text">Switching theme...</div>
+            </div>
+        `;
+
         overlay.style.cssText = `
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: transparent;
-            pointer-events: none;
-            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-            z-index: 9999;
-            backdrop-filter: blur(0px);
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         `;
+
+        // Add CSS for the loading animation
+        const style = document.createElement('style');
+        style.textContent = `
+            .loading-spinner {
+                text-align: center;
+                color: white;
+            }
+            
+            .spiral-container {
+                --size: 60px;
+                --color: #4CAF50;
+                --speed: 0.9s;
+                --center: calc(var(--size) / 2 - var(--size) / 5 / 2);
+                position: relative;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                height: var(--size);
+                width: var(--size);
+                margin-bottom: 20px;
+                animation: rotate calc(var(--speed) * 3) linear infinite;
+            }
+            
+            .spiral-container .dot {
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                height: 100%;
+                width: 100%;
+            }
+            
+            .spiral-container .dot::before {
+                content: '';
+                height: 20%;
+                width: 20%;
+                border-radius: 50%;
+                background-color: var(--color);
+                animation: oscillate var(--speed) ease-in-out infinite alternate;
+                transition: background-color 0.3s ease;
+            }
+            
+            .spiral-container .dot:nth-child(1)::before {
+                transform: translateX(var(--center));
+            }
+            
+            .spiral-container .dot:nth-child(2) {
+                transform: rotate(45deg);
+            }
+            
+            .spiral-container .dot:nth-child(2)::before {
+                transform: translateX(var(--center));
+                animation-delay: calc(var(--speed) * -0.125);
+            }
+            
+            .spiral-container .dot:nth-child(3) {
+                transform: rotate(90deg);
+            }
+            
+            .spiral-container .dot:nth-child(3)::before {
+                transform: translateX(var(--center));
+                animation-delay: calc(var(--speed) * -0.25);
+            }
+            
+            .spiral-container .dot:nth-child(4) {
+                transform: rotate(135deg);
+            }
+            
+            .spiral-container .dot:nth-child(4)::before {
+                transform: translateX(var(--center));
+                animation-delay: calc(var(--speed) * -0.375);
+            }
+            
+            .spiral-container .dot:nth-child(5) {
+                transform: rotate(180deg);
+            }
+            
+            .spiral-container .dot:nth-child(5)::before {
+                transform: translateX(var(--center));
+                animation-delay: calc(var(--speed) * -0.5);
+            }
+            
+            .spiral-container .dot:nth-child(6) {
+                transform: rotate(225deg);
+            }
+            
+            .spiral-container .dot:nth-child(6)::before {
+                transform: translateX(var(--center));
+                animation-delay: calc(var(--speed) * -0.625);
+            }
+            
+            .spiral-container .dot:nth-child(7) {
+                transform: rotate(270deg);
+            }
+            
+            .spiral-container .dot:nth-child(7)::before {
+                transform: translateX(var(--center));
+                animation-delay: calc(var(--speed) * -0.75);
+            }
+            
+            .spiral-container .dot:nth-child(8) {
+                transform: rotate(315deg);
+            }
+            
+            .spiral-container .dot:nth-child(8)::before {
+                transform: translateX(var(--center));
+                animation-delay: calc(var(--speed) * -0.875);
+            }
+            
+            @keyframes oscillate {
+                0% {
+                    transform: translateX(var(--center)) scale(0);
+                    opacity: 0.25;
+                }
+                100% {
+                    transform: translateX(0) scale(1);
+                    opacity: 1;
+                }
+            }
+            
+            @keyframes rotate {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+            
+            .loading-text {
+                font-size: 16px;
+                font-weight: 500;
+                opacity: 0.9;
+            }
+            
+            /* Theme-specific spinner colors */
+            [data-theme="dark"] .spiral-container {
+                --color: #2196F3;
+            }
+            
+            [data-theme="light"] .spiral-container {
+                --color: #4CAF50;
+            }
+        `;
+
+        document.head.appendChild(style);
         document.body.appendChild(overlay);
     },
 
-    animateThemeTransition(fromTheme, toTheme, callback) {
-        const overlay = document.getElementById('theme-transition-overlay');
-        if (!overlay) return callback();
-
-        // Different transition effects for different theme switches
-        if (fromTheme === 'light' && toTheme === 'dark') {
-            // Grass to Galaxy: Fade to starry night
-            overlay.style.background = 'radial-gradient(circle, #0D1117 0%, #161B22 100%)';
-            overlay.style.backdropFilter = 'blur(10px)';
-        } else if (fromTheme === 'dark' && toTheme === 'light') {
-            // Galaxy to Grass: Fade to morning light
-            overlay.style.background = 'radial-gradient(circle, #E8F5E8 0%, #F1F8E9 100%)';
-            overlay.style.backdropFilter = 'blur(5px)';
+    showLoadingOverlay() {
+        const overlay = document.getElementById('theme-loading-overlay');
+        if (overlay) {
+            overlay.style.display = 'flex';
+            // Force reflow then show
+            overlay.offsetHeight;
+            overlay.style.opacity = '1';
         }
+    },
 
+    hideLoadingOverlay() {
+        const overlay = document.getElementById('theme-loading-overlay');
+        if (overlay) {
+            overlay.style.opacity = '0';
+            setTimeout(() => {
+                overlay.style.display = 'none';
+            }, 300);
+        }
+    },
+
+    animateThemeTransition(fromTheme, toTheme, callback) {
+        // Show loading overlay
+        this.showLoadingOverlay();
+
+        // Wait a bit to show the loading animation, then apply theme changes
         setTimeout(() => {
             callback();
 
-            // Fade out transition overlay
-            overlay.style.background = 'transparent';
-            overlay.style.backdropFilter = 'blur(0px)';
-        }, 300);
+            // Wait for theme to fully apply, then hide loading
+            setTimeout(() => {
+                this.hideLoadingOverlay();
+            }, 500);
+        }, 800);
     },
 
     updateThemeIcon(theme, themeToggle) {
@@ -104,16 +283,14 @@ const ThemeManager = {
         const themeData = this.themes[theme];
         themeToggle.setAttribute('aria-label', `Switch to ${this.themes[theme === 'light' ? 'dark' : 'light'].name}`);
         themeToggle.setAttribute('title', `Current: ${themeData.name}. Click to switch theme.`);
-    },
-
-    init() {
+    }, init() {
         const themeToggle = document.getElementById('themeToggle');
         if (!themeToggle) return;
 
         const htmlElement = document.documentElement;
 
-        // Create enhanced theme transition overlay
-        this.createThemeTransition();
+        // Create loading overlay
+        this.createLoadingOverlay();
 
         // Check for saved theme preference
         const savedTheme = localStorage.getItem('theme') || 'light';
@@ -166,66 +343,10 @@ const ThemeManager = {
     }
 };
 
-// Theme handling
-function setTheme(theme) {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-
-    // Update icon in theme toggle button
-    const themeToggle = document.getElementById('themeToggle');
-    if (themeToggle) {
-        const icon = themeToggle.querySelector('i');
-        if (theme === 'dark') {
-            icon.classList.remove('fa-moon');
-            icon.classList.add('fa-sun');
-        } else {
-            icon.classList.remove('fa-sun');
-            icon.classList.add('fa-moon');
-        }
-    }
-
-    // Dispatch theme change event
-    document.dispatchEvent(new CustomEvent('themeChanged', { detail: theme }));
-}
-
 // Apply theme immediately to prevent flashing
 ThemeManager.applyThemeImmediately();
 
-// Initialize theme toggle when DOM is loaded
-document.addEventListener('DOMContentLoaded', function () {
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    document.documentElement.setAttribute('data-theme', savedTheme);
-
-    const themeToggle = document.getElementById('themeToggle');
-    if (!themeToggle) return; // Safety check
-
-    const themeIcon = themeToggle.querySelector('i');
-    if (!themeIcon) return; // Safety check
-
-    // Update icon based on current theme
-    if (savedTheme === 'dark') {
-        themeIcon.classList.remove('fa-moon');
-        themeIcon.classList.add('fa-sun');
-    } else {
-        themeIcon.classList.remove('fa-sun');
-        themeIcon.classList.add('fa-moon');
-    }
-
-    // Theme toggle functionality
-    themeToggle.addEventListener('click', function () {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-
-        document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-
-        // Update icon
-        if (newTheme === 'dark') {
-            themeIcon.classList.remove('fa-moon');
-            themeIcon.classList.add('fa-sun');
-        } else {
-            themeIcon.classList.remove('fa-sun');
-            themeIcon.classList.add('fa-moon');
-        }
-    });
+// Initialize ThemeManager when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    ThemeManager.init();
 });
