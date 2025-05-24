@@ -333,18 +333,8 @@ const ThemeManager = {
                 icon.style.transform = 'scale(1) rotate(0deg)';
             }
         });
-    },
-
-    // Method to apply theme without waiting for DOMContentLoaded
-    // This prevents flash of wrong theme
-    applyThemeImmediately() {
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        document.documentElement.setAttribute('data-theme', savedTheme);
     }
 };
-
-// Apply theme immediately to prevent flashing
-ThemeManager.applyThemeImmediately();
 
 // Initialize ThemeManager when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {

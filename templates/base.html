@@ -16,6 +16,15 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/general/mobile-nav.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/general/mobile-optimizations.css') }}">
     {% block extra_css %}{% endblock %}
+
+    <!-- Apply theme immediately to prevent flash -->
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+
     <script src="{{ url_for('static', filename='js/general/theme.js') }}" defer></script>
     <script src="{{ url_for('static', filename='js/general/background.js') }}" defer></script>
     <script src="{{ url_for('static', filename='js/general/navigation.js') }}" defer></script>
