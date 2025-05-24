@@ -1,3 +1,25 @@
+/* Enhanced Form Elements Theme Integration */
+:root {
+    /* Enhanced form variables that inherit from main theme */
+    --form-bg: var(--card-bg);
+    --form-border: var(--border-color);
+    --form-shadow: var(--shadow-color);
+    --form-text: var(--text-color);
+    --form-focus: var(--primary);
+    --form-hover: var(--hover-bg);
+
+    /* Grass theme form enhancements */
+    --form-nature-glow: 0 0 10px rgba(76, 175, 80, 0.2);
+    --form-leaf-focus: rgba(76, 175, 80, 0.3);
+}
+
+/* Galaxy theme form styling */
+[data-theme="dark"] {
+    --form-cosmic-glow: 0 0 12px rgba(124, 77, 255, 0.2);
+    --form-nebula-focus: rgba(124, 77, 255, 0.4);
+    --form-star-accent: var(--star-white);
+}
+
 /* Theme-aware form elements */
 :root {
     --input-bg: var(--card-bg);

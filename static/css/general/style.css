@@ -6,52 +6,90 @@
 }
 
 :root {
-    --primary: #2E7D32;
-    --secondary: #1B5E20;
-    --success: #4bb543;
-    --error: #ff4444;
-    --background: #f8f9fa;
-    --text-color: #2C3E50;
-    --text-muted: #666666;
-    --card-bg: #ffffff;
-    --border-color: #e0e0e0;
-    --shadow-color: rgba(0, 0, 0, 0.1);
-    --hover-bg: #f0f0f0;
+    /* 🌱 Grass Theme - Light Mode Variables */
+    --primary: #4CAF50;
+    --secondary: #2E7D32;
+    --accent: #81C784;
+    --success: #66BB6A;
+    --warning: #FFA726;
+    --error: #EF5350;
+    --info: #42A5F5;
+
+    /* Nature-inspired background gradients */
+    --background: linear-gradient(135deg, #E8F5E8 0%, #F1F8E9 50%, #E8F5E8 100%);
+    --background-solid: #F1F8E9;
+    --text-color: #1B5E20;
+    --text-muted: #4E7C52;
+    --card-bg: rgba(255, 255, 255, 0.9);
+    --border-color: #C8E6C9;
+    --shadow-color: rgba(76, 175, 80, 0.15);
+    --hover-bg: rgba(129, 199, 132, 0.1);
     --navbar-bg: rgba(255, 255, 255, 0.95);
+
+    /* Grass-themed additional colors */
+    --grass-light: #E8F5E8;
+    --grass-medium: #C8E6C9;
+    --grass-dark: #388E3C;
+    --leaf-accent: #689F38;
+    --flower-accent: #FF7043;
+
+    /* Layout variables */
     --container-max-width: 1200px;
     --container-padding: 1.5rem;
     --section-spacing: 3rem;
-    --card-radius: 10px;
-    --transition-speed: 0.3s;
-    --button-hover-brightness: 1.1;
+    --card-radius: 16px;
+    --transition-speed: 0.4s;
+    --button-hover-brightness: 1.05;
 
-    /* Add transition for all theme-related properties */
-    transition:
-        --primary var(--transition-speed),
-        --secondary var(--transition-speed),
-        --background var(--transition-speed),
-        --text-color var(--transition-speed),
-        --text-muted var(--transition-speed),
-        --card-bg var(--transition-speed),
-        --border-color var(--transition-speed),
-        --shadow-color var(--transition-speed),
-        --hover-bg var(--transition-speed),
-        --navbar-bg var(--transition-speed);
+    /* Enhanced animation variables */
+    --animation-fast: 200ms;
+    --animation-normal: 400ms;
+    --animation-slow: 600ms;
+    --animation-extra-slow: 1000ms;
+
+    /* Advanced easing functions */
+    --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+    --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --ease-nature: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Dark mode variables */
+/* 🌌 Galaxy Theme - Dark Mode Variables */
 [data-theme="dark"] {
-    --primary: #5470ff;
-    --secondary: #4d46e2;
-    --background: #121212;
-    --text-color: #e0e0e0;
-    --text-muted: #a0a0a0;
-    --card-bg: #1e1e1e;
-    --border-color: #333333;
-    --shadow-color: rgba(0, 0, 0, 0.3);
-    --hover-bg: #2c2c2c;
-    --navbar-bg: #1a1a1a;
-    --button-hover-brightness: 1.2;
+    /* Blue cosmic color palette */
+    --primary: #2196F3;
+    --secondary: #1976D2;
+    --accent: #03DAC6;
+    --success: #00E676;
+    --warning: #FF9800;
+    --error: #F44336;
+    --info: #00BCD4;
+
+    /* Galaxy-inspired background gradients */
+    --background: linear-gradient(135deg, #0D1117 0%, #161B22 25%, #1C2128 50%, #21262D 75%, #0D1117 100%);
+    --background-solid: #0D1117;
+    --text-color: #F0F6FC;
+    --text-muted: #8B949E;
+    --card-bg: rgba(33, 38, 45, 0.9);
+    --border-color: #30363D;
+    --shadow-color: rgba(33, 150, 243, 0.2);
+    --hover-bg: rgba(33, 150, 243, 0.1);
+    --navbar-bg: rgba(13, 17, 23, 0.95);
+
+    /* Blue-themed additional colors */
+    --nebula-blue: #2196F3;
+    --nebula-cyan: #03DAC6;
+    --nebula-light-blue: #81D4FA;
+    --star-white: #F0F6FC;
+    --cosmic-dust: #30363D;
+    --deep-space: #0D1117;
+
+    /* Enhanced blue cosmic glow effects */
+    --glow-primary: 0 0 20px rgba(33, 150, 243, 0.5);
+    --glow-secondary: 0 0 15px rgba(25, 118, 210, 0.4);
+    --glow-accent: 0 0 10px rgba(3, 218, 198, 0.3);
+
+    --button-hover-brightness: 1.15;
 }
 
 /* Base transitions for theme switching */
@@ -84,13 +122,101 @@ h6 {
 }
 
 body {
-    font-family: 'Inter', sans-serif;
-    background-color: var(--background);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--background);
+    background-attachment: fixed;
     color: var(--text-color);
     line-height: 1.6;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    transition: all var(--transition-speed) var(--ease-nature);
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Enhanced background effects */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -2;
+    opacity: 0.6;
+    transition: opacity var(--transition-speed) var(--ease-nature);
+}
+
+/* Grass theme background pattern */
+[data-theme="light"] body::before {
+    background-image:
+        radial-gradient(circle at 25% 25%, rgba(76, 175, 80, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(129, 199, 132, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 50% 100%, rgba(104, 159, 56, 0.05) 0%, transparent 70%);
+    background-size: 300px 300px, 200px 200px, 400px 400px;
+    background-position: 0 0, 100px 100px, 0 0;
+    animation: grassFloat 20s ease-in-out infinite;
+}
+
+/* Galaxy theme background with animated stars */
+[data-theme="dark"] body::before {
+    background-image:
+        radial-gradient(2px 2px at 20px 30px, #F0F6FC, transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(124, 77, 255, 0.8), transparent),
+        radial-gradient(1px 1px at 90px 40px, rgba(233, 30, 99, 0.6), transparent),
+        radial-gradient(1px 1px at 130px 80px, #F0F6FC, transparent),
+        radial-gradient(2px 2px at 160px 30px, rgba(33, 150, 243, 0.7), transparent);
+    background-size: 200px 100px;
+    background-repeat: repeat;
+    animation: galaxyTwinkle 15s linear infinite;
+}
+
+/* Floating animation for grass theme */
+@keyframes grassFloat {
+
+    0%,
+    100% {
+        transform: translateY(0px) scale(1);
+        opacity: 0.6;
+    }
+
+    33% {
+        transform: translateY(-10px) scale(1.02);
+        opacity: 0.7;
+    }
+
+    66% {
+        transform: translateY(-5px) scale(0.98);
+        opacity: 0.5;
+    }
+}
+
+/* Twinkling animation for galaxy theme */
+@keyframes galaxyTwinkle {
+    0% {
+        transform: translateX(0px);
+        opacity: 0.6;
+    }
+
+    25% {
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateX(10px);
+        opacity: 0.4;
+    }
+
+    75% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateX(0px);
+        opacity: 0.6;
+    }
 }
 
 main {
@@ -111,29 +237,65 @@ main {
     border: 0;
 }
 
-/* Base button styles */
+/* Enhanced button styles with theme-specific effects */
 .button {
-    background-color: var(--primary);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
     color: white;
     border: none;
-    padding: 0.75rem 1.5rem;
+    padding: 0.875rem 2rem;
     cursor: pointer;
     border-radius: var(--card-radius);
-    font-weight: 500;
+    font-weight: 600;
     text-decoration: none;
     display: inline-block;
-    transition: filter var(--transition-speed), transform var(--transition-speed);
+    transition: all var(--transition-speed) var(--ease-spring);
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 16px var(--shadow-color);
+}
+
+.button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left var(--animation-slow) var(--ease-out-quart);
 }
 
 .button:hover,
 .button:focus {
+    transform: translateY(-4px) scale(1.05);
     filter: brightness(var(--button-hover-brightness));
-    transform: translateY(-2px);
+    box-shadow: 0 8px 24px var(--shadow-color);
+}
+
+.button:hover::before {
+    left: 100%;
+}
+
+/* Galaxy theme buttons get cosmic glow */
+[data-theme="dark"] .button:hover {
+    box-shadow: var(--glow-primary), 0 8px 24px var(--shadow-color);
+}
+
+/* Grass theme buttons get natural glow */
+[data-theme="light"] .button:hover {
+    box-shadow: 0 8px 24px rgba(76, 175, 80, 0.3);
 }
 
 .button:focus {
-    outline: 2px solid var(--primary);
+    outline: 2px solid var(--accent);
     outline-offset: 2px;
+}
+
+.button:active {
+    transform: translateY(-2px) scale(1.02);
+    transition-duration: var(--animation-fast);
 }
 
 /* Base layout */
@@ -144,18 +306,59 @@ main {
     padding: 0 var(--container-padding);
 }
 
-/* Card styles */
+/* Enhanced card styles with theme-specific effects */
 .card {
-    background-color: var(--card-bg);
+    background: var(--card-bg);
     border-radius: var(--card-radius);
     padding: 1.5rem;
-    box-shadow: 0 2px 8px var(--shadow-color);
-    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    box-shadow: 0 4px 16px var(--shadow-color);
+    transition: all var(--transition-speed) var(--ease-spring);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    transition: opacity var(--transition-speed) var(--ease-nature);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Grass theme card hover effect */
+[data-theme="light"] .card::before {
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.05) 0%, rgba(129, 199, 132, 0.02) 100%);
+}
+
+/* Galaxy theme card hover effect */
+[data-theme="dark"] .card::before {
+    background: linear-gradient(135deg, rgba(124, 77, 255, 0.1) 0%, rgba(233, 30, 99, 0.05) 100%);
 }
 
 .card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px var(--shadow-color);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 32px var(--shadow-color);
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+/* Galaxy theme cards get cosmic glow */
+[data-theme="dark"] .card:hover {
+    box-shadow: var(--glow-primary), 0 12px 32px var(--shadow-color);
+}
+
+/* Grass theme cards get natural lift */
+[data-theme="light"] .card:hover {
+    box-shadow: 0 12px 32px rgba(76, 175, 80, 0.2);
 }
 
 /* Footer styles */

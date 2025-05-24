@@ -1,3 +1,25 @@
+/* Enhanced Homepage Theme Integration */
+:root {
+    /* Homepage-specific variables that inherit from main theme */
+    --home-bg: var(--background);
+    --home-card-bg: var(--card-bg);
+    --home-border: var(--border-color);
+    --home-shadow: var(--shadow-color);
+    --home-text: var(--text-color);
+    --home-accent: var(--primary);
+
+    /* Grass theme homepage enhancements */
+    --home-nature-glow: 0 0 20px rgba(76, 175, 80, 0.15);
+    --home-leaf-pattern: var(--background);
+}
+
+/* Galaxy theme homepage styling */
+[data-theme="dark"] {
+    --home-cosmic-glow: var(--glow-primary);
+    --home-nebula-bg: var(--background);
+    --home-star-accent: var(--star-white);
+}
+
 /* Homepage specific styling */
 .home-background {
     position: fixed;
@@ -7,15 +29,17 @@
     height: 100%;
     z-index: -1;
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: all var(--transition-speed) var(--ease-nature);
+    background: var(--home-bg);
 }
 
+/* Theme-specific background effects are now handled by main theme system */
 [data-theme="dark"] .home-background {
-    background: linear-gradient(45deg, #1a1a2e, #16213e);
+    background: var(--home-nebula-bg);
 }
 
 [data-theme="light"] .home-background {
-    background: linear-gradient(180deg, #87CEEB, #90EE90);
+    background: var(--home-leaf-pattern);
 }
 
 .home-container {
@@ -48,47 +72,37 @@
 }
 
 .feature-card {
-    background: #FFFFFF;
+    background: var(--home-card-bg);
+    border: 1px solid var(--home-border);
     border-radius: var(--card-radius);
-    padding: 1.5rem;
+    padding: 2rem;
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: var(--home-shadow);
+    transition: all var(--transition-speed) var(--ease-spring);
     display: flex;
     flex-direction: column;
     align-items: center;
-    cursor: pointer;
-    box-shadow: 0 2px 4px var(--shadow-color);
     position: relative;
     overflow: hidden;
     height: 100%;
-    gap: 1rem;
-    text-decoration: none;
+}
+
+.feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px var(--shadow-color);
+}
+
+/* Theme-specific feature card effects */
+[data-theme="light"] .feature-card:hover {
+    box-shadow: var(--home-nature-glow), 0 8px 20px var(--shadow-color);
+}
+
+[data-theme="dark"] .feature-card:hover {
+    box-shadow: var(--home-cosmic-glow), 0 8px 20px var(--shadow-color);
 }
 
 [data-theme="dark"] .feature-card {
     background: var(--card-bg);
-}
-
-.feature-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, var(--primary), var(--secondary));
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 1;
-}
-
-.feature-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px var(--shadow-color);
-}
-
-.feature-card:hover::before {
-    opacity: 0.1;
 }
 
 .subject-content {
@@ -203,6 +217,25 @@
 .feature-link:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+/* Remove any ::before or ::after pseudo-elements that add lines/gradients under feature card text */
+.feature-title::before,
+.feature-title::after,
+.feature-description::before,
+.feature-description::after {
+    display: none !important;
+    content: none !important;
+    background: none !important;
+    border: none !important;
+    height: 0 !important;
+}
+
+/* Remove any border-bottom or box-shadow from feature-title/feature-description */
+.feature-title,
+.feature-description {
+    border-bottom: none !important;
+    box-shadow: none !important;
 }
 
 /* Coming soon styling */

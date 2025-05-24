@@ -1,3 +1,26 @@
+/* Enhanced Calculator Theme Integration */
+:root {
+    /* Calculator-specific variables that inherit from main theme */
+    --calc-bg: var(--card-bg);
+    --calc-border: var(--border-color);
+    --calc-shadow: var(--shadow-color);
+    --calc-text: var(--text-color);
+    --calc-input-bg: var(--hover-bg);
+    --calc-button-bg: var(--primary);
+    --calc-accent: var(--accent);
+
+    /* Grass theme calculator enhancements */
+    --calc-nature-glow: 0 0 10px rgba(76, 175, 80, 0.2);
+    --calc-leaf-shadow: 0 2px 8px rgba(129, 199, 132, 0.15);
+}
+
+/* Galaxy theme calculator styling */
+[data-theme="dark"] {
+    --calc-cosmic-glow: var(--glow-primary);
+    --calc-nebula-shadow: 0 4px 16px rgba(124, 77, 255, 0.2);
+    --calc-star-accent: var(--nebula-blue);
+}
+
 .calculator-container {
     max-width: 1200px;
     margin: 2rem auto;
@@ -18,22 +41,49 @@
 }
 
 .calculator-card {
-    background-color: var(--card-bg);
+    background: var(--calc-bg);
+    border: 1px solid var(--calc-border);
     border-radius: var(--card-radius);
     padding: 2rem;
-    box-shadow: 0 4px 12px var(--shadow-color);
+    box-shadow: var(--calc-leaf-shadow);
+    transition: all var(--transition-speed) var(--ease-nature);
+    position: relative;
+    overflow: hidden;
+}
+
+[data-theme="dark"] .calculator-card {
+    box-shadow: var(--calc-nebula-shadow);
+}
+
+.calculator-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px var(--shadow-color);
+}
+
+[data-theme="light"] .calculator-card:hover {
+    box-shadow: var(--calc-nature-glow), 0 6px 16px var(--shadow-color);
+}
+
+[data-theme="dark"] .calculator-card:hover {
+    box-shadow: var(--calc-cosmic-glow), 0 6px 16px var(--shadow-color);
 }
 
 .chart-container {
-    background-color: var(--card-bg);
+    background: var(--calc-bg);
+    border: 1px solid var(--calc-border);
     border-radius: var(--card-radius);
     padding: 2rem;
-    box-shadow: 0 4px 12px var(--shadow-color);
+    box-shadow: var(--calc-leaf-shadow);
     min-height: 500px;
     position: relative;
     width: 100%;
     height: 100%;
     overflow: hidden;
+    transition: all var(--transition-speed) var(--ease-nature);
+}
+
+[data-theme="dark"] .chart-container {
+    box-shadow: var(--calc-nebula-shadow);
 }
 
 .distribution-select {
@@ -64,9 +114,9 @@ label {
 .form-select {
     width: 100%;
     padding: 0.75rem;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--calc-border);
     border-radius: var(--card-radius);
-    background-color: var(--background);
+    background-color: var(--calc-input-bg);
     color: var(--text-color);
     transition: border-color var(--transition-speed);
 }
@@ -86,7 +136,7 @@ label {
     padding: 1.5rem;
     border-radius: var(--card-radius);
     transition: all var(--transition-speed) ease;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--calc-border);
     margin-top: 2rem;
 }
 
@@ -119,7 +169,7 @@ label {
     padding: 0.75rem;
     background-color: var(--card-bg);
     border-radius: var(--input-radius);
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--calc-border);
 }
 
 .tutorials-section {

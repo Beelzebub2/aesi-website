@@ -1,18 +1,31 @@
+/* Enhanced Theme Integration for Descobrir Quiz */
 :root {
-    --success-color: #4bb543;
-    --success-bg-color: rgba(75, 181, 67, 0.1);
-    --error-color: #ff4444;
-    --error-bg-color: rgba(255, 68, 68, 0.1);
-    --input-bg: rgba(0, 0, 0, 0.05);
-    --border-radius: 8px;
+    /* Success and error colors inherit from main theme system */
+    --success-color: var(--success);
+    --success-bg-color: rgba(76, 175, 80, 0.1);
+    --error-color: var(--error);
+    --error-bg-color: rgba(239, 83, 80, 0.1);
+    --input-bg: var(--hover-bg);
+    --border-radius: var(--card-radius);
+
+    /* Grass theme specific enhancements */
+    --quiz-nature-glow: 0 0 15px rgba(76, 175, 80, 0.2);
+    --quiz-leaf-accent: var(--leaf-accent);
+    --quiz-flower-accent: var(--flower-accent);
 }
 
+/* Galaxy theme enhancements */
 [data-theme="dark"] {
-    --success-color: #4bb543;
-    --success-bg-color: rgba(75, 181, 67, 0.2);
-    --error-color: #ff6b6b;
-    --error-bg-color: rgba(255, 107, 107, 0.2);
-    --input-bg: rgba(255, 255, 255, 0.1);
+    --success-color: var(--success);
+    --success-bg-color: rgba(0, 230, 118, 0.15);
+    --error-color: var(--error);
+    --error-bg-color: rgba(244, 67, 54, 0.15);
+    --input-bg: rgba(255, 255, 255, 0.08);
+
+    /* Cosmic quiz effects */
+    --quiz-cosmic-glow: var(--glow-primary);
+    --quiz-nebula-accent: var(--nebula-blue);
+    --quiz-star-accent: var(--star-white);
 }
 
 /* Make the subject-container use flex to push the footer to the bottom */
@@ -22,12 +35,29 @@
     min-height: 100vh;
 }
 
-/* Improved styling for the subject hero section */
+/* Enhanced hero section with theme-aware styling */
 .subject-hero {
     padding: 3rem 0;
     text-align: center;
-    background: linear-gradient(to right, rgba(46, 125, 50, 0.1), rgba(27, 94, 32, 0.1));
+    background: linear-gradient(135deg, var(--hover-bg) 0%, var(--card-bg) 50%, var(--hover-bg) 100%);
     margin-bottom: 2rem;
+    border-radius: var(--card-radius);
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+    transition: all var(--transition-speed) var(--ease-nature);
+}
+
+/* Grass theme hero effects */
+[data-theme="light"] .subject-hero {
+    background: linear-gradient(135deg, var(--grass-light) 0%, var(--card-bg) 50%, var(--grass-medium) 100%);
+    box-shadow: var(--quiz-nature-glow);
+}
+
+/* Galaxy theme hero effects */
+[data-theme="dark"] .subject-hero {
+    background: linear-gradient(135deg, var(--deep-space) 0%, var(--card-bg) 50%, var(--cosmic-dust) 100%);
+    box-shadow: var(--quiz-cosmic-glow);
 }
 
 .subject-hero h1 {
@@ -143,6 +173,27 @@
     animation: fadeInUp 0.4s ease forwards;
     opacity: 0;
     transform: translateY(10px);
+}
+
+/* Add animation delays for staggered effect */
+.quiz-option:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.quiz-option:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.quiz-option:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.quiz-option:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.quiz-option:nth-child(5) {
+    animation-delay: 0.5s;
 }
 
 @keyframes fadeInUp {

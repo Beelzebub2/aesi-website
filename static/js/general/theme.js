@@ -1,6 +1,19 @@
-// Theme toggle functionality with performance optimizations
+// Enhanced Theme Manager with Galaxy and Grass themes
 const ThemeManager = {
-    createOverlay() {
+    themes: {
+        light: {
+            name: 'Grass Theme',
+            icon: 'fas fa-seedling',
+            description: 'Natural grass-inspired light theme'
+        },
+        dark: {
+            name: 'Galaxy Theme',
+            icon: 'fas fa-moon',
+            description: 'Cosmic galaxy-inspired dark theme'
+        }
+    },
+
+    createThemeTransition() {
         if (document.getElementById('theme-transition-overlay')) return;
 
         const overlay = document.createElement('div');
@@ -11,23 +24,86 @@ const ThemeManager = {
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0);
+            background: transparent;
             pointer-events: none;
-            transition: background-color 0.3s ease;
+            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
             z-index: 9999;
+            backdrop-filter: blur(0px);
         `;
         document.body.appendChild(overlay);
     },
 
-    animateThemeChange(callback) {
+    animateThemeTransition(fromTheme, toTheme, callback) {
         const overlay = document.getElementById('theme-transition-overlay');
         if (!overlay) return callback();
 
-        overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.2)';
+        // Different transition effects for different theme switches
+        if (fromTheme === 'light' && toTheme === 'dark') {
+            // Grass to Galaxy: Fade to starry night
+            overlay.style.background = 'radial-gradient(circle, #0D1117 0%, #161B22 100%)';
+            overlay.style.backdropFilter = 'blur(10px)';
+        } else if (fromTheme === 'dark' && toTheme === 'light') {
+            // Galaxy to Grass: Fade to morning light
+            overlay.style.background = 'radial-gradient(circle, #E8F5E8 0%, #F1F8E9 100%)';
+            overlay.style.backdropFilter = 'blur(5px)';
+        }
+
         setTimeout(() => {
             callback();
-            overlay.style.backgroundColor = 'rgba(0, 0, 0, 0)';
+
+            // Fade out transition overlay
+            overlay.style.background = 'transparent';
+            overlay.style.backdropFilter = 'blur(0px)';
+        }, 300);
+    },
+
+    updateThemeIcon(theme, themeToggle) {
+        const icon = themeToggle.querySelector('i');
+        if (!icon) return;
+
+        // Add transition effect to icon change
+        icon.style.transform = 'scale(0.8) rotate(180deg)';
+        icon.style.opacity = '0.5';
+
+        setTimeout(() => {
+            if (theme === 'dark') {
+                icon.className = 'fas fa-seedling'; // Show grass icon in galaxy theme
+            } else {
+                icon.className = 'fas fa-moon'; // Show moon icon in grass theme
+            }
+
+            icon.style.transform = 'scale(1) rotate(0deg)';
+            icon.style.opacity = '1';
         }, 200);
+    },
+
+    dispatchThemeEvents(theme) {
+        const events = [
+            new CustomEvent('data-theme-changed', {
+                detail: {
+                    theme,
+                    themeData: this.themes[theme],
+                    timestamp: Date.now()
+                }
+            }),
+            new CustomEvent('themeChanged', {
+                detail: {
+                    theme,
+                    themeData: this.themes[theme]
+                }
+            })
+        ];
+
+        events.forEach(event => {
+            document.documentElement.dispatchEvent(event);
+            document.dispatchEvent(event);
+        });
+    },
+
+    addThemeAccessibility(themeToggle, theme) {
+        const themeData = this.themes[theme];
+        themeToggle.setAttribute('aria-label', `Switch to ${this.themes[theme === 'light' ? 'dark' : 'light'].name}`);
+        themeToggle.setAttribute('title', `Current: ${themeData.name}. Click to switch theme.`);
     },
 
     init() {
@@ -36,45 +112,50 @@ const ThemeManager = {
 
         const htmlElement = document.documentElement;
 
-        // Create theme transition overlay
-        this.createOverlay();
+        // Create enhanced theme transition overlay
+        this.createThemeTransition();
 
         // Check for saved theme preference
         const savedTheme = localStorage.getItem('theme') || 'light';
         htmlElement.setAttribute('data-theme', savedTheme);
         this.updateThemeIcon(savedTheme, themeToggle);
+        this.addThemeAccessibility(themeToggle, savedTheme);
 
-        // Toggle theme with optimized event handling and animation
+        // Add CSS transition class to icon
+        const icon = themeToggle.querySelector('i');
+        if (icon) {
+            icon.style.transition = 'all 0.3s cubic-bezier(0.25, 1, 0.5, 1)';
+        }
+
+        // Enhanced theme toggle with smooth animations
         themeToggle.addEventListener('click', () => {
             const currentTheme = htmlElement.getAttribute('data-theme');
             const newTheme = currentTheme === 'light' ? 'dark' : 'light';
 
-            // Trigger animation
-            this.animateThemeChange(() => {
+            // Trigger enhanced animation
+            this.animateThemeTransition(currentTheme, newTheme, () => {
                 htmlElement.setAttribute('data-theme', newTheme);
                 localStorage.setItem('theme', newTheme);
                 this.updateThemeIcon(newTheme, themeToggle);
-
-                // Dispatch theme change events
-                const events = ['data-theme-changed', 'themeChanged'];
-                events.forEach(eventName => {
-                    const event = new CustomEvent(eventName, { detail: { theme: newTheme } });
-                    htmlElement.dispatchEvent(event);
-                });
+                this.addThemeAccessibility(themeToggle, newTheme);
+                this.dispatchThemeEvents(newTheme);
             });
         });
-    },
 
-    updateThemeIcon(theme, themeToggle) {
-        const icon = themeToggle.querySelector('i');
-        if (!icon) return;
+        // Add hover effects to theme toggle
+        themeToggle.addEventListener('mouseenter', () => {
+            const icon = themeToggle.querySelector('i');
+            if (icon) {
+                icon.style.transform = 'scale(1.1) rotate(15deg)';
+            }
+        });
 
-        // Update icon classes efficiently
-        if (theme === 'dark') {
-            icon.className = 'fas fa-sun';
-        } else {
-            icon.className = 'fas fa-moon';
-        }
+        themeToggle.addEventListener('mouseleave', () => {
+            const icon = themeToggle.querySelector('i');
+            if (icon) {
+                icon.style.transform = 'scale(1) rotate(0deg)';
+            }
+        });
     },
 
     // Method to apply theme without waiting for DOMContentLoaded

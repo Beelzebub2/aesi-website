@@ -167,6 +167,14 @@ document.addEventListener('DOMContentLoaded', () => {
         // Show the next button
         quizControls.style.display = 'block';
 
+        // Scroll to feedback and next button
+        setTimeout(() => {
+            const feedbackRect = feedback.getBoundingClientRect();
+            const controlsRect = quizControls.getBoundingClientRect();
+            const scrollTo = feedbackRect.top < controlsRect.top ? feedback : quizControls;
+            scrollTo.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 10);
+
         // Update score
         if (isCorrect) {
             score++;

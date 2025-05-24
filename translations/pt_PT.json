@@ -31,7 +31,20 @@
                     "description": "Teste os seus conhecimentos em probabilidade e estatística",
                     "current_question": "Pergunta {current} de {total}",
                     "score": "Pontuação: {score}",
-                    "complete": "Quiz Concluído!"
+                    "complete": "Quiz Concluído!",
+                    "start": {
+                        "title": "Pronto para começar?",
+                        "description": "Clique no botão abaixo para iniciar o quiz.",
+                        "button": "Começar Quiz"
+                    },
+                    "buttons": {
+                        "next": "Próxima Questão",
+                        "restart": "Recomeçar"
+                    },
+                    "results": {
+                        "title": "Resultados",
+                        "score": "Pontuação Final"
+                    }
                 },
                 "descobrir": {
                     "title": "Descobrir a Distribuição",

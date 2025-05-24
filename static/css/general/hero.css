@@ -1,24 +1,117 @@
-/* Hero section styling */
+/* Enhanced Hero Theme Integration */
+:root {
+    /* Hero-specific variables that inherit from main theme */
+    --hero-bg: var(--card-bg);
+    --hero-border: var(--border-color);
+    --hero-shadow: var(--shadow-color);
+    --hero-text: var(--text-color);
+    --hero-accent: var(--primary);
+
+    /* Grass theme hero enhancements */
+    --hero-nature-glow: 0 0 25px rgba(76, 175, 80, 0.2);
+    --hero-leaf-pattern: linear-gradient(135deg, var(--grass-light) 0%, var(--card-bg) 50%, var(--grass-medium) 100%);
+}
+
+/* Galaxy theme hero styling */
+[data-theme="dark"] {
+    --hero-cosmic-glow: var(--glow-primary);
+    --hero-nebula-pattern: linear-gradient(135deg, var(--deep-space) 0%, var(--card-bg) 50%, var(--cosmic-dust) 100%);
+    --hero-star-accent: var(--star-white);
+}
+
+/* Enhanced hero section with theme-aware styling */
 .subject-hero {
     padding: 4rem 0;
     text-align: center;
-    background: linear-gradient(to right, rgba(46, 125, 50, 0.1), rgba(27, 94, 32, 0.1));
+    background: var(--hero-bg);
     margin-bottom: 2rem;
+    border-radius: var(--card-radius);
+    border: 1px solid var(--hero-border);
+    box-shadow: var(--hero-shadow);
+    position: relative;
+    overflow: hidden;
+    transition: all var(--transition-speed) var(--ease-nature);
+    backdrop-filter: blur(10px);
+}
+
+/* Theme-specific hero effects */
+[data-theme="light"] .subject-hero {
+    background: var(--hero-leaf-pattern);
+    box-shadow: var(--hero-nature-glow), 0 4px 12px var(--hero-shadow);
+}
+
+[data-theme="light"] .subject-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 30% 30%, rgba(76, 175, 80, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 70% 70%, rgba(129, 199, 132, 0.08) 0%, transparent 50%);
+    opacity: 0.6;
+    pointer-events: none;
+    animation: grassFloat 20s ease-in-out infinite;
+}
+
+[data-theme="dark"] .subject-hero {
+    background: var(--hero-nebula-pattern);
+    box-shadow: var(--hero-cosmic-glow), 0 4px 12px var(--hero-shadow);
+}
+
+[data-theme="dark"] .subject-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(2px 2px at 20% 30%, #F0F6FC, transparent),
+        radial-gradient(1px 1px at 40% 70%, rgba(124, 77, 255, 0.6), transparent),
+        radial-gradient(1px 1px at 80% 20%, rgba(233, 30, 99, 0.4), transparent);
+    background-size: 150px 100px;
+    background-repeat: repeat;
+    opacity: 0.7;
+    pointer-events: none;
+    animation: galaxyTwinkle 15s linear infinite;
 }
 
 .subject-hero h1 {
     font-size: 2.5rem;
     font-weight: 700;
-    color: var(--text-color);
+    color: var(--hero-text);
     margin-bottom: 1rem;
     letter-spacing: 0.5px;
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 2px 4px var(--shadow-color);
+    transition: all var(--transition-speed) var(--ease-nature);
+}
+
+/* Theme-specific title effects */
+[data-theme="light"] .subject-hero h1 {
+    text-shadow: 0 0 15px rgba(76, 175, 80, 0.3);
+}
+
+[data-theme="dark"] .subject-hero h1 {
+    text-shadow: 0 0 20px rgba(124, 77, 255, 0.4);
 }
 
 .subject-hero h1 i {
-    color: var(--primary);
+    color: var(--hero-accent);
     margin-right: 0.5rem;
     font-size: 0.9em;
     vertical-align: middle;
+    transition: all var(--transition-speed) var(--ease-spring);
+}
+
+/* Theme-specific icon effects */
+[data-theme="light"] .subject-hero h1 i {
+    filter: drop-shadow(0 0 8px rgba(76, 175, 80, 0.4));
+}
+
+[data-theme="dark"] .subject-hero h1 i {
+    filter: drop-shadow(0 0 10px rgba(124, 77, 255, 0.6));
 }
 
 .subject-hero p {
@@ -27,6 +120,8 @@
     max-width: 800px;
     margin: 0 auto;
     line-height: 1.6;
+    position: relative;
+    z-index: 2;
 }
 
 @media (max-width: 768px) {

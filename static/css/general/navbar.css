@@ -1,11 +1,47 @@
+/* Enhanced Navbar Theme Integration */
+:root {
+    /* Navbar-specific variables that inherit from main theme */
+    --nav-bg: var(--navbar-bg);
+    --nav-border: var(--border-color);
+    --nav-shadow: var(--shadow-color);
+    --nav-text: var(--text-color);
+    --nav-hover: var(--hover-bg);
+
+    /* Grass theme navbar enhancements */
+    --nav-nature-glow: 0 0 10px rgba(76, 175, 80, 0.1);
+    --nav-leaf-accent: var(--leaf-accent);
+}
+
+/* Galaxy theme navbar styling */
+[data-theme="dark"] {
+    --nav-cosmic-glow: 0 0 15px rgba(124, 77, 255, 0.15);
+    --nav-star-accent: var(--star-white);
+    --nav-nebula-bg: rgba(13, 17, 23, 0.98);
+}
+
 /* Navbar styles */
+/* Enhanced navbar with theme-aware styling */
 .navbar {
-    background-color: var(--navbar-bg);
+    background: var(--nav-bg);
     padding: 1rem 0;
-    box-shadow: 0 2px 8px var(--shadow-color);
+    box-shadow: 0 2px 8px var(--nav-shadow);
     position: sticky;
     top: 0;
     z-index: 100;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--nav-border);
+    transition: all var(--transition-speed) var(--ease-nature);
+}
+
+/* Theme-specific navbar effects */
+[data-theme="light"] .navbar {
+    background: var(--nav-bg);
+    box-shadow: var(--nav-nature-glow), 0 2px 8px var(--nav-shadow);
+}
+
+[data-theme="dark"] .navbar {
+    background: var(--nav-nebula-bg);
+    box-shadow: var(--nav-cosmic-glow), 0 2px 8px var(--nav-shadow);
 }
 
 .navbar-content {
@@ -19,11 +55,23 @@
     font-weight: 700;
     color: var(--primary);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: all var(--transition-speed) var(--ease-spring);
+    position: relative;
+    text-shadow: 0 0 8px var(--shadow-color);
 }
 
 .logo:hover {
     color: var(--secondary);
+    transform: scale(1.05);
+}
+
+/* Theme-specific logo effects */
+[data-theme="light"] .logo:hover {
+    text-shadow: var(--nav-nature-glow);
+}
+
+[data-theme="dark"] .logo:hover {
+    text-shadow: var(--nav-cosmic-glow);
 }
 
 .nav-links {
@@ -35,17 +83,46 @@
 }
 
 .nav-links li a {
-    color: var(--text-color);
+    color: var(--nav-text);
     text-decoration: none;
     font-weight: 500;
-    padding: 0.5rem;
-    border-radius: 4px;
-    transition: all 0.3s ease;
+    padding: 0.75rem 1rem;
+    border-radius: var(--card-radius);
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+    display: block;
+}
+
+.nav-links li a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, var(--hover-bg), transparent);
+    transition: left 0.3s ease;
+    z-index: 0;
+}
+
+.nav-links li a:hover::before {
+    left: 100%;
 }
 
 .nav-links li a:hover {
     color: var(--primary);
-    background-color: var(--hover-bg);
+    background-color: var(--nav-hover);
+    transform: translateY(-1px);
+}
+
+/* Theme-specific nav link effects */
+[data-theme="light"] .nav-links li a:hover {
+    box-shadow: var(--nav-nature-glow);
+}
+
+[data-theme="dark"] .nav-links li a:hover {
+    box-shadow: var(--nav-cosmic-glow);
 }
 
 .nav-links li a.active {

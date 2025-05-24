@@ -10,9 +10,52 @@
 .subject-hero {
     padding: 4rem 0;
     text-align: center;
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--subject-bg);
     backdrop-filter: blur(10px);
     margin-bottom: 2rem;
+    border-radius: var(--card-radius);
+    border: 1px solid var(--subject-border);
+    box-shadow: var(--subject-shadow);
+    position: relative;
+    overflow: hidden;
+    transition: all var(--transition-speed) var(--ease-nature);
+}
+
+/* Theme-specific hero effects */
+[data-theme="light"] .subject-hero {
+    background: linear-gradient(135deg, var(--grass-light) 0%, var(--subject-bg) 50%, var(--grass-medium) 100%);
+    box-shadow: var(--subject-nature-glow);
+}
+
+[data-theme="light"] .subject-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--subject-leaf-pattern);
+    opacity: 0.3;
+    pointer-events: none;
+    animation: grassFloat 20s ease-in-out infinite;
+}
+
+[data-theme="dark"] .subject-hero {
+    background: linear-gradient(135deg, var(--deep-space) 0%, var(--subject-bg) 50%, var(--cosmic-dust) 100%);
+    box-shadow: var(--subject-cosmic-glow);
+}
+
+[data-theme="dark"] .subject-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--subject-nebula-pattern);
+    opacity: 0.4;
+    pointer-events: none;
+    animation: galaxyTwinkle 15s linear infinite;
 }
 
 .subject-hero h1 {
@@ -38,44 +81,45 @@
 }
 
 .feature-card {
-    background: var(--card-bg);
+    background: var(--subject-bg);
+    border: 1px solid var(--subject-border);
     border-radius: var(--card-radius);
     padding: 2rem;
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all var(--transition-speed) var(--ease-spring);
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
     overflow: hidden;
     height: 100%;
-    box-shadow: 0 4px 6px var(--shadow-color);
-    text-decoration: none;
-    /* Add this to remove underlines */
-    color: inherit;
-    /* Keeps text color consistent */
+    box-shadow: var(--subject-shadow);
 }
 
-.feature-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+.feature-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px var(--shadow-color);
+}
+
+/* Theme-specific feature card effects */
+[data-theme="light"] .feature-card:hover {
+    box-shadow: var(--subject-nature-glow), 0 6px 16px var(--shadow-color);
+}
+
+[data-theme="dark"] .feature-card:hover {
+    box-shadow: var(--subject-cosmic-glow), 0 6px 16px var(--shadow-color);
+}
+
+.feature-card a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
     height: 100%;
-    background: linear-gradient(45deg, var(--primary), var(--secondary));
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 1;
 }
 
 .feature-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 12px var(--shadow-color);
-}
-
-.feature-card:hover::before {
-    opacity: 0.1;
 }
 
 .feature-icon {
@@ -92,6 +136,25 @@
     margin-bottom: 1rem;
     position: relative;
     z-index: 2;
+}
+
+/* Remove any ::before or ::after pseudo-elements that add lines/gradients under feature card text */
+.feature-title::before,
+.feature-title::after,
+.feature-description::before,
+.feature-description::after {
+    display: none !important;
+    content: none !important;
+    background: none !important;
+    border: none !important;
+    height: 0 !important;
+}
+
+/* Remove any border-bottom or box-shadow from feature-title/feature-description */
+.feature-title,
+.feature-description {
+    border-bottom: none !important;
+    box-shadow: none !important;
 }
 
 .feature-description {
@@ -126,4 +189,24 @@
 
 [data-theme="dark"] .subject-hero {
     background: rgba(0, 0, 0, 0.3);
+}
+
+/* Enhanced Theme Integration for Probabilidade Index */
+:root {
+    /* Subject-specific variables that inherit from main theme */
+    --subject-bg: var(--card-bg);
+    --subject-border: var(--border-color);
+    --subject-shadow: var(--shadow-color);
+    --subject-accent: var(--accent);
+
+    /* Grass theme subject enhancements */
+    --subject-nature-glow: 0 0 20px rgba(76, 175, 80, 0.15);
+    --subject-leaf-pattern: radial-gradient(circle at center, var(--grass-light) 0%, transparent 70%);
+}
+
+/* Galaxy theme subject styling */
+[data-theme="dark"] {
+    --subject-cosmic-glow: var(--glow-primary);
+    --subject-nebula-pattern: radial-gradient(circle at center, var(--nebula-blue) 0%, transparent 70%);
+    --subject-star-accent: var(--star-white);
 }

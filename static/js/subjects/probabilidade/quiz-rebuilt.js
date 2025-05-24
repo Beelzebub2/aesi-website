@@ -99,13 +99,15 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Erro ao carregar as questões do quiz. Por favor, tente novamente.');
             return null;
         }
-    } function showQuestion(question) {
+    }
+
+    function showQuestion(question) {
         questionText.textContent = question.question;
         optionsContainer.innerHTML = '';
 
         question.options.forEach((option, index) => {
             const button = document.createElement('button');
-            button.className = 'quiz-option';
+            button.className = 'option-btn';
             button.textContent = option;
             button.addEventListener('click', () => selectAnswer(index, question));
             optionsContainer.appendChild(button);
@@ -124,13 +126,12 @@ document.addEventListener('DOMContentLoaded', () => {
         // Hide feedback and controls
         feedback.style.display = 'none';
         quizControls.style.display = 'none';
-    } function selectAnswer(selectedIndex, question) {
+    }
+
+    function selectAnswer(selectedIndex, question) {
         // Disable all option buttons
-        const optionButtons = document.querySelectorAll('.quiz-option');
-        optionButtons.forEach(btn => {
-            btn.disabled = true;
-            btn.classList.add('disabled');
-        });
+        const optionButtons = document.querySelectorAll('.option-btn');
+        optionButtons.forEach(btn => btn.disabled = true);
 
         const isCorrect = selectedIndex === question.correct;
 
@@ -139,33 +140,29 @@ document.addEventListener('DOMContentLoaded', () => {
             if (index === question.correct) {
                 btn.classList.add('correct');
             } else if (index === selectedIndex && !isCorrect) {
-                btn.classList.add('incorrect');
+                btn.classList.add('wrong');
             }
         });
 
         if (isCorrect) {
             score++;
             scoreDisplay.textContent = score;
-        }        // Show feedback
+        }
+
+        // Show feedback
         feedback.innerHTML = `
-            <div class="feedback-content ${isCorrect ? 'correct' : 'incorrect'}">
+            <div class="feedback-content ${isCorrect ? 'correct' : 'wrong'}">
                 <i class="fas ${isCorrect ? 'fa-check-circle' : 'fa-times-circle'}"></i>
                 <p>${isCorrect ? 'Correto!' : 'Incorreto!'}</p>
                 ${question.explanation ? `<p class="explanation">${question.explanation}</p>` : ''}
             </div>
-        `; feedback.style.display = 'block';
-        feedback.className = `feedback ${isCorrect ? 'correct' : 'incorrect'}`;
+        `;
+        feedback.style.display = 'block';
 
-        // Show next button immediately
-        quizControls.style.display = 'block';
-
-        // Scroll to feedback and next button
+        // Show next button after a short delay
         setTimeout(() => {
-            const feedbackRect = feedback.getBoundingClientRect();
-            const controlsRect = quizControls.getBoundingClientRect();
-            const scrollTo = feedbackRect.top < controlsRect.top ? feedback : quizControls;
-            scrollTo.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }, 10);
+            quizControls.style.display = 'block';
+        }, 1000);
     }
 
     function nextQuestion() {
@@ -175,10 +172,10 @@ document.addEventListener('DOMContentLoaded', () => {
             showResults();
         } else {
             // Reset option buttons
-            const optionButtons = document.querySelectorAll('.quiz-option');
+            const optionButtons = document.querySelectorAll('.option-btn');
             optionButtons.forEach(btn => {
                 btn.disabled = false;
-                btn.classList.remove('correct', 'incorrect', 'disabled');
+                btn.classList.remove('correct', 'wrong');
             });
 
             showQuestion(currentQuestions[currentQuestionIndex]);
