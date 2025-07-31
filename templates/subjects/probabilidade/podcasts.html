@@ -22,17 +22,7 @@ acessível{% endblock %}
     <li>
         <a href="{{ url_for('subject_feature', subject=subject_id, feature=feature.id) }}" {% if feature_id==feature.id
             %}class="active" aria-current="page" {% endif %}>
-            {% if feature.icon == 'fa-calculator' %}
-            <i class="fas fa-calculator"></i>
-            {% elif feature.icon == 'fa-brain' or feature.icon == 'fa-question-circle' %}
-            <i class="fas fa-brain"></i>
-            {% elif feature.icon == 'fa-magnifying-glass-chart' %}
-            <i class="fas fa-magnifying-glass-chart"></i>
-            {% elif feature.icon == 'fa-podcast' %}
-            <i class="fas fa-podcast"></i>
-            {% elif feature.icon == 'fa-chart-line' %}
-            <i class="fas fa-chart-line"></i>
-            {% endif %}
+            <i class="fas {{ feature.icon }}"></i>
             {{ translations.subject.pages[feature.name].title }}
         </a>
     </li>
@@ -43,7 +33,7 @@ acessível{% endblock %}
 {% block hero %}
 <section class="subject-hero">
     <div class="container">
-        <h1><i class="fas fa-podcast"></i> {{ translations.page.title }}</h1>
+        <h1><i class="fas {{ translations.page.icon }}"></i> {{ translations.page.title }}</h1>
         <p>{{ translations.page.description }}</p>
     </div>
 </section>
@@ -52,12 +42,13 @@ acessível{% endblock %}
 {% block content %}
 <div class="podcast-container">
     <div class="podcast-grid">
-        <!-- Episode 1 -->
-        <div class="podcast-card" data-episode="1">
-            <div class="podcast-cover" style="--color: #4361ee">
-                <div class="episode-number">01</div>
+        {% for episode_id, episode in translations.page.episodes.items() %}
+        <!-- Episode {{ episode_id }} -->
+        <div class="podcast-card" data-episode="{{ episode_id }}">
+            <div class="podcast-cover" style="--color: {{ episode.color }}">
+                <div class="episode-number">{{ '%02d' % episode_id|int }}</div>
                 <div class="cover-content">
-                    <h3>{{ translations.page.episodes['1'].title }}</h3>
+                    <h3>{{ episode.title }}</h3>
                     <div class="episode-duration">
                         <i class="far fa-clock"></i>
                         <span class="duration-text">--:--</span>
@@ -66,10 +57,9 @@ acessível{% endblock %}
                 <div class="podcast-overlay"></div>
             </div>
             <div class="podcast-info">
-                <p class="podcast-description">{{ translations.page.episodes['1'].description }}</p>
-                <div class="podcast-player"
-                    data-src="{{ url_for('static', filename='assets/Estatística Descritiva.wav') }}"
-                    data-title="{{ translations.page.episodes['1'].title }}">
+                <p class="podcast-description">{{ episode.description }}</p>
+                <div class="podcast-player" data-src="{{ url_for('static', filename='assets/' + episode.audio) }}"
+                    data-title="{{ episode.title }}">
                     <div class="player-controls">
                         <button class="play-button" aria-label="Play">
                             <i class="fas fa-play"></i>
@@ -85,312 +75,35 @@ acessível{% endblock %}
                 </div>
             </div>
         </div>
-
-        <!-- Episode 2 -->
-        <div class="podcast-card" data-episode="2">
-            <div class="podcast-cover" style="--color: #3a86ff">
-                <div class="episode-number">02</div>
-                <div class="cover-content">
-                    <h3>{{ translations.page.episodes['2'].title }}</h3>
-                    <div class="episode-duration">
-                        <i class="far fa-clock"></i>
-                        <span class="duration-text">--:--</span>
-                    </div>
-                </div>
-                <div class="podcast-overlay"></div>
-            </div>
-            <div class="podcast-info">
-                <p class="podcast-description">{{ translations.page.episodes['2'].description }}</p>
-                <div class="podcast-player"
-                    data-src="{{ url_for('static', filename='assets/Teoria das Probabilidades.wav') }}"
-                    data-title="{{ translations.page.episodes['2'].title }}">
-                    <div class="player-controls">
-                        <button class="play-button" aria-label="Play">
-                            <i class="fas fa-play"></i>
-                        </button>
-                        <div class="progress-container">
-                            <div class="progress-bar">
-                                <div class="progress-indicator"></div>
-                                <div class="progress-thumb"></div>
-                            </div>
-                        </div>
-                        <div class="time-display">0:00</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Episode 3 -->
-        <div class="podcast-card" data-episode="3">
-            <div class="podcast-cover" style="--color: #7209b7">
-                <div class="episode-number">03</div>
-                <div class="cover-content">
-                    <h3>{{ translations.page.episodes['3'].title }}</h3>
-                    <div class="episode-duration">
-                        <i class="far fa-clock"></i>
-                        <span class="duration-text">--:--</span>
-                    </div>
-                </div>
-                <div class="podcast-overlay"></div>
-            </div>
-            <div class="podcast-info">
-                <p class="podcast-description">{{ translations.page.episodes['3'].description }}</p>
-                <div class="podcast-player"
-                    data-src="{{ url_for('static', filename='assets/Probabilidade Condicionada e Independência.wav') }}"
-                    data-title="{{ translations.page.episodes['3'].title }}">
-                    <!-- Same player controls structure -->
-                    <div class="player-controls">
-                        <button class="play-button" aria-label="Play">
-                            <i class="fas fa-play"></i>
-                        </button>
-                        <div class="progress-container">
-                            <div class="progress-bar">
-                                <div class="progress-indicator"></div>
-                                <div class="progress-thumb"></div>
-                            </div>
-                        </div>
-                        <div class="time-display">0:00</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Episode 4 -->
-        <div class="podcast-card" data-episode="4">
-            <div class="podcast-cover" style="--color: #f72585">
-                <div class="episode-number">04</div>
-                <div class="cover-content">
-                    <h3>{{ translations.page.episodes['4'].title }}</h3>
-                    <div class="episode-duration">
-                        <i class="far fa-clock"></i>
-                        <span class="duration-text">--:--</span>
-                    </div>
-                </div>
-                <div class="podcast-overlay"></div>
-            </div>
-            <div class="podcast-info">
-                <p class="podcast-description">{{ translations.page.episodes['4'].description }}</p>
-                <div class="podcast-player"
-                    data-src="{{ url_for('static', filename='assets/Variáveis Aleatórias e Propriedades Fundamentais.wav') }}"
-                    data-title="{{ translations.page.episodes['4'].title }}">
-                    <!-- Same player controls structure -->
-                    <div class="player-controls">
-                        <button class="play-button" aria-label="Play">
-                            <i class="fas fa-play"></i>
-                        </button>
-                        <div class="progress-container">
-                            <div class="progress-bar">
-                                <div class="progress-indicator"></div>
-                                <div class="progress-thumb"></div>
-                            </div>
-                        </div>
-                        <div class="time-display">0:00</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Episode 5 -->
-        <div class="podcast-card" data-episode="5">
-            <div class="podcast-cover" style="--color: #4cc9f0">
-                <div class="episode-number">05</div>
-                <div class="cover-content">
-                    <h3>{{ translations.page.episodes['5'].title }}</h3>
-                    <div class="episode-duration">
-                        <i class="far fa-clock"></i>
-                        <span class="duration-text">--:--</span>
-                    </div>
-                </div>
-                <div class="podcast-overlay"></div>
-            </div>
-            <div class="podcast-info">
-                <p class="podcast-description">{{ translations.page.episodes['5'].description }}</p>
-                <div class="podcast-player"
-                    data-src="{{ url_for('static', filename='assets/Distribuições de Probabilidade Discretas.wav') }}"
-                    data-title="{{ translations.page.episodes['5'].title }}">
-                    <!-- Same player controls structure -->
-                    <div class="player-controls">
-                        <button class="play-button" aria-label="Play">
-                            <i class="fas fa-play"></i>
-                        </button>
-                        <div class="progress-container">
-                            <div class="progress-bar">
-                                <div class="progress-indicator"></div>
-                                <div class="progress-thumb"></div>
-                            </div>
-                        </div>
-                        <div class="time-display">0:00</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Episode 6 -->
-        <div class="podcast-card" data-episode="6">
-            <div class="podcast-cover" style="--color: #560bad">
-                <div class="episode-number">06</div>
-                <div class="cover-content">
-                    <h3>{{ translations.page.episodes['6'].title }}</h3>
-                    <div class="episode-duration">
-                        <i class="far fa-clock"></i>
-                        <span class="duration-text">--:--</span>
-                    </div>
-                </div>
-                <div class="podcast-overlay"></div>
-            </div>
-            <div class="podcast-info">
-                <p class="podcast-description">{{ translations.page.episodes['6'].description }}</p>
-                <div class="podcast-player"
-                    data-src="{{ url_for('static', filename='assets/Distribuições Contínuas_ Normal e Exponencial.wav') }}"
-                    data-title="{{ translations.page.episodes['6'].title }}">
-                    <!-- Same player controls structure -->
-                    <div class="player-controls">
-                        <button class="play-button" aria-label="Play">
-                            <i class="fas fa-play"></i>
-                        </button>
-                        <div class="progress-container">
-                            <div class="progress-bar">
-                                <div class="progress-indicator"></div>
-                                <div class="progress-thumb"></div>
-                            </div>
-                        </div>
-                        <div class="time-display">0:00</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Episode 7 -->
-        <div class="podcast-card" data-episode="7">
-            <div class="podcast-cover" style="--color: #3f37c9">
-                <div class="episode-number">07</div>
-                <div class="cover-content">
-                    <h3>{{ translations.page.episodes['7'].title }}</h3>
-                    <div class="episode-duration">
-                        <i class="far fa-clock"></i>
-                        <span class="duration-text">--:--</span>
-                    </div>
-                </div>
-                <div class="podcast-overlay"></div>
-            </div>
-            <div class="podcast-info">
-                <p class="podcast-description">{{ translations.page.episodes['7'].description }}</p>
-                <div class="podcast-player"
-                    data-src="{{ url_for('static', filename='assets/Amostragem e Distribuições Amostrais.wav') }}"
-                    data-title="{{ translations.page.episodes['7'].title }}">
-                    <!-- Same player controls structure -->
-                    <div class="player-controls">
-                        <button class="play-button" aria-label="Play">
-                            <i class="fas fa-play"></i>
-                        </button>
-                        <div class="progress-container">
-                            <div class="progress-bar">
-                                <div class="progress-indicator"></div>
-                                <div class="progress-thumb"></div>
-                            </div>
-                        </div>
-                        <div class="time-display">0:00</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Episode 8 -->
-        <div class="podcast-card" data-episode="8">
-            <div class="podcast-cover" style="--color: #fb5607">
-                <div class="episode-number">08</div>
-                <div class="cover-content">
-                    <h3>{{ translations.page.episodes['8'].title }}</h3>
-                    <div class="episode-duration">
-                        <i class="far fa-clock"></i>
-                        <span class="duration-text">--:--</span>
-                    </div>
-                </div>
-                <div class="podcast-overlay"></div>
-            </div>
-            <div class="podcast-info">
-                <p class="podcast-description">{{ translations.page.episodes['8'].description }}</p>
-                <div class="podcast-player"
-                    data-src="{{ url_for('static', filename='assets/Estimação de Parâmetros e Intervalos de Confiança.wav') }}"
-                    data-title="{{ translations.page.episodes['8'].title }}">
-                    <!-- Same player controls structure -->
-                    <div class="player-controls">
-                        <button class="play-button" aria-label="Play">
-                            <i class="fas fa-play"></i>
-                        </button>
-                        <div class="progress-container">
-                            <div class="progress-bar">
-                                <div class="progress-indicator"></div>
-                                <div class="progress-thumb"></div>
-                            </div>
-                        </div>
-                        <div class="time-display">0:00</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Episode 9 -->
-        <div class="podcast-card" data-episode="9">
-            <div class="podcast-cover" style="--color: #ff006e">
-                <div class="episode-number">09</div>
-                <div class="cover-content">
-                    <h3>{{ translations.page.episodes['9'].title }}</h3>
-                    <div class="episode-duration">
-                        <i class="far fa-clock"></i>
-                        <span class="duration-text">--:--</span>
-                    </div>
-                </div>
-                <div class="podcast-overlay"></div>
-            </div>
-            <div class="podcast-info">
-                <p class="podcast-description">{{ translations.page.episodes['9'].description }}</p>
-                <div class="podcast-player"
-                    data-src="{{ url_for('static', filename='assets/Testes de Hipóteses Paramétricos.wav') }}"
-                    data-title="{{ translations.page.episodes['9'].title }}">
-                    <!-- Same player controls structure -->
-                    <div class="player-controls">
-                        <button class="play-button" aria-label="Play">
-                            <i class="fas fa-play"></i>
-                        </button>
-                        <div class="progress-container">
-                            <div class="progress-bar">
-                                <div class="progress-indicator"></div>
-                                <div class="progress-thumb"></div>
-                            </div>
-                        </div>
-                        <div class="time-display">0:00</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 
-    <!-- Minimized player that appears when scrolling -->
+    <!-- Minimized Player (hidden by default) -->
     <div class="minimized-player" style="display: none;">
+        <div class="mini-cover">
+            <div class="mini-episode-number">01</div>
+        </div>
         <div class="mini-player-info">
-            <span class="mini-episode-number"></span>
-            <span class="mini-title"></span>
+            <div class="mini-title">Nenhum episódio selecionado</div>
+            <div class="mini-artist">Podcasts Educacionais</div>
         </div>
         <div class="mini-controls">
-            <button class="mini-skip-button mini-skip-back" title="Voltar 10s">
+            <button class="mini-skip-button mini-skip-back" aria-label="Skip Back">
                 <i class="fas fa-backward"></i>
             </button>
-            <button class="mini-play-button">
+            <button class="mini-play-button" aria-label="Play">
                 <i class="fas fa-play"></i>
             </button>
-            <button class="mini-skip-button mini-skip-forward" title="Avançar 10s">
+            <button class="mini-skip-button mini-skip-forward" aria-label="Skip Forward">
                 <i class="fas fa-forward"></i>
             </button>
             <div class="mini-progress-container">
                 <div class="mini-progress-bar">
                     <div class="mini-progress-indicator"></div>
-                    <div class="mini-progress-thumb"></div>
                 </div>
             </div>
-            <div class="mini-time-display">0:00</div>
             <div class="mini-volume-container">
-                <button class="mini-volume-button" title="Volume">
+                <button class="mini-volume-button" aria-label="Volume">
                     <i class="fas fa-volume-up"></i>
                 </button>
                 <div class="volume-slider-container">
@@ -401,15 +114,8 @@ acessível{% endblock %}
                     <div class="volume-percentage">100%</div>
                 </div>
             </div>
+            <div class="mini-time-display">0:00</div>
         </div>
-    </div>
-
-    <!-- Navigation Back -->
-    <div class="navigation-back">
-        <a href="{{ url_for('subject_home', subject='probabilidade') }}" class="back-button">
-            <i class="fas fa-arrow-left"></i>
-            Voltar à Probabilidade e Estatística
-        </a>
     </div>
 </div>
 {% endblock %}

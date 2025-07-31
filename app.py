@@ -6,38 +6,41 @@ from utils.translations import TranslationManager
 app = Flask(__name__)
 translation_manager = TranslationManager(os.path.join(os.path.dirname(__file__), 'translations'))
 
-# Available subjects and their features
-SUBJECTS = {
-    'probabilidade': {
-        'name': 'Probabilidade e Estatística',
-        'icon': 'fa-chart-line',
-        'features': [
-            {
-                'id': 'calculator',
-                'name': 'calculator',
-                'route_name': 'calculator',
-                'icon': 'fa-calculator'
-            },
-            {
-                'id': 'quiz',
-                'name': 'quiz', 
-                'route_name': 'quiz',
-                'icon': 'fa-brain'
-            },            {
-                'id': 'descobrir',
-                'name': 'descobrir',
-                'route_name': 'descobrir',
-                'icon': 'fa-magnifying-glass-chart'
-            },
-            {
-                'id': 'podcasts',
-                'name': 'podcasts',
-                'route_name': 'podcasts',
-                'icon': 'fa-podcast'
+def get_subjects_from_translations():
+    """
+    Dynamically build subjects structure from translations
+    """
+    try:
+        translations = translation_manager.load_translations('pt_PT')
+        subjects_data = translations.get('subjects', {})
+        subjects = {}
+        
+        for subject_id, subject_data in subjects_data.items():
+            # Skip coming soon subjects
+            if subject_id in translations.get('coming_soon', {}):
+                continue
+                
+            features = []
+            pages = subject_data.get('pages', {})
+            
+            for page_id, page_data in pages.items():
+                if page_id != 'home':  # Skip home page as it's the subject index
+                    features.append({
+                        'id': page_id,
+                        'name': page_id,
+                        'icon': page_data.get('icon', 'fa-question-circle')
+                    })
+            
+            subjects[subject_id] = {
+                'name': subject_data.get('name', ''),
+                'icon': subject_data.get('icon', 'fa-chart-line'),
+                'features': features
             }
-        ]
-    }
-}
+            
+        return subjects
+    except Exception as e:
+        print(f"Error loading subjects from translations: {e}")
+        return {}
 
 # Make translations and subjects available to all templates
 @app.context_processor
@@ -47,7 +50,7 @@ def inject_global_data():
     
     return dict(
         get_translations=get_translations,
-        subjects=SUBJECTS
+        subjects=get_subjects_from_translations()
     )
 
 @app.route("/")
@@ -82,7 +85,8 @@ def home():
 # Dynamic subject route generation
 @app.route("/<subject>")
 def subject_home(subject):
-    if subject not in SUBJECTS:
+    subjects = get_subjects_from_translations()
+    if subject not in subjects:
         # Always provide translations context to 404
         translations = translation_manager.get_translations('general', 'home')
         return render_template('general/404.html', translations=translations, title="Página Não Encontrada"), 404
@@ -98,13 +102,14 @@ def subject_home(subject):
 # Dynamic subject feature route generation
 @app.route("/<subject>/<feature>")
 def subject_feature(subject, feature):
-    if subject not in SUBJECTS:
+    subjects = get_subjects_from_translations()
+    if subject not in subjects:
         translations = translation_manager.get_translations('general', 'home')
         return render_template('general/404.html', translations=translations, title="Página Não Encontrada"), 404
         
     # Check if feature exists for this subject
     feature_exists = False
-    for f in SUBJECTS[subject]['features']:
+    for f in subjects[subject]['features']:
         if f['id'] == feature:
             feature_exists = True
             break
@@ -151,27 +156,6 @@ def get_quizzes():
                     "description": quiz_data["description"]
                 })
     return jsonify(quizzes)
-
-# Backward compatibility for existing routes
-@app.route("/probabilidade")
-def probabilidade():
-    return subject_home('probabilidade')
-
-@app.route("/probabilidade/calculator")
-def calculator():
-    return subject_feature('probabilidade', 'calculator')
-
-@app.route("/probabilidade/quiz")
-def quiz():
-    return subject_feature('probabilidade', 'quiz')
-    
-@app.route("/probabilidade/descobrir")
-def descobrir():
-    return subject_feature('probabilidade', 'descobrir')
-
-@app.route("/probabilidade/podcasts")
-def podcasts():
-    return subject_feature('probabilidade', 'podcasts')
 
 @app.errorhandler(404)
 def page_not_found(e):

@@ -21,6 +21,7 @@
         "probabilidade": {
             "name": "Probabilidade e Estatística",
             "description": "Explore conceitos estatísticos através de ferramentas interativas",
+            "icon": "fa-chart-line",
             "pages": {
                 "home": {
                     "title": "Probabilidade e Estatística",
@@ -29,6 +30,7 @@
                 "quiz": {
                     "title": "Quiz",
                     "description": "Teste os seus conhecimentos em probabilidade e estatística",
+                    "icon": "fa-brain",
                     "current_question": "Pergunta {current} de {total}",
                     "score": "Pontuação: {score}",
                     "complete": "Quiz Concluído!",
@@ -49,6 +51,7 @@
                 "descobrir": {
                     "title": "Descobrir a Distribuição",
                     "description": "Aprenda a identificar qual distribuição de probabilidade melhor se adequa a cada situação",
+                    "icon": "fa-magnifying-glass-chart",
                     "start": {
                         "title": "Identificar Distribuições",
                         "description": "Neste exercício, você encontrará diferentes situações e deverá identificar qual distribuição de probabilidade (Binomial, Poisson ou Normal) melhor se adequa a cada caso.",
@@ -66,6 +69,7 @@
                 "calculator": {
                     "title": "Calculadora Estatística",
                     "description": "Calcule probabilidades e visualize distribuições estatísticas",
+                    "icon": "fa-calculator",
                     "distributions": {
                         "binomial": {
                             "name": "Distribuição Binomial",
@@ -99,42 +103,61 @@
                 "podcasts": {
                     "title": "Podcasts Educacionais",
                     "description": "Ouça explicações detalhadas sobre conceitos de probabilidade e estatística",
+                    "icon": "fa-podcast",
                     "episodes": {
                         "1": {
                             "title": "Estatística Descritiva",
-                            "description": "Aprenda os fundamentos da análise de dados e medidas estatísticas básicas"
+                            "description": "Aprenda os fundamentos da análise de dados e medidas estatísticas básicas",
+                            "color": "#4361ee",
+                            "audio": "Estatística Descritiva.wav"
                         },
                         "2": {
                             "title": "Teoria das Probabilidades",
-                            "description": "Compreenda os conceitos fundamentais de probabilidade e suas aplicações"
+                            "description": "Compreenda os conceitos fundamentais de probabilidade e suas aplicações",
+                            "color": "#3a86ff",
+                            "audio": "Teoria das Probabilidades.wav"
                         },
                         "3": {
                             "title": "Probabilidade Condicionada e Acontecimentos Independentes",
-                            "description": "Explore as relações entre eventos e probabilidades condicionais"
+                            "description": "Explore as relações entre eventos e probabilidades condicionais",
+                            "color": "#7209b7",
+                            "audio": "Probabilidade Condicionada e Independência.wav"
                         },
                         "4": {
                             "title": "Variáveis Aleatórias",
-                            "description": "Entenda como variáveis aleatórias modelam fenômenos incertos"
+                            "description": "Entenda como variáveis aleatórias modelam fenômenos incertos",
+                            "color": "#f72585",
+                            "audio": "Variáveis Aleatórias e Propriedades Fundamentais.wav"
                         },
                         "5": {
                             "title": "Distribuições Discretas",
-                            "description": "Conheça as principais distribuições de probabilidade discretas"
+                            "description": "Conheça as principais distribuições de probabilidade discretas",
+                            "color": "#4cc9f0",
+                            "audio": "Distribuições de Probabilidade Discretas.wav"
                         },
                         "6": {
                             "title": "Distribuições Contínuas",
-                            "description": "Descubra as distribuições contínuas e suas propriedades"
+                            "description": "Descubra as distribuições contínuas e suas propriedades",
+                            "color": "#560bad",
+                            "audio": "Distribuições Contínuas_ Normal e Exponencial.wav"
                         },
                         "7": {
                             "title": "Amostragem e Distribuições Amostrais",
-                            "description": "Aprenda sobre técnicas de amostragem e suas distribuições"
+                            "description": "Aprenda sobre técnicas de amostragem e suas distribuições",
+                            "color": "#3f37c9",
+                            "audio": "Amostragem e Distribuições Amostrais.wav"
                         },
                         "8": {
                             "title": "Estimação",
-                            "description": "Compreenda métodos de estimação de parâmetros e intervalos de confiança"
+                            "description": "Compreenda métodos de estimação de parâmetros e intervalos de confiança",
+                            "color": "#fb5607",
+                            "audio": "Estimação de Parâmetros e Intervalos de Confiança.wav"
                         },
                         "9": {
                             "title": "Testes de Hipóteses",
-                            "description": "Explore métodos paramétricos para testar hipóteses estatísticas"
+                            "description": "Explore métodos paramétricos para testar hipóteses estatísticas",
+                            "color": "#ff006e",
+                            "audio": "Testes de Hipóteses Paramétricos.wav"
                         }
                     }
                 }

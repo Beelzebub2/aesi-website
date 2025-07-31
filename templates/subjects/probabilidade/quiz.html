@@ -1,11 +1,10 @@
 {% extends "base.html" %}
 
 {% block title %}{{ title }}{% endblock %}
-{% block description %}Teste os seus conhecimentos em probabilidade e estatística{% endblock %}
+{% block description %}{{ translations.page.description }}{% endblock %}
 
-{% block og_title %}Quiz de Probabilidade e Estatística - Teste os Seus Conhecimentos{% endblock %}
-{% block og_description %}Quiz interativo para testar e consolidar os seus conhecimentos em probabilidade e estatística
-com feedback imediato{% endblock %}
+{% block og_title %}{{ translations.page.title }} - {{ translations.subject.name }}{% endblock %}
+{% block og_description %}{{ translations.page.description }}{% endblock %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/general/homepage.css') }}">
@@ -13,7 +12,7 @@ com feedback imediato{% endblock %}
 {% endblock %}
 
 {% block extra_js %}
-<script src="{{ url_for('static', filename='js/subjects/probabilidade/quiz.js') }}" defer></script>
+<script src="{{ url_for('static', filename='js/subjects/probabilidade/quiz-main.js') }}" defer></script>
 {% endblock %}
 
 {% block container_class %}subject-container{% endblock %}
@@ -25,17 +24,7 @@ com feedback imediato{% endblock %}
     <li>
         <a href="{{ url_for('subject_feature', subject=subject_id, feature=feature.id) }}" {% if feature_id==feature.id
             %} class="active" aria-current="page" {% endif %}>
-            {% if feature.icon == 'fa-calculator' %}
-            <i class="fas fa-calculator"></i>
-            {% elif feature.icon == 'fa-brain' or feature.icon == 'fa-question-circle' %}
-            <i class="fas fa-brain"></i>
-            {% elif feature.icon == 'fa-magnifying-glass-chart' %}
-            <i class="fas fa-magnifying-glass-chart"></i>
-            {% elif feature.icon == 'fa-chart-line' %}
-            <i class="fas fa-chart-line"></i>
-            {% elif feature.icon == 'fa-podcast' %}
-            <i class="fas fa-podcast"></i>
-            {% endif %}
+            <i class="fas {{ feature.icon }}"></i>
             {{ translations.subject.pages[feature.name].title }}
         </a>
     </li>
@@ -46,7 +35,7 @@ com feedback imediato{% endblock %}
 {% block hero %}
 <section class="subject-hero">
     <div class="container">
-        <h1><i class="fas fa-brain"></i> {{ translations.page.title }}</h1>
+        <h1><i class="fas {{ translations.page.icon }}"></i> {{ translations.page.title }}</h1>
         <p>{{ translations.page.description }}</p>
     </div>
 </section>
@@ -56,7 +45,7 @@ com feedback imediato{% endblock %}
 <div class="quiz-container" data-quiz-type="quiz">
     <div class="quiz-content">
         <div id="quiz-start" class="quiz-section active">
-            <i class="fas fa-brain fa-3x"></i>
+            <i class="fas {{ translations.page.icon }} fa-3x"></i>
             <h2>{{ translations.page.start.title }}</h2>
             <p>{{ translations.page.start.description }}</p>
             <button id="start-quiz" class="btn btn-primary">

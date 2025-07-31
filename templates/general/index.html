@@ -38,21 +38,24 @@
         <main class="container">
             <section class="subjects-section">
                 <h2 class="section-title">{{ translations.page.available_subjects }}</h2>
-                <div class="subject-grid"> <!-- Active Subjects --> <a href="{{ url_for('probabilidade') }}"
-                        class="subject-card">
+                <div class="subject-grid">
+                    <!-- Active Subjects -->
+                    {% for subject_id, subject_info in subjects.items() %}
+                    <a href="{{ url_for('subject_home', subject=subject_id) }}" class="subject-card">
                         <div class="subject-content">
-                            <h3 class="subject-title">{{ translations.subjects.probabilidade.name }}</h3>
-                            <p class="subject-description">{{ translations.subjects.probabilidade.description }}</p>
+                            <h3 class="subject-title">{{ subject_info.name }}</h3>
+                            <p class="subject-description">{{ translations.subjects[subject_id].description }}</p>
                             <div class="subject-items">
-                                <span class="subject-item"><i class="fas fa-calculator"></i> {{
-                                    translations.subjects.probabilidade.pages.calculator.title }}</span>
-                                <span class="subject-item"><i class="fas fa-question-circle"></i> {{
-                                    translations.subjects.probabilidade.pages.quiz.title }}</span>
-                                <span class="subject-item"><i class="fas fa-magnifying-glass-chart"></i> {{
-                                    translations.subjects.probabilidade.pages.descobrir.title }}</span>
+                                {% for feature in subject_info.features %}
+                                <span class="subject-item">
+                                    <i class="fas {{ feature.icon }}"></i>
+                                    {{ translations.subjects[subject_id].pages[feature.name].title }}
+                                </span>
+                                {% endfor %}
                             </div>
                         </div>
                     </a>
+                    {% endfor %}
 
                     <!-- Coming Soon Subjects -->
                     {% if coming_soon %}

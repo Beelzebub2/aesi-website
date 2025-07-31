@@ -59,7 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const distributionSelect = document.getElementById('distribution');
     const paramGroups = document.querySelectorAll('.param-group');
-    const calculateBtn = document.getElementById('calculate');
     const resultContainer = document.getElementById('result');
     const resultValue = document.querySelector('.result-value');
     const resultExplanation = document.querySelector('.result-explanation');
@@ -182,18 +181,31 @@ document.addEventListener('DOMContentLoaded', () => {
     distributionSelect.addEventListener('change', () => {
         paramGroups.forEach(group => group.classList.add('hidden'));
         document.getElementById(`${distributionSelect.value}-params`).classList.remove('hidden');
+        updateResult();
         updateChartData();
     });
 
     probabilityType.addEventListener('change', () => {
         betweenInput.classList.toggle('hidden', probabilityType.value !== 'between');
         updateResult();
-    });
-
-    calculateBtn.addEventListener('click', () => {
-        updateResult();
         updateChartData();
     });
+
+    // Add automatic calculation on input change
+    allInputs.forEach(input => {
+        input.addEventListener('input', () => {
+            updateResult();
+            updateChartData();
+        });
+        input.addEventListener('change', () => {
+            updateResult();
+            updateChartData();
+        });
+    });
+
+    // Initial calculation
+    updateResult();
+    updateChartData();
 
     function updateChartData() {
         const distribution = distributionSelect.value;
