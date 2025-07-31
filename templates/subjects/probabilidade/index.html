@@ -21,13 +21,13 @@ educativos e podcasts especializados{% endblock %}
 {% block nav_links %}
 <ul class="nav-links">
     <li><a href="{{ url_for('subject_home', subject=subject_id) }}" {% if not feature_id %}class="active"
-            aria-current="page" {% endif %}><i class="fas fa-home"></i> Início</a></li>
+            aria-current="page" {% endif %}><i class="fas fa-home"></i> {{ translations.general.home }}</a></li>
     {% for feature in subjects[subject_id].features %}
     <li>
         <a href="{{ url_for('subject_feature', subject=subject_id, feature=feature.id) }}" {% if feature_id==feature.id
             %}class="active" aria-current="page" {% endif %}>
             <i class="fas {{ feature.icon }}"></i>
-            {{ translations.subject.pages[feature.name].title }}
+            {{ translations.subject.pages[feature.id].title }}
         </a>
     </li>
     {% endfor %}
@@ -48,8 +48,8 @@ educativos e podcasts especializados{% endblock %}
     {% for feature in subjects[subject_id].features %}
     <a href="{{ url_for('subject_feature', subject=subject_id, feature=feature.id) }}" class="feature-card">
         <i class="fas {{ feature.icon }} feature-icon"></i>
-        <h2 class="feature-title">{{ translations.subject.pages[feature.name].title }}</h2>
-        <p class="feature-description">{{ translations.subject.pages[feature.name].description }}</p>
+        <h2 class="feature-title">{{ translations.subject.pages[feature.id].title }}</h2>
+        <p class="feature-description">{{ translations.subject.pages[feature.id].description }}</p>
     </a>
     {% endfor %}
 </div>

@@ -30,7 +30,7 @@ const ThemeManager = {
                     <div class="dot"></div>
                     <div class="dot"></div>
                 </div>
-                <div class="loading-text">Switching theme...</div>
+                <div class="loading-text">${window.translations?.general?.switching_theme || 'Switching theme...'}</div>
             </div>
         `;
 

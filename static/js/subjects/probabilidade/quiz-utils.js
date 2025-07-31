@@ -100,40 +100,59 @@ class QuizUtils {
      * @returns {Object} - Message and icon
      */
     static getScoreMessage(percentage, subject = 'general') {
-        let message = '';
+        let messageKey = '';
         let iconClass = '';
 
         if (percentage === 100) {
-            message = subject === 'descobrir'
-                ? 'Excelente! Você domina completamente a identificação das distribuições de probabilidade!'
-                : '🎉 Excelente! Você domina bem os conceitos de probabilidade!';
+            messageKey = 'perfect';
             iconClass = 'fa-trophy';
         } else if (percentage >= 90) {
-            message = subject === 'descobrir'
-                ? 'Muito bom! Você tem um ótimo entendimento das distribuições de probabilidade.'
-                : '🎉 Excelente! Você domina bem os conceitos de probabilidade!';
+            messageKey = 'excellent';
             iconClass = 'fa-star';
         } else if (percentage >= 80) {
-            message = subject === 'descobrir'
-                ? 'Muito bom! Você tem um ótimo entendimento das distribuições de probabilidade.'
-                : '👍 Muito bom! Você tem um bom conhecimento sobre probabilidade.';
+            messageKey = 'very_good';
             iconClass = 'fa-star';
         } else if (percentage >= 70) {
-            message = '👍 Muito bom! Você tem um bom conhecimento sobre probabilidade.';
+            messageKey = 'good';
             iconClass = 'fa-thumbs-up';
         } else if (percentage >= 60) {
-            message = subject === 'descobrir'
-                ? 'Bom trabalho! Continue praticando para melhorar sua compreensão.'
-                : '📚 Razoável. Continue estudando para melhorar ainda mais!';
+            messageKey = 'fair';
             iconClass = 'fa-thumbs-up';
         } else if (percentage >= 50) {
-            message = '📚 Razoável. Continue estudando para melhorar ainda mais!';
+            messageKey = 'needs_improvement';
             iconClass = 'fa-book';
         } else {
-            message = subject === 'descobrir'
-                ? 'Continue praticando! Reveja os conceitos básicos de cada distribuição.'
-                : '💪 Continue praticando! A probabilidade pode ser desafiadora no início.';
+            messageKey = 'keep_trying';
             iconClass = 'fa-book';
+        }
+
+        // Get message from translations with fallback
+        let message = '';
+        if (window.translations && window.translations.general && window.translations.general.quiz_feedback) {
+            const feedback = window.translations.general.quiz_feedback[messageKey];
+            if (feedback) {
+                message = feedback[subject] || feedback.general || '';
+            }
+        }
+
+        // Simplified fallback - just use generic messages if translations fail
+        if (!message) {
+            switch (messageKey) {
+                case 'perfect':
+                case 'excellent':
+                    message = window.translations?.general?.quiz_feedback?.excellent?.general || '🎉 Excelente!';
+                    break;
+                case 'very_good':
+                case 'good':
+                    message = window.translations?.general?.quiz_feedback?.very_good?.general || '👍 Muito bom!';
+                    break;
+                case 'fair':
+                case 'needs_improvement':
+                    message = window.translations?.general?.quiz_feedback?.fair?.general || '📚 Continue estudando!';
+                    break;
+                default:
+                    message = window.translations?.general?.quiz_feedback?.keep_trying?.general || '💪 Continue praticando!';
+            }
         }
 
         return { message, iconClass };
@@ -192,7 +211,7 @@ class QuizUtils {
             feedback.innerHTML = `
                 <div class="feedback-content ${isCorrect ? 'correct' : 'wrong'}">
                     <i class="fas ${isCorrect ? 'fa-check-circle' : 'fa-times-circle'}"></i>
-                    <p>${isCorrect ? 'Correto!' : 'Incorreto!'}</p>
+                    <p>${isCorrect ? (window.translations?.general?.correct || 'Correto!') : (window.translations?.general?.incorrect || 'Incorreto!')}</p>
                     ${explanation ? `<p class="explanation">${explanation}</p>` : ''}
                 </div>
             `;

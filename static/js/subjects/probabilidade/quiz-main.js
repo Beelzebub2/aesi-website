@@ -90,13 +90,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
             } catch (error) {
                 console.error('Error loading quiz:', error);
-                this.showError('Erro ao carregar o quiz: ' + error.message);
+                this.showError((window.translations?.general?.quiz_error_prefix || 'Erro ao carregar o quiz: ') + error.message);
             }
         }
 
         startQuiz() {
             if (this.currentQuestions.length === 0) {
-                this.showError('Nenhuma pergunta disponível. Tente recarregar a página.');
+                this.showError((window.translations?.general?.no_questions_available || 'Nenhuma pergunta disponível. Tente recarregar a página.'));
                 return;
             }
 
@@ -221,17 +221,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 feedback.innerHTML = `
                     <div class="feedback-content ${isCorrect ? 'correct' : 'incorrect'}">
                         <i class="fas ${isCorrect ? 'fa-check-circle' : 'fa-times-circle'}"></i>
-                        <p>${isCorrect ? 'Correto!' : 'Incorreto!'}</p>
+                        <p>${isCorrect ? (window.translations?.general?.correct || 'Correto!') : (window.translations?.general?.incorrect || 'Incorreto!')}</p>
                         ${question.explanation ? `<p class="explanation">${question.explanation}</p>` : ''}
                     </div>
                 `;
                 feedback.style.display = 'block';
-                
+
                 // Auto-scroll to feedback after a short delay
                 setTimeout(() => {
-                    feedback.scrollIntoView({ 
-                        behavior: 'smooth', 
-                        block: 'center' 
+                    feedback.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'center'
                     });
                 }, 300);
             }
@@ -268,19 +268,19 @@ document.addEventListener('DOMContentLoaded', () => {
             if (resultsMessage) {
                 let message = '';
                 if (percentage >= 90) {
-                    message = '🎉 Excelente! Você domina bem os conceitos!';
+                    message = window.translations?.general?.quiz_feedback?.excellent?.general || '🎉 Excelente! Você domina bem os conceitos!';
                 } else if (percentage >= 70) {
-                    message = '👍 Muito bom! Você tem um bom conhecimento.';
+                    message = window.translations?.general?.quiz_feedback?.very_good?.general || '👍 Muito bom! Você tem um bom conhecimento.';
                 } else if (percentage >= 50) {
-                    message = '📚 Bom trabalho! Continue estudando para melhorar.';
+                    message = window.translations?.general?.quiz_feedback?.fair?.general || '📚 Bom trabalho! Continue estudando para melhorar.';
                 } else {
-                    message = '💪 Continue praticando! O conhecimento vem com a prática.';
+                    message = window.translations?.general?.quiz_feedback?.keep_trying?.general || '💪 Continue praticando! O conhecimento vem com a prática.';
                 }
 
                 resultsMessage.innerHTML = `
                     <p>${message}</p>
-                    <p><strong>Tempo:</strong> ${duration} segundos</p>
-                    <p><strong>Acertos:</strong> ${this.score} de ${this.currentQuestions.length}</p>
+                    <p><strong>${window.translations?.general?.time || 'Tempo:'}:</strong> ${duration} ${window.translations?.general?.seconds || 'segundos'}</p>
+                    <p><strong>${window.translations?.general?.score_hits || 'Acertos:'}:</strong> ${this.score} ${window.translations?.general?.of || 'de'} ${this.currentQuestions.length}</p>
                 `;
             }
         }
@@ -309,11 +309,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 startSection.innerHTML = `
                     <div class="error-message">
                         <i class="fas fa-exclamation-triangle fa-3x"></i>
-                        <h2>Erro</h2>
+                        <h2>${window.translations?.general?.error || 'Erro'}</h2>
                         <p>${message}</p>
                         <button onclick="location.reload()" class="btn btn-primary">
                             <i class="fas fa-redo"></i>
-                            Tentar Novamente
+                            ${window.translations?.general?.try_again || 'Tentar Novamente'}
                         </button>
                     </div>
                 `;

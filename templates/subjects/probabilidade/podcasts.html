@@ -17,13 +17,13 @@ acessível{% endblock %}
 {% block nav_links %}
 <ul class="nav-links">
     <li><a href="{{ url_for('subject_home', subject=subject_id) }}" {% if not feature_id %}class="active"
-            aria-current="page" {% endif %}><i class="fas fa-home"></i> Início</a></li>
+            aria-current="page" {% endif %}><i class="fas fa-home"></i> {{ translations.general.home }}</a></li>
     {% for feature in subjects[subject_id].features %}
     <li>
         <a href="{{ url_for('subject_feature', subject=subject_id, feature=feature.id) }}" {% if feature_id==feature.id
             %}class="active" aria-current="page" {% endif %}>
             <i class="fas {{ feature.icon }}"></i>
-            {{ translations.subject.pages[feature.name].title }}
+            {{ translations.subject.pages[feature.id].title }}
         </a>
     </li>
     {% endfor %}
@@ -61,7 +61,7 @@ acessível{% endblock %}
                 <div class="podcast-player" data-src="{{ url_for('static', filename='assets/' + episode.audio) }}"
                     data-title="{{ episode.title }}">
                     <div class="player-controls">
-                        <button class="play-button" aria-label="Play">
+                        <button class="play-button" aria-label="{{ translations.general.aria.play }}">
                             <i class="fas fa-play"></i>
                         </button>
                         <div class="progress-container">
@@ -84,17 +84,18 @@ acessível{% endblock %}
             <div class="mini-episode-number">01</div>
         </div>
         <div class="mini-player-info">
-            <div class="mini-title">Nenhum episódio selecionado</div>
-            <div class="mini-artist">Podcasts Educacionais</div>
+            <div class="mini-title">{{ translations.general.no_episode_selected }}</div>
+            <div class="mini-artist">{{ translations.general.educational_podcasts }}</div>
         </div>
         <div class="mini-controls">
-            <button class="mini-skip-button mini-skip-back" aria-label="Skip Back">
+            <button class="mini-skip-button mini-skip-back" aria-label="{{ translations.general.aria.skip_back }}">
                 <i class="fas fa-backward"></i>
             </button>
-            <button class="mini-play-button" aria-label="Play">
+            <button class="mini-play-button" aria-label="{{ translations.general.aria.play }}">
                 <i class="fas fa-play"></i>
             </button>
-            <button class="mini-skip-button mini-skip-forward" aria-label="Skip Forward">
+            <button class="mini-skip-button mini-skip-forward"
+                aria-label="{{ translations.general.aria.skip_forward }}">
                 <i class="fas fa-forward"></i>
             </button>
             <div class="mini-progress-container">
@@ -103,7 +104,7 @@ acessível{% endblock %}
                 </div>
             </div>
             <div class="mini-volume-container">
-                <button class="mini-volume-button" aria-label="Volume">
+                <button class="mini-volume-button" aria-label="{{ translations.general.aria.volume }}">
                     <i class="fas fa-volume-up"></i>
                 </button>
                 <div class="volume-slider-container">

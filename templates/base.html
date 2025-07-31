@@ -50,6 +50,9 @@
             const savedTheme = localStorage.getItem('theme') || 'light';
             document.documentElement.setAttribute('data-theme', savedTheme);
         })();
+
+        // Make translations available to JavaScript
+        window.translations = {{ translations | tojson | safe }};
     </script>
 
     <script src="{{ url_for('static', filename='js/general/theme.js') }}" defer></script>
@@ -83,9 +86,9 @@
         </div>
     </div>
     <div class="{% block container_class %}page-container{% endblock %}">
-        <nav class="navbar" aria-label="Navegação principal">
+        <nav class="navbar" aria-label="{{ translations.general.aria.main_navigation }}">
             <div class="container navbar-content">
-                <button class="mobile-nav-toggle" aria-label="Menu de navegação">
+                <button class="mobile-nav-toggle" aria-label="{{ translations.general.aria.mobile_menu }}">
                     <i class="fas fa-bars"></i>
                 </button>
                 <a href="{{ url_for('home') }}" class="logo">{{ translations.general.platform_name }}</a>

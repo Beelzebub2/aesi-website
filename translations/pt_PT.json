@@ -8,7 +8,72 @@
         "submit": "Submeter",
         "cancel": "Cancelar",
         "dark_mode": "Alternar entre modo claro e escuro",
-        "coming_soon": "Em breve"
+        "coming_soon": "Em breve",
+        "home": "Início",
+        "current_question": "Questão",
+        "of": "de",
+        "no_episode_selected": "Nenhum episódio selecionado",
+        "educational_podcasts": "Podcasts Educacionais",
+        "page_not_found": "Página Não Encontrada",
+        "back_to_home": "Voltar para a Página Inicial",
+        "play_next_episode": "Reproduzir próximo episódio?",
+        "error_loading_quiz": "Erro ao carregar as questões do quiz. Por favor, tente novamente.",
+        "correct": "Correto!",
+        "incorrect": "Incorreto!",
+        "time": "Tempo:",
+        "seconds": "segundos",
+        "score_hits": "Corretas:",
+        "error": "Erro",
+        "no_questions_available": "Nenhuma pergunta disponível. Tente recarregar a página.",
+        "quiz_error_prefix": "Erro ao carregar o quiz: ",
+        "switching_theme": "Mudando tema...",
+        "distribution_chart_title": "Distribuição de Probabilidade",
+        "chart_x_axis": "Valor",
+        "chart_y_axis": "Probabilidade",
+        "calculator_errors": {
+            "k_greater_than_n": "k não pode ser maior que n",
+            "p_out_of_range": "p deve estar entre 0 e 1",
+            "lambda_negative": "λ deve ser positivo",
+            "std_negative": "O desvio padrão deve ser positivo"
+        },
+        "aria": {
+            "play": "Reproduzir",
+            "skip_back": "Voltar 10 segundos",
+            "skip_forward": "Avançar 10 segundos",
+            "volume": "Volume",
+            "main_navigation": "Navegação principal",
+            "mobile_menu": "Menu de navegação"
+        },
+        "quiz_feedback": {
+            "perfect": {
+                "general": "🎉 Excelente! Você domina bem os conceitos de probabilidade!",
+                "descobrir": "Excelente! Você domina completamente a identificação das distribuições de probabilidade!"
+            },
+            "excellent": {
+                "general": "🎉 Excelente! Você domina bem os conceitos de probabilidade!",
+                "descobrir": "Muito bom! Você tem um ótimo entendimento das distribuições de probabilidade."
+            },
+            "very_good": {
+                "general": "👍 Muito bom! Você tem um bom conhecimento sobre probabilidade.",
+                "descobrir": "Muito bom! Você tem um ótimo entendimento das distribuições de probabilidade."
+            },
+            "good": {
+                "general": "👍 Muito bom! Você tem um bom conhecimento sobre probabilidade.",
+                "descobrir": "Bom trabalho! Continue praticando para melhorar sua compreensão."
+            },
+            "fair": {
+                "general": "📚 Razoável. Continue estudando para melhorar ainda mais!",
+                "descobrir": "Bom trabalho! Continue praticando para melhorar sua compreensão."
+            },
+            "needs_improvement": {
+                "general": "📚 Razoável. Continue estudando para melhorar ainda mais!",
+                "descobrir": "Continue praticando! Reveja os conceitos básicos de cada distribuição."
+            },
+            "keep_trying": {
+                "general": "💪 Continue praticando! A probabilidade pode ser desafiadora no início.",
+                "descobrir": "Continue praticando! Reveja os conceitos básicos de cada distribuição."
+            }
+        }
     },
     "pages": {
         "home": {
@@ -70,6 +135,10 @@
                     "title": "Calculadora Estatística",
                     "description": "Calcule probabilidades e visualize distribuições estatísticas",
                     "icon": "fa-calculator",
+                    "select_distribution": "Selecionar Distribuição:",
+                    "upper_limit": "Limite superior (b):",
+                    "result": "Resultado:",
+                    "calculate_probability": "Calcular Probabilidade",
                     "distributions": {
                         "binomial": {
                             "name": "Distribuição Binomial",

@@ -509,7 +509,7 @@ function playNextEpisode(currentEpisodeNumber) {
     const nextEpisodeNumber = parseInt(currentEpisodeNumber) + 1;
     if (podcastState.players[nextEpisodeNumber]) {
         setTimeout(() => {
-            if (confirm('Reproduzir próximo episódio?')) {
+            if (confirm(window.translations?.general?.play_next_episode || 'Reproduzir próximo episódio?')) {
                 podcastState.players[nextEpisodeNumber].howl.play();
             }
         }, 500);

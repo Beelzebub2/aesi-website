@@ -26,7 +26,7 @@ Inclui calculadoras, quizzes, podcasts e muito mais{% endblock %}
             {% for feature in subject_info.features %}
             <div class="tool-item">
                 <i class="fas {{ feature.icon }}"></i>
-                <span>{{ translations.subjects[subject_id].pages[feature.name].title }}</span>
+                <span>{{ translations.subjects[subject_id].pages[feature.id].title }}</span>
             </div>
             {% endfor %}
         </div>

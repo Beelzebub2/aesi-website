@@ -18,7 +18,7 @@
 <body>
     <div class="home-background"></div>
     <div class="home-container">
-        <nav class="navbar" aria-label="Navegação principal">
+        <nav class="navbar" aria-label="{{ translations.general.aria.main_navigation }}">
             <div class="container navbar-content">
                 <a href="{{ url_for('home') }}" class="logo">{{ translations.general.platform_name }}</a>
                 <div class="theme-toggle">
@@ -49,7 +49,7 @@
                                 {% for feature in subject_info.features %}
                                 <span class="subject-item">
                                     <i class="fas {{ feature.icon }}"></i>
-                                    {{ translations.subjects[subject_id].pages[feature.name].title }}
+                                    {{ translations.subjects[subject_id].pages[feature.id].title }}
                                 </span>
                                 {% endfor %}
                             </div>

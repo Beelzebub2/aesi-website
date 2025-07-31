@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
             };
         } catch (error) {
             console.error('Error loading quiz:', error);
-            alert('Erro ao carregar as questões do quiz. Por favor, tente novamente.');
+            alert(window.translations?.general?.error_loading_quiz || 'Erro ao carregar as questões do quiz. Por favor, tente novamente.');
             return null;
         }
     } function showQuestion(question) {
@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         console.log(`Selected: ${selectedOptionText}`);
         console.log(`Correct: ${correctOptionText}`);
-        console.log(`Result: ${isCorrect ? "Correct!" : "Incorrect!"}`);
+        console.log(`Result: ${isCorrect ? (window.translations?.general?.correct || "Correct!") : (window.translations?.general?.incorrect || "Incorrect!")}`);
 
         // Disable all option buttons
         const options = optionsContainer.querySelectorAll('.quiz-option');
@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
         feedback.innerHTML = `
             <div class="feedback ${isCorrect ? 'correct' : 'incorrect'}">
                 <i class="fas fa-${isCorrect ? 'check-circle' : 'times-circle'}"></i>
-                <p>${isCorrect ? 'Correto!' : 'Incorreto!'}</p>
+                <p>${isCorrect ? (window.translations?.general?.correct || 'Correto!') : (window.translations?.general?.incorrect || 'Incorreto!')}</p>
                 ${currentQuestion.explanation ? `<p class="explanation">${currentQuestion.explanation}</p>` : ''}
             </div>
         `;
@@ -185,22 +185,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const percentage = Math.round((score / currentQuestions.length) * 100);
         finalScoreDisplay.textContent = percentage;
 
-        let message = '';
-        let iconClass = '';
-
-        if (percentage === 100) {
-            message = 'Excelente! Você domina completamente a identificação das distribuições de probabilidade!';
-            iconClass = 'fa-trophy';
-        } else if (percentage >= 80) {
-            message = 'Muito bom! Você tem um ótimo entendimento das distribuições de probabilidade.';
-            iconClass = 'fa-star';
-        } else if (percentage >= 60) {
-            message = 'Bom trabalho! Continue praticando para melhorar sua compreensão.';
-            iconClass = 'fa-thumbs-up';
-        } else {
-            message = 'Continue praticando! Reveja os conceitos básicos de cada distribuição.';
-            iconClass = 'fa-book';
-        }
+        // Use QuizUtils for consistent score messaging
+        const { message, iconClass } = QuizUtils.getScoreMessage(percentage, 'descobrir');
 
         resultsMessage.textContent = message;
 

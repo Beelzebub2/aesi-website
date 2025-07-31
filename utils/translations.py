@@ -21,6 +21,8 @@ class TranslationManager:
                     self._available_locales.add(locale)
                     # Load the translations
                     self.load_translations(locale)
+            # Clear caches after preloading to ensure fresh state
+            self.get_translations.cache_clear()
             print(f"Preloaded translations for: {', '.join(self._available_locales)}")
         except Exception as e:
             print(f"Error preloading translations: {e}")
@@ -45,7 +47,8 @@ class TranslationManager:
         
         # Get general translations that should be available everywhere
         result = {
-            'general': translations.get('general', {})
+            'general': translations.get('general', {}),
+            'subjects': translations.get('subjects', {})  # Always include full subjects data
         }
         
         if section == 'general':

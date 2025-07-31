@@ -31,8 +31,8 @@ document.addEventListener('DOMContentLoaded', function () {
             // If there are no navigation links, add some default ones
             sideMenuNav.innerHTML = `
                 <ul class="nav-links">
-                    <li><a href="/"><i class="fas fa-home"></i> Início</a></li>
-                    <li><a href="/probabilidade"><i class="fas fa-chart-line"></i> Probabilidade</a></li>
+                    <li><a href="/"><i class="fas fa-home"></i> ${window.translations?.general?.home || 'Início'}</a></li>
+                    <li><a href="/probabilidade"><i class="fas fa-chart-line"></i> ${window.translations?.subjects?.probabilidade?.name || 'Probabilidade'}</a></li>
                 </ul>
             `;
         }

@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
             plugins: {
                 title: {
                     display: true,
-                    text: 'Distribuição de Probabilidade',
+                    text: window.translations?.general?.distribution_chart_title || 'Distribuição de Probabilidade',
                     font: {
                         size: 16,
                         weight: 'bold'
@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 x: {
                     title: {
                         display: true,
-                        text: 'Valor',
+                        text: window.translations?.general?.chart_x_axis || 'Valor',
                         font: {
                             size: 14,
                             weight: '500'
@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 y: {
                     title: {
                         display: true,
-                        text: 'Probabilidade',
+                        text: window.translations?.general?.chart_y_axis || 'Probabilidade',
                         font: {
                             size: 14,
                             weight: '500'
@@ -267,8 +267,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     const p = parseFloat(document.getElementById('p').value);
                     const k = parseInt(document.getElementById('k').value);
 
-                    if (k > n) throw new Error('k não pode ser maior que n');
-                    if (p < 0 || p > 1) throw new Error('p deve estar entre 0 e 1');
+                    if (k > n) throw new Error(window.translations?.general?.calculator_errors?.k_greater_than_n || 'k não pode ser maior que n');
+                    if (p < 0 || p > 1) throw new Error(window.translations?.general?.calculator_errors?.p_out_of_range || 'p deve estar entre 0 e 1');
 
                     probability = binomialProbability(n, p, k);
                     explanation = `P(X = ${k}) = C(${n},${k}) × ${p}^${k} × (1-${p})^${n - k}`;
@@ -278,7 +278,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const lambda = parseFloat(document.getElementById('lambda').value);
                     const kPoisson = parseInt(document.getElementById('k-poisson').value);
 
-                    if (lambda < 0) throw new Error('λ deve ser positivo');
+                    if (lambda < 0) throw new Error(window.translations?.general?.calculator_errors?.lambda_negative || 'λ deve ser positivo');
 
                     probability = poissonProbability(lambda, kPoisson);
                     explanation = `P(X = ${kPoisson}) = (${lambda}^${kPoisson} × e^-${lambda}) / ${kPoisson}!`;
@@ -290,7 +290,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const x = parseFloat(document.getElementById('x').value);
                     const probType = document.getElementById('probability-type').value;
 
-                    if (std <= 0) throw new Error('O desvio padrão deve ser positivo');
+                    if (std <= 0) throw new Error(window.translations?.general?.calculator_errors?.std_negative || 'O desvio padrão deve ser positivo');
 
                     if (probType === 'between') {
                         const x2 = parseFloat(document.getElementById('x2').value);
@@ -306,7 +306,7 @@ document.addEventListener('DOMContentLoaded', () => {
             resultValue.textContent = probability.toFixed(6);
             resultExplanation.textContent = explanation;
         } catch (error) {
-            resultValue.textContent = 'Erro';
+            resultValue.textContent = window.translations?.general?.error || 'Erro';
             resultExplanation.textContent = error.message;
         }
     }

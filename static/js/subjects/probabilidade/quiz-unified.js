@@ -121,7 +121,7 @@ class UnifiedQuizSystem {
             console.log(`Quiz loaded successfully with ${this.quizData.questions.length} questions`);
         } catch (error) {
             console.error('Error loading quiz:', error);
-            this.showError('Não foi possível carregar o quiz. Por favor, tente novamente.');
+            this.showError(window.translations?.general?.error_loading_quiz || 'Não foi possível carregar o quiz. Por favor, tente novamente.');
         }
     }
 

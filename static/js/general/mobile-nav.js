@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     link.setAttribute('aria-current', 'page');
                 }
                 // For subject homepage (e.g. '/probabilidade')
-                else if (linkText.includes('Início') &&
+                else if (linkText.includes(window.translations?.general?.home || 'Início') &&
                     currentPath === linkHref &&
                     currentPath !== '/') {
                     link.classList.add('active');
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 // For feature pages
                 else if (linkHref !== '/' &&
                     currentPath.startsWith(linkHref) &&
-                    !linkText.includes('Início')) {
+                    !linkText.includes(window.translations?.general?.home || 'Início')) {
                     link.classList.add('active');
                     link.setAttribute('aria-current', 'page');
                 }
@@ -64,8 +64,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
             sideMenuNav.innerHTML = `
                 <ul class="nav-links">
-                    <li><a href="/" ${isHomePage ? 'class="active" aria-current="page"' : ''}><i class="fas fa-home"></i> Início</a></li>
-                    <li><a href="/probabilidade" ${isProbabilidadePage ? 'class="active" aria-current="page"' : ''}><i class="fas fa-chart-line"></i> Probabilidade</a></li>
+                    <li><a href="/" ${isHomePage ? 'class="active" aria-current="page"' : ''}><i class="fas fa-home"></i> ${window.translations?.general?.home || 'Início'}</a></li>
+                    <li><a href="/probabilidade" ${isProbabilidadePage ? 'class="active" aria-current="page"' : ''}><i class="fas fa-chart-line"></i> ${window.translations?.subjects?.probabilidade?.name || 'Probabilidade'}</a></li>
                 </ul>
             `;
 
