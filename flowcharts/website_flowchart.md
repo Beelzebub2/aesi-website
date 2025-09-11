@@ -114,7 +114,7 @@ flowchart TD
     API_ROUTES --> API_TYPE{API Type}
     API_TYPE -->|"/api/quiz/probabilidade"| GET_QUIZ_API[Get Probability Quiz Data]
     API_TYPE -->|"/api/quiz/descobrir"| GET_DISCOVER_API[Get Discovery Quiz Data]
-    API_TYPE -->|"/api/quiz/analise_estatistica"| GET_ANALISE_API[Get Statistical Analysis Quiz Data]
+    API_TYPE -->|"/api/quiz/analise_estatistica"| GET_ANALISE_API[Get Data Analysis Quiz Data]
     API_TYPE -->|"/api/quizzes"| GET_QUIZZES_API[Get All Quizzes List]
     
     GET_QUIZ_API --> LOAD_QUIZ_JSON[Load Quiz JSON File]

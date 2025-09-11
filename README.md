@@ -300,7 +300,7 @@ Complete subject with the following features:
 
 Growing subject with:
 - **Home** (`index.html`): Subject overview
-- **Quiz** (`quiz.html`): Interactive quiz for statistical analysis concepts
+- **Quiz** (`quiz.html`): Interactive quiz for data analysis concepts
 
 ## Quiz System
 
@@ -309,7 +309,7 @@ The platform includes a comprehensive quiz system with multiple types:
 ### Quiz Files
 - `probabilidade_quiz.json`: Questions for probability and statistics
 - `descobrir_distribuição.json`: Distribution identification scenarios
-- `analise_estatistica_quiz.json`: Statistical analysis questions
+- `analise_estatistica_quiz.json`: Data analysis questions
 
 ### Quiz Features
 - **Dynamic Loading**: Questions loaded via API endpoints

@@ -70,7 +70,7 @@ flowchart TD
 ### Quiz Files
 - `probabilidade_quiz.json`: Probability and statistics questions
 - `descobrir_distribuição.json`: Distribution identification scenarios
-- `analise_estatistica_quiz.json`: Statistical analysis questions
+- `analise_estatistica_quiz.json`: Data analysis questions
 
 ### Interactive Elements
 - Answer validation with visual feedback

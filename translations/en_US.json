@@ -236,24 +236,24 @@
             }
         },
         "analise_estatistica": {
-            "name": "Statistical Analysis",
-            "description": "Learn descriptive and inferential statistical analysis through interactive exercises",
+            "name": "Data Analysis",
+            "description": "Learn descriptive and inferential data analysis through interactive exercises",
             "icon": "fa-chart-bar",
             "pages": {
                 "home": {
-                    "title": "Statistical Analysis",
-                    "description": "Learn descriptive and inferential statistical analysis through interactive exercises"
+                    "title": "Data Analysis",
+                    "description": "Learn descriptive and inferential data analysis through interactive exercises"
                 },
                 "quiz": {
                     "title": "Quiz",
-                    "description": "Test your knowledge in statistical analysis and distribution identification",
+                    "description": "Test your knowledge in data analysis and distribution identification",
                     "icon": "fa-brain",
                     "current_question": "Question {current} of {total}",
                     "score": "Score: {score}",
                     "complete": "Quiz Completed!",
                     "start": {
                         "title": "Ready to start?",
-                        "description": "Click the button below to start the statistical analysis quiz.",
+                        "description": "Click the button below to start the data analysis quiz.",
                         "button": "Start"
                     },
                     "buttons": {

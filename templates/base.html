@@ -81,12 +81,6 @@
         <div class="side-menu-header">
             <a href="{{ url_for('home') }}" class="logo">{{ translations.general.platform_name }}</a>
             <div class="mobile-controls">
-                <div class="language-switcher">
-                    <select id="languageSelectMobile" onchange="changeLanguage(this.value)">
-                        <option value="pt_PT" {% if current_locale == 'pt_PT' %}selected{% endif %}>PT</option>
-                        <option value="en_US" {% if current_locale == 'en_US' %}selected{% endif %}>EN</option>
-                    </select>
-                </div>
                 <div class="theme-toggle">
                     <button id="themeToggleMobile" aria-label="{{ translations.general.dark_mode }}">
                         <i class="fas fa-moon"></i>
@@ -111,8 +105,8 @@
                 <div class="navbar-controls">
                     <div class="language-switcher">
                         <select id="languageSelect" onchange="changeLanguage(this.value)">
-                            <option value="pt_PT" {% if current_locale == 'pt_PT' %}selected{% endif %}>PT</option>
-                            <option value="en_US" {% if current_locale == 'en_US' %}selected{% endif %}>EN</option>
+                            <option value="pt_PT" {% if current_locale=='pt_PT' %}selected{% endif %}>PT</option>
+                            <option value="en_US" {% if current_locale=='en_US' %}selected{% endif %}>EN</option>
                         </select>
                     </div>
                     <div class="theme-toggle">
