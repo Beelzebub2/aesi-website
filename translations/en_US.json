@@ -246,13 +246,13 @@
             }
         },
         "analise_estatistica": {
-            "name": "Data Analysis",
-            "description": "Learn descriptive and inferential data analysis through interactive exercises",
+            "name": "Exploratory Data Analysis",
+            "description": "Test your knowledge of exploratory data analysis through interactive exercises",
             "icon": "fa-chart-bar",
             "pages": {
                 "home": {
-                    "title": "Data Analysis",
-                    "description": "Learn descriptive and inferential data analysis through interactive exercises"
+                    "title": "Exploratory Data Analysis",
+                    "description": "Test your knowledge of exploratory data analysis through interactive exercises"
                 },
                 "quiz": {
                     "title": "Quiz",

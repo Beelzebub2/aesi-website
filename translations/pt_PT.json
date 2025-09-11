@@ -243,13 +243,13 @@
             }
         },
         "analise_estatistica": {
-            "name": "Análise Estatística",
-            "description": "Aprenda análise estatística descritiva e inferencial através de exercícios interativos",
+            "name": "Análise Exploratória de Dados",
+            "description": "teste os seus conhecimentos sobre análise exploratória de dados através de exercícios interactivos",
             "icon": "fa-chart-bar",
             "pages": {
                 "home": {
-                    "title": "Análise Estatística",
-                    "description": "Aprenda análise estatística descritiva e inferencial através de exercícios interativos"
+                    "title": "Análise Exploratória de Dados",
+                    "description": "teste os seus conhecimentos sobre análise exploratória de dados através de exercícios interactivos"
                 },
                 "quiz": {
                     "title": "Quiz",
