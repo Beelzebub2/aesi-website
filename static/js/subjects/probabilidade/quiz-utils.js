@@ -69,12 +69,8 @@ class QuizUtils {
         try {
             let response;
 
-            // Handle different quiz types with different endpoints
-            if (quizType === 'descobrir') {
-                response = await fetch(`/static/quizzes/descobrir_distribuição.json`);
-            } else {
-                response = await fetch(`/api/quiz/${quizType}`);
-            }
+            // All quiz types now use the API endpoint
+            response = await fetch(`/api/quiz/${quizType}`);
 
             if (!response.ok) {
                 throw new Error(`Failed to fetch quiz data: ${response.status} ${response.statusText}`);

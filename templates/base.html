@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-PT">
+<html lang="{% if current_locale == 'en_US' %}en{% else %}pt-PT{% endif %}">
 
 <head>
     <meta charset="UTF-8">
@@ -59,6 +59,11 @@
     <script src="{{ url_for('static', filename='js/general/background.js') }}" defer></script>
     <script src="{{ url_for('static', filename='js/general/navigation.js') }}" defer></script>
     <script src="{{ url_for('static', filename='js/general/mobile-nav.js') }}" defer></script>
+    <script>
+        function changeLanguage(locale) {
+            window.location.href = '/set_language/' + locale;
+        }
+    </script>
     {% block extra_js %}{% endblock %}
     <title>{% block title %}{{ title }}{% endblock %}</title>
     <style>
@@ -75,10 +80,18 @@
     <div class="side-menu">
         <div class="side-menu-header">
             <a href="{{ url_for('home') }}" class="logo">{{ translations.general.platform_name }}</a>
-            <div class="theme-toggle">
-                <button id="themeToggleMobile" aria-label="{{ translations.general.dark_mode }}">
-                    <i class="fas fa-moon"></i>
-                </button>
+            <div class="mobile-controls">
+                <div class="language-switcher">
+                    <select id="languageSelectMobile" onchange="changeLanguage(this.value)">
+                        <option value="pt_PT" {% if current_locale == 'pt_PT' %}selected{% endif %}>PT</option>
+                        <option value="en_US" {% if current_locale == 'en_US' %}selected{% endif %}>EN</option>
+                    </select>
+                </div>
+                <div class="theme-toggle">
+                    <button id="themeToggleMobile" aria-label="{{ translations.general.dark_mode }}">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
             </div>
         </div>
         <div class="side-menu-nav">
@@ -95,10 +108,18 @@
                 <div class="nav-links-container">
                     {% block nav_links %}{% endblock %}
                 </div>
-                <div class="theme-toggle">
-                    <button id="themeToggle" aria-label="{{ translations.general.dark_mode }}">
-                        <i class="fas fa-moon"></i>
-                    </button>
+                <div class="navbar-controls">
+                    <div class="language-switcher">
+                        <select id="languageSelect" onchange="changeLanguage(this.value)">
+                            <option value="pt_PT" {% if current_locale == 'pt_PT' %}selected{% endif %}>PT</option>
+                            <option value="en_US" {% if current_locale == 'en_US' %}selected{% endif %}>EN</option>
+                        </select>
+                    </div>
+                    <div class="theme-toggle">
+                        <button id="themeToggle" aria-label="{{ translations.general.dark_mode }}">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </nav>

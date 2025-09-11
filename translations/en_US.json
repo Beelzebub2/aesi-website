@@ -1,0 +1,277 @@
+{
+    "general": {
+        "platform_name": "AESI",
+        "copyright": "All rights reserved",
+        "try_again": "Try Again",
+        "next": "Next",
+        "back": "Back",
+        "submit": "Submit",
+        "cancel": "Cancel",
+        "dark_mode": "Toggle between light and dark mode",
+        "coming_soon": "Coming Soon",
+        "home": "Home",
+        "current_question": "Question",
+        "of": "of",
+        "no_episode_selected": "No episode selected",
+        "educational_podcasts": "Educational Podcasts",
+        "page_not_found": "Page Not Found",
+        "back_to_home": "Back to Home Page",
+        "play_next_episode": "Play next episode?",
+        "error_loading_quiz": "Error loading quiz questions. Please try again.",
+        "correct": "Correct!",
+        "incorrect": "Incorrect!",
+        "time": "Time:",
+        "seconds": "seconds",
+        "score_hits": "Correct:",
+        "error": "Error",
+        "no_questions_available": "No questions available. Please reload the page.",
+        "quiz_error_prefix": "Error loading quiz: ",
+        "switching_theme": "Switching theme...",
+        "distribution_chart_title": "Probability Distribution",
+        "chart_x_axis": "Value",
+        "chart_y_axis": "Probability",
+        "language": "Language",
+        "portuguese": "Portuguese",
+        "english": "English",
+        "calculator_errors": {
+            "k_greater_than_n": "k cannot be greater than n",
+            "p_out_of_range": "p must be between 0 and 1",
+            "lambda_negative": "λ must be positive",
+            "std_negative": "Standard deviation must be positive"
+        },
+        "aria": {
+            "play": "Play",
+            "skip_back": "Go back 10 seconds",
+            "skip_forward": "Skip forward 10 seconds",
+            "volume": "Volume",
+            "main_navigation": "Main navigation",
+            "mobile_menu": "Navigation menu"
+        },
+        "quiz_feedback": {
+            "perfect": {
+                "general": "🎉 Excellent! You have a strong grasp of probability concepts!",
+                "descobrir": "Excellent! You completely master the identification of probability distributions!"
+            },
+            "excellent": {
+                "general": "🎉 Excellent! You have a strong grasp of probability concepts!",
+                "descobrir": "Very good! You have an excellent understanding of probability distributions."
+            },
+            "very_good": {
+                "general": "👍 Very good! You have a solid knowledge of probability.",
+                "descobrir": "Very good! You have an excellent understanding of probability distributions."
+            },
+            "good": {
+                "general": "👍 Very good! You have a solid knowledge of probability.",
+                "descobrir": "Good work! Keep practicing to improve your understanding."
+            },
+            "fair": {
+                "general": "📚 Fair. Keep studying to improve even more!",
+                "descobrir": "Good work! Keep practicing to improve your understanding."
+            },
+            "needs_improvement": {
+                "general": "📚 Fair. Keep studying to improve even more!",
+                "descobrir": "Keep practicing! Review the basic concepts of each distribution."
+            },
+            "keep_trying": {
+                "general": "💪 Keep practicing! Probability can be challenging at first.",
+                "descobrir": "Keep practicing! Review the basic concepts of each distribution."
+            }
+        }
+    },
+    "pages": {
+        "home": {
+            "title": "AESI",
+            "subtitle": "Expand your knowledge through interactive learning experiences",
+            "available_subjects": "Available Subjects"
+        }
+    },
+    "subjects": {
+        "probabilidade": {
+            "name": "Probability and Statistics",
+            "description": "Explore statistical concepts through interactive tools",
+            "icon": "fa-chart-line",
+            "pages": {
+                "home": {
+                    "title": "Probability and Statistics",
+                    "description": "Explore statistical concepts through interactive tools"
+                },
+                "quiz": {
+                    "title": "Quiz",
+                    "description": "Test your knowledge in probability and statistics",
+                    "icon": "fa-brain",
+                    "current_question": "Question {current} of {total}",
+                    "score": "Score: {score}",
+                    "complete": "Quiz Completed!",
+                    "start": {
+                        "title": "Ready to start?",
+                        "description": "Click the button below to start the quiz.",
+                        "button": "Start"
+                    },
+                    "buttons": {
+                        "next": "Next Question",
+                        "restart": "Restart"
+                    },
+                    "results": {
+                        "title": "Results",
+                        "score": "Final Score"
+                    }
+                },
+                "descobrir": {
+                    "title": "Discover the Distribution",
+                    "description": "Learn to identify which probability distribution best fits each situation",
+                    "icon": "fa-magnifying-glass-chart",
+                    "start": {
+                        "title": "Identify Distributions",
+                        "description": "In this exercise, you will encounter different situations and must identify which probability distribution (Binomial, Poisson, or Normal) best fits each case.",
+                        "button": "Start"
+                    },
+                    "buttons": {
+                        "next": "Next Question",
+                        "restart": "Restart"
+                    },
+                    "results": {
+                        "title": "Results",
+                        "score": "Final Score"
+                    }
+                },
+                "calculator": {
+                    "title": "Statistical Calculator",
+                    "description": "Calculate probabilities and visualize statistical distributions",
+                    "icon": "fa-calculator",
+                    "select_distribution": "Select Distribution:",
+                    "upper_limit": "Upper limit (b):",
+                    "result": "Result:",
+                    "calculate_probability": "Calculate Probability",
+                    "distributions": {
+                        "binomial": {
+                            "name": "Binomial Distribution",
+                            "description": "For a fixed number of independent trials with two possible outcomes",
+                            "params": {
+                                "n": "Number of trials (n)",
+                                "p": "Probability of success (p)",
+                                "k": "Number of successes (k)"
+                            }
+                        },
+                        "poisson": {
+                            "name": "Poisson Distribution",
+                            "description": "For rare events in fixed intervals of time or space",
+                            "params": {
+                                "lambda": "Average rate (λ)",
+                                "k": "Number of events (k)"
+                            }
+                        },
+                        "normal": {
+                            "name": "Normal Distribution",
+                            "description": "For natural phenomena and random variations",
+                            "params": {
+                                "mean": "Mean (μ)",
+                                "std": "Standard deviation (σ)",
+                                "x": "Value (x)",
+                                "probability_type": "Probability type"
+                            }
+                        }
+                    }
+                },
+                "podcasts": {
+                    "title": "Educational Podcasts",
+                    "description": "Listen to detailed explanations of probability and statistics concepts",
+                    "icon": "fa-podcast",
+                    "episodes": {
+                        "1": {
+                            "title": "Descriptive Statistics",
+                            "description": "Learn the fundamentals of data analysis and basic statistical measures",
+                            "color": "#4361ee",
+                            "audio": "Estatística Descritiva.wav"
+                        },
+                        "2": {
+                            "title": "Probability Theory",
+                            "description": "Understand fundamental probability concepts and their applications",
+                            "color": "#3a86ff",
+                            "audio": "Teoria das Probabilidades.wav"
+                        },
+                        "3": {
+                            "title": "Conditional Probability and Independent Events",
+                            "description": "Explore relationships between events and conditional probabilities",
+                            "color": "#7209b7",
+                            "audio": "Probabilidade Condicionada e Independência.wav"
+                        },
+                        "4": {
+                            "title": "Random Variables",
+                            "description": "Understand how random variables model uncertain phenomena",
+                            "color": "#f72585",
+                            "audio": "Variáveis Aleatórias e Propriedades Fundamentais.wav"
+                        },
+                        "5": {
+                            "title": "Discrete Distributions",
+                            "description": "Learn about the main discrete probability distributions",
+                            "color": "#4cc9f0",
+                            "audio": "Distribuições de Probabilidade Discretas.wav"
+                        },
+                        "6": {
+                            "title": "Continuous Distributions",
+                            "description": "Discover continuous distributions and their properties",
+                            "color": "#560bad",
+                            "audio": "Distribuições Contínuas_ Normal e Exponencial.wav"
+                        },
+                        "7": {
+                            "title": "Sampling and Sampling Distributions",
+                            "description": "Learn about sampling techniques and their distributions",
+                            "color": "#3f37c9",
+                            "audio": "Amostragem e Distribuições Amostrais.wav"
+                        },
+                        "8": {
+                            "title": "Estimation",
+                            "description": "Understand parameter estimation methods and confidence intervals",
+                            "color": "#fb5607",
+                            "audio": "Estimação de Parâmetros e Intervalos de Confiança.wav"
+                        },
+                        "9": {
+                            "title": "Hypothesis Testing",
+                            "description": "Explore parametric methods for testing statistical hypotheses",
+                            "color": "#ff006e",
+                            "audio": "Testes de Hipóteses Paramétricos.wav"
+                        }
+                    }
+                }
+            }
+        },
+        "analise_estatistica": {
+            "name": "Statistical Analysis",
+            "description": "Learn descriptive and inferential statistical analysis through interactive exercises",
+            "icon": "fa-chart-bar",
+            "pages": {
+                "home": {
+                    "title": "Statistical Analysis",
+                    "description": "Learn descriptive and inferential statistical analysis through interactive exercises"
+                },
+                "quiz": {
+                    "title": "Quiz",
+                    "description": "Test your knowledge in statistical analysis and distribution identification",
+                    "icon": "fa-brain",
+                    "current_question": "Question {current} of {total}",
+                    "score": "Score: {score}",
+                    "complete": "Quiz Completed!",
+                    "start": {
+                        "title": "Ready to start?",
+                        "description": "Click the button below to start the statistical analysis quiz.",
+                        "button": "Start"
+                    },
+                    "buttons": {
+                        "next": "Next Question",
+                        "restart": "Restart"
+                    },
+                    "results": {
+                        "title": "Results",
+                        "score": "Final Score"
+                    }
+                }
+            }
+        }
+    },
+    "coming_soon": {
+        "calculo": {
+            "name": "Coming Soon",
+            "description": "..."
+        }
+    }
+}
