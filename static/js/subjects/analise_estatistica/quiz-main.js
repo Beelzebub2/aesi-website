@@ -58,8 +58,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Get current subject from URL path
                 const pathParts = window.location.pathname.split('/');
                 const subject = pathParts[1] || 'analise_estatistica'; // fallback to analise_estatistica
+                const feature = pathParts[2] || 'quiz'; // get the feature (quiz or descobrir)
 
-                const response = await fetch(`/api/quiz/${subject}`);
+                const response = await fetch(`/api/quiz/${subject}/${feature}`);
                 console.log('Quiz response status:', response.status);
 
                 if (!response.ok) {
@@ -85,7 +86,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     throw new Error('No valid questions found in quiz data');
                 }
 
-                this.currentQuestions = this.prepareQuestions(validQuestions);
+                // Use questionsPerSession from the data, or default to 10 for backward compatibility
+                const questionsPerSession = data.questionsPerSession || 10;
+                this.currentQuestions = this.prepareQuestions(validQuestions, questionsPerSession);
                 console.log(`Loaded ${this.currentQuestions.length} valid questions`);
 
             } catch (error) {
@@ -124,9 +127,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        prepareQuestions(questions) {
+        prepareQuestions(questions, questionsPerSession = 10) {
             const shuffled = this.shuffleArray([...questions]);
-            return shuffled.slice(0, Math.min(10, shuffled.length));
+            return shuffled.slice(0, Math.min(questionsPerSession, shuffled.length));
         }
 
         shuffleArray(array) {

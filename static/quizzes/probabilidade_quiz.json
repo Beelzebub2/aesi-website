@@ -1,346 +1,793 @@
 {
-    "name": "Quiz de Probabilidade e Estatística",
-    "description": "Teste seus conhecimentos em probabilidade e estatística",
-    "questionsPerSession": 10,
+    "name": {
+        "pt": "Quiz de Probabilidade e Estatística",
+        "en": "Probability and Statistics Quiz"
+    },
+    "description": {
+        "pt": "Teste seus conhecimentos em probabilidade e estatística",
+        "en": "Test your knowledge in probability and statistics"
+    },
+    "questionsPerSession": 32,
     "questions": [
         {
             "id": 1,
-            "question": "Uma amostra é um subconjunto da população:",
+            "question": {
+                "pt": "Uma amostra é um subconjunto da população:",
+                "en": "A sample is a subset of the population:"
+            },
             "options": [
-                "Sim",
-                "Não"
+                {
+                    "pt": "Sim",
+                    "en": "Yes"
+                },
+                {
+                    "pt": "Não",
+                    "en": "No"
+                }
             ],
             "correctAnswer": 0,
-            "explanation": "Uma amostra é um subconjunto representativo da população total que está sendo estudada."
+            "explanation": {
+                "pt": "Uma amostra é um subconjunto representativo da população total que está sendo estudada.",
+                "en": "A sample is a representative subset of the total population being studied."
+            }
         },
         {
             "id": 2,
-            "question": "A estatística descritiva permite:",
+            "question": {
+                "pt": "A estatística descritiva permite:",
+                "en": "Descriptive statistics allows:"
+            },
             "options": [
-                "Descrever e resumir os dados da amostra",
-                "Tirar conclusões a partir da amostra para toda a população"
+                {
+                    "pt": "Descrever e resumir os dados da amostra",
+                    "en": "Describe and summarize the sample data"
+                },
+                {
+                    "pt": "Tirar conclusões a partir da amostra para toda a população",
+                    "en": "Draw conclusions from the sample for the entire population"
+                }
             ],
             "correctAnswer": 0,
-            "explanation": "A estatística descritiva se concentra em resumir e apresentar os dados da amostra de forma clara, enquanto a estatística inferencial é usada para tirar conclusões sobre a população."
+            "explanation": {
+                "pt": "A estatística descritiva se concentra em resumir e apresentar os dados da amostra de forma clara, enquanto a estatística inferencial é usada para tirar conclusões sobre a população.",
+                "en": "Descriptive statistics focuses on summarizing and presenting sample data clearly, while inferential statistics is used to draw conclusions about the population."
+            }
         },
         {
             "id": 3,
-            "question": "Caracterize a natureza da variável definida como: 'Número de emails enviados diariamente por um funcionário de uma empresa no último mês.'",
+            "question": {
+                "pt": "Caracterize a natureza da variável definida como: 'Número de emails enviados diariamente por um funcionário de uma empresa no último mês.'",
+                "en": "Characterize the nature of the variable defined as: 'Number of emails sent daily by an employee of a company in the last month.'"
+            },
             "options": [
-                "Qualitativa nominal",
-                "Qualitativa ordinal",
-                "Quantitativa discreta",
-                "Quantitativa contínua"
+                {
+                    "pt": "Qualitativa nominal",
+                    "en": "Qualitative nominal"
+                },
+                {
+                    "pt": "Qualitativa ordinal",
+                    "en": "Qualitative ordinal"
+                },
+                {
+                    "pt": "Quantitativa discreta",
+                    "en": "Quantitative discrete"
+                },
+                {
+                    "pt": "Quantitativa contínua",
+                    "en": "Quantitative continuous"
+                }
             ],
             "correctAnswer": 2,
-            "explanation": "É uma variável quantitativa discreta porque representa contagens (números inteiros) que não podem ser divididos em partes menores - não pode haver 2,5 emails."
+            "explanation": {
+                "pt": "É uma variável quantitativa discreta porque representa contagens (números inteiros) que não podem ser divididos em partes menores - não pode haver 2,5 emails.",
+                "en": "It is a quantitative discrete variable because it represents counts (whole numbers) that cannot be divided into smaller parts - there cannot be 2.5 emails."
+            }
         },
         {
             "id": 4,
-            "question": "Caracterize a natureza da variável definida como: 'Valor mensal da sua conta de telemóvel no último ano.'",
+            "question": {
+                "pt": "Caracterize a natureza da variável definida como: 'Valor mensal da sua conta de telemóvel no último ano.'",
+                "en": "Characterize the nature of the variable defined as: 'Monthly value of your mobile phone bill in the last year.'"
+            },
             "options": [
-                "Qualitativa nominal",
-                "Qualitativa ordinal",
-                "Quantitativa discreta",
-                "Quantitativa contínua"
+                {
+                    "pt": "Qualitativa nominal",
+                    "en": "Qualitative nominal"
+                },
+                {
+                    "pt": "Qualitativa ordinal",
+                    "en": "Qualitative ordinal"
+                },
+                {
+                    "pt": "Quantitativa discreta",
+                    "en": "Quantitative discrete"
+                },
+                {
+                    "pt": "Quantitativa contínua",
+                    "en": "Quantitative continuous"
+                }
             ],
             "correctAnswer": 3,
-            "explanation": "É uma variável quantitativa contínua porque pode assumir qualquer valor em um intervalo (pode ser €25,42 ou qualquer outro valor com casas decimais)."
+            "explanation": {
+                "pt": "É uma variável quantitativa contínua porque pode assumir qualquer valor em um intervalo (pode ser €25,42 ou qualquer outro valor com casas decimais).",
+                "en": "It is a quantitative continuous variable because it can assume any value in an interval (it can be €25.42 or any other value with decimal places)."
+            }
         },
         {
             "id": 5,
-            "question": "Caracterize a natureza da variável definida como: 'Distrito de naturalidade de um estudante do curso'",
+            "question": {
+                "pt": "Caracterize a natureza da variável definida como: 'Distrito de naturalidade de um estudante do curso'",
+                "en": "Characterize the nature of the variable defined as: 'District of origin of a student in the course'"
+            },
             "options": [
-                "Qualitativa nominal",
-                "Qualitativa ordinal",
-                "Quantitativa discreta",
-                "Quantitativa contínua"
+                {
+                    "pt": "Qualitativa nominal",
+                    "en": "Qualitative nominal"
+                },
+                {
+                    "pt": "Qualitativa ordinal",
+                    "en": "Qualitative ordinal"
+                },
+                {
+                    "pt": "Quantitativa discreta",
+                    "en": "Quantitative discrete"
+                },
+                {
+                    "pt": "Quantitativa contínua",
+                    "en": "Quantitative continuous"
+                }
             ],
             "correctAnswer": 0,
-            "explanation": "É uma variável qualitativa nominal porque representa categorias (distritos) sem uma ordem natural entre elas."
+            "explanation": {
+                "pt": "É uma variável qualitativa nominal porque representa categorias (distritos) sem uma ordem natural entre elas.",
+                "en": "It is a qualitative nominal variable because it represents categories (districts) without a natural order between them."
+            }
         },
         {
             "id": 6,
-            "question": "Caracterize a natureza da variável definida como: 'O género dos colegas inscritos no seu curso'",
+            "question": {
+                "pt": "Caracterize a natureza da variável definida como: 'O género dos colegas inscritos no seu curso'",
+                "en": "Characterize the nature of the variable defined as: 'The gender of classmates enrolled in your course'"
+            },
             "options": [
-                "Qualitativa nominal",
-                "Qualitativa ordinal",
-                "Quantitativa discreta",
-                "Quantitativa contínua"
+                {
+                    "pt": "Qualitativa nominal",
+                    "en": "Qualitative nominal"
+                },
+                {
+                    "pt": "Qualitativa ordinal",
+                    "en": "Qualitative ordinal"
+                },
+                {
+                    "pt": "Quantitativa discreta",
+                    "en": "Quantitative discrete"
+                },
+                {
+                    "pt": "Quantitativa contínua",
+                    "en": "Quantitative continuous"
+                }
             ],
             "correctAnswer": 0,
-            "explanation": "É uma variável qualitativa nominal porque representa categorias (gêneros) sem uma ordem natural entre elas."
+            "explanation": {
+                "pt": "É uma variável qualitativa nominal porque representa categorias (gêneros) sem uma ordem natural entre elas.",
+                "en": "It is a qualitative nominal variable because it represents categories (genders) without a natural order between them."
+            }
         },
         {
             "id": 7,
-            "question": "Caracterize a natureza da variável definida como: 'O número de alunos inscritos neste curso'",
+            "question": {
+                "pt": "Caracterize a natureza da variável definida como: 'O número de alunos inscritos neste curso'",
+                "en": "Characterize the nature of the variable defined as: 'The number of students enrolled in this course'"
+            },
             "options": [
-                "Qualitativa nominal",
-                "Qualitativa ordinal",
-                "Quantitativa discreta",
-                "Quantitativa contínua"
+                {
+                    "pt": "Qualitativa nominal",
+                    "en": "Qualitative nominal"
+                },
+                {
+                    "pt": "Qualitativa ordinal",
+                    "en": "Qualitative ordinal"
+                },
+                {
+                    "pt": "Quantitativa discreta",
+                    "en": "Quantitative discrete"
+                },
+                {
+                    "pt": "Quantitativa contínua",
+                    "en": "Quantitative continuous"
+                }
             ],
             "correctAnswer": 2,
-            "explanation": "É uma variável quantitativa discreta porque representa contagens (números inteiros) - não pode haver 25,5 alunos inscritos."
+            "explanation": {
+                "pt": "É uma variável quantitativa discreta porque representa contagens (números inteiros) - não pode haver 25,5 alunos inscritos.",
+                "en": "It is a quantitative discrete variable because it represents counts (whole numbers) - there cannot be 25.5 students enrolled."
+            }
         },
         {
             "id": 8,
-            "question": "Caracterize a natureza da variável definida como: 'Categorias existentes na carreira de um militar'",
+            "question": {
+                "pt": "Caracterize a natureza da variável definida como: 'Categorias existentes na carreira de um militar'",
+                "en": "Characterize the nature of the variable defined as: 'Existing categories in a military career'"
+            },
             "options": [
-                "Qualitativa nominal",
-                "Qualitativa ordinal",
-                "Quantitativa discreta",
-                "Quantitativa contínua"
+                {
+                    "pt": "Qualitativa nominal",
+                    "en": "Qualitative nominal"
+                },
+                {
+                    "pt": "Qualitativa ordinal",
+                    "en": "Qualitative ordinal"
+                },
+                {
+                    "pt": "Quantitativa discreta",
+                    "en": "Quantitative discrete"
+                },
+                {
+                    "pt": "Quantitativa contínua",
+                    "en": "Quantitative continuous"
+                }
             ],
             "correctAnswer": 1,
-            "explanation": "É uma variável qualitativa ordinal porque representa categorias (patentes militares) com uma ordem hierárquica natural entre elas."
+            "explanation": {
+                "pt": "É uma variável qualitativa ordinal porque representa categorias (patentes militares) com uma ordem hierárquica natural entre elas.",
+                "en": "It is a qualitative ordinal variable because it represents categories (military ranks) with a natural hierarchical order between them."
+            }
         },
         {
             "id": 9,
-            "question": "Caracterize a natureza da variável definida como: 'Grau de satisfação com a comida servida na cantina'",
+            "question": {
+                "pt": "Caracterize a natureza da variável definida como: 'Grau de satisfação com a comida servida na cantina'",
+                "en": "Characterize the nature of the variable defined as: 'Degree of satisfaction with the food served in the cafeteria'"
+            },
             "options": [
-                "Qualitativa nominal",
-                "Qualitativa ordinal",
-                "Quantitativa discreta",
-                "Quantitativa contínua"
+                {
+                    "pt": "Qualitativa nominal",
+                    "en": "Qualitative nominal"
+                },
+                {
+                    "pt": "Qualitativa ordinal",
+                    "en": "Qualitative ordinal"
+                },
+                {
+                    "pt": "Quantitativa discreta",
+                    "en": "Quantitative discrete"
+                },
+                {
+                    "pt": "Quantitativa contínua",
+                    "en": "Quantitative continuous"
+                }
             ],
             "correctAnswer": 1,
-            "explanation": "É uma variável qualitativa ordinal porque representa categorias (níveis de satisfação) com uma ordem natural entre elas (ex: muito insatisfeito < insatisfeito < neutro < satisfeito < muito satisfeito)."
+            "explanation": {
+                "pt": "É uma variável qualitativa ordinal porque representa categorias (níveis de satisfação) com uma ordem natural entre elas (ex: muito insatisfeito < insatisfeito < neutro < satisfeito < muito satisfeito).",
+                "en": "It is a qualitative ordinal variable because it represents categories (satisfaction levels) with a natural order between them (e.g.: very dissatisfied < dissatisfied < neutral < satisfied < very satisfied)."
+            }
         },
         {
             "id": 10,
-            "question": "A média, a mediana e a moda são medidas de localização?",
+            "question": {
+                "pt": "A média, a mediana e a moda são medidas de localização?",
+                "en": "Are the mean, median and mode measures of location?"
+            },
             "options": [
-                "Sim",
-                "Não"
+                {
+                    "pt": "Sim",
+                    "en": "Yes"
+                },
+                {
+                    "pt": "Não",
+                    "en": "No"
+                }
             ],
             "correctAnswer": 0,
-            "explanation": "A média, a mediana e a moda são todas medidas de tendência central ou localização, pois indicam onde os dados tendem a se concentrar."
+            "explanation": {
+                "pt": "A média, a mediana e a moda são todas medidas de tendência central ou localização, pois indicam onde os dados tendem a se concentrar.",
+                "en": "The mean, median and mode are all measures of central tendency or location, as they indicate where the data tends to concentrate."
+            }
         },
         {
             "id": 11,
-            "question": "Para calcular a mediana a amostra deve estar ordenada?",
+            "question": {
+                "pt": "Para calcular a mediana a amostra deve estar ordenada?",
+                "en": "To calculate the median, must the sample be ordered?"
+            },
             "options": [
-                "Sim",
-                "Não"
+                {
+                    "pt": "Sim",
+                    "en": "Yes"
+                },
+                {
+                    "pt": "Não",
+                    "en": "No"
+                }
             ],
             "correctAnswer": 0,
-            "explanation": "Para calcular a mediana, é necessário ordenar os valores da amostra do menor para o maior e identificar o valor central (ou a média dos dois valores centrais)."
+            "explanation": {
+                "pt": "Para calcular a mediana, é necessário ordenar os valores da amostra do menor para o maior e identificar o valor central (ou a média dos dois valores centrais).",
+                "en": "To calculate the median, it is necessary to order the sample values from smallest to largest and identify the central value (or the average of the two central values)."
+            }
         },
         {
             "id": 12,
-            "question": "A mediana é a medida abaixo da qual estão 50% das observações?",
+            "question": {
+                "pt": "A mediana é a medida abaixo da qual estão 50% das observações?",
+                "en": "Is the median the measure below which 50% of the observations are?"
+            },
             "options": [
-                "Sim",
-                "Não"
+                {
+                    "pt": "Sim",
+                    "en": "Yes"
+                },
+                {
+                    "pt": "Não",
+                    "en": "No"
+                }
             ],
             "correctAnswer": 0,
-            "explanation": "A mediana divide a amostra ordenada em duas partes iguais, com 50% dos valores abaixo e 50% acima dela."
+            "explanation": {
+                "pt": "A mediana divide a amostra ordenada em duas partes iguais, com 50% dos valores abaixo e 50% acima dela.",
+                "en": "The median divides the ordered sample into two equal parts, with 50% of the values below and 50% above it."
+            }
         },
         {
             "id": 13,
-            "question": "A mediana é menos sensível (mais resistente) do que a média?",
+            "question": {
+                "pt": "A mediana é menos sensível (mais resistente) do que a média?",
+                "en": "Is the median less sensitive (more resistant) than the mean?"
+            },
             "options": [
-                "Sim",
-                "Não"
+                {
+                    "pt": "Sim",
+                    "en": "Yes"
+                },
+                {
+                    "pt": "Não",
+                    "en": "No"
+                }
             ],
             "correctAnswer": 0,
-            "explanation": "A mediana é mais resistente a valores extremos (outliers) do que a média, pois não é afetada por grandes desvios em relação aos outros valores."
+            "explanation": {
+                "pt": "A mediana é mais resistente a valores extremos (outliers) do que a média, pois não é afetada por grandes desvios em relação aos outros valores.",
+                "en": "The median is more resistant to extreme values (outliers) than the mean, as it is not affected by large deviations relative to other values."
+            }
         },
         {
             "id": 14,
-            "question": "O valor do 3º quartil é superior à mediana?",
+            "question": {
+                "pt": "O valor do 3º quartil é superior à mediana?",
+                "en": "Is the value of the 3rd quartile greater than the median?"
+            },
             "options": [
-                "Sim",
-                "Não"
+                {
+                    "pt": "Sim",
+                    "en": "Yes"
+                },
+                {
+                    "pt": "Não",
+                    "en": "No"
+                }
             ],
             "correctAnswer": 0,
-            "explanation": "A mediana é o 2º quartil (Q2, 50% dos dados), enquanto o 3º quartil (Q3) representa 75% dos dados, portanto Q3 > Q2."
+            "explanation": {
+                "pt": "A mediana é o 2º quartil (Q2, 50% dos dados), enquanto o 3º quartil (Q3) representa 75% dos dados, portanto Q3 > Q2.",
+                "en": "The median is the 2nd quartile (Q2, 50% of the data), while the 3rd quartile (Q3) represents 75% of the data, therefore Q3 > Q2."
+            }
         },
         {
             "id": 15,
-            "question": "A mediana é o 1º quartil?",
+            "question": {
+                "pt": "A mediana é o 1º quartil?",
+                "en": "Is the median the 1st quartile?"
+            },
             "options": [
-                "Sim",
-                "Não"
+                {
+                    "pt": "Sim",
+                    "en": "Yes"
+                },
+                {
+                    "pt": "Não",
+                    "en": "No"
+                }
             ],
             "correctAnswer": 1,
-            "explanation": "A mediana é o 2º quartil (Q2, 50% dos dados), enquanto o 1º quartil (Q1) representa 25% dos dados."
+            "explanation": {
+                "pt": "A mediana é o 2º quartil (Q2, 50% dos dados), enquanto o 1º quartil (Q1) representa 25% dos dados.",
+                "en": "The median is the 2nd quartile (Q2, 50% of the data), while the 1st quartile (Q1) represents 25% of the data."
+            }
         },
         {
             "id": 16,
-            "question": "Considere os dados dos rendimentos brutos anuais (em milhares de euros) de 5 indivíduos: 15, 25, 30, 33, 150. Qual a medida de localização que deve calcular?",
+            "question": {
+                "pt": "Considere os dados dos rendimentos brutos anuais (em milhares de euros) de 5 indivíduos: 15, 25, 30, 33, 150. Qual a medida de localização que deve calcular?",
+                "en": "Consider the data of gross annual incomes (in thousands of euros) of 5 individuals: 15, 25, 30, 33, 150. Which measure of location should you calculate?"
+            },
             "options": [
-                "Média",
-                "Mediana"
+                {
+                    "pt": "Média",
+                    "en": "Mean"
+                },
+                {
+                    "pt": "Mediana",
+                    "en": "Median"
+                }
             ],
             "correctAnswer": 1,
-            "explanation": "Como existe um valor muito discrepante (150), a mediana é mais adequada por ser resistente a outliers. A média seria inflacionada pelo valor extremo."
+            "explanation": {
+                "pt": "Como existe um valor muito discrepante (150), a mediana é mais adequada por ser resistente a outliers. A média seria inflacionada pelo valor extremo.",
+                "en": "Since there is a very discrepant value (150), the median is more appropriate as it is resistant to outliers. The mean would be inflated by the extreme value."
+            }
         },
         {
             "id": 17,
-            "question": "Pode calcular a média se a característica em estudo é qualitativa? Por exemplo, estado civil?",
+            "question": {
+                "pt": "Pode calcular a média se a característica em estudo é qualitativa? Por exemplo, estado civil?",
+                "en": "Can you calculate the mean if the characteristic being studied is qualitative? For example, marital status?"
+            },
             "options": [
-                "Sim",
-                "Não"
+                {
+                    "pt": "Sim",
+                    "en": "Yes"
+                },
+                {
+                    "pt": "Não",
+                    "en": "No"
+                }
             ],
             "correctAnswer": 1,
-            "explanation": "Não é possível calcular a média para variáveis qualitativas como estado civil, pois estas não têm valores numéricos intrínsecos para operações aritméticas."
+            "explanation": {
+                "pt": "Não é possível calcular a média para variáveis qualitativas como estado civil, pois estas não têm valores numéricos intrínsecos para operações aritméticas.",
+                "en": "It is not possible to calculate the mean for qualitative variables such as marital status, as these do not have intrinsic numerical values for arithmetic operations."
+            }
         },
         {
             "id": 18,
-            "question": "Para uma variável nominal tal como o género, qual a medida de localização mais adequada?",
+            "question": {
+                "pt": "Para uma variável nominal tal como o género, qual a medida de localização mais adequada?",
+                "en": "For a nominal variable such as gender, which measure of location is most appropriate?"
+            },
             "options": [
-                "Média",
-                "Mediana",
-                "Moda"
+                {
+                    "pt": "Média",
+                    "en": "Mean"
+                },
+                {
+                    "pt": "Mediana",
+                    "en": "Median"
+                },
+                {
+                    "pt": "Moda",
+                    "en": "Mode"
+                }
             ],
             "correctAnswer": 2,
-            "explanation": "Para variáveis qualitativas nominais, a única medida de tendência central que pode ser usada é a moda (o valor mais frequente)."
+            "explanation": {
+                "pt": "Para variáveis qualitativas nominais, a única medida de tendência central que pode ser usada é a moda (o valor mais frequente).",
+                "en": "For qualitative nominal variables, the only measure of central tendency that can be used is the mode (the most frequent value)."
+            }
         },
         {
             "id": 19,
-            "question": "Qual das medidas de localização, média, mediana e moda, pode não existir?",
+            "question": {
+                "pt": "Qual das medidas de localização, média, mediana e moda, pode não existir?",
+                "en": "Which of the measures of location, mean, median and mode, may not exist?"
+            },
             "options": [
-                "Média",
-                "Mediana",
-                "Moda"
+                {
+                    "pt": "Média",
+                    "en": "Mean"
+                },
+                {
+                    "pt": "Mediana",
+                    "en": "Median"
+                },
+                {
+                    "pt": "Moda",
+                    "en": "Mode"
+                }
             ],
             "correctAnswer": 2,
-            "explanation": "A moda pode não existir se todos os valores ocorrerem com a mesma frequência, ou pode haver múltiplas modas se vários valores tiverem a mesma frequência máxima."
+            "explanation": {
+                "pt": "A moda pode não existir se todos os valores ocorrerem com a mesma frequência, ou pode haver múltiplas modas se vários valores tiverem a mesma frequência máxima.",
+                "en": "The mode may not exist if all values occur with the same frequency, or there may be multiple modes if several values have the same maximum frequency."
+            }
         },
         {
             "id": 20,
-            "question": "A distribuição dos dados diz-se assimétrica positiva quando:",
+            "question": {
+                "pt": "A distribuição dos dados diz-se assimétrica positiva quando:",
+                "en": "The distribution of the data is said to be positively skewed when:"
+            },
             "options": [
-                "Os dados encontram-se mais concentrados à esquerda",
-                "Os dados encontram-se mais concentrados à direita",
-                "Os dados encontram-se igualmente concentrados à esquerda e à direita"
+                {
+                    "pt": "Os dados encontram-se mais concentrados à esquerda",
+                    "en": "The data are more concentrated to the left"
+                },
+                {
+                    "pt": "Os dados encontram-se mais concentrados à direita",
+                    "en": "The data are more concentrated to the right"
+                },
+                {
+                    "pt": "Os dados encontram-se igualmente concentrados à esquerda e à direita",
+                    "en": "The data are equally concentrated to the left and right"
+                }
             ],
             "correctAnswer": 0,
-            "explanation": "Na assimetria positiva (ou à direita), a cauda da distribuição se estende mais para a direita, com a maioria dos dados concentrados à esquerda e média > mediana."
+            "explanation": {
+                "pt": "Na assimetria positiva (ou à direita), a cauda da distribuição se estende mais para a direita, com a maioria dos dados concentrados à esquerda e média > mediana.",
+                "en": "In positive skewness (or right-skewed), the tail of the distribution extends more to the right, with most data concentrated to the left and mean > median."
+            }
         },
         {
             "id": 21,
-            "question": "A distribuição dos dados diz-se assimétrica negativa quando:",
+            "question": {
+                "pt": "A distribuição dos dados diz-se assimétrica negativa quando:",
+                "en": "The distribution of the data is said to be negatively skewed when:"
+            },
             "options": [
-                "Os dados encontram-se mais concentrados à esquerda",
-                "Os dados encontram-se mais concentrados à direita",
-                "Os dados encontram-se igualmente concentrados à esquerda e à direita"
+                {
+                    "pt": "Os dados encontram-se mais concentrados à esquerda",
+                    "en": "The data are more concentrated to the left"
+                },
+                {
+                    "pt": "Os dados encontram-se mais concentrados à direita",
+                    "en": "The data are more concentrated to the right"
+                },
+                {
+                    "pt": "Os dados encontram-se igualmente concentrados à esquerda e à direita",
+                    "en": "The data are equally concentrated to the left and right"
+                }
             ],
             "correctAnswer": 1,
-            "explanation": "Na assimetria negativa (ou à esquerda), a cauda da distribuição se estende mais para a esquerda, com a maioria dos dados concentrados à direita e média < mediana."
+            "explanation": {
+                "pt": "Na assimetria negativa (ou à esquerda), a cauda da distribuição se estende mais para a esquerda, com a maioria dos dados concentrados à direita e média < mediana.",
+                "en": "In negative skewness (or left-skewed), the tail of the distribution extends more to the left, with most data concentrated to the right and mean < median."
+            }
         },
         {
             "id": 22,
-            "question": "Se a média é igual à mediana e à moda a distribuição diz-se:",
+            "question": {
+                "pt": "Se a média é igual à mediana e à moda a distribuição diz-se:",
+                "en": "If the mean is equal to the median and the mode, the distribution is said to be:"
+            },
             "options": [
-                "Simétrica",
-                "Enviesada à direita",
-                "Enviesada à esquerda"
+                {
+                    "pt": "Simétrica",
+                    "en": "Symmetric"
+                },
+                {
+                    "pt": "Enviesada à direita",
+                    "en": "Right-skewed"
+                },
+                {
+                    "pt": "Enviesada à esquerda",
+                    "en": "Left-skewed"
+                }
             ],
             "correctAnswer": 0,
-            "explanation": "Quando média = mediana = moda, a distribuição é simétrica, indicando que os dados estão igualmente distribuídos em torno do valor central."
+            "explanation": {
+                "pt": "Quando média = mediana = moda, a distribuição é simétrica, indicando que os dados estão igualmente distribuídos em torno do valor central.",
+                "en": "When mean = median = mode, the distribution is symmetric, indicating that the data are equally distributed around the central value."
+            }
         },
         {
             "id": 23,
-            "question": "A amplitude é uma medida de dispersão dos dados?",
+            "question": {
+                "pt": "A amplitude é uma medida de dispersão dos dados?",
+                "en": "Is the range a measure of data dispersion?"
+            },
             "options": [
-                "Sim",
-                "Não"
+                {
+                    "pt": "Sim",
+                    "en": "Yes"
+                },
+                {
+                    "pt": "Não",
+                    "en": "No"
+                }
             ],
             "correctAnswer": 0,
-            "explanation": "A amplitude (diferença entre o valor máximo e mínimo) é uma medida de dispersão que indica o espalhamento total dos dados."
+            "explanation": {
+                "pt": "A amplitude (diferença entre o valor máximo e mínimo) é uma medida de dispersão que indica o espalhamento total dos dados.",
+                "en": "The range (difference between the maximum and minimum value) is a measure of dispersion that indicates the total spread of the data."
+            }
         },
         {
             "id": 24,
-            "question": "A amplitude é uma medida de dispersão que leva em conta todas as observações da amostra?",
+            "question": {
+                "pt": "A amplitude é uma medida de dispersão que leva em conta todas as observações da amostra?",
+                "en": "Is the range a measure of dispersion that takes into account all observations in the sample?"
+            },
             "options": [
-                "Sim",
-                "Não"
+                {
+                    "pt": "Sim",
+                    "en": "Yes"
+                },
+                {
+                    "pt": "Não",
+                    "en": "No"
+                }
             ],
             "correctAnswer": 1,
-            "explanation": "A amplitude considera apenas os valores extremos (máximo e mínimo) e ignora como os dados estão distribuídos entre esses extremos."
+            "explanation": {
+                "pt": "A amplitude considera apenas os valores extremos (máximo e mínimo) e ignora como os dados estão distribuídos entre esses extremos.",
+                "en": "The range considers only the extreme values (maximum and minimum) and ignores how the data are distributed between these extremes."
+            }
         },
         {
             "id": 25,
-            "question": "O intervalo interquartil compreende 50% das observações centrais da amostra?",
+            "question": {
+                "pt": "O intervalo interquartil compreende 50% das observações centrais da amostra?",
+                "en": "Does the interquartile range comprise 50% of the central observations of the sample?"
+            },
             "options": [
-                "Sim",
-                "Não"
+                {
+                    "pt": "Sim",
+                    "en": "Yes"
+                },
+                {
+                    "pt": "Não",
+                    "en": "No"
+                }
             ],
             "correctAnswer": 0,
-            "explanation": "O intervalo interquartil (IQR = Q3 - Q1) compreende o intervalo central que contém 50% das observações, excluindo os 25% inferiores e os 25% superiores."
+            "explanation": {
+                "pt": "O intervalo interquartil (IQR = Q3 - Q1) compreende o intervalo central que contém 50% das observações, excluindo os 25% inferiores e os 25% superiores.",
+                "en": "The interquartile range (IQR = Q3 - Q1) comprises the central interval that contains 50% of the observations, excluding the lower 25% and the upper 25%."
+            }
         },
         {
             "id": 26,
-            "question": "A variância é uma medida de dispersão dos dados em relação à média?",
+            "question": {
+                "pt": "A variância é uma medida de dispersão dos dados em relação à média?",
+                "en": "Is variance a measure of data dispersion relative to the mean?"
+            },
             "options": [
-                "Sim",
-                "Não"
+                {
+                    "pt": "Sim",
+                    "en": "Yes"
+                },
+                {
+                    "pt": "Não",
+                    "en": "No"
+                }
             ],
             "correctAnswer": 0,
-            "explanation": "A variância mede a dispersão dos dados em relação à média, calculando a média dos quadrados das diferenças entre cada valor e a média da amostra."
+            "explanation": {
+                "pt": "A variância mede a dispersão dos dados em relação à média, calculando a média dos quadrados das diferenças entre cada valor e a média da amostra.",
+                "en": "Variance measures the dispersion of the data relative to the mean, calculating the average of the squares of the differences between each value and the sample mean."
+            }
         },
         {
             "id": 27,
-            "question": "A variância é uma medida de dispersão que leva em conta todas as observações da amostra?",
+            "question": {
+                "pt": "A variância é uma medida de dispersão que leva em conta todas as observações da amostra?",
+                "en": "Is variance a measure of dispersion that takes into account all observations in the sample?"
+            },
             "options": [
-                "Sim",
-                "Não"
+                {
+                    "pt": "Sim",
+                    "en": "Yes"
+                },
+                {
+                    "pt": "Não",
+                    "en": "No"
+                }
             ],
             "correctAnswer": 0,
-            "explanation": "Ao contrário da amplitude, a variância utiliza todos os valores da amostra em seu cálculo, considerando o desvio de cada observação em relação à média."
+            "explanation": {
+                "pt": "Ao contrário da amplitude, a variância utiliza todos os valores da amostra em seu cálculo, considerando o desvio de cada observação em relação à média.",
+                "en": "Unlike the range, variance uses all values in the sample in its calculation, considering the deviation of each observation relative to the mean."
+            }
         },
         {
             "id": 28,
-            "question": "Para calcular a variância é necessário conhecer o valor da média da amostra?",
+            "question": {
+                "pt": "Para calcular a variância é necessário conhecer o valor da média da amostra?",
+                "en": "To calculate the variance, is it necessary to know the value of the sample mean?"
+            },
             "options": [
-                "Sim",
-                "Não"
+                {
+                    "pt": "Sim",
+                    "en": "Yes"
+                },
+                {
+                    "pt": "Não",
+                    "en": "No"
+                }
             ],
             "correctAnswer": 0,
-            "explanation": "A variância é calculada como a média dos quadrados das diferenças entre cada valor e a média da amostra, portanto é necessário conhecer a média primeiro."
+            "explanation": {
+                "pt": "A variância é calculada como a média dos quadrados das diferenças entre cada valor e a média da amostra, portanto é necessário conhecer a média primeiro.",
+                "en": "Variance is calculated as the average of the squares of the differences between each value and the sample mean, so it is necessary to know the mean first."
+            }
         },
         {
             "id": 29,
-            "question": "O desvio padrão é a raiz quadrada positiva da variância?",
+            "question": {
+                "pt": "O desvio padrão é a raiz quadrada positiva da variância?",
+                "en": "Is the standard deviation the positive square root of the variance?"
+            },
             "options": [
-                "Sim",
-                "Não"
+                {
+                    "pt": "Sim",
+                    "en": "Yes"
+                },
+                {
+                    "pt": "Não",
+                    "en": "No"
+                }
             ],
             "correctAnswer": 0,
-            "explanation": "O desvio padrão é definido como a raiz quadrada positiva da variância, trazendo a medida de dispersão de volta à unidade original dos dados."
+            "explanation": {
+                "pt": "O desvio padrão é definido como a raiz quadrada positiva da variância, trazendo a medida de dispersão de volta à unidade original dos dados.",
+                "en": "The standard deviation is defined as the positive square root of the variance, bringing the measure of dispersion back to the original unit of the data."
+            }
         },
         {
             "id": 30,
-            "question": "Na prática o valor interpretado é o desvio padrão, porque é expresso na unidade de medida da variável em estudo?",
+            "question": {
+                "pt": "Na prática o valor interpretado é o desvio padrão, porque é expresso na unidade de medida da variável em estudo?",
+                "en": "In practice, the interpreted value is the standard deviation, because it is expressed in the unit of measurement of the variable under study?"
+            },
             "options": [
-                "Sim",
-                "Não"
+                {
+                    "pt": "Sim",
+                    "en": "Yes"
+                },
+                {
+                    "pt": "Não",
+                    "en": "No"
+                }
             ],
             "correctAnswer": 0,
-            "explanation": "O desvio padrão é frequentemente preferido à variância porque está na mesma unidade dos dados originais, facilitando a interpretação prática."
+            "explanation": {
+                "pt": "O desvio padrão é frequentemente preferido à variância porque está na mesma unidade dos dados originais, facilitando a interpretação prática.",
+                "en": "The standard deviation is often preferred over variance because it is in the same unit as the original data, facilitating practical interpretation."
+            }
         },
         {
             "id": 31,
-            "question": "A associação linear entre duas variáveis quantitativas pode ser medida pelo coeficiente de correlação linear?",
+            "question": {
+                "pt": "A associação linear entre duas variáveis quantitativas pode ser medida pelo coeficiente de correlação linear?",
+                "en": "Can the linear association between two quantitative variables be measured by the linear correlation coefficient?"
+            },
             "options": [
-                "Sim",
-                "Não"
+                {
+                    "pt": "Sim",
+                    "en": "Yes"
+                },
+                {
+                    "pt": "Não",
+                    "en": "No"
+                }
             ],
             "correctAnswer": 0,
-            "explanation": "O coeficiente de correlação linear (r de Pearson) mede a força e direção da associação linear entre duas variáveis quantitativas."
+            "explanation": {
+                "pt": "O coeficiente de correlação linear (r de Pearson) mede a força e direção da associação linear entre duas variáveis quantitativas.",
+                "en": "The linear correlation coefficient (Pearson's r) measures the strength and direction of the linear association between two quantitative variables."
+            }
         },
         {
             "id": 32,
-            "question": "Se o coeficiente de correlação linear é igual a zero, isto indica ausência de relação entre as variáveis?",
+            "question": {
+                "pt": "Se o coeficiente de correlação linear é igual a zero, isto indica ausência de relação entre as variáveis?",
+                "en": "If the linear correlation coefficient is equal to zero, does this indicate absence of relationship between the variables?"
+            },
             "options": [
-                "Sim",
-                "Não"
+                {
+                    "pt": "Sim",
+                    "en": "Yes"
+                },
+                {
+                    "pt": "Não",
+                    "en": "No"
+                }
             ],
             "correctAnswer": 1,
-            "explanation": "Um coeficiente de correlação zero indica apenas ausência de relação linear. Pode existir uma relação não-linear forte entre as variáveis."
+            "explanation": {
+                "pt": "Um coeficiente de correlação zero indica apenas ausência de relação linear. Pode existir uma relação não-linear forte entre as variáveis.",
+                "en": "A correlation coefficient of zero indicates only the absence of a linear relationship. There may be a strong non-linear relationship between the variables."
+            }
         }
     ]
 }

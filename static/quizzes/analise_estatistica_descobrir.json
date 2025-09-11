@@ -1,0 +1,373 @@
+{
+    "name": {
+        "pt": "Quiz de Descoberta Estatística",
+        "en": "Statistical Discovery Quiz"
+    },
+    "description": {
+        "pt": "Identifique a distribuição de probabilidade mais adequada para cada situação estatística.",
+        "en": "Identify the most appropriate probability distribution for each statistical situation."
+    },
+    "questionsPerSession": 12,
+    "questions": [
+        {
+            "id": 1,
+            "question": {
+                "pt": "Uma equipa tem probabilidade de vitória, sempre que joga igual a 2/3. Se a equipa disputa quatro jogos, qual a probabilidade de a equipa vencer um jogo?",
+                "en": "A team has a probability of victory, whenever it plays equal to 2/3. If the team plays four games, what is the probability of the team winning a game?"
+            },
+            "options": [
+                {
+                    "pt": "Distribuição Binomial",
+                    "en": "Binomial Distribution"
+                },
+                {
+                    "pt": "Distribuição de Poisson",
+                    "en": "Poisson Distribution"
+                },
+                {
+                    "pt": "Distribuição Hipergeométrica",
+                    "en": "Hypergeometric Distribution"
+                },
+                {
+                    "pt": "Distribuição Normal",
+                    "en": "Normal Distribution"
+                }
+            ],
+            "correctAnswer": 0,
+            "explanation": {
+                "pt": "A distribuição binomial modela o número de sucessos em n ensaios independentes.",
+                "en": "The binomial distribution models the number of successes in n independent trials."
+            }
+        },
+        {
+            "id": 2,
+            "question": {
+                "pt": "Se 20% das peças produzidas por uma máquina acusam defeito, qual a probabilidade de que, em 4 peças escolhidas ao acaso uma seja defeituosa.",
+                "en": "If 20% of the pieces produced by a machine are defective, what is the probability that, in 4 pieces chosen at random, one is defective."
+            },
+            "options": [
+                {
+                    "pt": "Distribuição Binomial",
+                    "en": "Binomial Distribution"
+                },
+                {
+                    "pt": "Distribuição de Poisson",
+                    "en": "Poisson Distribution"
+                },
+                {
+                    "pt": "Distribuição Hipergeométrica",
+                    "en": "Hypergeometric Distribution"
+                },
+                {
+                    "pt": "Distribuição Normal",
+                    "en": "Normal Distribution"
+                }
+            ],
+            "correctAnswer": 0,
+            "explanation": {
+                "pt": "A situação envolve ensaios independentes com probabilidade constante de defeito → binomial.",
+                "en": "The situation involves independent trials with constant probability of defect → binomial."
+            }
+        },
+        {
+            "id": 3,
+            "question": {
+                "pt": "Uma empresa comercializa detergente para a louça em embalagem própria. Supõe-se que 25% dessas embalagens contêm uma menor quantidade de produto que a indicada no rótulo. Tendo adquirido 6 embalagens, qual a probabilidade de que 2 delas contenham uma quantidade inferior à indicada no rótulo?",
+                "en": "A company markets dish detergent in its own packaging. It is assumed that 25% of these packages contain a smaller amount of product than indicated on the label. Having purchased 6 packages, what is the probability that 2 of them contain an amount less than indicated on the label?"
+            },
+            "options": [
+                {
+                    "pt": "Distribuição Binomial",
+                    "en": "Binomial Distribution"
+                },
+                {
+                    "pt": "Distribuição de Poisson",
+                    "en": "Poisson Distribution"
+                },
+                {
+                    "pt": "Distribuição Hipergeométrica",
+                    "en": "Hypergeometric Distribution"
+                },
+                {
+                    "pt": "Distribuição Normal",
+                    "en": "Normal Distribution"
+                }
+            ],
+            "correctAnswer": 0,
+            "explanation": {
+                "pt": "É um caso clássico de distribuição binomial (n=6, p=0,25).",
+                "en": "It is a classic case of binomial distribution (n=6, p=0.25)."
+            }
+        },
+        {
+            "id": 4,
+            "question": {
+                "pt": "Uma empresa comercializa detergente para a louça em embalagem própria. Supõe-se que 5% dessas embalagens contêm uma menor quantidade de produto que a indicada no rótulo. Tendo adquirido 100 embalagens, qual a probabilidade de que 2 delas contenham uma quantidade inferior à indicada no rótulo?",
+                "en": "A company markets dish detergent in its own packaging. It is assumed that 5% of these packages contain a smaller amount of product than indicated on the label. Having purchased 100 packages, what is the probability that 2 of them contain an amount less than indicated on the label?"
+            },
+            "options": [
+                {
+                    "pt": "Distribuição Binomial",
+                    "en": "Binomial Distribution"
+                },
+                {
+                    "pt": "Distribuição de Poisson",
+                    "en": "Poisson Distribution"
+                },
+                {
+                    "pt": "Distribuição Hipergeométrica",
+                    "en": "Hypergeometric Distribution"
+                },
+                {
+                    "pt": "Distribuição Normal",
+                    "en": "Normal Distribution"
+                }
+            ],
+            "correctAnswer": 3,
+            "explanation": {
+                "pt": "Com n grande e p pequeno, a binomial pode ser aproximada pela normal.",
+                "en": "With large n and small p, the binomial can be approximated by the normal."
+            }
+        },
+        {
+            "id": 5,
+            "question": {
+                "pt": "De um lote de 100 peças, das quais 20 são defeituosas, escolheu-se ao acaso uma amostra de 5. Qual a probabilidade de nessa amostra haver no máximo uma defeituosa?",
+                "en": "From a batch of 100 pieces, of which 20 are defective, a sample of 5 was chosen at random. What is the probability that in that sample there is at most one defective?"
+            },
+            "options": [
+                {
+                    "pt": "Distribuição Binomial",
+                    "en": "Binomial Distribution"
+                },
+                {
+                    "pt": "Distribuição de Poisson",
+                    "en": "Poisson Distribution"
+                },
+                {
+                    "pt": "Distribuição Hipergeométrica",
+                    "en": "Hypergeometric Distribution"
+                },
+                {
+                    "pt": "Distribuição Normal",
+                    "en": "Normal Distribution"
+                }
+            ],
+            "correctAnswer": 2,
+            "explanation": {
+                "pt": "A escolha sem reposição caracteriza a distribuição hipergeométrica.",
+                "en": "The choice without replacement characterizes the hypergeometric distribution."
+            }
+        },
+        {
+            "id": 6,
+            "question": {
+                "pt": "Um fornecedor de canetas para quadros envia as peças em caixas de 100 canetas, para 10 escolas, independentes. Devido a problemas durante o processo de produção algumas canetas apresentaram defeito. Para evitar prejuízos o fornecedor decidiu incluir em cada uma das caixas cinco dessas canetas, esperando que estas pudessem não ser detetadas no controlo de qualidade dos clientes, que consiste em escolher dez canetas ao acaso, de cada caixa, devolvendo a caixa se alguma caneta tiver defeito. Qual a probabilidade de uma caixa ser aceite pela escola que a recebeu?",
+                "en": "A supplier of pens for boards sends the pieces in boxes of 100 pens, to 10 independent schools. Due to problems during the production process, some pens presented defects. To avoid losses, the supplier decided to include five of these pens in each box, hoping that they could not be detected in the customers' quality control, which consists of choosing ten pens at random from each box, returning the box if any pen has a defect. What is the probability that a box is accepted by the school that received it?"
+            },
+            "options": [
+                {
+                    "pt": "Distribuição Binomial",
+                    "en": "Binomial Distribution"
+                },
+                {
+                    "pt": "Distribuição de Poisson",
+                    "en": "Poisson Distribution"
+                },
+                {
+                    "pt": "Distribuição Hipergeométrica",
+                    "en": "Hypergeometric Distribution"
+                },
+                {
+                    "pt": "Distribuição Normal",
+                    "en": "Normal Distribution"
+                }
+            ],
+            "correctAnswer": 2,
+            "explanation": {
+                "pt": "É amostragem sem reposição → distribuição hipergeométrica.",
+                "en": "It is sampling without replacement → hypergeometric distribution."
+            }
+        },
+        {
+            "id": 7,
+            "question": {
+                "pt": "Se as 10 escolas receberem uma caixa nas condições do enunciado anterior, qual a probabilidade de que pelo menos 2 delas devolvam a caixa?",
+                "en": "If the 10 schools receive a box under the conditions of the previous statement, what is the probability that at least 2 of them return the box?"
+            },
+            "options": [
+                {
+                    "pt": "Distribuição Binomial",
+                    "en": "Binomial Distribution"
+                },
+                {
+                    "pt": "Distribuição de Poisson",
+                    "en": "Poisson Distribution"
+                },
+                {
+                    "pt": "Distribuição Hipergeométrica",
+                    "en": "Hypergeometric Distribution"
+                },
+                {
+                    "pt": "Distribuição Normal",
+                    "en": "Normal Distribution"
+                }
+            ],
+            "correctAnswer": 0,
+            "explanation": {
+                "pt": "Agora são ensaios independentes com duas saídas (aceite/devolvida) → binomial.",
+                "en": "Now they are independent trials with two outcomes (accept/return) → binomial."
+            }
+        },
+        {
+            "id": 8,
+            "question": {
+                "pt": "Uma central telefónica recebe em média 60 chamadas telefónicas por hora. Qual a probabilidade de ser recebida apenas 1 chamada durante um período de 1 minuto?",
+                "en": "A telephone exchange receives an average of 60 telephone calls per hour. What is the probability of receiving only 1 call during a period of 1 minute?"
+            },
+            "options": [
+                {
+                    "pt": "Distribuição Binomial",
+                    "en": "Binomial Distribution"
+                },
+                {
+                    "pt": "Distribuição de Poisson",
+                    "en": "Poisson Distribution"
+                },
+                {
+                    "pt": "Distribuição Hipergeométrica",
+                    "en": "Hypergeometric Distribution"
+                },
+                {
+                    "pt": "Distribuição Normal",
+                    "en": "Normal Distribution"
+                }
+            ],
+            "correctAnswer": 1,
+            "explanation": {
+                "pt": "Chegadas de eventos raros num intervalo fixo → distribuição de Poisson.",
+                "en": "Arrivals of rare events in a fixed interval → Poisson distribution."
+            }
+        },
+        {
+            "id": 9,
+            "question": {
+                "pt": "Uma central telefónica recebe em média 60 chamadas telefónicas por hora. Qual a probabilidade de serem recebidas 3 chamadas durante um período de 5 minutos?",
+                "en": "A telephone exchange receives an average of 60 telephone calls per hour. What is the probability of receiving 3 calls during a period of 5 minutes?"
+            },
+            "options": [
+                {
+                    "pt": "Distribuição Binomial",
+                    "en": "Binomial Distribution"
+                },
+                {
+                    "pt": "Distribuição de Poisson",
+                    "en": "Poisson Distribution"
+                },
+                {
+                    "pt": "Distribuição Hipergeométrica",
+                    "en": "Hypergeometric Distribution"
+                },
+                {
+                    "pt": "Distribuição Normal",
+                    "en": "Normal Distribution"
+                }
+            ],
+            "correctAnswer": 1,
+            "explanation": {
+                "pt": "Número de chegadas em tempo fixo → distribuição de Poisson.",
+                "en": "Number of arrivals in fixed time → Poisson distribution."
+            }
+        },
+        {
+            "id": 10,
+            "question": {
+                "pt": "Uma central telefónica recebe em média 60 chamadas telefónicas por hora. Qual a probabilidade de serem recebidas 4 chamadas durante uma hora?",
+                "en": "A telephone exchange receives an average of 60 telephone calls per hour. What is the probability of receiving 4 calls during one hour?"
+            },
+            "options": [
+                {
+                    "pt": "Distribuição Binomial",
+                    "en": "Binomial Distribution"
+                },
+                {
+                    "pt": "Distribuição de Poisson",
+                    "en": "Poisson Distribution"
+                },
+                {
+                    "pt": "Distribuição Hipergeométrica",
+                    "en": "Hypergeometric Distribution"
+                },
+                {
+                    "pt": "Distribuição Normal",
+                    "en": "Normal Distribution"
+                }
+            ],
+            "correctAnswer": 3,
+            "explanation": {
+                "pt": "Com média alta de eventos por intervalo, pode ser aproximada pela normal.",
+                "en": "With high average events per interval, it can be approximated by the normal."
+            }
+        },
+        {
+            "id": 11,
+            "question": {
+                "pt": "O número médio de falhas semanais de um braço robótico numa linha de montagem de uma empresa automóvel é igual a 0,15. Qual a probabilidade de ocorrer no máximo duas falhas numa semana?",
+                "en": "The average number of weekly failures of a robotic arm in an automobile company's assembly line is equal to 0.15. What is the probability of occurring at most two failures in a week?"
+            },
+            "options": [
+                {
+                    "pt": "Distribuição Binomial",
+                    "en": "Binomial Distribution"
+                },
+                {
+                    "pt": "Distribuição de Poisson",
+                    "en": "Poisson Distribution"
+                },
+                {
+                    "pt": "Distribuição Hipergeométrica",
+                    "en": "Hypergeometric Distribution"
+                },
+                {
+                    "pt": "Distribuição Normal",
+                    "en": "Normal Distribution"
+                }
+            ],
+            "correctAnswer": 1,
+            "explanation": {
+                "pt": "Eventos raros por intervalo de tempo → Poisson.",
+                "en": "Rare events per time interval → Poisson."
+            }
+        },
+        {
+            "id": 12,
+            "question": {
+                "pt": "O número médio de falhas semanais de um braço robótico numa linha de montagem de uma empresa automóvel é igual a 0,15. Qual a probabilidade de em 3 anos (um ano tem 52 semanas) ocorrem pelo menos trinta falhas?",
+                "en": "The average number of weekly failures of a robotic arm in an automobile company's assembly line is equal to 0.15. What is the probability that in 3 years (one year has 52 weeks) at least thirty failures occur?"
+            },
+            "options": [
+                {
+                    "pt": "Distribuição Binomial",
+                    "en": "Binomial Distribution"
+                },
+                {
+                    "pt": "Distribuição de Poisson",
+                    "en": "Poisson Distribution"
+                },
+                {
+                    "pt": "Distribuição Hipergeométrica",
+                    "en": "Hypergeometric Distribution"
+                },
+                {
+                    "pt": "Distribuição Normal",
+                    "en": "Normal Distribution"
+                }
+            ],
+            "correctAnswer": 3,
+            "explanation": {
+                "pt": "Com n muito grande, a distribuição de Poisson pode ser aproximada pela normal.",
+                "en": "With very large n, the Poisson distribution can be approximated by the normal."
+            }
+        }
+    ]
+}

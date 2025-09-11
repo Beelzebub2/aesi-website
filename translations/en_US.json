@@ -274,6 +274,24 @@
                         "title": "Results",
                         "score": "Final Score"
                     }
+                },
+                "descobrir": {
+                    "title": "Discover the Distribution",
+                    "description": "Learn to identify which probability distribution best fits each statistical situation",
+                    "icon": "fa-magnifying-glass-chart",
+                    "start": {
+                        "title": "Identify Distributions",
+                        "description": "In this exercise, you will find different situations and should identify which probability distribution (Binomial, Poisson or Normal) best fits each case.",
+                        "button": "Start"
+                    },
+                    "buttons": {
+                        "next": "Next Question",
+                        "restart": "Restart"
+                    },
+                    "results": {
+                        "title": "Results",
+                        "score": "Final Score"
+                    }
                 }
             }
         }

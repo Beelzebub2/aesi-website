@@ -7,7 +7,7 @@
         "pt": "Identifique a distribuição de probabilidade mais adequada para cada situação.",
         "en": "Identify the most appropriate probability distribution for each situation."
     },
-    "questionsPerSession": 10,
+    "questionsPerSession": 12,
     "questions": [
         {
             "id": 1,

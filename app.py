@@ -139,25 +139,18 @@ def subject_feature(subject, feature):
     )
 
 # API routes
-@app.route("/api/quiz/<subject>")
-def get_quiz(subject):
+@app.route("/api/quiz/<subject>/<quiz_type>")
+def get_quiz(subject, quiz_type):
     try:
         locale = get_current_locale()
-        # Try the new translated quiz file first
-        translated_quiz_path = os.path.join(app.static_folder, "quizzes", f"{subject}_quiz_translated.json")
-        original_quiz_path = os.path.join(app.static_folder, "quizzes", f"{subject}_quiz.json")
+        # Use standardized naming convention: subject_typeofquiz.json
+        quiz_path = os.path.join(app.static_folder, "quizzes", f"{subject}_{quiz_type}.json")
 
-        quiz_data = None
-
-        # Check if translated version exists
-        if os.path.exists(translated_quiz_path):
-            with open(translated_quiz_path, 'r', encoding='utf-8') as f:
-                quiz_data = json.load(f)
-        elif os.path.exists(original_quiz_path):
-            with open(original_quiz_path, 'r', encoding='utf-8') as f:
-                quiz_data = json.load(f)
-        else:
+        if not os.path.exists(quiz_path):
             return jsonify({"error": "Quiz not found"}), 404
+
+        with open(quiz_path, 'r', encoding='utf-8') as f:
+            quiz_data = json.load(f)
 
         # Process the quiz data based on the format
         if quiz_data:
@@ -198,6 +191,12 @@ def get_quiz(subject):
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+# Backward compatibility route for old quiz URLs
+@app.route("/api/quiz/<subject>")
+def get_quiz_legacy(subject):
+    # Default to 'quiz' type for backward compatibility
+    return get_quiz(subject, 'quiz')
+
 @app.route("/api/quizzes")
 def get_quizzes():
     quizzes = []
@@ -205,45 +204,33 @@ def get_quizzes():
     lang_code = 'pt' if locale == 'pt_PT' else 'en'
     quiz_dir = os.path.join(app.static_folder, "quizzes")
 
-    for filename in os.listdir(quiz_dir):
-        if filename.endswith("_quiz_translated.json"):
-            quiz_type = filename.replace("_quiz_translated.json", "")
-            quiz_path = os.path.join(quiz_dir, filename)
+    # Get all subjects from translations
+    subjects = get_subjects_from_translations(locale)
 
-            try:
-                with open(quiz_path, 'r', encoding='utf-8') as f:
-                    quiz_data = json.load(f)
+    for subject_id in subjects.keys():
+        # Check for both quiz types: quiz and descobrir
+        for quiz_type in ['quiz', 'descobrir']:
+            quiz_path = os.path.join(quiz_dir, f"{subject_id}_{quiz_type}.json")
 
-                # Extract translated name and description
-                name = quiz_data.get('name', {}).get(lang_code, quiz_data.get('name', {}).get('pt', quiz_type))
-                description = quiz_data.get('description', {}).get(lang_code, quiz_data.get('description', {}).get('pt', ''))
+            if os.path.exists(quiz_path):
+                try:
+                    with open(quiz_path, 'r', encoding='utf-8') as f:
+                        quiz_data = json.load(f)
 
-                quizzes.append({
-                    "type": quiz_type,
-                    "name": name,
-                    "description": description
-                })
-            except Exception as e:
-                print(f"Error loading quiz {filename}: {e}")
-                continue
+                    # Extract translated name and description
+                    name = quiz_data.get('name', {}).get(lang_code, quiz_data.get('name', {}).get('pt', f"{subject_id} {quiz_type}"))
+                    description = quiz_data.get('description', {}).get(lang_code, quiz_data.get('description', {}).get('pt', ''))
 
-        elif filename.endswith("_quiz.json") and not filename.endswith("_quiz_translated.json"):
-            # Handle legacy quiz files
-            quiz_type = filename.replace("_quiz.json", "")
-            quiz_path = os.path.join(quiz_dir, filename)
-
-            try:
-                with open(quiz_path, 'r', encoding='utf-8') as f:
-                    quiz_data = json.load(f)
-
-                quizzes.append({
-                    "type": quiz_type,
-                    "name": quiz_data.get("name", quiz_type),
-                    "description": quiz_data.get("description", "")
-                })
-            except Exception as e:
-                print(f"Error loading quiz {filename}: {e}")
-                continue
+                    quizzes.append({
+                        "subject": subject_id,
+                        "type": quiz_type,
+                        "name": name,
+                        "description": description,
+                        "questionsPerSession": quiz_data.get('questionsPerSession', 10)
+                    })
+                except Exception as e:
+                    print(f"Error loading quiz {quiz_path}: {e}")
+                    continue
 
     return jsonify(quizzes)
 
