@@ -14,6 +14,7 @@
         "of": "of",
         "no_episode_selected": "No episode selected",
         "educational_podcasts": "Educational Podcasts",
+        "not_yet_available": "Not yet available",
         "page_not_found": "Page Not Found",
         "back_to_home": "Back to Home Page",
         "play_next_episode": "Play next episode?",
@@ -181,55 +182,64 @@
                             "title": "Descriptive Statistics",
                             "description": "Learn the fundamentals of data analysis and basic statistical measures",
                             "color": "#4361ee",
-                            "audio": "Estatística Descritiva.wav"
+                            "audio": "Estatística Descritiva.wav",
+                            "available": false
                         },
                         "2": {
                             "title": "Probability Theory",
                             "description": "Understand fundamental probability concepts and their applications",
                             "color": "#3a86ff",
-                            "audio": "Teoria das Probabilidades.wav"
+                            "audio": "Teoria das Probabilidades.wav",
+                            "available": false
                         },
                         "3": {
                             "title": "Conditional Probability and Independent Events",
                             "description": "Explore relationships between events and conditional probabilities",
                             "color": "#7209b7",
-                            "audio": "Probabilidade Condicionada e Independência.wav"
+                            "audio": "Probabilidade Condicionada e Independência.wav",
+                            "available": false
                         },
                         "4": {
                             "title": "Random Variables",
                             "description": "Understand how random variables model uncertain phenomena",
                             "color": "#f72585",
-                            "audio": "Variáveis Aleatórias e Propriedades Fundamentais.wav"
+                            "audio": "Variáveis Aleatórias e Propriedades Fundamentais.wav",
+                            "available": false
                         },
                         "5": {
                             "title": "Discrete Distributions",
                             "description": "Learn about the main discrete probability distributions",
                             "color": "#4cc9f0",
-                            "audio": "Distribuições de Probabilidade Discretas.wav"
+                            "audio": "Distribuições de Probabilidade Discretas.wav",
+                            "available": false
                         },
                         "6": {
                             "title": "Continuous Distributions",
                             "description": "Discover continuous distributions and their properties",
                             "color": "#560bad",
-                            "audio": "Distribuições Contínuas_ Normal e Exponencial.wav"
+                            "audio": "Distribuições Contínuas_ Normal e Exponencial.wav",
+                            "available": false
                         },
                         "7": {
                             "title": "Sampling and Sampling Distributions",
                             "description": "Learn about sampling techniques and their distributions",
                             "color": "#3f37c9",
-                            "audio": "Amostragem e Distribuições Amostrais.wav"
+                            "audio": "Amostragem e Distribuições Amostrais_en_US.wav",
+                            "available": true
                         },
                         "8": {
                             "title": "Estimation",
                             "description": "Understand parameter estimation methods and confidence intervals",
                             "color": "#fb5607",
-                            "audio": "Estimação de Parâmetros e Intervalos de Confiança.wav"
+                            "audio": "Estimação de Parâmetros e Intervalos de Confiança_en_US.wav",
+                            "available": true
                         },
                         "9": {
                             "title": "Hypothesis Testing",
                             "description": "Explore parametric methods for testing statistical hypotheses",
                             "color": "#ff006e",
-                            "audio": "Testes de Hipóteses Paramétricos.wav"
+                            "audio": "Testes de Hipóteses Paramétricos_en_US.wav",
+                            "available": true
                         }
                     }
                 }

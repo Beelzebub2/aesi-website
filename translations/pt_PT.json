@@ -14,6 +14,7 @@
         "of": "de",
         "no_episode_selected": "Nenhum episódio selecionado",
         "educational_podcasts": "Podcasts Educacionais",
+        "not_yet_available": "Ainda não disponível",
         "page_not_found": "Página Não Encontrada",
         "back_to_home": "Voltar para a Página Inicial",
         "play_next_episode": "Reproduzir próximo episódio?",
@@ -178,55 +179,64 @@
                             "title": "Estatística Descritiva",
                             "description": "Aprenda os fundamentos da análise de dados e medidas estatísticas básicas",
                             "color": "#4361ee",
-                            "audio": "Estatística Descritiva.wav"
+                            "audio": "Estatística Descritiva_pt_PT.wav",
+                            "available": true
                         },
                         "2": {
                             "title": "Teoria das Probabilidades",
                             "description": "Compreenda os conceitos fundamentais de probabilidade e suas aplicações",
                             "color": "#3a86ff",
-                            "audio": "Teoria das Probabilidades.wav"
+                            "audio": "Teoria das Probabilidades_pt_PT.wav",
+                            "available": true
                         },
                         "3": {
                             "title": "Probabilidade Condicionada e Acontecimentos Independentes",
                             "description": "Explore as relações entre eventos e probabilidades condicionais",
                             "color": "#7209b7",
-                            "audio": "Probabilidade Condicionada e Independência.wav"
+                            "audio": "Probabilidade Condicionada e Independência_pt_PT.wav",
+                            "available": true
                         },
                         "4": {
                             "title": "Variáveis Aleatórias",
                             "description": "Entenda como variáveis aleatórias modelam fenômenos incertos",
                             "color": "#f72585",
-                            "audio": "Variáveis Aleatórias e Propriedades Fundamentais.wav"
+                            "audio": "Variáveis Aleatórias e Propriedades Fundamentais_pt_PT.wav",
+                            "available": true
                         },
                         "5": {
                             "title": "Distribuições Discretas",
                             "description": "Conheça as principais distribuições de probabilidade discretas",
                             "color": "#4cc9f0",
-                            "audio": "Distribuições de Probabilidade Discretas.wav"
+                            "audio": "Distribuições de Probabilidade Discretas_pt_PT.wav",
+                            "available": true
                         },
                         "6": {
                             "title": "Distribuições Contínuas",
                             "description": "Descubra as distribuições contínuas e suas propriedades",
                             "color": "#560bad",
-                            "audio": "Distribuições Contínuas_ Normal e Exponencial.wav"
+                            "audio": "Distribuições Contínuas_ Normal e Exponencial_pt_PT.wav",
+                            "available": true
                         },
                         "7": {
                             "title": "Amostragem e Distribuições Amostrais",
                             "description": "Aprenda sobre técnicas de amostragem e suas distribuições",
                             "color": "#3f37c9",
-                            "audio": "Amostragem e Distribuições Amostrais.wav"
+                            "audio": "Amostragem e Distribuições Amostrais_pt_PT.wav",
+                            "available": true
                         },
                         "8": {
                             "title": "Estimação",
                             "description": "Compreenda métodos de estimação de parâmetros e intervalos de confiança",
                             "color": "#fb5607",
-                            "audio": "Estimação de Parâmetros e Intervalos de Confiança.wav"
+                            "audio": "Estimação de Parâmetros e Intervalos de Confiança_pt_PT.wav",
+                            "available": true
                         },
                         "9": {
                             "title": "Testes de Hipóteses",
                             "description": "Explore métodos paramétricos para testar hipóteses estatísticas",
                             "color": "#ff006e",
-                            "audio": "Testes de Hipóteses Paramétricos.wav"
+                            "audio": "Testes de Hipóteses Paramétricos_pt_PT.wav",
+                            "available": true
                         }
                     }
                 }

@@ -58,7 +58,7 @@ def inject_global_data():
         get_translations=get_translations,
         subjects=get_subjects_from_translations(get_current_locale()),
         current_locale=get_current_locale(),
-        available_locales=['pt_PT', 'en_US']
+        available_locales=['pt_PT', 'en_US', 'es_ES']
     )
 
 @app.route("/")
@@ -250,7 +250,7 @@ def get_quizzes():
 @app.route("/set_language/<locale>")
 def set_language(locale):
     """Set the user's language preference"""
-    if locale in ['pt_PT', 'en_US']:
+    if locale in ['pt_PT', 'en_US', 'es_ES']:
         session['locale'] = locale
     return redirect(request.referrer or url_for('home'))
 

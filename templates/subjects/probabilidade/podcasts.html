@@ -42,6 +42,7 @@ acessível{% endblock %}
     <div class="podcast-grid">
         {% for episode_id, episode in translations.page.episodes.items() %}
         <!-- Episode {{ episode_id }} -->
+        {% if episode.available %}
         <div class="podcast-card" data-episode="{{ episode_id }}">
             <div class="podcast-cover" style="--color: {{ episode.color }}">
                 <div class="episode-number">{{ '%02d' % episode_id|int }}</div>
@@ -73,6 +74,38 @@ acessível{% endblock %}
                 </div>
             </div>
         </div>
+        {% else %}
+        <div class="podcast-card coming-soon" data-episode="{{ episode_id }}">
+            <div class="podcast-cover" style="--color: #666">
+                <div class="episode-number">{{ '%02d' % episode_id|int }}</div>
+                <div class="cover-content">
+                    <h3>{{ episode.title }}</h3>
+                    <div class="episode-duration">
+                        <i class="far fa-clock"></i>
+                        <span class="duration-text">--:--</span>
+                    </div>
+                </div>
+                <div class="podcast-overlay"></div>
+            </div>
+            <div class="podcast-info">
+                <p class="podcast-description">{{ translations.general.not_yet_available }}</p>
+                <div class="podcast-player disabled">
+                    <div class="player-controls">
+                        <button class="play-button disabled" disabled aria-label="{{ translations.general.aria.play }}">
+                            <i class="fas fa-lock"></i>
+                        </button>
+                        <div class="progress-container">
+                            <div class="progress-bar disabled">
+                                <div class="progress-indicator"></div>
+                                <div class="progress-thumb"></div>
+                            </div>
+                        </div>
+                        <div class="time-display">--:--</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
         {% endfor %}
     </div>
 
