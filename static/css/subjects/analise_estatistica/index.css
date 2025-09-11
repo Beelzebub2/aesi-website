@@ -90,10 +90,14 @@
     text-decoration: none;
     color: var(--text-color);
     transition: all 0.3s ease;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     position: relative;
     overflow: hidden;
+    min-height: 200px;
 }
 
 .feature-card:hover {
@@ -136,6 +140,11 @@
     color: var(--text-color);
     line-height: 1.6;
     opacity: 0.9;
+    overflow: visible;
+    display: block;
+    max-height: none;
+    -webkit-line-clamp: none;
+    line-clamp: none;
 }
 
 /* Style for the footer to make it stick at the bottom */
@@ -178,6 +187,8 @@
     .feature-card {
         padding: 1.5rem;
         border-radius: var(--mobile-card-radius, 12px);
+        min-height: 180px;
+        justify-content: center;
     }
 
     .feature-icon {
@@ -193,6 +204,10 @@
     .feature-description {
         font-size: 0.9rem;
         line-height: 1.5;
+        overflow: visible;
+        max-height: none;
+        -webkit-line-clamp: none;
+        line-clamp: none;
     }
 }
 

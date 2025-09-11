@@ -137,6 +137,7 @@
     touch-action: manipulation;
     position: relative;
     overflow: hidden;
+    transform: translateX(0);
 }
 
 .side-menu-nav .nav-links li a::before {
@@ -160,12 +161,14 @@
 .side-menu-nav .nav-links li a:focus {
     background-color: var(--hover-bg);
     color: var(--primary);
-    transform: translateX(5px);
+    transform: translateX(8px);
     outline: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .side-menu-nav .nav-links li a:active {
-    transform: translateX(3px) scale(0.98);
+    transform: translateX(4px) scale(0.98);
+    transition: transform 0.1s ease;
 }
 
 .side-menu-nav .nav-links li a.active {
@@ -174,6 +177,13 @@
     background-color: var(--hover-bg);
     border-left: 3px solid var(--primary);
     padding-left: calc(1rem - 3px);
+}
+
+/* Better focus indicators for accessibility */
+.side-menu-nav .nav-links li a:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.2);
 }
 
 /* Add icon support for mobile nav links */

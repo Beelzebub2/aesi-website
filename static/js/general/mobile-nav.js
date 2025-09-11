@@ -56,18 +56,36 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
             });
         } else {
-            // If there are no navigation links, add some default ones
+            // If there are no navigation links, build dynamic navigation from available subjects
             const currentPath = window.location.pathname;
             const isHomePage = currentPath === '/';
-            const isProbabilidadePage = currentPath.startsWith('/probabilidade') &&
-                !currentPath.includes('/probabilidade/');
-
-            sideMenuNav.innerHTML = `
-                <ul class="nav-links">
-                    <li><a href="/" ${isHomePage ? 'class="active" aria-current="page"' : ''}><i class="fas fa-home"></i> ${window.translations?.general?.home || 'Início'}</a></li>
-                    <li><a href="/probabilidade" ${isProbabilidadePage ? 'class="active" aria-current="page"' : ''}><i class="fas fa-chart-line"></i> ${window.translations?.subjects?.probabilidade?.name || 'Probabilidade'}</a></li>
-                </ul>
-            `;
+            
+            let navHTML = `<ul class="nav-links">`;
+            
+            // Add home link
+            navHTML += `<li><a href="/" ${isHomePage ? 'class="active" aria-current="page"' : ''}><i class="fas fa-home"></i> ${window.translations?.general?.home || 'Início'}</a></li>`;
+            
+            // Add all available subjects dynamically
+            if (window.translations?.subjects) {
+                // Sort subjects alphabetically by name
+                const sortedSubjects = Object.keys(window.translations.subjects)
+                    .sort((a, b) => {
+                        const nameA = window.translations.subjects[a].name || '';
+                        const nameB = window.translations.subjects[b].name || '';
+                        return nameA.localeCompare(nameB);
+                    });
+                
+                sortedSubjects.forEach(subjectId => {
+                    const subject = window.translations.subjects[subjectId];
+                    const isSubjectPage = currentPath.startsWith(`/${subjectId}`) && !currentPath.includes(`/${subjectId}/`);
+                    const subjectIcon = subject.icon || 'fa-chart-line';
+                    
+                    navHTML += `<li><a href="/${subjectId}" ${isSubjectPage ? 'class="active" aria-current="page"' : ''}><i class="fas ${subjectIcon}"></i> ${subject.name}</a></li>`;
+                });
+            }
+            
+            navHTML += `</ul>`;
+            sideMenuNav.innerHTML = navHTML;
 
             // Add click handler to close menu when a link is clicked
             const defaultLinks = sideMenuNav.querySelectorAll('a');
@@ -111,6 +129,97 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
+
+    // Close side menu on window resize if it becomes larger than mobile breakpoint
+    window.addEventListener('resize', function () {
+        if (window.innerWidth > 768 && sideMenu.classList.contains('active')) {
+            closeSideMenu();
+        }
+    });
+
+    // Add keyboard navigation support
+    document.addEventListener('keydown', function (e) {
+        // Close menu with Escape key
+        if (e.key === 'Escape' && sideMenu.classList.contains('active')) {
+            closeSideMenu();
+        }
+
+        // Open menu with Ctrl+M (accessibility shortcut)
+        if (e.ctrlKey && e.key === 'm' && window.innerWidth <= 768) {
+            e.preventDefault();
+            if (sideMenu.classList.contains('active')) {
+                closeSideMenu();
+            } else {
+                openSideMenu();
+            }
+        }
+    });
+
+    // Add focus trap for better accessibility
+    function trapFocus(element) {
+        const focusableElements = element.querySelectorAll(
+            'a[href], button, textarea, input[type="text"], input[type="radio"], input[type="checkbox"], select'
+        );
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+
+        function handleTabKey(e) {
+            if (e.key === 'Tab') {
+                if (e.shiftKey) {
+                    if (document.activeElement === firstElement) {
+                        e.preventDefault();
+                        lastElement.focus();
+                    }
+                } else {
+                    if (document.activeElement === lastElement) {
+                        e.preventDefault();
+                        firstElement.focus();
+                    }
+                }
+            }
+        }
+
+        element.addEventListener('keydown', handleTabKey);
+        return function () {
+            element.removeEventListener('keydown', handleTabKey);
+        };
+    }
+
+    // Apply focus trap when menu opens
+    let removeFocusTrap;
+    function openSideMenu() {
+        sideMenu.classList.add('active');
+        backdrop.classList.add('active');
+        document.body.style.overflow = 'hidden';
+
+        // Focus the first link for accessibility
+        const firstLink = sideMenu.querySelector('a');
+        if (firstLink) {
+            setTimeout(() => firstLink.focus(), 100);
+        }
+
+        // Add focus trap
+        removeFocusTrap = trapFocus(sideMenu);
+    }
+
+    function closeSideMenu() {
+        sideMenu.classList.remove('active');
+        backdrop.classList.remove('active');
+        document.body.style.overflow = '';
+
+        // Remove focus trap
+        if (removeFocusTrap) {
+            removeFocusTrap();
+        }
+
+        // Return focus to toggle button
+        if (mobileNavToggle) {
+            mobileNavToggle.focus();
+        }
+    }
+
+    mobileNavToggle?.addEventListener('click', openSideMenu);
+    backdrop?.addEventListener('click', closeSideMenu);
 
     // Close side menu on window resize if it becomes larger than mobile breakpoint
     window.addEventListener('resize', function () {

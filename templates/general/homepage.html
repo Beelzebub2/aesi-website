@@ -14,14 +14,22 @@ Inclui calculadoras, quizzes, podcasts e muito mais{% endblock %}
 
 {% block container_class %}home-container{% endblock %}
 
+{% block nav_links %}
+<ul class="nav-links">
+    <li><a href="{{ url_for('home') }}" class="active" aria-current="page"><i class="fas fa-home"></i> {{ translations.general.home }}</a></li>
+    {% for subject_id, subject_info in subjects.items() | sort(attribute='1.name') %}
+    <li><a href="{{ url_for('subject_home', subject=subject_id) }}"><i class="fas {{ subject_info.icon }}"></i> {{ translations.subjects[subject_id].name }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}
+
 {% block content %}
 <div class="features-grid">
     <!-- Active Subjects -->
-    {% for subject_id, subject_info in subjects.items() %}
+    {% for subject_id, subject_info in subjects.items() | sort(attribute='1.name') %}
     <a href="{{ url_for('subject_home', subject=subject_id) }}" class="feature-card">
         <i class="fas {{ subject_info.icon }} feature-icon"></i>
         <h2 class="feature-title">{{ translations.subjects[subject_id].name }}</h2>
-        <p class="feature-description">{{ translations.subjects[subject_id].description }}</p>
         <div class="feature-tools">
             {% for feature in subject_info.features %}
             <div class="tool-item">
@@ -30,6 +38,7 @@ Inclui calculadoras, quizzes, podcasts e muito mais{% endblock %}
             </div>
             {% endfor %}
         </div>
+        <p class="feature-description">{{ translations.subjects[subject_id].description }}</p>
     </a>
     {% endfor %}
 
