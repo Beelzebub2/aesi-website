@@ -257,7 +257,7 @@
     opacity: 0.7;
 }
 
-/* Feedback styling to match quiz */
+/* Feedback styling */
 .feedback {
     margin: 1rem 0;
     padding: 1rem;
@@ -268,25 +268,30 @@
     background: var(--card-bg);
 }
 
-.feedback.correct {
-    border-color: var(--success-color);
-    background-color: var(--success-bg-color);
+.feedback-content.correct {
+    color: var(--success-color);
 }
 
-.feedback.incorrect {
-    border-color: var(--error-color);
-    background-color: var(--error-bg-color);
+.feedback-content.incorrect {
+    color: var(--error-color);
 }
 
-.feedback i {
+.feedback-content i {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
 }
 
-.feedback .explanation {
-    margin-top: 0.5rem;
-    font-size: 0.95rem;
-    color: var(--text-muted);
+.feedback-content p {
+    margin: 0.5rem 0;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.explanation {
+    margin-top: 1rem;
+    font-style: italic;
+    opacity: 0.9;
+    color: var(--text-color) !important;
 }
 
 .results-content {
