@@ -76,6 +76,15 @@
     box-shadow: 0 0 0 2px rgba(var(--primary-rgb), 0.2);
 }
 
+/* Option styling for better dark mode compatibility */
+.form-select option {
+    background: var(--input-bg) !important;
+    color: var(--input-text) !important;
+    padding: 0.75rem;
+    font-weight: 500;
+    border: none;
+}
+
 /* Disable browser default styling */
 .form-input::-webkit-outer-spin-button,
 .form-input::-webkit-inner-spin-button {
