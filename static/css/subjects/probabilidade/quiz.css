@@ -1,4 +1,4 @@
-/* Enhanced Theme Integration for Descobrir Quiz */
+/* Probabilidade Quiz - Enhanced Theme Integration */
 :root {
     /* Success and error colors inherit from main theme system */
     --success-color: var(--success);
@@ -86,6 +86,7 @@
     background-color: var(--card-bg);
     border-radius: var(--card-radius);
     box-shadow: 0 4px 12px var(--shadow-color);
+    border: 1px solid var(--border-color);
 }
 
 .quiz-section.active {
@@ -99,6 +100,18 @@
 .quiz-section .fa-3x {
     color: var(--primary);
     margin-bottom: 1.5rem;
+}
+
+.quiz-section h2 {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+
+.quiz-section p {
+    color: var(--text-color);
+    margin-bottom: 2rem;
+    line-height: 1.6;
 }
 
 .quiz-header {
@@ -116,12 +129,13 @@
 .progress-text {
     margin-bottom: 0.5rem;
     text-align: left;
+    color: var(--text-color);
 }
 
 .progress-bar {
     width: 100%;
     height: 8px;
-    background-color: var(--input-bg);
+    background-color: var(--border-color);
     border-radius: var(--border-radius);
     overflow: hidden;
 }
@@ -135,7 +149,7 @@
 
 .quiz-score {
     font-weight: 600;
-    color: var(--primary-color);
+    color: var(--primary);
 }
 
 .question-container {
@@ -147,6 +161,7 @@
     margin-bottom: 1.5rem;
     line-height: 1.5;
     text-align: left;
+    color: var(--text-color);
 }
 
 .options-container {
@@ -252,12 +267,12 @@
     color: var(--text-color);
 }
 
-.quiz-option.disabled {
+.quiz-option:disabled {
     pointer-events: none;
     opacity: 0.7;
 }
 
-/* Feedback styling to match quiz */
+/* Feedback styling */
 .feedback {
     margin: 1rem 0;
     padding: 1rem;
@@ -268,25 +283,30 @@
     background: var(--card-bg);
 }
 
-.feedback.correct {
-    border-color: var(--success-color);
-    background-color: var(--success-bg-color);
+.feedback-content.correct {
+    color: var(--success-color);
 }
 
-.feedback.incorrect {
-    border-color: var(--error-color);
-    background-color: var(--error-bg-color);
+.feedback-content.incorrect {
+    color: var(--error-color);
 }
 
-.feedback i {
+.feedback-content i {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
 }
 
-.feedback .explanation {
-    margin-top: 0.5rem;
-    font-size: 0.95rem;
-    color: var(--text-muted);
+.feedback-content p {
+    margin: 0.5rem 0;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.explanation {
+    margin-top: 1rem;
+    font-style: italic;
+    opacity: 0.9;
+    color: var(--text-color);
 }
 
 .results-content {
@@ -294,13 +314,39 @@
 }
 
 .score-display {
-    font-size: 1.5rem;
-    font-weight: 600;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--primary);
     margin-bottom: 1rem;
 }
 
 .results-message {
-    margin: 1rem 0;
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    margin-top: 1.5rem;
+}
+
+.results-message p {
+    margin: 0.5rem 0;
+    color: var(--text-color);
+}
+
+/* Error Messages */
+.error-message {
+    color: var(--error-color);
+    text-align: center;
+    padding: 2rem;
+}
+
+.error-message i {
+    margin-bottom: 1rem;
+}
+
+.error-message h2 {
+    color: var(--text-color);
+    margin-bottom: 1rem;
 }
 
 .btn {
@@ -316,10 +362,11 @@
     gap: 0.5rem;
     margin: 1rem 0;
     font-family: inherit;
+    text-decoration: none;
 }
 
 .btn-primary {
-    background-color: var(--primary);
+    background: var(--primary);
     color: white;
 }
 
@@ -328,7 +375,18 @@
     transform: translateY(-2px);
 }
 
-/* Quiz controls styling to match quiz */
+.btn-secondary {
+    background: var(--card-bg);
+    color: var(--text-color);
+    border: 2px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+    background: var(--hover-bg);
+    border-color: var(--primary);
+}
+
+/* Quiz controls styling */
 .quiz-controls {
     text-align: center;
     margin-top: 1.5rem;
@@ -346,6 +404,9 @@
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px var(--shadow-color);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .next-btn:hover {
@@ -431,7 +492,7 @@
         font-size: 0.9rem;
     }
 
-    .feedback i {
+    .feedback-content i {
         font-size: 1.25rem;
     }
 
@@ -462,6 +523,10 @@
     .quiz-section .fa-3x {
         font-size: 2rem;
         margin-bottom: 1rem;
+    }
+
+    .quiz-section h2 {
+        font-size: 1.5rem;
     }
 }
 
