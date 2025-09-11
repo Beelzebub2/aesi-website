@@ -20,17 +20,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     link.classList.add('active');
                     link.setAttribute('aria-current', 'page');
                 }
-                // For subject homepage (e.g. '/probabilidade')
-                else if (link.textContent.trim().includes(window.translations?.general?.home || 'Início') &&
-                    currentPath === href &&
-                    currentPath !== '/') {
-                    link.classList.add('active');
-                    link.setAttribute('aria-current', 'page');
-                }
-                // For feature pages
-                else if (href !== '/' &&
-                    currentPath.startsWith(href) &&
-                    !link.textContent.trim().includes(window.translations?.general?.home || 'Início')) {
+                // For subject pages
+                else if (href !== '/' && currentPath.startsWith(href)) {
                     link.classList.add('active');
                     link.setAttribute('aria-current', 'page');
                 }

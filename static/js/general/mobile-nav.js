@@ -36,16 +36,13 @@ document.addEventListener('DOMContentLoaded', function () {
                     link.setAttribute('aria-current', 'page');
                 }
                 // For subject homepage (e.g. '/probabilidade')
-                else if (linkText.includes(window.translations?.general?.home || 'Início') &&
-                    currentPath === linkHref &&
-                    currentPath !== '/') {
+                else if (currentPath === linkHref && currentPath !== '/') {
                     link.classList.add('active');
                     link.setAttribute('aria-current', 'page');
                 }
                 // For feature pages
                 else if (linkHref !== '/' &&
-                    currentPath.startsWith(linkHref) &&
-                    !linkText.includes(window.translations?.general?.home || 'Início')) {
+                    currentPath.startsWith(linkHref)) {
                     link.classList.add('active');
                     link.setAttribute('aria-current', 'page');
                 }
@@ -58,12 +55,8 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             // If there are no navigation links, build dynamic navigation from available subjects
             const currentPath = window.location.pathname;
-            const isHomePage = currentPath === '/';
             
             let navHTML = `<ul class="nav-links">`;
-            
-            // Add home link
-            navHTML += `<li><a href="/" ${isHomePage ? 'class="active" aria-current="page"' : ''}><i class="fas fa-home"></i> ${window.translations?.general?.home || 'Início'}</a></li>`;
             
             // Add all available subjects dynamically
             if (window.translations?.subjects) {

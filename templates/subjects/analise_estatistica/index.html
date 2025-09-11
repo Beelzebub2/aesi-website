@@ -21,8 +21,6 @@ endblock %}
 
 {% block nav_links %}
 <ul class="nav-links">
-    <li><a href="{{ url_for('subject_home', subject=subject_id) }}" {% if not feature_id %}class="active"
-            aria-current="page" {% endif %}><i class="fas fa-home"></i> {{ translations.general.home }}</a></li>
     {% for feature in subjects[subject_id].features %}
     <li>
         <a href="{{ url_for('subject_feature', subject=subject_id, feature=feature.id) }}" {% if feature_id==feature.id
