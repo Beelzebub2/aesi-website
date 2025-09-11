@@ -242,7 +242,7 @@
                     "description": "Aprenda análise estatística descritiva e inferencial através de exercícios interativos"
                 },
                 "quiz": {
-                    "title": "Quiz de Análise Estatística",
+                    "title": "Quiz",
                     "description": "Teste seus conhecimentos em análise estatística e identificação de distribuições",
                     "icon": "fa-brain",
                     "current_question": "Pergunta {current} de {total}",

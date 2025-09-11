@@ -64,8 +64,13 @@ flowchart TD
 
 ### Quiz Types
 1. **Standard Quiz**: Multiple choice questions with explanations
-2. **Discovery Quiz**: Interactive scenario-based learning
+2. **Discovery Quiz**: Interactive scenario-based learning for distribution identification
 3. **Unified System**: Consolidated quiz engine for all types
+
+### Quiz Files
+- `probabilidade_quiz.json`: Probability and statistics questions
+- `descobrir_distribuição.json`: Distribution identification scenarios
+- `analise_estatistica_quiz.json`: Statistical analysis questions
 
 ### Interactive Elements
 - Answer validation with visual feedback

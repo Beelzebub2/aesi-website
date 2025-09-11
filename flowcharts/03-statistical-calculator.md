@@ -93,6 +93,7 @@ flowchart TD
 
 ### Technical Implementation
 - Client-side calculations for instant feedback
-- Chart.js integration for visualizations
+- Chart.js integration for interactive visualizations
 - Responsive design for mobile compatibility
 - Translation support for all interface elements
+- Auto-calculation features for real-time updates

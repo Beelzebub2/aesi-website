@@ -90,7 +90,7 @@ flowchart TD
 - **Howler.js Integration**: Professional audio playback with cross-browser support
 - **Episode Management**: Dynamic loading and organization of educational content
 - **Persistent Player**: Minimized player continues across page navigation
-- **Auto-play Features**: Seamless episode transitions
+- **Auto-play Features**: Seamless episode transitions with playlist support
 
 ### Player Controls
 1. **Basic Controls**: Play, pause, skip forward/backward (15s increments)

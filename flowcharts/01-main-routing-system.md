@@ -39,7 +39,7 @@ flowchart TD
     FEATURE_DISPLAY -->|Quiz| QUIZ_INTERFACE[Quiz Interface]
     FEATURE_DISPLAY -->|Calculator| CALC_INTERFACE[Statistical Calculator]
     FEATURE_DISPLAY -->|Podcasts| PODCAST_INTERFACE[Podcast Player]
-    FEATURE_DISPLAY -->|Discover| DISCOVER_INTERFACE[Distribution Discovery Quiz]
+    FEATURE_DISPLAY -->|Descobrir| DISCOVER_INTERFACE[Distribution Discovery Quiz]
     
     %% Error Handling
     ERROR_404_MAIN --> LOAD_ERROR_TRANS[Load Error Page Translations]

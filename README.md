@@ -11,6 +11,7 @@ An interactive learning platform designed for educational purposes, featuring a 
 - **Interactive Elements**: Quizzes, calculators, podcasts, and discovery games
 - **Theme Support**: Light/dark mode with persistent user preferences
 - **Audio Content**: Educational podcasts with advanced player controls
+- **Clean Navigation**: Streamlined navigation without redundant home buttons
 
 ## Installation
 
@@ -39,6 +40,7 @@ static/
     subjects/             # Subject-specific functionality
   assets/                 # Audio files and media
   images/                 # Images and icons
+  quizzes/                # Quiz data files
 templates/                
   base.html               # Base template with dynamic navigation
   general/                # General templates (homepage, 404)
@@ -290,11 +292,32 @@ All templates receive:
 Complete subject with the following features:
 - **Home** (`index.html`): Subject overview with feature cards
 - **Quiz** (`quiz.html`): Interactive quiz with auto-scroll and styled answers
-- **Discovery** (`descobrir.html`): Distribution identification game
-- **Calculator** (`calculator.html`): Statistical probability calculator with auto-calculation
-- **Podcasts** (`podcasts.html`): Educational audio content with advanced player
+- **Descobrir** (`descobrir.html`): Distribution identification game with real-world scenarios
+- **Calculator** (`calculator.html`): Statistical probability calculator with auto-calculation and Chart.js visualizations
+- **Podcasts** (`podcasts.html`): Educational audio content with Howler.js player and persistent minimized player
 
-All features are fully translation-driven and responsive.
+### Análise Estatística (`analise_estatistica`)
+
+Growing subject with:
+- **Home** (`index.html`): Subject overview
+- **Quiz** (`quiz.html`): Interactive quiz for statistical analysis concepts
+
+## Quiz System
+
+The platform includes a comprehensive quiz system with multiple types:
+
+### Quiz Files
+- `probabilidade_quiz.json`: Questions for probability and statistics
+- `descobrir_distribuição.json`: Distribution identification scenarios
+- `analise_estatistica_quiz.json`: Statistical analysis questions
+
+### Quiz Features
+- **Dynamic Loading**: Questions loaded via API endpoints
+- **Progress Tracking**: Visual progress bars and scoring
+- **Real-time Feedback**: Immediate answer validation
+- **Auto-scroll**: Smooth scrolling to feedback sections
+- **Restart Functionality**: Ability to retake quizzes
+- **Performance Analysis**: Detailed results and recommendations
 
 ## Future Enhancements
 

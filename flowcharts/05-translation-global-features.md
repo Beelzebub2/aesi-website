@@ -29,6 +29,7 @@ flowchart TD
         MOBILE_MENU_STATE -->|Close| HIDE_MOBILE_MENU[Hide Mobile Menu]
         SHOW_MOBILE_MENU --> MOBILE_INTERACTIONS[Mobile Menu Interactions]
         MOBILE_INTERACTIONS --> MOBILE_NAVIGATION[Navigate to Selected Page]
+        MOBILE_INTERACTIONS --> CLEAN_NAVIGATION[Clean Navigation - No Redundant Home Buttons]
     end
     
     %% Background Animation System

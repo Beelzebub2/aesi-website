@@ -39,7 +39,7 @@ flowchart TD
     FEATURE_DISPLAY -->|Quiz| QUIZ_INTERFACE[Quiz Interface]
     FEATURE_DISPLAY -->|Calculator| CALC_INTERFACE[Statistical Calculator]
     FEATURE_DISPLAY -->|Podcasts| PODCAST_INTERFACE[Podcast Player]
-    FEATURE_DISPLAY -->|Discover| DISCOVER_INTERFACE[Distribution Discovery Quiz]
+    FEATURE_DISPLAY -->|Descobrir| DISCOVER_INTERFACE[Distribution Discovery Quiz]
     
     %% Quiz System
     QUIZ_INTERFACE --> INIT_QUIZ[Initialize Quiz System]
@@ -112,7 +112,9 @@ flowchart TD
     
     %% API Routes
     API_ROUTES --> API_TYPE{API Type}
-    API_TYPE -->|"/api/quiz/<subject>"| GET_QUIZ_API[Get Quiz Data]
+    API_TYPE -->|"/api/quiz/probabilidade"| GET_QUIZ_API[Get Probability Quiz Data]
+    API_TYPE -->|"/api/quiz/descobrir"| GET_DISCOVER_API[Get Discovery Quiz Data]
+    API_TYPE -->|"/api/quiz/analise_estatistica"| GET_ANALISE_API[Get Statistical Analysis Quiz Data]
     API_TYPE -->|"/api/quizzes"| GET_QUIZZES_API[Get All Quizzes List]
     
     GET_QUIZ_API --> LOAD_QUIZ_JSON[Load Quiz JSON File]
@@ -193,10 +195,10 @@ flowchart TD
 - Automatic 404 handling
 
 ### 2. **Interactive Learning Features**
-- **Quiz System**: Dynamic question loading with scoring and feedback
-- **Statistical Calculator**: Real-time probability calculations with visualizations
-- **Distribution Discovery**: Interactive scenario-based learning
-- **Educational Podcasts**: Full-featured audio player with playlist support
+- **Quiz System**: Dynamic question loading with scoring and feedback (3 quiz types)
+- **Statistical Calculator**: Real-time probability calculations with Chart.js visualizations
+- **Distribution Discovery**: Interactive scenario-based learning for distribution identification
+- **Educational Podcasts**: Full-featured audio player with Howler.js and persistent minimized player
 
 ### 3. **Multi-language Support**
 - Portuguese (pt_PT) translations
@@ -214,4 +216,9 @@ flowchart TD
 - JSON-based content management
 - Real-time data loading
 
-The website serves as a comprehensive educational platform focused on Probability and Statistics, with plans for additional subjects in development.
+The website serves as a comprehensive educational platform focused on Probability and Statistics, with two main subjects currently available:
+
+- **Probabilidade e Estatística**: Complete subject with Quiz, Calculator, Discovery, and Podcasts features
+- **Análise Estatística**: Growing subject with Quiz functionality
+
+All features are fully translation-driven, responsive, and include advanced interactive elements.

@@ -39,10 +39,10 @@ This directory contains detailed flowcharts for each major functionality of the 
 - Background animations and global state management
 
 ### 6. [Discovery Quiz System](./06-discovery-quiz-system.md)
-**Scenario-based learning**: Interactive distribution identification
+**Scenario-based learning**: Interactive distribution identification with real-world scenarios
 - Real-world scenarios for practical learning
-- Multiple distribution types coverage
-- Adaptive feedback and explanations
+- Multiple distribution types coverage (Binomial, Poisson, Normal)
+- Adaptive feedback and detailed explanations
 - Performance analysis by distribution type
 
 ## Usage Guidelines
