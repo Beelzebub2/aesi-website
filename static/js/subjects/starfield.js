@@ -1,6 +1,6 @@
-// Create starfield effect
+// Create simplified starfield effect
 function createStarfield(container) {
-    const numStars = 50;
+    const numStars = 20; // Reduced from 50
     const starfield = document.createElement('div');
     starfield.className = 'starfield-background';
 

@@ -24,7 +24,7 @@ function createBackground() {
 }
 
 function createStarfield(container) {
-    const numStars = 100;
+    const numStars = 30; // Reduced from 100
     for (let i = 0; i < numStars; i++) {
         const star = document.createElement('div');
         star.className = 'star';
@@ -39,7 +39,7 @@ function createStarfield(container) {
 }
 
 function createGrassfield(container) {
-    const numGrass = 50;
+    const numGrass = 20; // Reduced from 50
     for (let i = 0; i < numGrass; i++) {
         const grass = document.createElement('div');
         grass.className = 'grass';

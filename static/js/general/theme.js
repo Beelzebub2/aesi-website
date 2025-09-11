@@ -20,16 +20,7 @@ const ThemeManager = {
         overlay.id = 'theme-loading-overlay';
         overlay.innerHTML = `
             <div class="loading-spinner">
-                <div class="spiral-container">
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                </div>
+                <div class="simple-spinner"></div>
                 <div class="loading-text">${window.translations?.general?.switching_theme || 'Switching theme...'}</div>
             </div>
         `;
@@ -50,7 +41,7 @@ const ThemeManager = {
             transition: opacity 0.3s ease;
         `;
 
-        // Add CSS for the loading animation
+        // Add simple CSS for the loading animation
         const style = document.createElement('style');
         style.textContent = `
             .loading-spinner {
@@ -58,142 +49,25 @@ const ThemeManager = {
                 color: white;
             }
             
-            .spiral-container {
-                --size: 60px;
-                --color: #4CAF50;
-                --speed: 0.9s;
-                --center: calc(var(--size) / 2 - var(--size) / 5 / 2);
-                position: relative;
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                height: var(--size);
-                width: var(--size);
-                margin-bottom: 20px;
-                animation: rotate calc(var(--speed) * 3) linear infinite;
-            }
-            
-            .spiral-container .dot {
-                position: absolute;
-                top: 0;
-                left: 0;
-                display: flex;
-                align-items: center;
-                justify-content: flex-start;
-                height: 100%;
-                width: 100%;
-            }
-            
-            .spiral-container .dot::before {
-                content: '';
-                height: 20%;
-                width: 20%;
+            .simple-spinner {
+                width: 40px;
+                height: 40px;
+                border: 3px solid rgba(255, 255, 255, 0.3);
+                border-top: 3px solid white;
                 border-radius: 50%;
-                background-color: var(--color);
-                animation: oscillate var(--speed) ease-in-out infinite alternate;
-                transition: background-color 0.3s ease;
+                animation: simpleSpin 1s linear infinite;
+                margin: 0 auto 20px;
             }
             
-            .spiral-container .dot:nth-child(1)::before {
-                transform: translateX(var(--center));
-            }
-            
-            .spiral-container .dot:nth-child(2) {
-                transform: rotate(45deg);
-            }
-            
-            .spiral-container .dot:nth-child(2)::before {
-                transform: translateX(var(--center));
-                animation-delay: calc(var(--speed) * -0.125);
-            }
-            
-            .spiral-container .dot:nth-child(3) {
-                transform: rotate(90deg);
-            }
-            
-            .spiral-container .dot:nth-child(3)::before {
-                transform: translateX(var(--center));
-                animation-delay: calc(var(--speed) * -0.25);
-            }
-            
-            .spiral-container .dot:nth-child(4) {
-                transform: rotate(135deg);
-            }
-            
-            .spiral-container .dot:nth-child(4)::before {
-                transform: translateX(var(--center));
-                animation-delay: calc(var(--speed) * -0.375);
-            }
-            
-            .spiral-container .dot:nth-child(5) {
-                transform: rotate(180deg);
-            }
-            
-            .spiral-container .dot:nth-child(5)::before {
-                transform: translateX(var(--center));
-                animation-delay: calc(var(--speed) * -0.5);
-            }
-            
-            .spiral-container .dot:nth-child(6) {
-                transform: rotate(225deg);
-            }
-            
-            .spiral-container .dot:nth-child(6)::before {
-                transform: translateX(var(--center));
-                animation-delay: calc(var(--speed) * -0.625);
-            }
-            
-            .spiral-container .dot:nth-child(7) {
-                transform: rotate(270deg);
-            }
-            
-            .spiral-container .dot:nth-child(7)::before {
-                transform: translateX(var(--center));
-                animation-delay: calc(var(--speed) * -0.75);
-            }
-            
-            .spiral-container .dot:nth-child(8) {
-                transform: rotate(315deg);
-            }
-            
-            .spiral-container .dot:nth-child(8)::before {
-                transform: translateX(var(--center));
-                animation-delay: calc(var(--speed) * -0.875);
-            }
-            
-            @keyframes oscillate {
-                0% {
-                    transform: translateX(var(--center)) scale(0);
-                    opacity: 0.25;
-                }
-                100% {
-                    transform: translateX(0) scale(1);
-                    opacity: 1;
-                }
-            }
-            
-            @keyframes rotate {
-                0% {
-                    transform: rotate(0deg);
-                }
-                100% {
-                    transform: rotate(360deg);
-                }
+            @keyframes simpleSpin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
             }
             
             .loading-text {
                 font-size: 16px;
                 font-weight: 500;
                 opacity: 0.9;
-            }
-            
-            /* Theme-specific spinner colors */
-            [data-theme="dark"] .spiral-container {
-                --color: #2196F3;
-            }
-            
-            [data-theme="light"] .spiral-container {
-                --color: #4CAF50;
             }
         `;
 

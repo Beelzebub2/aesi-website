@@ -18,18 +18,14 @@
 }
 
 @keyframes twinkle {
-    0% {
+
+    0%,
+    100% {
         opacity: 0;
-        transform: translateY(0);
     }
 
     50% {
         opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-        transform: translateY(1px);
     }
 }
 
