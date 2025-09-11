@@ -1,0 +1,247 @@
+/* Enhanced Theme Integration for Análise Estatística */
+:root {
+    /* Theme-aware variables */
+    --quiz-nature-glow: 0 0 15px rgba(76, 175, 80, 0.2);
+    --quiz-leaf-accent: var(--leaf-accent);
+    --quiz-flower-accent: var(--flower-accent);
+}
+
+/* Galaxy theme enhancements */
+[data-theme="dark"] {
+    /* Cosmic quiz effects */
+    --quiz-cosmic-glow: var(--glow-primary);
+    --quiz-nebula-accent: var(--nebula-blue);
+    --quiz-star-accent: var(--star-white);
+}
+
+/* Make the subject-container use flex to push the footer to the bottom */
+.subject-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Enhanced hero section with theme-aware styling */
+.subject-hero {
+    padding: 3rem 0;
+    text-align: center;
+    background: linear-gradient(135deg, var(--hover-bg) 0%, var(--card-bg) 50%, var(--hover-bg) 100%);
+    margin-bottom: 2rem;
+    border-radius: var(--card-radius);
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+    transition: all var(--transition-speed) var(--ease-nature);
+}
+
+/* Grass theme hero effects */
+[data-theme="light"] .subject-hero {
+    background: linear-gradient(135deg, var(--grass-light) 0%, var(--card-bg) 50%, var(--grass-medium) 100%);
+    box-shadow: var(--quiz-nature-glow);
+}
+
+/* Galaxy theme hero effects */
+[data-theme="dark"] .subject-hero {
+    background: linear-gradient(135deg, var(--deep-space) 0%, var(--card-bg) 50%, var(--cosmic-dust) 100%);
+    box-shadow: var(--quiz-cosmic-glow);
+}
+
+.subject-hero .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.subject-hero h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.subject-hero p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+    color: var(--text-color);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex: 1;
+}
+
+.feature-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--card-radius);
+    padding: 2rem;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    display: block;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px var(--shadow-color);
+    border-color: var(--primary);
+}
+
+/* Grass theme feature card effects */
+[data-theme="light"] .feature-card:hover {
+    box-shadow: 0 10px 25px rgba(76, 175, 80, 0.2);
+}
+
+/* Galaxy theme feature card effects */
+[data-theme="dark"] .feature-card:hover {
+    box-shadow: 0 10px 25px rgba(33, 150, 243, 0.3);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover .feature-icon {
+    transform: scale(1.1);
+    color: var(--primary);
+}
+
+.feature-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.feature-description {
+    color: var(--text-color);
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+/* Style for the footer to make it stick at the bottom */
+.footer {
+    margin-top: auto;
+    width: 100%;
+    z-index: 5;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 480px) {
+    .subject-hero {
+        padding: 2.5rem 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .subject-hero .container {
+        padding: 0 1rem;
+    }
+
+    .subject-hero h1 {
+        font-size: clamp(1.75rem, 7vw, 2.25rem);
+        line-height: 1.2;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .subject-hero p {
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+        padding: 2rem 1rem;
+        gap: 1.5rem;
+        margin: 0;
+    }
+
+    .feature-card {
+        padding: 1.5rem;
+        border-radius: var(--mobile-card-radius, 12px);
+    }
+
+    .feature-icon {
+        font-size: 2.5rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .feature-title {
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .feature-description {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+}
+
+@media (max-width: 768px) {
+    .subject-hero {
+        padding: 3rem 1rem;
+    }
+
+    .subject-hero h1 {
+        font-size: 2rem;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .subject-hero p {
+        font-size: 1rem;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+        padding: 2rem 1rem;
+        gap: 1.75rem;
+    }
+
+    .feature-card {
+        padding: 1.5rem;
+    }
+
+    .feature-icon {
+        font-size: 2.75rem;
+    }
+
+    .feature-title {
+        font-size: 1.375rem;
+    }
+}
+
+/* Tablet improvements */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .subject-hero h1 {
+        font-size: 2.25rem;
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        padding: 3rem 1.5rem;
+    }
+
+    .feature-card {
+        padding: 1.75rem;
+    }
+}

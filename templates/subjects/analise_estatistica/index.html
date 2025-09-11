@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block description %}Aprenda análise estatística descritiva e inferencial através de exercícios interativos{% endblock
+%}
+
+{% block og_title %}AESI Learning Platform{% endblock %}
+{% block og_description %}Aprenda análise estatística descritiva e inferencial através de exercícios interativos{%
+endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/general/homepage.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/subjects/analise_estatistica/index.css') }}">
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/general/background.js') }}" defer></script>
+{% endblock %}
+
+{% block container_class %}subject-container{% endblock %}
+
+{% block nav_links %}
+<ul class="nav-links">
+    <li><a href="{{ url_for('subject_home', subject=subject_id) }}" {% if not feature_id %}class="active"
+            aria-current="page" {% endif %}><i class="fas fa-home"></i> {{ translations.general.home }}</a></li>
+    {% for feature in subjects[subject_id].features %}
+    <li>
+        <a href="{{ url_for('subject_feature', subject=subject_id, feature=feature.id) }}" {% if feature_id==feature.id
+            %}class="active" aria-current="page" {% endif %}>
+            <i class="fas {{ feature.icon }}"></i>
+            {{ translations.subject.pages[feature.id].title }}
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
+
+{% block hero %}
+<section class="subject-hero">
+    <div class="container">
+        <h1><i class="fas {{ translations.subject.icon }}"></i> {{ translations.subject.name }}</h1>
+        <p>{{ translations.subject.description }}</p>
+    </div>
+</section>
+{% endblock %}
+
+{% block content %}
+<div class="features-grid">
+    {% for feature in subjects[subject_id].features %}
+    <a href="{{ url_for('subject_feature', subject=subject_id, feature=feature.id) }}" class="feature-card">
+        <i class="fas {{ feature.icon }} feature-icon"></i>
+        <h2 class="feature-title">{{ translations.subject.pages[feature.id].title }}</h2>
+        <p class="feature-description">{{ translations.subject.pages[feature.id].description }}</p>
+    </a>
+    {% endfor %}
+</div>
+{% endblock %}

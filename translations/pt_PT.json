@@ -231,6 +231,38 @@
                     }
                 }
             }
+        },
+        "analise_estatistica": {
+            "name": "Análise Estatística",
+            "description": "Aprenda análise estatística descritiva e inferencial através de exercícios interativos",
+            "icon": "fa-chart-bar",
+            "pages": {
+                "home": {
+                    "title": "Análise Estatística",
+                    "description": "Aprenda análise estatística descritiva e inferencial através de exercícios interativos"
+                },
+                "quiz": {
+                    "title": "Quiz de Análise Estatística",
+                    "description": "Teste seus conhecimentos em análise estatística e identificação de distribuições",
+                    "icon": "fa-brain",
+                    "current_question": "Pergunta {current} de {total}",
+                    "score": "Pontuação: {score}",
+                    "complete": "Quiz Concluído!",
+                    "start": {
+                        "title": "Pronto para começar?",
+                        "description": "Clique no botão abaixo para iniciar o quiz de análise estatística.",
+                        "button": "Começar"
+                    },
+                    "buttons": {
+                        "next": "Próxima Questão",
+                        "restart": "Recomeçar"
+                    },
+                    "results": {
+                        "title": "Resultados",
+                        "score": "Pontuação Final"
+                    }
+                }
+            }
         }
     },
     "coming_soon": {

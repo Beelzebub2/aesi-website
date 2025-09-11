@@ -1,5 +1,5 @@
 {
-    "name": "Descobrir a Distribuição",
+    "name": "Quiz de Distribuição",
     "description": "Identifique a distribuição de probabilidade mais adequada para cada situação.",
     "questionsPerSession": 10,
     "questions": [

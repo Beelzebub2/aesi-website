@@ -1,0 +1,490 @@
+{
+    "name": "Quiz Análise Estatística",
+    "description": "Teste seus conhecimentos em análise estatística e identificação de distribuições",
+    "questionsPerSession": 10,
+    "questions": [
+        {
+            "id": 1,
+            "question": "Uma amostra é um subconjunto da população:",
+            "options": [
+                "Sim",
+                "Não"
+            ],
+            "correctAnswer": 0,
+            "explanation": "Uma amostra é um subconjunto representativo da população total em estudo."
+        },
+        {
+            "id": 2,
+            "question": "A estatística descritiva permite:",
+            "options": [
+                "Descrever e resumir os dados da amostra",
+                "Tirar conclusões a partir da amostra para toda a população"
+            ],
+            "correctAnswer": 0,
+            "explanation": "A estatística descritiva resume e organiza os dados, enquanto a inferencial generaliza resultados."
+        },
+        {
+            "id": 3,
+            "question": "Caracterize a variável: 'Número de emails enviados diariamente por um funcionário de uma empresa no último mês.'",
+            "options": [
+                "Qualitativa nominal",
+                "Qualitativa ordinal",
+                "Quantitativa discreta",
+                "Quantitativa contínua"
+            ],
+            "correctAnswer": 2,
+            "explanation": "É quantitativa discreta porque trata-se de contagens inteiras (número de emails)."
+        },
+        {
+            "id": 4,
+            "question": "Caracterize a variável: 'Valor mensal da sua conta de telemóvel no último ano.'",
+            "options": [
+                "Qualitativa nominal",
+                "Qualitativa ordinal",
+                "Quantitativa discreta",
+                "Quantitativa contínua"
+            ],
+            "correctAnswer": 3,
+            "explanation": "É quantitativa contínua pois pode assumir qualquer valor real, incluindo decimais."
+        },
+        {
+            "id": 5,
+            "question": "Caracterize a variável: 'Distrito de naturalidade de um estudante do curso'.",
+            "options": [
+                "Qualitativa nominal",
+                "Qualitativa ordinal",
+                "Quantitativa discreta",
+                "Quantitativa contínua"
+            ],
+            "correctAnswer": 0,
+            "explanation": "É qualitativa nominal, pois representa categorias sem ordem natural."
+        },
+        {
+            "id": 6,
+            "question": "Caracterize a variável: 'O género dos colegas inscritos no curso'.",
+            "options": [
+                "Qualitativa nominal",
+                "Qualitativa ordinal",
+                "Quantitativa discreta",
+                "Quantitativa contínua"
+            ],
+            "correctAnswer": 0,
+            "explanation": "É qualitativa nominal, pois refere-se a categorias sem hierarquia."
+        },
+        {
+            "id": 7,
+            "question": "Caracterize a variável: 'O número de alunos inscritos neste curso'.",
+            "options": [
+                "Qualitativa nominal",
+                "Qualitativa ordinal",
+                "Quantitativa discreta",
+                "Quantitativa contínua"
+            ],
+            "correctAnswer": 2,
+            "explanation": "É quantitativa discreta, pois corresponde a contagens inteiras."
+        },
+        {
+            "id": 8,
+            "question": "Caracterize a variável: 'Categorias existentes na carreira de um militar'.",
+            "options": [
+                "Qualitativa nominal",
+                "Qualitativa ordinal",
+                "Quantitativa discreta",
+                "Quantitativa contínua"
+            ],
+            "correctAnswer": 1,
+            "explanation": "É qualitativa ordinal, pois há hierarquia entre as patentes."
+        },
+        {
+            "id": 9,
+            "question": "Caracterize a variável: 'Grau de satisfação com a comida servida na cantina'.",
+            "options": [
+                "Qualitativa nominal",
+                "Qualitativa ordinal",
+                "Quantitativa discreta",
+                "Quantitativa contínua"
+            ],
+            "correctAnswer": 1,
+            "explanation": "É qualitativa ordinal, pois os níveis de satisfação possuem ordem natural."
+        },
+        {
+            "id": 10,
+            "question": "A média, a mediana e a moda são medidas de localização?",
+            "options": [
+                "Sim",
+                "Não"
+            ],
+            "correctAnswer": 0,
+            "explanation": "São medidas de tendência central que indicam localização dos dados."
+        },
+        {
+            "id": 11,
+            "question": "Para calcular a mediana a amostra deve estar ordenada?",
+            "options": [
+                "Sim",
+                "Não"
+            ],
+            "correctAnswer": 0,
+            "explanation": "A mediana só pode ser encontrada após ordenar os dados."
+        },
+        {
+            "id": 12,
+            "question": "A mediana é a medida abaixo da qual estão 50% das observações?",
+            "options": [
+                "Sim",
+                "Não"
+            ],
+            "correctAnswer": 0,
+            "explanation": "A mediana divide os dados em duas partes iguais."
+        },
+        {
+            "id": 13,
+            "question": "A mediana é menos sensível (mais resistente) do que a média?",
+            "options": [
+                "Sim",
+                "Não"
+            ],
+            "correctAnswer": 0,
+            "explanation": "A mediana não é influenciada por valores extremos como a média."
+        },
+        {
+            "id": 14,
+            "question": "O valor do 3º quartil é superior à mediana?",
+            "options": [
+                "Sim",
+                "Não"
+            ],
+            "correctAnswer": 0,
+            "explanation": "O 3º quartil corresponde a 75% dos dados, sempre acima da mediana (50%)."
+        },
+        {
+            "id": 15,
+            "question": "A mediana é o 1º quartil?",
+            "options": [
+                "Sim",
+                "Não"
+            ],
+            "correctAnswer": 1,
+            "explanation": "A mediana é o 2º quartil, enquanto o 1º quartil corresponde a 25% dos dados."
+        },
+        {
+            "id": 16,
+            "question": "Com dados: 15, 25, 30, 33, 150, qual a medida de localização mais adequada?",
+            "options": [
+                "Média",
+                "Mediana"
+            ],
+            "correctAnswer": 1,
+            "explanation": "A mediana é mais adequada pois não é influenciada pelo valor extremo (150)."
+        },
+        {
+            "id": 17,
+            "question": "Pode calcular a média se a característica em estudo é qualitativa? (ex: estado civil)",
+            "options": [
+                "Sim",
+                "Não"
+            ],
+            "correctAnswer": 1,
+            "explanation": "Variáveis qualitativas não têm valores numéricos para operações aritméticas."
+        },
+        {
+            "id": 18,
+            "question": "Para uma variável nominal como o género, qual a medida de localização mais adequada?",
+            "options": [
+                "Média",
+                "Mediana",
+                "Moda"
+            ],
+            "correctAnswer": 2,
+            "explanation": "A moda é a medida apropriada para variáveis nominais."
+        },
+        {
+            "id": 19,
+            "question": "Qual das medidas de localização pode não existir?",
+            "options": [
+                "Média",
+                "Mediana",
+                "Moda"
+            ],
+            "correctAnswer": 2,
+            "explanation": "A moda pode não existir ou ser múltipla, dependendo da frequência dos valores."
+        },
+        {
+            "id": 20,
+            "question": "A distribuição é assimétrica positiva quando:",
+            "options": [
+                "Os dados encontram-se mais concentrados à esquerda",
+                "Os dados encontram-se mais concentrados à direita",
+                "Os dados encontram-se igualmente distribuídos"
+            ],
+            "correctAnswer": 0,
+            "explanation": "Na assimetria positiva a cauda se alonga para a direita e os dados concentram-se à esquerda."
+        },
+        {
+            "id": 21,
+            "question": "A distribuição é assimétrica negativa quando:",
+            "options": [
+                "Os dados encontram-se mais concentrados à esquerda",
+                "Os dados encontram-se mais concentrados à direita",
+                "Os dados encontram-se igualmente distribuídos"
+            ],
+            "correctAnswer": 1,
+            "explanation": "Na assimetria negativa a cauda se alonga para a esquerda e os dados concentram-se à direita."
+        },
+        {
+            "id": 22,
+            "question": "Se média = mediana = moda a distribuição é:",
+            "options": [
+                "Simétrica",
+                "Enviesada à direita",
+                "Enviesada à esquerda"
+            ],
+            "correctAnswer": 0,
+            "explanation": "Quando todas as medidas de tendência central coincidem, a distribuição é simétrica."
+        },
+        {
+            "id": 23,
+            "question": "A amplitude é uma medida de dispersão dos dados?",
+            "options": [
+                "Sim",
+                "Não"
+            ],
+            "correctAnswer": 0,
+            "explanation": "A amplitude é a diferença entre o maior e o menor valor da amostra."
+        },
+        {
+            "id": 24,
+            "question": "A amplitude considera todas as observações da amostra?",
+            "options": [
+                "Sim",
+                "Não"
+            ],
+            "correctAnswer": 1,
+            "explanation": "A amplitude só considera os valores extremos, ignorando os intermediários."
+        },
+        {
+            "id": 25,
+            "question": "O intervalo interquartil compreende 50% das observações centrais da amostra?",
+            "options": [
+                "Sim",
+                "Não"
+            ],
+            "correctAnswer": 0,
+            "explanation": "O IQR vai de Q1 a Q3, cobrindo 50% dos dados centrais."
+        },
+        {
+            "id": 26,
+            "question": "A variância é uma medida de dispersão dos dados em relação à média?",
+            "options": [
+                "Sim",
+                "Não"
+            ],
+            "correctAnswer": 0,
+            "explanation": "A variância mede o afastamento médio ao quadrado em relação à média."
+        },
+        {
+            "id": 27,
+            "question": "A variância considera todas as observações da amostra?",
+            "options": [
+                "Sim",
+                "Não"
+            ],
+            "correctAnswer": 0,
+            "explanation": "Ao contrário da amplitude, a variância envolve todos os valores no cálculo."
+        },
+        {
+            "id": 28,
+            "question": "Para calcular a variância é necessário conhecer a média da amostra?",
+            "options": [
+                "Sim",
+                "Não"
+            ],
+            "correctAnswer": 0,
+            "explanation": "A variância é definida a partir do desvio em relação à média."
+        },
+        {
+            "id": 29,
+            "question": "O desvio padrão é a raiz quadrada positiva da variância?",
+            "options": [
+                "Sim",
+                "Não"
+            ],
+            "correctAnswer": 0,
+            "explanation": "O desvio padrão é a raiz quadrada da variância."
+        },
+        {
+            "id": 30,
+            "question": "Na prática, o desvio padrão é preferido porque é expresso na unidade original da variável?",
+            "options": [
+                "Sim",
+                "Não"
+            ],
+            "correctAnswer": 0,
+            "explanation": "O desvio padrão facilita a interpretação por estar na mesma unidade dos dados."
+        },
+        {
+            "id": 31,
+            "question": "A associação linear entre duas variáveis quantitativas pode ser medida pelo coeficiente de correlação linear?",
+            "options": [
+                "Sim",
+                "Não"
+            ],
+            "correctAnswer": 0,
+            "explanation": "O coeficiente de correlação de Pearson mede a força e direção da relação linear."
+        },
+        {
+            "id": 32,
+            "question": "Se o coeficiente de correlação linear é zero, isto indica ausência de relação entre as variáveis?",
+            "options": [
+                "Sim",
+                "Não"
+            ],
+            "correctAnswer": 1,
+            "explanation": "Correlação zero indica ausência de relação linear, mas pode haver relação não-linear."
+        },
+        {
+            "id": 33,
+            "question": "Uma equipa tem probabilidade de vitória de 2/3. Se disputar 4 jogos, qual a distribuição usada para calcular a probabilidade de vencer um jogo?",
+            "options": [
+                "Distribuição Binomial",
+                "Distribuição de Poisson",
+                "Distribuição Hipergeométrica",
+                "Distribuição Normal"
+            ],
+            "correctAnswer": 0,
+            "explanation": "A distribuição binomial modela o número de sucessos em n ensaios independentes."
+        },
+        {
+            "id": 34,
+            "question": "Se 20% das peças produzidas por uma máquina acusam defeito, qual distribuição modela o número de defeituosas em 4 peças escolhidas?",
+            "options": [
+                "Distribuição Binomial",
+                "Distribuição de Poisson",
+                "Distribuição Hipergeométrica",
+                "Distribuição Normal"
+            ],
+            "correctAnswer": 0,
+            "explanation": "A situação envolve ensaios independentes com probabilidade constante de defeito → binomial."
+        },
+        {
+            "id": 35,
+            "question": "25% das embalagens de detergente têm menos produto. Em 6 embalagens, qual distribuição modela a probabilidade de 2 terem menos produto?",
+            "options": [
+                "Distribuição Binomial",
+                "Distribuição de Poisson",
+                "Distribuição Hipergeométrica",
+                "Distribuição Normal"
+            ],
+            "correctAnswer": 0,
+            "explanation": "É um caso clássico de distribuição binomial (n=6, p=0,25)."
+        },
+        {
+            "id": 36,
+            "question": "5% das embalagens têm defeito. Em 100 embalagens, qual distribuição aproxima o número de defeituosas?",
+            "options": [
+                "Distribuição Binomial",
+                "Distribuição de Poisson",
+                "Distribuição Hipergeométrica",
+                "Distribuição Normal"
+            ],
+            "correctAnswer": 3,
+            "explanation": "Com n grande e p pequeno, a binomial pode ser aproximada pela normal."
+        },
+        {
+            "id": 37,
+            "question": "De um lote de 100 peças, 20 são defeituosas. Se escolhemos 5 peças, qual distribuição modela o número de defeituosas?",
+            "options": [
+                "Distribuição Binomial",
+                "Distribuição de Poisson",
+                "Distribuição Hipergeométrica",
+                "Distribuição Normal"
+            ],
+            "correctAnswer": 2,
+            "explanation": "A escolha sem reposição caracteriza a distribuição hipergeométrica."
+        },
+        {
+            "id": 38,
+            "question": "Um fornecedor envia caixas de 100 canetas (5 defeituosas). A escola testa 10 canetas sem reposição. Qual a distribuição usada?",
+            "options": [
+                "Distribuição Binomial",
+                "Distribuição de Poisson",
+                "Distribuição Hipergeométrica",
+                "Distribuição Normal"
+            ],
+            "correctAnswer": 2,
+            "explanation": "É amostragem sem reposição → distribuição hipergeométrica."
+        },
+        {
+            "id": 39,
+            "question": "Se 10 escolas recebem caixas, qual a distribuição usada para modelar o número de caixas devolvidas (pelo menos 2)?",
+            "options": [
+                "Distribuição Binomial",
+                "Distribuição de Poisson",
+                "Distribuição Hipergeométrica",
+                "Distribuição Normal"
+            ],
+            "correctAnswer": 0,
+            "explanation": "Agora são ensaios independentes com duas saídas (aceite/devolvida) → binomial."
+        },
+        {
+            "id": 40,
+            "question": "Uma central recebe em média 60 chamadas por hora. Qual distribuição modela o número de chamadas em 1 minuto?",
+            "options": [
+                "Distribuição Binomial",
+                "Distribuição de Poisson",
+                "Distribuição Hipergeométrica",
+                "Distribuição Normal"
+            ],
+            "correctAnswer": 1,
+            "explanation": "Chegadas de eventos raros num intervalo fixo → distribuição de Poisson."
+        },
+        {
+            "id": 41,
+            "question": "Uma central recebe em média 60 chamadas por hora. Qual distribuição modela 3 chamadas em 5 minutos?",
+            "options": [
+                "Distribuição Binomial",
+                "Distribuição de Poisson",
+                "Distribuição Hipergeométrica",
+                "Distribuição Normal"
+            ],
+            "correctAnswer": 1,
+            "explanation": "Número de chegadas em tempo fixo → distribuição de Poisson."
+        },
+        {
+            "id": 42,
+            "question": "Uma central recebe 60 chamadas/hora. Qual distribuição modela 4 chamadas em uma hora?",
+            "options": [
+                "Distribuição Binomial",
+                "Distribuição de Poisson",
+                "Distribuição Hipergeométrica",
+                "Distribuição Normal"
+            ],
+            "correctAnswer": 3,
+            "explanation": "Com média alta de eventos por intervalo, pode ser aproximada pela normal."
+        },
+        {
+            "id": 43,
+            "question": "Um braço robótico falha em média 0,15 vezes por semana. Qual distribuição modela no máximo 2 falhas numa semana?",
+            "options": [
+                "Distribuição Binomial",
+                "Distribuição de Poisson",
+                "Distribuição Hipergeométrica",
+                "Distribuição Normal"
+            ],
+            "correctAnswer": 1,
+            "explanation": "Eventos raros por intervalo de tempo → Poisson."
+        },
+        {
+            "id": 44,
+            "question": "Um braço robótico falha em média 0,15 vezes por semana. Qual distribuição modela pelo menos 30 falhas em 3 anos?",
+            "options": [
+                "Distribuição Binomial",
+                "Distribuição de Poisson",
+                "Distribuição Hipergeométrica",
+                "Distribuição Normal"
+            ],
+            "correctAnswer": 3,
+            "explanation": "Com n muito grande, a distribuição de Poisson pode ser aproximada pela normal."
+        }
+    ]
+}
