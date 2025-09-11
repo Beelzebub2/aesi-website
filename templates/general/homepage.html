@@ -17,7 +17,8 @@ Inclui calculadoras, quizzes, podcasts e muito mais{% endblock %}
 {% block nav_links %}
 <ul class="nav-links">
     {% for subject_id, subject_info in subjects.items() | sort(attribute='1.name') %}
-    <li><a href="{{ url_for('subject_home', subject=subject_id) }}"><i class="fas {{ subject_info.icon }}"></i> {{ translations.subjects[subject_id].name }}</a></li>
+    <li><a href="{{ url_for('subject_home', subject=subject_id) }}"><i class="fas {{ subject_info.icon }}"></i> {{
+            translations.subjects[subject_id].name }}</a></li>
     {% endfor %}
 </ul>
 {% endblock %}

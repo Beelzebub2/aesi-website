@@ -55,9 +55,9 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             // If there are no navigation links, build dynamic navigation from available subjects
             const currentPath = window.location.pathname;
-            
+
             let navHTML = `<ul class="nav-links">`;
-            
+
             // Add all available subjects dynamically
             if (window.translations?.subjects) {
                 // Sort subjects alphabetically by name
@@ -67,16 +67,16 @@ document.addEventListener('DOMContentLoaded', function () {
                         const nameB = window.translations.subjects[b].name || '';
                         return nameA.localeCompare(nameB);
                     });
-                
+
                 sortedSubjects.forEach(subjectId => {
                     const subject = window.translations.subjects[subjectId];
                     const isSubjectPage = currentPath.startsWith(`/${subjectId}`) && !currentPath.includes(`/${subjectId}/`);
                     const subjectIcon = subject.icon || 'fa-chart-line';
-                    
+
                     navHTML += `<li><a href="/${subjectId}" ${isSubjectPage ? 'class="active" aria-current="page"' : ''}><i class="fas ${subjectIcon}"></i> ${subject.name}</a></li>`;
                 });
             }
-            
+
             navHTML += `</ul>`;
             sideMenuNav.innerHTML = navHTML;
 
