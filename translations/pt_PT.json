@@ -244,12 +244,12 @@
         },
         "analise_estatistica": {
             "name": "Análise Exploratória de Dados",
-            "description": "teste os seus conhecimentos sobre análise exploratória de dados através de exercícios interactivos",
+            "description": "Teste os seus conhecimentos sobre análise exploratória de dados através de exercícios interactivos",
             "icon": "fa-chart-bar",
             "pages": {
                 "home": {
                     "title": "Análise Exploratória de Dados",
-                    "description": "teste os seus conhecimentos sobre análise exploratória de dados através de exercícios interactivos"
+                    "description": "Teste os seus conhecimentos sobre análise exploratória de dados através de exercícios interactivos"
                 },
                 "quiz": {
                     "title": "Quiz",
@@ -261,24 +261,6 @@
                     "start": {
                         "title": "Pronto para começar?",
                         "description": "Clique no botão abaixo para iniciar o quiz de análise estatística.",
-                        "button": "Começar"
-                    },
-                    "buttons": {
-                        "next": "Próxima Questão",
-                        "restart": "Recomeçar"
-                    },
-                    "results": {
-                        "title": "Resultados",
-                        "score": "Pontuação Final"
-                    }
-                },
-                "descobrir": {
-                    "title": "Descobrir a Distribuição",
-                    "description": "Aprenda a identificar qual distribuição de probabilidade melhor se adequa a cada situação estatística",
-                    "icon": "fa-magnifying-glass-chart",
-                    "start": {
-                        "title": "Identificar Distribuições",
-                        "description": "Neste exercício, você encontrará diferentes situações e deverá identificar qual distribuição de probabilidade melhor se adequa a cada caso.",
                         "button": "Começar"
                     },
                     "buttons": {

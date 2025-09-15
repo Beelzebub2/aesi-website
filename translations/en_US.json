@@ -182,15 +182,15 @@
                             "title": "Descriptive Statistics",
                             "description": "Learn the fundamentals of data analysis and basic statistical measures",
                             "color": "#4361ee",
-                            "audio": "Estatística Descritiva.wav",
-                            "available": false
+                            "audio": "Estatística Descritiva_en_US.wav",
+                            "available": true
                         },
                         "2": {
                             "title": "Probability Theory",
                             "description": "Understand fundamental probability concepts and their applications",
                             "color": "#3a86ff",
-                            "audio": "Teoria das Probabilidades.wav",
-                            "available": false
+                            "audio": "Teoria das Probabilidades_en_US.wav",
+                            "available": true
                         },
                         "3": {
                             "title": "Conditional Probability and Independent Events",
@@ -264,24 +264,6 @@
                     "start": {
                         "title": "Ready to start?",
                         "description": "Click the button below to start the data analysis quiz.",
-                        "button": "Start"
-                    },
-                    "buttons": {
-                        "next": "Next Question",
-                        "restart": "Restart"
-                    },
-                    "results": {
-                        "title": "Results",
-                        "score": "Final Score"
-                    }
-                },
-                "descobrir": {
-                    "title": "Discover the Distribution",
-                    "description": "Learn to identify which probability distribution best fits each statistical situation",
-                    "icon": "fa-magnifying-glass-chart",
-                    "start": {
-                        "title": "Identify Distributions",
-                        "description": "In this exercise, you will find different situations and should identify which probability distribution (Binomial, Poisson or Normal) best fits each case.",
                         "button": "Start"
                     },
                     "buttons": {
