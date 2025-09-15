@@ -21,8 +21,9 @@ function createStarfield(container) {
 
 // Initialize starfields when the page loads
 document.addEventListener('DOMContentLoaded', () => {
-    const subjectBanners = document.querySelectorAll('.subject-banner');
-    subjectBanners.forEach(banner => {
-        createStarfield(banner);
+    // Apply to subject hero sections (dark theme backgrounds)
+    const subjectHeroes = document.querySelectorAll('.subject-hero');
+    subjectHeroes.forEach(hero => {
+        createStarfield(hero);
     });
 });
