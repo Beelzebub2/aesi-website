@@ -9,7 +9,6 @@ class UnifiedQuizSystem {
         this.currentQuestions = [];
         this.currentQuestionIndex = 0;
         this.score = 0;
-        this.maxQuestions = 10;
         this.quizType = null;
         this.startTime = null;
         this.endTime = null;
@@ -138,9 +137,12 @@ class UnifiedQuizSystem {
         this.score = 0;
         this.startTime = new Date();
 
+        // Use questionsPerSession from quiz data, fallback to 10
+        const questionsPerSession = this.quizData.questionsPerSession || 10;
+
         // Prepare questions
         try {
-            this.currentQuestions = QuizUtils.prepareQuestions(this.quizData.questions, this.maxQuestions);
+            this.currentQuestions = QuizUtils.prepareQuestions(this.quizData.questions, questionsPerSession);
         } catch (error) {
             console.error('Error preparing questions:', error);
             this.showError('Erro ao preparar as questões do quiz.');
