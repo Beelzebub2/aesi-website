@@ -304,20 +304,38 @@ Growing subject with:
 
 ## Quiz System
 
-The platform includes a comprehensive quiz system with multiple types:
+The platform includes a **unified quiz system** that powers all interactive assessments across subjects:
 
-### Quiz Files
-- `probabilidade_quiz.json`: Questions for probability and statistics
-- `descobrir_distribuição.json`: Distribution identification scenarios
-- `analise_estatistica_quiz.json`: Data analysis questions
+### Unified Architecture
+- **Single Quiz Engine**: `quiz-unified.js` handles all quiz types
+- **Shared Utilities**: `quiz-utils.js` provides common functionality
+- **Dynamic Subject Detection**: Automatically adapts to current subject from URL
+- **Consistent UI/UX**: Unified interface across all quiz implementations
+
+### Quiz Types Supported
+1. **Standard Quiz** (`data-quiz-type="quiz"`): Traditional multiple-choice questions
+2. **Discovery Quiz** (`data-quiz-type="descobrir"`): Scenario-based distribution identification
 
 ### Quiz Features
-- **Dynamic Loading**: Questions loaded via API endpoints
-- **Progress Tracking**: Visual progress bars and scoring
-- **Real-time Feedback**: Immediate answer validation
-- **Auto-scroll**: Smooth scrolling to feedback sections
+- **Dynamic Loading**: Questions loaded via API endpoints (`/api/quiz/{subject}/{type}`)
+- **Progress Tracking**: Visual progress bars and real-time scoring
+- **Real-time Feedback**: Immediate answer validation with explanations
+- **Auto-scroll**: Smooth scrolling to feedback sections on larger screens
 - **Restart Functionality**: Ability to retake quizzes
-- **Performance Analysis**: Detailed results and recommendations
+- **Performance Analysis**: Detailed results with contextual feedback
+- **Responsive Design**: Mobile-optimized interface
+- **Theme Support**: Respects user's light/dark mode preference
+
+### Quiz Files
+- `probabilidade_quiz.json`: Probability and statistics questions
+- `probabilidade_descobrir.json`: Distribution identification scenarios  
+- `analise_estatistica_quiz.json`: Data analysis questions
+
+### Technical Implementation
+- **Modular Design**: Separated concerns between UI logic and utilities
+- **Error Handling**: Graceful degradation with user-friendly error messages
+- **Accessibility**: Proper ARIA labels and keyboard navigation
+- **Performance**: Efficient question shuffling and state management
 
 ## Future Enhancements
 

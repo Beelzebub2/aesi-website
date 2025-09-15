@@ -41,16 +41,21 @@ flowchart TD
     FEATURE_DISPLAY -->|Podcasts| PODCAST_INTERFACE[Podcast Player]
     FEATURE_DISPLAY -->|Descobrir| DISCOVER_INTERFACE[Distribution Discovery Quiz]
     
-    %% Quiz System
-    QUIZ_INTERFACE --> INIT_QUIZ[Initialize Quiz System]
-    INIT_QUIZ --> LOAD_QUIZ_DATA[Load Quiz JSON Data via API]
+    %% Quiz System (Unified)
+    QUIZ_INTERFACE --> INIT_UNIFIED_QUIZ[Initialize Unified Quiz System]
+    INIT_UNIFIED_QUIZ --> DETECT_QUIZ_TYPE[Detect Quiz Type from data-quiz-type]
+    DETECT_QUIZ_TYPE --> LOAD_QUIZ_UTILS[Load QuizUtils Module]
+    LOAD_QUIZ_UTILS --> LOAD_QUIZ_DATA[Load Quiz Data via API: /api/quiz/{subject}/{type}]
     LOAD_QUIZ_DATA --> QUIZ_START[Quiz Start Screen]
     QUIZ_START --> DISPLAY_QUESTION[Display Question]
     DISPLAY_QUESTION --> USER_ANSWER{User Selects Answer}
     USER_ANSWER --> CHECK_ANSWER[Check Answer Correctness]
-    CHECK_ANSWER --> UPDATE_SCORE[Update Score]
+    CHECK_ANSWER --> VISUAL_FEEDBACK[Apply Visual Feedback]
+    VISUAL_FEEDBACK --> SHOW_FEEDBACK[Show Contextual Feedback]
+    SHOW_FEEDBACK --> UPDATE_SCORE[Update Score]
     UPDATE_SCORE --> MORE_QUESTIONS{More Questions?}
-    MORE_QUESTIONS -->|Yes| DISPLAY_QUESTION
+    MORE_QUESTIONS -->|Yes| RESET_BUTTONS[Reset Button States]
+    RESET_BUTTONS --> DISPLAY_QUESTION
     MORE_QUESTIONS -->|No| QUIZ_RESULTS[Display Results & Feedback]
     QUIZ_RESULTS --> QUIZ_RESTART{Restart Quiz?}
     QUIZ_RESTART -->|Yes| QUIZ_START
@@ -97,29 +102,30 @@ flowchart TD
     ADJUST_VOLUME --> MINIMIZED_PLAYER
     AUTO_NEXT --> MINIMIZED_PLAYER
     
-    %% Discovery Quiz (Special Quiz Type)
-    DISCOVER_INTERFACE --> INIT_DISCOVER[Initialize Distribution Discovery]
-    INIT_DISCOVER --> LOAD_DISCOVER_DATA[Load Discovery Scenarios]
+    %% Discovery Quiz (Unified System)
+    DISCOVER_INTERFACE --> INIT_UNIFIED_DISCOVER[Initialize Unified Quiz System]
+    INIT_UNIFIED_DISCOVER --> DETECT_DISCOVER_TYPE[Detect Quiz Type: 'descobrir']
+    DETECT_DISCOVER_TYPE --> LOAD_DISCOVER_UTILS[Load QuizUtils Module]
+    LOAD_DISCOVER_UTILS --> LOAD_DISCOVER_DATA[Load Discovery Scenarios via API]
     LOAD_DISCOVER_DATA --> DISCOVER_START[Discovery Start Screen]
     DISCOVER_START --> SHOW_SCENARIO[Show Real-world Scenario]
     SHOW_SCENARIO --> DISTRIBUTION_OPTIONS[Show Distribution Options]
     DISTRIBUTION_OPTIONS --> USER_CHOICE{User Selects Distribution}
-    USER_CHOICE --> VALIDATE_CHOICE[Validate Choice]
+    USER_CHOICE --> VALIDATE_CHOICE[Validate Choice via Unified Engine]
     VALIDATE_CHOICE --> SHOW_EXPLANATION[Show Detailed Explanation]
     SHOW_EXPLANATION --> MORE_SCENARIOS{More Scenarios?}
-    MORE_SCENARIOS -->|Yes| SHOW_SCENARIO
+    MORE_SCENARIOS -->|Yes| RESET_DISCOVER_UI[Reset UI via Unified System]
+    RESET_DISCOVER_UI --> SHOW_SCENARIO
     MORE_SCENARIOS -->|No| DISCOVER_RESULTS[Show Discovery Results]
     
-    %% API Routes
+    %% API Routes (Unified)
     API_ROUTES --> API_TYPE{API Type}
-    API_TYPE -->|"/api/quiz/probabilidade"| GET_QUIZ_API[Get Probability Quiz Data]
-    API_TYPE -->|"/api/quiz/descobrir"| GET_DISCOVER_API[Get Discovery Quiz Data]
-    API_TYPE -->|"/api/quiz/analise_estatistica"| GET_ANALISE_API[Get Data Analysis Quiz Data]
+    API_TYPE -->|"/api/quiz/{subject}/{type}"| GET_UNIFIED_QUIZ_API[Get Quiz Data by Subject & Type]
     API_TYPE -->|"/api/quizzes"| GET_QUIZZES_API[Get All Quizzes List]
     
-    GET_QUIZ_API --> LOAD_QUIZ_JSON[Load Quiz JSON File]
+    GET_UNIFIED_QUIZ_API --> LOAD_SUBJECT_QUIZ[Load Subject-Specific Quiz JSON]
     GET_QUIZZES_API --> SCAN_QUIZ_FILES[Scan Quiz Directory]
-    LOAD_QUIZ_JSON --> RETURN_QUIZ_DATA[Return Quiz JSON]
+    LOAD_SUBJECT_QUIZ --> RETURN_QUIZ_DATA[Return Quiz JSON]
     SCAN_QUIZ_FILES --> RETURN_QUIZ_LIST[Return Quiz List JSON]
     
     %% Global Features
@@ -195,9 +201,8 @@ flowchart TD
 - Automatic 404 handling
 
 ### 2. **Interactive Learning Features**
-- **Quiz System**: Dynamic question loading with scoring and feedback (3 quiz types)
+- **Unified Quiz System**: Single engine handling all quiz types (Standard & Discovery) with subject auto-detection
 - **Statistical Calculator**: Real-time probability calculations with Chart.js visualizations
-- **Distribution Discovery**: Interactive scenario-based learning for distribution identification
 - **Educational Podcasts**: Full-featured audio player with Howler.js and persistent minimized player
 
 ### 3. **Multi-language Support**
