@@ -62,15 +62,16 @@ class QuizUtils {
 
     /**
      * Load quiz data from API
-     * @param {string} quizType - Type of quiz (e.g., 'probabilidade', 'descobrir')
+     * @param {string} quizType - Type of quiz (e.g., 'quiz', 'descobrir')
      * @returns {Promise<Object>} - Quiz data
      */
     static async loadQuizData(quizType) {
         try {
-            let response;
+            // Get current subject from URL path
+            const pathParts = window.location.pathname.split('/');
+            const subject = pathParts[1] || 'probabilidade'; // fallback to probabilidade
 
-            // All quiz types now use the API endpoint
-            response = await fetch(`/api/quiz/${quizType}`);
+            const response = await fetch(`/api/quiz/${subject}/${quizType}`);
 
             if (!response.ok) {
                 throw new Error(`Failed to fetch quiz data: ${response.status} ${response.statusText}`);
@@ -194,18 +195,13 @@ class QuizUtils {
         }
     }
 
-    /**
-     * Show feedback for answer
-     * @param {boolean} isCorrect - Whether answer is correct
-     * @param {string} explanation - Optional explanation text
-     */
     static showFeedback(isCorrect, explanation = '') {
         const feedback = document.getElementById('feedback');
         const controls = document.querySelector('.quiz-controls');
 
         if (feedback) {
             feedback.innerHTML = `
-                <div class="feedback-content ${isCorrect ? 'correct' : 'wrong'}">
+                <div class="feedback-content ${isCorrect ? 'correct' : 'incorrect'}">
                     <i class="fas ${isCorrect ? 'fa-check-circle' : 'fa-times-circle'}"></i>
                     <p>${isCorrect ? (window.translations?.general?.correct || 'Correto!') : (window.translations?.general?.incorrect || 'Incorreto!')}</p>
                     ${explanation ? `<p class="explanation">${explanation}</p>` : ''}
